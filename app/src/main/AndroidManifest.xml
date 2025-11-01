@@ -12,9 +12,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MathWizdomApp">
         <activity
-            android:name=".MainActivity"
+            android:name=".DashboardActivity"
+            android:exported="false"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/Theme.MathWizdomApp"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".RegistrationActivity"
+            android:exported="false"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/Theme.MathWizdomApp"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/Theme.MathWizdomApp"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".SelectionActivity"
             android:exported="true"
-            android:theme="@style/Theme.MathWizdomApp">
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/Theme.MathWizdomApp"
+            tools:ignore="DiscouragedApi">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
