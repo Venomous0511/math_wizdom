@@ -85,13 +85,11 @@ class LoginActivity : AppCompatActivity() {
             tvRoleEmoji.text = "👨‍🎓"
             tvRoleTitle.text = "Student Login"
             tilIdentifier.hint = "LRN (Learner Reference No.)"
-            etIdentifier.hint = "Enter your LRN"
         } else {
             toolbar.title = "Teacher Login"
             tvRoleEmoji.text = "👨‍🏫"
             tvRoleTitle.text = "Teacher Login"
             tilIdentifier.hint = "Employee Number"
-            etIdentifier.hint = "Enter your Employee Number"
         }
     }
 
@@ -145,7 +143,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun navigateToHome(identifier: String, fullName: String) {
-        val intent = Intent(this, DashboardActivity::class.java)
+        val intent = Intent(this, QuarterSelectionActivity::class.java)
         intent.putExtra("USER_IDENTIFIER", identifier)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)

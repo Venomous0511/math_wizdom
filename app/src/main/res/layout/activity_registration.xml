@@ -125,7 +125,7 @@
                 android:id="@+id/tvGenderLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="10dp"
                 android:text="@string/gender"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -170,9 +170,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
+                            android:layout_marginStart="0dp"
                             android:text="@string/male"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
 
                     </LinearLayout>
 
@@ -210,9 +210,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
+                            android:layout_marginStart="0dp"
                             android:text="@string/female"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
 
                     </LinearLayout>
 
@@ -236,10 +236,10 @@
             <Button
                 android:id="@+id/btnRegister"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginTop="24dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
                 android:text="@string/register"
-                android:textSize="16sp"
+                android:textSize="12sp"
                 android:enabled="false" />
 
             <!-- Progress Bar (hidden by default) -->

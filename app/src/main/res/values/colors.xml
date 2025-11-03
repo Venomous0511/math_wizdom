@@ -12,4 +12,8 @@
     <color name="secondary">#03DAC5</color>
     <color name="teal_200">#03DAC5</color>
     <color name="teal_700">#018786</color>
+
+    <!-- Lesson Button Colors -->
+    <color name="lesson_button_color">#1B5E20</color>
+    <color name="lesson_button_selected">#2E7D32</color>
 </resources>
