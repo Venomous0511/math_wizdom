@@ -216,7 +216,7 @@ class RegistrationActivity : AppCompatActivity() {
     }
 
     private fun navigateToHome() {
-        val intent = Intent(this, DashboardActivity::class.java)
+        val intent = Intent(this, QuarterSelectionActivity::class.java)
         intent.putExtra("USER_IDENTIFIER", identifier)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)

@@ -299,21 +299,13 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_home -> {
-                Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, QuarterSelectionActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                startActivity(intent)
             }
 
-            R.id.nav_lesson -> {
-                Toast.makeText(this, "Lesson - Coming soon", Toast.LENGTH_SHORT).show()
-                // TODO: Navigate to Lesson activity
-                // val intent = Intent(this, LessonActivity::class.java)
-                // startActivity(intent)
-            }
-
-            R.id.nav_activity -> {
-                Toast.makeText(this, "Activity - Coming soon", Toast.LENGTH_SHORT).show()
-                // TODO: Navigate to Activity activity
-                // val intent = Intent(this, ActivityActivity::class.java)
-                // startActivity(intent)
+            R.id.nav_profile -> {
+                Toast.makeText(this, "Already on Profile", Toast.LENGTH_SHORT).show()
             }
 
             R.id.nav_logout -> {
@@ -321,7 +313,10 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             }
         }
 
-        drawerLayout.closeDrawer(GravityCompat.START)
+        if (item.itemId != R.id.nav_logout) {
+            drawerLayout.closeDrawer(GravityCompat.START)
+        }
+
         return true
     }
 

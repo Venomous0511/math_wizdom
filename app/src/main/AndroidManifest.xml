@@ -12,6 +12,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MathWizdomApp">
         <activity
+            android:name=".TopicActivity"
+            android:exported="false"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/Theme.MathWizdomApp"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".LessonDetailActivity"
+            android:exported="false"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/Theme.MathWizdomApp"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".LessonsListActivity"
+            android:exported="false"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/Theme.MathWizdomApp"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".QuarterSelectionActivity"
+            android:exported="false"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/Theme.MathWizdomApp"
+            tools:ignore="DiscouragedApi" />
+        <activity
             android:name=".DashboardActivity"
             android:exported="false"
             android:screenOrientation="sensorLandscape"
