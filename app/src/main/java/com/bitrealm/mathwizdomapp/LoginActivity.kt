@@ -3,6 +3,8 @@ package com.bitrealm.mathwizdomapp
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputFilter
+import android.text.InputType
 import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
@@ -36,6 +38,11 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var userRepository: UserRepository
     private var userRole: UserRole = UserRole.STUDENT
     private var isLoading = false
+
+    // Constants for identifier limits
+    private companion object {
+        const val REQUIRED_IDENTIFIER_LENGTH = 12
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -91,32 +98,98 @@ class LoginActivity : AppCompatActivity() {
             tvRoleTitle.text = "Teacher Login"
             tilIdentifier.hint = "Employee Number"
         }
+
+        // Set up restrictions for both roles
+        setupIdentifierRestrictions()
+
+        // Initial validation
+        validateIdentifier()
+    }
+
+    private fun setupIdentifierRestrictions() {
+        // Set maximum length to 12 characters for both roles
+        val maxLengthFilter = InputFilter.LengthFilter(REQUIRED_IDENTIFIER_LENGTH)
+        etIdentifier.filters = arrayOf(maxLengthFilter)
+
+        // Allow only numbers for both roles
+        etIdentifier.inputType = InputType.TYPE_CLASS_NUMBER
+
+        // Add counter
+        tilIdentifier.isCounterEnabled = true
+        tilIdentifier.counterMaxLength = REQUIRED_IDENTIFIER_LENGTH
+
+        // Set helper text
+        tilIdentifier.helperText = "Must be exactly $REQUIRED_IDENTIFIER_LENGTH digits"
     }
 
     private fun setupListeners() {
         etIdentifier.doAfterTextChanged { text ->
-            btnSubmit.isEnabled = !text.isNullOrBlank() && !isLoading
+            validateIdentifier()
             tilIdentifier.error = null
             tvError.visibility = View.GONE
+
+            // Show real-time feedback for both roles
+            val currentLength = text?.length ?: 0
+            if (currentLength > 0) {
+                val remaining = REQUIRED_IDENTIFIER_LENGTH - currentLength
+                if (remaining >= 0) {
+                    tilIdentifier.helperText = "$remaining digits remaining"
+                }
+            } else {
+                tilIdentifier.helperText = "Must be exactly $REQUIRED_IDENTIFIER_LENGTH digits"
+            }
         }
 
         btnSubmit.setOnClickListener {
             val identifier = etIdentifier.text?.toString() ?: ""
-            if (identifier.isNotBlank()) {
+            if (isValidIdentifier(identifier)) {
                 onLoginClick(identifier)
             }
         }
 
         etIdentifier.setOnEditorActionListener { _, _, _ ->
             val identifier = etIdentifier.text?.toString() ?: ""
-            if (identifier.isNotBlank()) {
+            if (isValidIdentifier(identifier)) {
                 onLoginClick(identifier)
             }
             true
         }
     }
 
+    private fun validateIdentifier() {
+        val identifier = etIdentifier.text?.toString() ?: ""
+        val isValid = isValidIdentifier(identifier)
+
+        btnSubmit.isEnabled = !isLoading && isValid
+
+        // Show error for invalid identifier length
+        if (identifier.isNotEmpty() && identifier.length != REQUIRED_IDENTIFIER_LENGTH) {
+            if (userRole == UserRole.STUDENT) {
+                tilIdentifier.error = "LRN must be exactly $REQUIRED_IDENTIFIER_LENGTH digits"
+            } else {
+                tilIdentifier.error = "Employee number must be exactly $REQUIRED_IDENTIFIER_LENGTH digits"
+            }
+        } else {
+            tilIdentifier.error = null
+        }
+    }
+
+    private fun isValidIdentifier(identifier: String): Boolean {
+        // For both students and teachers: must be exactly 12 digits and contain only numbers
+        return identifier.length == REQUIRED_IDENTIFIER_LENGTH && identifier.matches(Regex("\\d+"))
+    }
+
     private fun onLoginClick(identifier: String) {
+        // Validate identifier before proceeding
+        if (!isValidIdentifier(identifier)) {
+            if (userRole == UserRole.STUDENT) {
+                showError("LRN must be exactly $REQUIRED_IDENTIFIER_LENGTH digits")
+            } else {
+                showError("Employee number must be exactly $REQUIRED_IDENTIFIER_LENGTH digits")
+            }
+            return
+        }
+
         setLoadingState(true)
 
         // Check database for user
@@ -162,7 +235,7 @@ class LoginActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     private fun setLoadingState(loading: Boolean) {
         isLoading = loading
-        btnSubmit.isEnabled = !loading && !etIdentifier.text.isNullOrBlank()
+        validateIdentifier() // Re-validate when loading state changes
         etIdentifier.isEnabled = !loading
 
         if (loading) {
@@ -185,7 +258,7 @@ class LoginActivity : AppCompatActivity() {
 
         val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
 
-        windowInsetsController.apply {
+        windowInsetsController?.apply {
             isAppearanceLightStatusBars = true
             isAppearanceLightNavigationBars = true
 

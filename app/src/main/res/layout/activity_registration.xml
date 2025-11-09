@@ -20,7 +20,7 @@
             android:background="?attr/colorPrimaryContainer"
             app:navigationIcon="@drawable/ic_arrow_back"
             app:title="@string/student_registration"
-            app:titleTextColor="?attr/colorOnPrimaryContainer" />
+            app:titleTextColor="@color/white" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -49,6 +49,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/role_emoji"
                 android:textSize="80sp"
+                android:textColor="@color/white"
                 android:importantForAccessibility="no" />
 
             <TextView
@@ -59,7 +60,8 @@
                 android:text="@string/new_user"
                 android:textAlignment="center"
                 android:textSize="28sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/tvIdentifier"
@@ -69,7 +71,7 @@
                 android:text="@string/_123456789"
                 android:textAlignment="center"
                 android:textSize="20sp"
-                android:textColor="?attr/colorPrimary"
+                android:textColor="@color/white"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -105,8 +107,10 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/full_name"
                 android:minHeight="48dp"
-                app:boxStrokeColor="?attr/colorPrimary"
-                app:hintTextColor="?attr/colorPrimary">
+                app:boxStrokeColor="@color/white"
+                app:hintTextColor="@color/white"
+                app:helperTextTextColor="@color/white"
+                app:counterTextColor="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etFullName"
@@ -116,7 +120,9 @@
                     android:contentDescription="@string/full_name"
                     android:imeOptions="actionDone"
                     android:inputType="textPersonName|textCapWords"
-                    android:maxLines="1" />
+                    android:maxLines="1"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -128,7 +134,8 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/gender"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/white" />
 
             <!-- Gender Selection Cards -->
             <LinearLayout
@@ -149,7 +156,7 @@
                     android:focusable="true"
                     app:cardCornerRadius="8dp"
                     app:strokeWidth="2dp"
-                    app:strokeColor="?attr/colorOutline"
+                    app:strokeColor="@color/white"
                     app:cardBackgroundColor="?attr/colorSurface"
                     app:cardElevation="0dp">
 
@@ -165,14 +172,16 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:clickable="false"
-                            android:focusable="false" />
+                            android:focusable="false"
+                            android:buttonTint="@color/black" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="0dp"
                             android:text="@string/male"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:textColor="@color/black" />
 
                     </LinearLayout>
 
@@ -189,7 +198,7 @@
                     android:focusable="true"
                     app:cardCornerRadius="8dp"
                     app:strokeWidth="2dp"
-                    app:strokeColor="?attr/colorOutline"
+                    app:strokeColor="@color/white"
                     app:cardBackgroundColor="?attr/colorSurface"
                     app:cardElevation="0dp">
 
@@ -205,14 +214,16 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:clickable="false"
-                            android:focusable="false" />
+                            android:focusable="false"
+                            android:buttonTint="@color/black" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="0dp"
                             android:text="@string/female"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:textColor="@color/black" />
 
                     </LinearLayout>
 
@@ -226,7 +237,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:textColor="?attr/colorError"
+                android:textColor="@color/white"
                 android:textSize="12sp"
                 android:visibility="gone"
                 tools:text="@string/error_message_here"
@@ -240,6 +251,8 @@
                 android:layout_marginTop="5dp"
                 android:text="@string/register"
                 android:textSize="12sp"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/purple_500"
                 android:enabled="false" />
 
             <!-- Progress Bar (hidden by default) -->
@@ -248,7 +261,16 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginTop="24dp"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:indeterminateTint="@color/white" />
+
+            <TextView
+                android:id="@+id/tvIdentifierHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/identifier_hint"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
 
         </LinearLayout>
 

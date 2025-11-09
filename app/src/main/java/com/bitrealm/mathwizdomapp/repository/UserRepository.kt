@@ -52,4 +52,9 @@ class UserRepository(private val userDao: UserDao) {
     fun getAllUsersFlow(): Flow<List<User>> {
         return userDao.getAllUsersFlow()
     }
+
+    // In UserRepository.kt
+    suspend fun getUserCountByRole(role: UserRole): Int {
+        return userDao.getUserCountByRole(role)
+    }
 }

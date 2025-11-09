@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="LESSON 1 - TOPIC"
+                android:text="@string/lesson_topic_title"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -88,7 +88,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="OBJECTIVE:"
+                    android:text="@string/objective"
                     android:textColor="@android:color/white"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -98,7 +98,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="After this lesson, you should be able to add and subtract simple fractions and mixed numbers, whether with regrouping or without regrouping."
+                    android:text="@string/objective_lesson_1"
                     android:textColor="@android:color/white"
                     android:textSize="12sp" />
 
@@ -130,9 +130,9 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.3" />
 
-        <!-- PDF Viewer -->
-        <com.github.barteksc.pdfviewer.PDFView
-            android:id="@+id/pdfView"
+        <!-- PDF Viewer Container -->
+        <FrameLayout
+            android:id="@+id/pdfContainer"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
@@ -143,7 +143,40 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/guideline"
-            app:layout_constraintTop_toBottomOf="@id/cardObjective" />
+            app:layout_constraintTop_toBottomOf="@id/cardObjective">
+
+            <!-- PDF Viewer -->
+            <com.github.barteksc.pdfviewer.PDFView
+                android:id="@+id/pdfView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <!-- Full Screen Toggle Button inside PDF Container - Uses full_screen.xml -->
+            <ImageButton
+                android:id="@+id/btnPdfFullScreen"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="top|end"
+                android:layout_margin="8dp"
+                android:background="@drawable/button_round_background"
+                android:contentDescription="@string/full_screen"
+                android:src="@drawable/full_screen"
+                app:tint="@android:color/white" />
+
+            <!-- Minimize Button inside PDF Container - Uses minimize.xml -->
+            <ImageButton
+                android:id="@+id/btnPdfMinimize"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="top|end"
+                android:layout_margin="8dp"
+                android:background="@drawable/button_round_background"
+                android:contentDescription="@string/minimize"
+                android:src="@drawable/minimize"
+                android:visibility="gone"
+                app:tint="@android:color/white" />
+
+        </FrameLayout>
 
         <!-- Decorative Animal -->
         <ImageView

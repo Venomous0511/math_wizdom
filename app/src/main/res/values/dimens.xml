@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Lesson List Button Dimensions -->
-    <dimen name="lesson_button_height">80dp</dimen>
-    <dimen name="lesson_button_margin">16dp</dimen>
-    <dimen name="button_corner_radius">16dp</dimen>
+    <!-- For LessonsListActivity -->
+    <dimen name="lesson_button_height">60dp</dimen>
+    <dimen name="lesson_button_margin">8dp</dimen>
+    <dimen name="button_corner_radius">12dp</dimen>
+
+    <!-- For TopicActivity (if not already there) -->
+    <dimen name="pdf_margin_start">8dp</dimen>
+    <dimen name="pdf_margin_top">8dp</dimen>
+    <dimen name="pdf_margin_end">16dp</dimen>
+    <dimen name="pdf_margin_bottom">16dp</dimen>
 </resources>
