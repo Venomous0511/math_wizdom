@@ -99,10 +99,10 @@ class ActivityResultFragment : Fragment() {
 
         // Set grade message
         tvGradeMessage.text = when {
-            percentage >= 90 -> "Excellent Work!"
-            percentage >= 80 -> "Great Job!"
-            percentage >= 70 -> "Good Effort!"
-            percentage >= 60 -> "Keep Practicing!"
+            percentage >= 100 -> "Excellent Work!"
+            percentage >= 90 -> "Great Job!"
+            percentage >= 80 -> "Good Effort!"
+            percentage >= 75 -> "Keep Practicing!"
             else -> "Need More Practice"
         }
 

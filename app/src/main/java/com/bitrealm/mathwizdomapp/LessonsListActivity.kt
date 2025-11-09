@@ -1,7 +1,6 @@
 package com.bitrealm.mathwizdomapp
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
@@ -161,7 +160,7 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
     }
 
     private fun navigateToLessonDetail(lessonNumber: Int) {
-        val intent = Intent(this, TopicActivity::class.java)  // Changed to TopicActivity
+        val intent = Intent(this, LessonDetailActivity::class.java)
         intent.putExtra("USER_IDENTIFIER", userIdentifier)
         intent.putExtra("QUARTER", quarter)
         intent.putExtra("LESSON_NUMBER", lessonNumber)

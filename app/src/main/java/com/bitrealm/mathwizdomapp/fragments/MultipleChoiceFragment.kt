@@ -172,7 +172,7 @@ class MultipleChoiceFragment : Fragment() {
 
         // Reset button colors
         btnSimilar.setBackgroundColor("#4DD0E1".toColorInt())
-        btnDissimilar.setBackgroundColor("#EF5350".toColorInt())
+        btnDissimilar.setBackgroundColor("#4DD0E1".toColorInt())
         btnSimilar.isEnabled = true
         btnDissimilar.isEnabled = true
 
@@ -203,21 +203,23 @@ class MultipleChoiceFragment : Fragment() {
 
         if (isCorrect) {
             correctAnswers++
-            // Show green for correct
+            // Show green for correct answer
             if (selectedAnswer == 0) {
                 btnSimilar.setBackgroundColor("#4CAF50".toColorInt())
+                btnDissimilar.setBackgroundColor("#F44336".toColorInt())
             } else {
                 btnDissimilar.setBackgroundColor("#4CAF50".toColorInt())
+                btnSimilar.setBackgroundColor("#F44336".toColorInt())
             }
         } else {
             wrongAnswers++
-            // Show red for wrong
+            // Show red for wrong answer
             if (selectedAnswer == 0) {
                 btnSimilar.setBackgroundColor("#F44336".toColorInt())
             } else {
                 btnDissimilar.setBackgroundColor("#F44336".toColorInt())
             }
-            // Show correct answer in green
+            // Show green for correct answer
             if (question.correctAnswer == 0) {
                 btnSimilar.setBackgroundColor("#4CAF50".toColorInt())
             } else {

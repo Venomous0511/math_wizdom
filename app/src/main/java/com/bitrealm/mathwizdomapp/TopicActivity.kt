@@ -28,6 +28,7 @@ import com.bitrealm.mathwizdomapp.models.Subtopic
 import com.bitrealm.mathwizdomapp.repository.UserRepository
 import com.github.barteksc.pdfviewer.PDFView
 import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle
+import com.github.barteksc.pdfviewer.util.FitPolicy
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.launch
@@ -62,6 +63,7 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
     // Store original constraints
     private val originalConstraints = ConstraintSet()
     private var currentPdfFileName: String = ""
+    private var successfulPdfPath: String? = null
 
     companion object {
         private val quarterAnimals = mapOf(
@@ -427,11 +429,13 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         })
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setupSubtopics() {
         val lessonKey = "${quarter}_$lessonNumber"
         val subtopics = lessonSubtopics[lessonKey] ?: emptyList()
 
         subtopicAdapter = SubtopicAdapter(subtopics) { subtopic ->
+            successfulPdfPath = null
             loadPDF(subtopic.pdfFileName)
         }
 
@@ -450,63 +454,102 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         try {
             currentPdfFileName = fileName
 
-            // Try multiple possible paths
-            val possiblePaths = listOf(
-                "quarter_$quarter/lesson_$lessonNumber/$fileName",
-                "quarter$quarter/lesson$lessonNumber/$fileName",
-                "quarter_$quarter/$fileName",
-                "pdfs/quarter_$quarter/lesson_$lessonNumber/$fileName",
-                "pdfs/$fileName",
-                fileName,
-                "sample.pdf"
-            )
-
-            var pdfLoaded = false
-
-            for (path in possiblePaths) {
-                try {
-                    println("Trying to load PDF from: $path")
-
-                    pdfView.fromAsset(path)
-                        .swipeHorizontal(true)
-                        .pageSnap(true)
-                        .autoSpacing(true)
-                        .pageFling(true)
-                        .scrollHandle(DefaultScrollHandle(this))
-                        .onError { error ->
-                            println("Failed to load from $path: ${error.message}")
-                        }
-                        .onLoad { nbPages ->
-                            println("SUCCESS: PDF loaded from $path - Pages: $nbPages")
-                            pdfLoaded = true
-                            runOnUiThread {
-                                Toast.makeText(this, "Content loaded successfully", Toast.LENGTH_SHORT).show()
-                            }
-                        }
-                        .load()
-
-                    if (pdfLoaded) {
-                        return
-                    }
-
-                } catch (e: Exception) {
-                    println("Exception with path $path: ${e.message}")
-                }
+            // If we already found a working path, use it directly
+            if (successfulPdfPath != null) {
+                loadPdfFromPath(successfulPdfPath!!, false)
+                return
             }
 
-            // If no PDF was loaded, show message
-            if (!pdfLoaded) {
-                runOnUiThread {
-                    Toast.makeText(this, "Content file not found: $fileName", Toast.LENGTH_LONG).show()
-                }
-            }
+            // Construct the correct path based on quarter and lesson
+            val pdfPath = "quarter_$quarter/lesson_$lessonNumber/$fileName"
+
+            loadPdfFromPath(pdfPath, true)
 
         } catch (e: Exception) {
-            runOnUiThread {
-                Toast.makeText(this, "Error loading content", Toast.LENGTH_LONG).show()
-            }
             println("Exception loading PDF: ${e.message}")
+            e.printStackTrace()
+            runOnUiThread {
+                Toast.makeText(this, "Error loading content: ${e.message}", Toast.LENGTH_LONG).show()
+            }
         }
+    }
+
+    private fun loadPdfFromPath(path: String, tryFallback: Boolean) {
+        pdfView.fromAsset(path)
+            .defaultPage(0)
+            .swipeHorizontal(true)
+            .pageSnap(true)
+            .autoSpacing(true)
+            .pageFling(true)
+            .enableSwipe(true)
+//            .scrollHandle(DefaultScrollHandle(this))
+            .spacing(0)
+            .pageFitPolicy(FitPolicy.BOTH)
+            .fitEachPage(true)
+            .nightMode(false)
+            .onError { error ->
+                if (tryFallback) {
+                    runOnUiThread {
+                        tryFallbackPaths(currentPdfFileName)
+                    }
+                }
+            }
+            .onLoad { nbPages ->
+                // Cache the successful path for future loads
+                successfulPdfPath = path
+                runOnUiThread {
+                    // Reset zoom to fit the page properly
+                    pdfView.resetZoomWithAnimation()
+                }
+            }
+            .load()
+    }
+
+    private fun tryFallbackPaths(fileName: String) {
+        val fallbackPaths = listOf(
+            "quarter$quarter/lesson$lessonNumber/$fileName",
+            "q$quarter/l$lessonNumber/$fileName",
+            "pdfs/quarter_$quarter/lesson_$lessonNumber/$fileName",
+            fileName
+        )
+
+        var pathIndex = 0
+
+        fun tryNextPath() {
+            if (pathIndex >= fallbackPaths.size) {
+                Toast.makeText(this, "Content file not found: $fileName", Toast.LENGTH_LONG).show()
+                return
+            }
+
+            val path = fallbackPaths[pathIndex]
+
+            pdfView.fromAsset(path)
+                .defaultPage(0)
+                .swipeHorizontal(true)
+                .pageSnap(true)
+                .autoSpacing(true)
+                .pageFling(true)
+                .enableSwipe(true)
+//                .scrollHandle(DefaultScrollHandle(this))
+                .spacing(0)
+                .pageFitPolicy(FitPolicy.BOTH)
+                .fitEachPage(true)
+                .nightMode(false)
+                .onError {
+                    pathIndex++
+                    tryNextPath()
+                }
+                .onLoad { nbPages ->
+                    // Cache the successful path
+                    successfulPdfPath = path
+                    runOnUiThread {
+                        pdfView.resetZoomWithAnimation()
+                    }
+                }
+                .load()
+        }
+
+        tryNextPath()
     }
 
     private fun loadUserData() {
