@@ -1,5 +1,6 @@
 package com.bitrealm.mathwizdomapp
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
@@ -53,7 +54,7 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
     private val quarterAnimals = mapOf(
         1 to R.drawable.cat,
         2 to R.drawable.bird,
-        3 to R.drawable.dragon,
+        3 to R.drawable.rat,  // Changed from dragon to rat to match your drawables
         4 to R.drawable.fox
     )
 
@@ -136,13 +137,14 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
                 textSize = 18f
                 layoutParams = LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
-                    resources.getDimensionPixelSize(R.dimen.lesson_button_height)
+                    resources.getDimensionPixelSize(R.dimen.lesson_button_height)  // This will work now
                 ).apply {
-                    setMargins(0, 0, 0, resources.getDimensionPixelSize(R.dimen.lesson_button_margin))
+                    // Use the dimension resource safely
+                    bottomMargin = resources.getDimensionPixelSize(R.dimen.lesson_button_margin)
                 }
                 gravity = Gravity.CENTER
-                setBackgroundColor(getColor(R.color.lesson_button_color))
-                setTextColor(getColor(android.R.color.white))
+                setBackgroundColor(resources.getColor(R.color.lesson_button_color, theme))
+                setTextColor(resources.getColor(android.R.color.white, theme))
                 cornerRadius = resources.getDimensionPixelSize(R.dimen.button_corner_radius)
                 elevation = 8f
 
@@ -156,7 +158,7 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
     }
 
     private fun navigateToLessonDetail(lessonNumber: Int) {
-        val intent = Intent(this, LessonDetailActivity::class.java)
+        val intent = Intent(this, TopicActivity::class.java)  // Changed to TopicActivity
         intent.putExtra("USER_IDENTIFIER", userIdentifier)
         intent.putExtra("QUARTER", quarter)
         intent.putExtra("LESSON_NUMBER", lessonNumber)

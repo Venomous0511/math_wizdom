@@ -21,7 +21,7 @@
             android:elevation="4dp"
             app:navigationIcon="@drawable/ic_arrow_back"
             app:title="@string/app_name"
-            app:titleTextColor="?attr/colorOnPrimaryContainer" />
+            app:titleTextColor="@color/white" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -50,6 +50,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/role_emoji"
                 android:textSize="80sp"
+                android:textColor="@color/white"
                 android:importantForAccessibility="no" />
 
             <TextView
@@ -60,7 +61,8 @@
                 android:text="@string/student_login"
                 android:textAlignment="center"
                 android:textSize="28sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/white" />
 
         </LinearLayout>
 
@@ -95,8 +97,10 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/learner_reference_no"
                 android:minHeight="48dp"
-                app:boxStrokeColor="?attr/colorPrimary"
-                app:hintTextColor="?attr/colorPrimary">
+                app:boxStrokeColor="@color/white"
+                app:hintTextColor="@color/white"
+                app:helperTextTextColor="@color/white"
+                app:counterTextColor="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etIdentifier"
@@ -106,7 +110,9 @@
                     android:contentDescription="@string/learner_reference_no"
                     android:imeOptions="actionDone"
                     android:inputType="number"
-                    android:maxLines="1" />
+                    android:maxLines="1"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -116,7 +122,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:textColor="?attr/colorError"
+                android:textColor="@color/white"
                 android:textSize="12sp"
                 android:visibility="gone"
                 tools:text="@string/error_message_here"
@@ -129,7 +135,9 @@
                 android:layout_height="56dp"
                 android:layout_marginTop="24dp"
                 android:text="@string/submit"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/purple_500" />
 
             <!-- Progress Bar (hidden by default) -->
             <ProgressBar
@@ -137,7 +145,8 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginTop="24dp"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:indeterminateTint="@color/white" />
 
         </LinearLayout>
 
