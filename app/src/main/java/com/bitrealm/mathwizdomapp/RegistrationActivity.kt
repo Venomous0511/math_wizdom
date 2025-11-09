@@ -2,7 +2,10 @@ package com.bitrealm.mathwizdomapp
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.res.Resources
 import android.os.Bundle
+import android.text.InputFilter
+import android.text.Spanned
 import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
@@ -48,6 +51,13 @@ class RegistrationActivity : AppCompatActivity() {
     private var selectedGender: Gender? = null
     private var isLoading = false
 
+    // Constants for account limits
+    private companion object {
+        const val MAX_ACCOUNTS = 12
+        const val REQUIRED_IDENTIFIER_LENGTH = 12
+        const val MAX_FULL_NAME_LENGTH = 36
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
@@ -67,6 +77,9 @@ class RegistrationActivity : AppCompatActivity() {
         setupToolbar()
         setupUI()
         setupListeners()
+
+        // Check account limit on create
+        checkAccountLimit()
     }
 
     private fun initViews() {
@@ -96,16 +109,37 @@ class RegistrationActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setupUI() {
         if (userRole == UserRole.STUDENT) {
-            toolbar.title = "Student Registration"
+            toolbar.title = getString(R.string.student_registration)
             tvRoleEmoji.text = "👨‍🎓"
         } else {
-            toolbar.title = "Teacher Registration"
+            toolbar.title = getString(R.string.teacher_registration)
             tvRoleEmoji.text = "👨‍🏫"
         }
 
         tvIdentifier.text = identifier
+
+        // Set character limit for full name
+        setupCharacterLimit()
+
+        // Add identifier length requirement text - safely handle if view doesn't exist
+        val identifierHintText = getString(R.string.identifier_hint, REQUIRED_IDENTIFIER_LENGTH)
+        findViewById<TextView>(R.id.tvIdentifierHint)?.text = identifierHintText
+    }
+
+    private fun setupCharacterLimit() {
+        // Set maximum character limit for full name (36 characters)
+        val maxLengthFilter = InputFilter.LengthFilter(MAX_FULL_NAME_LENGTH)
+        etFullName.filters = arrayOf(maxLengthFilter)
+
+        // Update hint to show character limit
+        tilFullName.hint = getString(R.string.full_name_hint, MAX_FULL_NAME_LENGTH)
+
+        // Add counter to show remaining characters
+        tilFullName.isCounterEnabled = true
+        tilFullName.counterMaxLength = MAX_FULL_NAME_LENGTH
     }
 
     private fun setupListeners() {
@@ -113,6 +147,17 @@ class RegistrationActivity : AppCompatActivity() {
             validateForm()
             tilFullName.error = null
             tvError.visibility = View.GONE
+
+            // Show warning if approaching limit
+            val currentLength = it?.length ?: 0
+            if (currentLength > MAX_FULL_NAME_LENGTH - 5) {
+                val remaining = MAX_FULL_NAME_LENGTH - currentLength
+                if (remaining >= 0) {
+                    tilFullName.helperText = getString(R.string.characters_remaining, remaining)
+                }
+            } else {
+                tilFullName.helperText = null
+            }
         }
 
         cardMale.setOnClickListener {
@@ -180,15 +225,49 @@ class RegistrationActivity : AppCompatActivity() {
 
     private fun validateForm() {
         val fullName = etFullName.text?.toString()?.trim() ?: ""
-        btnRegister.isEnabled = !isLoading && fullName.isNotBlank() && selectedGender != null
+        val isIdentifierValid = identifier.length == REQUIRED_IDENTIFIER_LENGTH
+        val isFullNameValid = fullName.isNotBlank() && fullName.length <= MAX_FULL_NAME_LENGTH
+
+        btnRegister.isEnabled = !isLoading && isFullNameValid && selectedGender != null && isIdentifierValid
+
+        // Show identifier requirement error if not met
+        if (!isIdentifierValid) {
+            tvError.text = getString(R.string.identifier_required_length, REQUIRED_IDENTIFIER_LENGTH)
+            tvError.visibility = View.VISIBLE
+        }
+
+        // Show full name length error if exceeded
+        if (fullName.length > MAX_FULL_NAME_LENGTH) {
+            tilFullName.error = getString(R.string.full_name_too_long, MAX_FULL_NAME_LENGTH)
+        }
     }
 
     private fun onRegisterClick(fullName: String, gender: Gender) {
+        // Check identifier length requirement
+        if (identifier.length != REQUIRED_IDENTIFIER_LENGTH) {
+            showError(getString(R.string.identifier_required_length, REQUIRED_IDENTIFIER_LENGTH))
+            return
+        }
+
+        // Check full name length requirement
+        if (fullName.length > MAX_FULL_NAME_LENGTH) {
+            showError(getString(R.string.full_name_too_long, MAX_FULL_NAME_LENGTH))
+            return
+        }
+
         setLoadingState(true)
 
         // Save user to database
         lifecycleScope.launch {
             try {
+                // Check account limit before registering
+                val userCount = userRepository.getUserCountByRole(userRole)
+                if (userCount >= MAX_ACCOUNTS) {
+                    showError(getString(R.string.max_accounts_reached, MAX_ACCOUNTS, userRole.name.lowercase()))
+                    setLoadingState(false)
+                    return@launch
+                }
+
                 val user = User(
                     identifier = identifier,
                     fullName = fullName,
@@ -200,7 +279,7 @@ class RegistrationActivity : AppCompatActivity() {
 
                 android.widget.Toast.makeText(
                     this@RegistrationActivity,
-                    "Registration successful!",
+                    getString(R.string.registration_successful),
                     android.widget.Toast.LENGTH_SHORT
                 ).show()
 
@@ -208,9 +287,26 @@ class RegistrationActivity : AppCompatActivity() {
                 navigateToHome()
 
             } catch (e: Exception) {
-                showError("Registration failed: ${e.message}")
+                showError(getString(R.string.registration_failed, e.message ?: getString(R.string.unknown_error)))
             } finally {
                 setLoadingState(false)
+            }
+        }
+    }
+
+    private fun checkAccountLimit() {
+        lifecycleScope.launch {
+            try {
+                val userCount = userRepository.getUserCountByRole(userRole)
+                if (userCount >= MAX_ACCOUNTS) {
+                    showError(getString(R.string.max_accounts_reached, MAX_ACCOUNTS, userRole.name.lowercase()))
+                    btnRegister.isEnabled = false
+                    etFullName.isEnabled = false
+                    cardMale.isClickable = false
+                    cardFemale.isClickable = false
+                }
+            } catch (e: Exception) {
+                // Handle error silently
             }
         }
     }
@@ -250,7 +346,7 @@ class RegistrationActivity : AppCompatActivity() {
 
         val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
 
-        windowInsetsController.apply {
+        windowInsetsController?.apply {
             isAppearanceLightStatusBars = true
             isAppearanceLightNavigationBars = true
 

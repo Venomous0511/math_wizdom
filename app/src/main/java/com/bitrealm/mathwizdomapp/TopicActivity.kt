@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
@@ -11,6 +12,8 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.edit
 import androidx.core.view.GravityCompat
 import androidx.core.view.WindowCompat
@@ -35,12 +38,18 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
     private lateinit var navigationView: NavigationView
     private lateinit var btnBack: ImageButton
     private lateinit var btnSpeaker: ImageButton
+    private lateinit var btnPdfFullScreen: ImageButton
+    private lateinit var btnPdfMinimize: ImageButton
     private lateinit var tvTopicTitle: TextView
     private lateinit var tvObjective: TextView
     private lateinit var cardObjective: MaterialCardView
     private lateinit var rvSubtopics: RecyclerView
     private lateinit var pdfView: PDFView
+    private lateinit var pdfContainer: View
     private lateinit var ivAnimal: ImageView
+    private lateinit var guideline: View
+    private lateinit var topBar: View
+    private lateinit var mainContent: ConstraintLayout
 
     private lateinit var userRepository: UserRepository
     private lateinit var subtopicAdapter: SubtopicAdapter
@@ -48,12 +57,17 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
     private var quarter: Int = 1
     private var lessonNumber: Int = 1
     private var isSpeakerEnabled = true
+    private var isFullScreen = false
+
+    // Store original constraints
+    private val originalConstraints = ConstraintSet()
+    private var currentPdfFileName: String = ""
 
     companion object {
         private val quarterAnimals = mapOf(
             1 to R.drawable.cat,
             2 to R.drawable.bird,
-            3 to R.drawable.dragon,
+            3 to R.drawable.rat,
             4 to R.drawable.fox
         )
 
@@ -328,6 +342,9 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         loadSpeakerPreference()
         loadUserData()
         setupSubtopics()
+
+        // Save original constraints for restoring later
+        originalConstraints.clone(mainContent)
     }
 
     private fun initViews() {
@@ -335,12 +352,18 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         navigationView = findViewById(R.id.navigationView)
         btnBack = findViewById(R.id.btnBack)
         btnSpeaker = findViewById(R.id.btnSpeaker)
+        btnPdfFullScreen = findViewById(R.id.btnPdfFullScreen)
+        btnPdfMinimize = findViewById(R.id.btnPdfMinimize)
         tvTopicTitle = findViewById(R.id.tvTopicTitle)
         tvObjective = findViewById(R.id.tvObjective)
         cardObjective = findViewById(R.id.cardObjective)
         rvSubtopics = findViewById(R.id.rvSubtopics)
         pdfView = findViewById(R.id.pdfView)
+        pdfContainer = findViewById(R.id.pdfContainer)
         ivAnimal = findViewById(R.id.ivAnimal)
+        guideline = findViewById(R.id.guideline)
+        topBar = findViewById(R.id.topBar)
+        mainContent = findViewById(R.id.main)
     }
 
     @SuppressLint("SetTextI18n")
@@ -350,14 +373,17 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
         // Set objective text based on lesson
         tvObjective.text = getObjectiveText()
+
+        // Set initial full screen button states
+        updateFullScreenButtons()
     }
 
     private fun getObjectiveText(): String {
         return when ("${quarter}_$lessonNumber") {
-            "1_1" -> "After this lesson, you should be able to add and subtract simple fractions and mixed numbers, whether with regrouping or without regrouping."
-            "2_1" -> "After this lesson, you should be able to relate fractions and ratios."
-            "3_1" -> "After this lesson, you should be able to know a geometry of solid figures and its features."
-            else -> "Complete this lesson to master the concepts."
+            "1_1" -> getString(R.string.objective_lesson_1)
+            "2_1" -> getString(R.string.objective_lesson_2)
+            "3_1" -> getString(R.string.objective_lesson_3)
+            else -> getString(R.string.objective_default)
         }
     }
 
@@ -367,18 +393,32 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
     private fun setupListeners() {
         btnBack.setOnClickListener {
-            finish()
+            if (isFullScreen) {
+                exitFullScreen()
+            } else {
+                finish()
+            }
         }
 
         btnSpeaker.setOnClickListener {
             toggleSpeaker()
+        }
+
+        btnPdfFullScreen.setOnClickListener {
+            enterFullScreen()
+        }
+
+        btnPdfMinimize.setOnClickListener {
+            exitFullScreen()
         }
     }
 
     private fun setupBackPressHandler() {
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                if (isFullScreen) {
+                    exitFullScreen()
+                } else if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
                     drawerLayout.closeDrawer(GravityCompat.START)
                 } else {
                     finish()
@@ -400,35 +440,72 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         // Load first subtopic by default
         if (subtopics.isNotEmpty()) {
             loadPDF(subtopics[0].pdfFileName)
+        } else {
+            // Show message if no subtopics available
+            tvObjective.text = "No content available for this lesson yet."
         }
     }
 
     private fun loadPDF(fileName: String) {
         try {
-            val assetPath = "quarter_$quarter/lesson_$lessonNumber/$fileName"
+            currentPdfFileName = fileName
 
-            pdfView.fromAsset(assetPath)
-                .swipeHorizontal(true) // Enable horizontal scrolling
-                .pageSnap(true)
-                .autoSpacing(true)
-                .pageFling(true)
-                .scrollHandle(DefaultScrollHandle(this))
-                .onError { error ->
-                    Toast.makeText(
-                        this,
-                        "Error loading PDF: ${error.message}",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    println("PDF Error: ${error.message}")
+            // Try multiple possible paths
+            val possiblePaths = listOf(
+                "quarter_$quarter/lesson_$lessonNumber/$fileName",
+                "quarter$quarter/lesson$lessonNumber/$fileName",
+                "quarter_$quarter/$fileName",
+                "pdfs/quarter_$quarter/lesson_$lessonNumber/$fileName",
+                "pdfs/$fileName",
+                fileName,
+                "sample.pdf"
+            )
+
+            var pdfLoaded = false
+
+            for (path in possiblePaths) {
+                try {
+                    println("Trying to load PDF from: $path")
+
+                    pdfView.fromAsset(path)
+                        .swipeHorizontal(true)
+                        .pageSnap(true)
+                        .autoSpacing(true)
+                        .pageFling(true)
+                        .scrollHandle(DefaultScrollHandle(this))
+                        .onError { error ->
+                            println("Failed to load from $path: ${error.message}")
+                        }
+                        .onLoad { nbPages ->
+                            println("SUCCESS: PDF loaded from $path - Pages: $nbPages")
+                            pdfLoaded = true
+                            runOnUiThread {
+                                Toast.makeText(this, "Content loaded successfully", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                        .load()
+
+                    if (pdfLoaded) {
+                        return
+                    }
+
+                } catch (e: Exception) {
+                    println("Exception with path $path: ${e.message}")
                 }
-                .onPageChange { page, pageCount ->
-                    // Optional: Track page changes
-                    println("Page $page of $pageCount")
+            }
+
+            // If no PDF was loaded, show message
+            if (!pdfLoaded) {
+                runOnUiThread {
+                    Toast.makeText(this, "Content file not found: $fileName", Toast.LENGTH_LONG).show()
                 }
-                .load()
+            }
+
         } catch (e: Exception) {
-            Toast.makeText(this, "PDF not found: $fileName", Toast.LENGTH_SHORT).show()
-            println("Error: ${e.message}")
+            runOnUiThread {
+                Toast.makeText(this, "Error loading content", Toast.LENGTH_LONG).show()
+            }
+            println("Exception loading PDF: ${e.message}")
         }
     }
 
@@ -454,13 +531,88 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
         if (isSpeakerEnabled) {
             btnSpeaker.setImageResource(R.drawable.ic_volume_up)
-            Toast.makeText(this, "Voice enabled", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.voice_enabled), Toast.LENGTH_SHORT).show()
         } else {
             btnSpeaker.setImageResource(R.drawable.ic_volume_off)
-            Toast.makeText(this, "Voice disabled", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.voice_disabled), Toast.LENGTH_SHORT).show()
         }
 
         saveSpeakerPreference(isSpeakerEnabled)
+    }
+
+    private fun enterFullScreen() {
+        isFullScreen = true
+        updateFullScreenButtons()
+
+        // Hide UI elements
+        topBar.visibility = View.GONE
+        cardObjective.visibility = View.GONE
+        rvSubtopics.visibility = View.GONE
+        ivAnimal.visibility = View.GONE
+        guideline.visibility = View.GONE
+
+        // Make PDF container full screen using ConstraintSet
+        val constraintSet = ConstraintSet()
+        constraintSet.clone(mainContent)
+
+        // Clear all constraints from PDF container
+        constraintSet.clear(pdfContainer.id)
+
+        // Set PDF container to match parent
+        constraintSet.connect(pdfContainer.id, ConstraintSet.START, ConstraintSet.PARENT_ID, ConstraintSet.START)
+        constraintSet.connect(pdfContainer.id, ConstraintSet.END, ConstraintSet.PARENT_ID, ConstraintSet.END)
+        constraintSet.connect(pdfContainer.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP)
+        constraintSet.connect(pdfContainer.id, ConstraintSet.BOTTOM, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM)
+
+        // Remove margins
+        constraintSet.setMargin(pdfContainer.id, ConstraintSet.START, 0)
+        constraintSet.setMargin(pdfContainer.id, ConstraintSet.END, 0)
+        constraintSet.setMargin(pdfContainer.id, ConstraintSet.TOP, 0)
+        constraintSet.setMargin(pdfContainer.id, ConstraintSet.BOTTOM, 0)
+
+        // Apply the constraints
+        constraintSet.applyTo(mainContent)
+
+        // Enable full immersive mode
+        setupFullImmersiveMode()
+
+        Toast.makeText(this, getString(R.string.full_screen_mode), Toast.LENGTH_SHORT).show()
+    }
+
+    private fun exitFullScreen() {
+        isFullScreen = false
+        updateFullScreenButtons()
+
+        // Show UI elements
+        topBar.visibility = View.VISIBLE
+        cardObjective.visibility = View.VISIBLE
+        rvSubtopics.visibility = View.VISIBLE
+        ivAnimal.visibility = View.VISIBLE
+        guideline.visibility = View.VISIBLE
+
+        // Restore original constraints using the saved ConstraintSet
+        originalConstraints.applyTo(mainContent)
+
+        // Reload the current PDF to ensure it's displayed correctly
+        if (currentPdfFileName.isNotEmpty()) {
+            pdfView.postDelayed({
+                loadPDF(currentPdfFileName)
+            }, 100)
+        }
+
+        setupImmersiveMode()
+
+        Toast.makeText(this, getString(R.string.normal_mode), Toast.LENGTH_SHORT).show()
+    }
+
+    private fun updateFullScreenButtons() {
+        if (isFullScreen) {
+            btnPdfFullScreen.visibility = View.GONE
+            btnPdfMinimize.visibility = View.VISIBLE
+        } else {
+            btnPdfFullScreen.visibility = View.VISIBLE
+            btnPdfMinimize.visibility = View.GONE
+        }
     }
 
     private fun saveSpeakerPreference(enabled: Boolean) {
@@ -506,13 +658,13 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
     private fun showLogoutDialog() {
         AlertDialog.Builder(this)
-            .setTitle("Logout")
-            .setMessage("Are you sure you want to logout?")
-            .setPositiveButton("Yes") { dialog, _ ->
+            .setTitle(getString(R.string.logout_title))
+            .setMessage(getString(R.string.logout_message))
+            .setPositiveButton(getString(R.string.yes)) { dialog, _ ->
                 logout()
                 dialog.dismiss()
             }
-            .setNegativeButton("No") { dialog, _ ->
+            .setNegativeButton(getString(R.string.no)) { dialog, _ ->
                 dialog.dismiss()
             }
             .show()
@@ -527,29 +679,32 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         startActivity(intent)
         finish()
 
-        Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.logged_out_successfully), Toast.LENGTH_SHORT).show()
+    }
+
+    private fun setupFullImmersiveMode() {
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
+        windowInsetsController.hide(WindowInsetsCompat.Type.systemBars())
+        windowInsetsController.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
     }
 
     private fun setupImmersiveMode() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
-
         val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
-
-        windowInsetsController.apply {
-            isAppearanceLightStatusBars = true
-            isAppearanceLightNavigationBars = true
-
-            hide(WindowInsetsCompat.Type.statusBars())
-            hide(WindowInsetsCompat.Type.navigationBars())
-
-            systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-        }
+        windowInsetsController.hide(WindowInsetsCompat.Type.statusBars())
+        windowInsetsController.hide(WindowInsetsCompat.Type.navigationBars())
+        windowInsetsController.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) {
-            setupImmersiveMode()
+            if (isFullScreen) {
+                setupFullImmersiveMode()
+            } else {
+                setupImmersiveMode()
+            }
         }
     }
 }

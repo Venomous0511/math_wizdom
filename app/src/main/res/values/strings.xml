@@ -2,8 +2,8 @@
     <string name="app_name">Math Wizdom</string>
     <string name="welcome_to_math_wizdom">Welcome to Math Wizdom!</string>
     <string name="i_am_a">I am a:</string>
-    <string name="student">👨‍🎓 Student</string>
-    <string name="teacher">👨‍🏫 Teacher</string>
+    <string name="student">Student</string>
+    <string name="teacher">Teacher</string>
     <string name="role_emoji">👨‍🎓</string>
     <string name="student_login">Student Login</string>
     <string name="teacher_login">Teacher Login</string>
@@ -46,8 +46,8 @@
     <string name="_3rd_quarter">3rd Quarter</string>
     <string name="fox">Fox Image</string>
     <string name="_4th_quarter">4th Quarter</string>
-    <string name="animal">Animals Images</string>
-    <string name="back">Back Button\n</string>
+    <string name="animal">Decorative Animal</string>
+    <string name="back">Back</string>
     <string name="lesson_quarter_1">LESSON - QUARTER 1</string>
     <string name="topic">TOPIC</string>
     <string name="activity">ACTIVITY</string>
@@ -72,4 +72,52 @@
     <string name="activity_1">ACTIVITY #1</string>
     <string name="skip">Skip</string>
     <string name="countdown">Starting in 10…</string>
+
+    <!-- New strings for TopicActivity -->
+    <string name="toggle_fullscreen">Toggle fullscreen</string>
+    <string name="lesson_topic">LESSON %d - TOPIC</string>
+    <string name="objective_lesson_1">After this lesson, you should be able to add and subtract simple fractions and mixed numbers, whether with regrouping or without regrouping.</string>
+    <string name="objective_lesson_2">After this lesson, you should be able to relate fractions and ratios.</string>
+    <string name="objective_lesson_3">After this lesson, you should be able to know a geometry of solid figures and its features.</string>
+    <string name="objective_default">Complete this lesson to master the concepts.</string>
+    <string name="minimize">Minimize PDF</string>
+    <string name="full_screen">Full Screen PDF</string>
+    <string name="exit_full_screen">Exit Full Screen</string>
+
+    <!-- Additional strings for PDF functionality -->
+    <string name="pdf_minimized">PDF minimized</string>
+    <string name="pdf_full_screen">PDF full screen</string>
+    <string name="voice_enabled">Voice enabled</string>
+    <string name="voice_disabled">Voice disabled</string>
+    <string name="full_screen_mode">Full screen mode</string>
+    <string name="normal_mode">Normal mode</string>
+
+    <!-- Navigation drawer strings -->
+    <string name="nav_header_title">Math Wizdom</string>
+    <string name="nav_header_subtitle">Grade 6 Mathematics</string>
+
+    <!-- Dialog strings -->
+    <string name="logout_title">Logout</string>
+    <string name="logout_message">Are you sure you want to logout?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="logged_out_successfully">Logged out successfully</string>
+
+    <string name="error_loading_pdf">Error loading PDF</string>
+    <string name="pdf_not_found">PDF not found</string>
+    <string name="error_loading_user">Error loading user data</string>
+
+    <!-- Updated strings for TopicActivity -->
+    <string name="lesson_topic_title">LESSON - TOPIC</string>
+
+    <string name="identifier_hint">Identifier must be exactly %d characters</string>
+    <string name="identifier_required_length">Identifier must be exactly %d characters to register</string>
+    <string name="max_accounts_reached">Maximum %d %s accounts reached. Cannot create new account.</string>
+    <string name="registration_successful">Registration successful!</string>
+    <string name="registration_failed">Registration failed: %s</string>
+    <string name="unknown_error">Unknown error</string>
+
+    <string name="full_name_hint">Full Name (max %d characters)</string>
+    <string name="full_name_too_long">Full name cannot exceed %d characters</string>
+    <string name="characters_remaining">%d characters remaining</string>
 </resources>
