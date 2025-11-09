@@ -62,7 +62,7 @@
             android:shadowDx="2"
             android:shadowDy="2"
             android:shadowRadius="4"
-            android:text="LESSON 1"
+            android:text="@string/LessonTitle"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="32sp"

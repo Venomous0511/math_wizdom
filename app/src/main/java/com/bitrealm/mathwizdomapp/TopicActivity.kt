@@ -49,30 +49,261 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
     private var lessonNumber: Int = 1
     private var isSpeakerEnabled = true
 
-    private val quarterAnimals = mapOf(
-        1 to R.drawable.cat,
-        2 to R.drawable.bird,
-        3 to R.drawable.dragon,
-        4 to R.drawable.fox
-    )
-
-    // Define subtopics for each lesson
-    private val lessonSubtopics = mapOf(
-        "1_1" to listOf(
-            Subtopic(1, "Similar and Dissimilar Fractions", "topic_1.pdf"),
-            Subtopic(2, "Add Simple and Mixed Fractions with Regrouping or without Regrouping", "topic_2.pdf"),
-            Subtopic(3, "Subtract Simple and Mixed Fractions with Regrouping or without Regrouping", "topic_3.pdf")
-        ),
-        "2_1" to listOf(
-            Subtopic(1, "Relating Fraction and Ratio", "topic_1.pdf"),
-        ),
-        "3_1" to listOf(
-            Subtopic(1, "Planes and Solid Figures and its Features", "topic_1.pdf"),
-        ),
-        "4_1" to listOf(
-
+    companion object {
+        private val quarterAnimals = mapOf(
+            1 to R.drawable.cat,
+            2 to R.drawable.bird,
+            3 to R.drawable.dragon,
+            4 to R.drawable.fox
         )
-    )
+
+        // Define subtopics for each lesson
+        private val lessonSubtopics = mapOf(
+            // QUARTER 1
+            "1_1" to listOf(
+                Subtopic(1, "Similar and Dissimilar Fractions", "topic_1.pdf"),
+                Subtopic(
+                    2,
+                    "Add Simple and Mixed Fractions with Regrouping or without Regrouping",
+                    "topic_2.pdf"
+                ),
+                Subtopic(
+                    3,
+                    "Subtract Simple and Mixed Fractions with Regrouping or without Regrouping",
+                    "topic_3.pdf"
+                )
+            ),
+            "1_2" to listOf(
+                Subtopic(1, "Routine and Non-Routine", "topic_1.pdf"),
+            ),
+            "1_3" to listOf(
+                Subtopic(1, "Multiplies Simple Fractions", "topic_1.pdf"),
+                Subtopic(2, "Cancellation Method", "topic_2.pdf"),
+                Subtopic(3, "Multiplies Mixed Fractions", "topic_3.pdf"),
+            ),
+            "1_4" to listOf(
+                Subtopic(1, "Mathematical Phrases", "topic_1.pdf"),
+                Subtopic(2, "Steps in Problem Solving", "topic_2.pdf"),
+            ),
+            "1_5" to listOf(
+                Subtopic(1, "Dividing Simple Fractions", "topic_1.pdf"),
+            ),
+            "1_6" to listOf(
+                Subtopic(1, "Some Terms in Division", "topic_1.pdf"),
+                Subtopic(2, "Solving Routine or Non-Routine in Division", "topic_2.pdf"),
+            ),
+            "1_7" to listOf(
+                Subtopic(1, "Rounding off Decimals", "topic_1.pdf"),
+                Subtopic(2, "Adding and Subtracting Decimals", "topic_2.pdf"),
+            ),
+            "1_8" to listOf(
+                Subtopic(
+                    1,
+                    "Routine and Non-routine in Addition and Subtraction of Decimal",
+                    "topic_1.pdf"
+                ),
+            ),
+            "1_9" to listOf(
+                Subtopic(1, "Multiplying Decimals", "topic_1.pdf"),
+            ),
+            "1_10" to listOf(
+                Subtopic(1, "Multiplying Decimals by power of 10", "topic_1.pdf"),
+            ),
+            "1_11" to listOf(
+                Subtopic(1, "Words problems involving multiplying decimals", "topic_1.pdf"),
+            ),
+            "1_12" to listOf(
+                Subtopic(1, "Steps to Understand and Solve Words Problems", "topic_1.pdf"),
+            ),
+            "1_13" to listOf(
+                Subtopic(1, "Dividing Whole and Decimal Numbers", "topic_1.pdf"),
+            ),
+            "1_14" to listOf(
+                Subtopic(1, "Dividing Decimals by 10", "topic_1.pdf"),
+            ),
+            "1_15" to listOf(
+                Subtopic(1, "Rational and Irrational Numbers", "topic_1.pdf"),
+                Subtopic(
+                    2,
+                    "Terminating Decimal and Repeating or Non-terminating decimals",
+                    "topic_2.pdf"
+                ),
+            ),
+            "1_16" to listOf(
+                Subtopic(
+                    1,
+                    "Routine and Non-routine problems involving division of Decimal Numbers and Money",
+                    "topic_1.pdf"
+                ),
+                Subtopic(2, "Step by Step Procedure in Problem Solving", "topic_2.pdf"),
+            ),
+            "1_17" to listOf(
+                Subtopic(
+                    1,
+                    "Routine and Non-routine involving any of the Operations including any Decimals, Whole Numbers, and Money",
+                    "topic_1.pdf"
+                ),
+                Subtopic(2, "Creating a Problem", "topic_2.pdf"),
+                Subtopic(
+                    3,
+                    "A Multi-Step Routine Problem Solving involves using two or more Arithmetic Operations",
+                    "topic_3.pdf"
+                ),
+            ),
+
+            // QUARTER 2
+            "2_1" to listOf(
+                Subtopic(1, "Relating Fraction and Ratio", "topic_1.pdf"),
+            ),
+            "2_2" to listOf(
+                Subtopic(1, "Proportion", "topic_1.pdf"),
+                Subtopic(2, "Types of Proportion", "topic_2.pdf"),
+            ),
+            "2_3" to listOf(
+                Subtopic(1, "Learning what is Percentage, Rate, and Base", "topic_1.pdf"),
+                Subtopic(2, "Finding Percentage, Rate, and Base", "topic_2.pdf"),
+                Subtopic(
+                    3,
+                    "Routine and Non-routine Problem involving Percentage, Rate, and Base",
+                    "topic_3.pdf"
+                ),
+            ),
+            "2_4" to listOf(
+                Subtopic(
+                    1,
+                    "Solving Discount, Original Price, Discount Rate, and Sale Price",
+                    "topic_1.pdf"
+                ),
+                Subtopic(2, "Solving Markup Price", "topic_2.pdf"),
+                Subtopic(3, "Solving Commission", "topic_3.pdf"),
+                Subtopic(4, "Solving Sales Tax", "topic_4.pdf"),
+                Subtopic(5, "Solving Simple Interest and Principal", "topic_5.pdf"),
+            ),
+            "2_5" to listOf(
+                Subtopic(1, "Exponent and Base", "topic_1.pdf"),
+            ),
+            "2_6" to listOf(
+                Subtopic(1, "GEMDAS", "topic_1.pdf"),
+            ),
+            "2_7" to listOf(
+                Subtopic(1, "Integers", "topic_1.pdf"),
+            ),
+            "2_8" to listOf(
+                Subtopic(1, "Number Line", "topic_1.pdf"),
+            ),
+            "2_9" to listOf(
+                Subtopic(
+                    1,
+                    "Adding and Subtracting of Integers using Algebra Tiles",
+                    "topic_1.pdf"
+                ),
+            ),
+            "2_10" to listOf(
+                Subtopic(
+                    1,
+                    "Multiplication, Division, Addition, and Subtraction of Integers",
+                    "topic_1.pdf"
+                ),
+            ),
+            "2_11" to listOf(
+                Subtopic(
+                    1,
+                    "Routine and Non-routine involving basic Operations of Integers",
+                    "topic_1.pdf"
+                ),
+            ),
+
+            // QUARTER 3
+            "3_1" to listOf(
+                Subtopic(1, "Planes and Solid Figures and its Features", "topic_1.pdf"),
+            ),
+            "3_2" to listOf(
+                Subtopic(1, "Formulating Rules for Sequence", "topic_1.pdf"),
+            ),
+            "3_3" to listOf(
+                Subtopic(1, "Expressions and Equations", "topic_1.pdf"),
+                Subtopic(2, "Translating Word Phrases into Algebraic Expressions", "topic_2.pdf"),
+                Subtopic(3, "Variable and Constant", "topic_3.pdf"),
+            ),
+            "3_4" to listOf(
+                Subtopic(1, "Algebraic Expression and Equation", "topic_1.pdf"),
+                Subtopic(2, "The Four Basic Rules for Solving an Equation", "topic_2.pdf"),
+            ),
+            "3_5" to listOf(
+                Subtopic(1, "Speed", "topic_1.pdf"),
+                Subtopic(2, "Distance and Time", "topic_2.pdf"),
+            ),
+            "3_6" to listOf(
+                Subtopic(1, "Strategies for Solving the area of Composite Figures", "topic_1.pdf"),
+            ),
+            "3_7" to listOf(
+                Subtopic(1, "Visualizing the Surface Area of a Solid Figure", "topic_1.pdf"),
+                Subtopic(2, "Surface Area of a Solid Figures", "topic_2.pdf"),
+            ),
+            "3_8" to listOf(
+                Subtopic(
+                    1,
+                    "Finding the Surface Area and Solving Word Problems Related to it",
+                    "topic_1.pdf"
+                ),
+            ),
+
+            // QUARTER 4
+            "4_1" to listOf(
+                Subtopic(
+                    1,
+                    "Understanding the Volume of Prisms, Pyramids, and Other 3D Shapes and Solving Word Problems Related to it",
+                    "topic_1.pdf"
+                ),
+            ),
+            "4_2" to listOf(
+                Subtopic(
+                    1,
+                    "Finds the Volume of a Cylinder, Pyramids, Cones, and Spheres, and Solves Routine and Non-routine Problems Related to it",
+                    "topic_1.pdf"
+                ),
+            ),
+            "4_3" to listOf(
+                Subtopic(1, "Electric Meter", "topic_1.pdf"),
+                Subtopic(2, "Water Meter", "topic_2.pdf"),
+                Subtopic(
+                    3,
+                    "Compute Water or Electric Meter Consumption for a Particular Period of Time",
+                    "topic_3.pdf"
+                ),
+            ),
+            "4_4" to listOf(
+                Subtopic(1, "Constructing Pie Graph", "topic_1.pdf"),
+            ),
+            "4_5" to listOf(
+                Subtopic(
+                    1,
+                    "Solving Routine and Non-routine Problems using Data Presented in a Pie Graph",
+                    "topic_1.pdf"
+                ),
+            ),
+            "4_6" to listOf(
+                Subtopic(1, "Probability", "topic_1.pdf"),
+            ),
+            "4_7" to listOf(
+                Subtopic(
+                    1,
+                    "Using Listing Outcomes, Tree Diagrams, and Table or Grid of Outcomes",
+                    "topic_1.pdf"
+                ),
+            ),
+            "4_8" to listOf(
+                Subtopic(1, "Simple Predictions of Events with Problem Solving", "topic_1.pdf"),
+            ),
+            "4_9" to listOf(
+                Subtopic(
+                    1,
+                    "Four-Step Plan used in Solving Experimental and Theoretical Probability",
+                    "topic_1.pdf"
+                ),
+            ),
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

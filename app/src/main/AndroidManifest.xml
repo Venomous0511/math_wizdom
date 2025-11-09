@@ -12,6 +12,42 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MathWizdomApp">
         <activity
+            android:name=".ActivityInstructionsFragment"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityResultFragment"
+            android:exported="false" />
+        <activity
+            android:name=".fragments.RoutineProblemFragment"
+            android:exported="false"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/Theme.MathWizdomApp"
+            tools:ignore="DiscouragedApi,Instantiatable" />
+        <activity
+            android:name=".fragments.DragDropFragment"
+            android:exported="false"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/Theme.MathWizdomApp"
+            tools:ignore="DiscouragedApi,Instantiatable" />
+        <activity
+            android:name=".fragments.MultipleChoiceFragment"
+            android:exported="false"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/Theme.MathWizdomApp"
+            tools:ignore="DiscouragedApi,Instantiatable" />
+        <activity
+            android:name=".ActivityDetailActivity"
+            android:exported="false"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/Theme.MathWizdomApp"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".ActivityActivity"
+            android:exported="false"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/Theme.MathWizdomApp"
+            tools:ignore="DiscouragedApi" />
+        <activity
             android:name=".TopicActivity"
             android:exported="false"
             android:screenOrientation="sensorLandscape"

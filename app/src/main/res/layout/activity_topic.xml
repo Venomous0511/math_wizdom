@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="LESSON 1 - TOPIC"
+                android:text="@string/LessonTopicTitle"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -88,7 +88,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="OBJECTIVE:"
+                    android:text="@string/objective"
                     android:textColor="@android:color/white"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -98,7 +98,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="After this lesson, you should be able to add and subtract simple fractions and mixed numbers, whether with regrouping or without regrouping."
+                    android:text="@string/ObjectiveDescription"
                     android:textColor="@android:color/white"
                     android:textSize="12sp" />
 

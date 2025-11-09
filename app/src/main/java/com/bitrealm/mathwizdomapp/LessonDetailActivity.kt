@@ -132,12 +132,11 @@ class LessonDetailActivity : AppCompatActivity(), NavigationView.OnNavigationIte
     }
 
     private fun navigateToActivity() {
-        Toast.makeText(this, "Activity for Lesson $lessonNumber - Coming soon", Toast.LENGTH_SHORT).show()
-        // TODO: Navigate to activity/quiz
-        // val intent = Intent(this, ActivityQuizActivity::class.java)
-        // intent.putExtra("QUARTER", quarter)
-        // intent.putExtra("LESSON_NUMBER", lessonNumber)
-        // startActivity(intent)
+        val intent = Intent(this, ActivityActivity::class.java)
+        intent.putExtra("USER_IDENTIFIER", userIdentifier)
+        intent.putExtra("QUARTER", quarter)
+        intent.putExtra("LESSON_NUMBER", lessonNumber)
+        startActivity(intent)
     }
 
     private fun loadUserData() {

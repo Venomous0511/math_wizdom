@@ -7,13 +7,13 @@ junitVersion = "1.3.0"
 espressoCore = "3.7.0"
 lifecycleRuntimeKtx = "2.9.4"
 activityCompose = "1.11.0"
-composeBom = "2025.10.01"
+composeBom = "2025.11.00"
 appcompat = "1.7.1"
 material = "1.13.0"
 activity = "1.11.0"
 constraintlayout = "2.2.1"
 
-splashscreen = "1.0.1"
+splashscreen = "1.2.0"
 
 # Room Database
 room = "2.8.3"
@@ -26,7 +26,7 @@ coilCompose = "2.7.0"
 coroutines = "1.10.2"
 
 # Navigation
-navigationCompose = "2.9.5"
+navigationCompose = "2.9.6"
 
 # PDF Viewer
 pdfviewer = "3.2.0-beta.3"

@@ -1,5 +1,6 @@
 package com.bitrealm.mathwizdomapp
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
@@ -46,7 +47,7 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         1 to 17,  // Quarter 1: 17 lessons
         2 to 11,  // Quarter 2: 11 lessons
         3 to 8,  // Quarter 3: 8 lessons
-        4 to 3   // Quarter 4: 3 lessons
+        4 to 9   // Quarter 4: 9 lessons
     )
 
     // Animal images for each quarter
@@ -92,6 +93,7 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         lessonsContainer = findViewById(R.id.lessonsContainer)
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setupUI() {
         tvTitle.text = "LESSON - QUARTER $quarter"
         ivAnimal.setImageResource(quarterAnimals[quarter] ?: R.drawable.cat)
@@ -127,6 +129,7 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         })
     }
 
+    @SuppressLint("SetTextI18n")
     private fun populateLessons() {
         val lessonCount = lessonCounts[quarter] ?: 3
 

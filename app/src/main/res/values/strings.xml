@@ -53,4 +53,23 @@
     <string name="activity">ACTIVITY</string>
     <string name="quarter_selection">Quarter Selection</string>
     <string name="topics">Similar and Dissimilar Fractions</string>
+    <string name="ActivitiesTitle">LESSON 1 - ACTIVITIES</string>
+    <string name="LessonTitle">LESSON 1</string>
+    <string name="LessonTopicTitle">LESSON 1 - TOPIC</string>
+    <string name="objective">OBJECTIVE:</string>
+    <string name="ObjectiveDescription">After this lesson, you should be able to add and subtract simple fractions and mixed numbers, whether with regrouping or without regrouping.</string>
+    <string name="settings">Settings</string>
+    <string name="example">Example:</string>
+    <string name="exampledescription">Fractions are similar if they have the same bottom number (denominator) and dissimilar if they have different bottom numbers.</string>
+    <string name="exampleviews">2/20 and 5/20</string>
+    <string name="similar">SIMILAR</string>
+    <string name="exampleview2">2/13 and 5/14</string>
+    <string name="dissimilar">DISSIMILAR</string>
+    <string name="directiondescription">Examine each pair of fractions and determine whether they are similar or dissimilar. Choose SIMILAR or DISSIMILAR for each pair.</string>
+    <string name="direction">Direction:</string>
+    <string name="titledescription">IDENTIFYING SIMILAR AND DISSIMILAR FRACTIONS</string>
+    <string name="title">Title:</string>
+    <string name="activity_1">ACTIVITY #1</string>
+    <string name="skip">Skip</string>
+    <string name="countdown">Starting in 10…</string>
 </resources>
