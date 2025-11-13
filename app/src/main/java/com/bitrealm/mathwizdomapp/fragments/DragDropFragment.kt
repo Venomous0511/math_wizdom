@@ -44,6 +44,7 @@ class DragDropFragment : Fragment() {
     private lateinit var columnBAdapter: ColumnBAdapter
 
     private val userAnswers = mutableMapOf<Int, String>()
+    private val availableAnswers = mutableListOf<String>()
 
     private val quarterAnimals = mapOf(
         1 to R.drawable.cat,
@@ -197,19 +198,45 @@ class DragDropFragment : Fragment() {
             .show()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun setupRecyclerViews() {
         // Column A - Problems with drop zones
         columnAAdapter = ColumnAAdapter(
             question.columnA,
             onDrop = { position, answer ->
+                // Remove from available answers when dropped
+                if (availableAnswers.contains(answer)) {
+                    availableAnswers.remove(answer)
+                    columnBAdapter.notifyDataSetChanged()
+                }
+
+                // If there was a previous answer, return it to Column B
+                userAnswers[position]?.let { previousAnswer ->
+                    if (previousAnswer != answer && previousAnswer != "Drop here") {
+                        availableAnswers.add(previousAnswer)
+                        columnBAdapter.notifyDataSetChanged()
+                    }
+                }
+
                 userAnswers[position] = answer
+            },
+            onRemove = { position ->
+                // Return answer to Column B when removed
+                userAnswers[position]?.let { answer ->
+                    if (answer != "Drop here") {
+                        availableAnswers.add(answer)
+                        columnBAdapter.notifyDataSetChanged()
+                    }
+                }
+                userAnswers.remove(position)
             }
         )
         rvColumnA.layoutManager = LinearLayoutManager(requireContext())
         rvColumnA.adapter = columnAAdapter
 
-        // Column B - Draggable answers
-        columnBAdapter = ColumnBAdapter(question.columnB)
+        // Column B - Draggable answers (initialize with all answers)
+        availableAnswers.addAll(question.columnB)
+        columnBAdapter = ColumnBAdapter(availableAnswers)
         rvColumnB.layoutManager = LinearLayoutManager(requireContext())
         rvColumnB.adapter = columnBAdapter
     }
@@ -261,7 +288,8 @@ class DragDropFragment : Fragment() {
     // Column A Adapter (Problems with drop zones)
     inner class ColumnAAdapter(
         private val problems: List<String>,
-        private val onDrop: (Int, String) -> Unit
+        private val onDrop: (Int, String) -> Unit,
+        private val onRemove: (Int) -> Unit
     ) : RecyclerView.Adapter<ColumnAAdapter.ViewHolder>() {
 
         inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -279,6 +307,24 @@ class DragDropFragment : Fragment() {
         @SuppressLint("SetTextI18n")
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             holder.tvProblem.text = problems[position]
+
+            // Display current answer if exists
+            val currentAnswer = userAnswers[position]
+            if (currentAnswer != null) {
+                holder.tvAnswer.text = currentAnswer
+                holder.tvAnswer.visibility = View.VISIBLE
+            } else {
+                holder.tvAnswer.text = "Drop here"
+                holder.tvAnswer.visibility = View.VISIBLE
+            }
+
+            // Allow clicking the answer to remove it
+            holder.tvAnswer.setOnClickListener {
+                if (userAnswers.containsKey(position)) {
+                    holder.tvAnswer.text = "Drop here"
+                    onRemove(position)
+                }
+            }
 
             // Setup drop zone
             holder.dropZone.setOnDragListener { v, event ->
@@ -335,6 +381,8 @@ class DragDropFragment : Fragment() {
 
         @SuppressLint("ClickableViewAccessibility")
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+            if (position >= answers.size) return
+
             val answer = answers[position]
             holder.tvAnswer.text = answer
 

@@ -81,37 +81,109 @@ class ActivityResultFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val tvScore = view.findViewById<TextView>(R.id.tvScore)
-        val tvPercentage = view.findViewById<TextView>(R.id.tvPercentage)
         val tvGradeMessage = view.findViewById<TextView>(R.id.tvGradeMessage)
-        val tvCorrect = view.findViewById<TextView>(R.id.tvCorrect)
-        val tvWrong = view.findViewById<TextView>(R.id.tvWrong)
+        val tvStar1 = view.findViewById<TextView>(R.id.tvStar1)
+        val tvStar2 = view.findViewById<TextView>(R.id.tvStar2)
+        val tvStar3 = view.findViewById<TextView>(R.id.tvStar3)
+        val tvStar4 = view.findViewById<TextView>(R.id.tvStar4)
+        val tvStar5 = view.findViewById<TextView>(R.id.tvStar5)
         val btnRetry = view.findViewById<MaterialButton>(R.id.btnRetry)
         val btnContinue = view.findViewById<MaterialButton>(R.id.btnContinue)
 
         // Calculate percentage
         val percentage = (correctAnswers.toFloat() / totalQuestions * 100).toInt()
 
-        // Display results
+        // Display score
         tvScore.text = "$correctAnswers / $totalQuestions"
-        tvPercentage.text = "$percentage%"
-        tvCorrect.text = correctAnswers.toString()
-        tvWrong.text = wrongAnswers.toString()
 
-        // Set grade message
-        tvGradeMessage.text = when {
-            percentage >= 100 -> "Excellent Work!"
-            percentage >= 90 -> "Great Job!"
-            percentage >= 80 -> "Good Effort!"
-            percentage >= 75 -> "Keep Practicing!"
-            else -> "Need More Practice"
+        // Determine star rating based on percentage
+        val stars = when {
+            percentage >= 100 -> 5  // 5 stars for 100%
+            percentage >= 80 -> 4  // 4 stars for 80-99%
+            percentage >= 60 -> 3  // 3 stars for 60-79%
+            percentage >= 40 -> 2  // 2 stars for 40-59%
+            percentage >= 20 -> 1  // 1 star for 20-39%
+            else -> 0              // 0 stars for below 20%
+        }
+
+        // Set star visibility and message
+        when (stars) {
+            5 -> {
+                tvStar1.text = "⭐"
+                tvStar2.text = "⭐"
+                tvStar3.text = "⭐"
+                tvStar4.text = "⭐"
+                tvStar5.text = "⭐"
+                tvGradeMessage.text = "Excellent Work!"
+            }
+            4 -> {
+                tvStar1.text = "⭐"
+                tvStar2.text = "⭐"
+                tvStar3.text = "⭐"
+                tvStar4.text = "⭐"
+                tvStar5.text = "☆"
+                tvStar5.alpha = 0.3f
+                tvGradeMessage.text = "Perfect!"
+            }
+            3 -> {
+                tvStar1.text = "⭐"
+                tvStar2.text = "⭐"
+                tvStar3.text = "⭐"
+                tvStar4.text = "☆"
+                tvStar4.alpha = 0.3f
+                tvStar5.text = "☆"
+                tvStar5.alpha = 0.3f
+                tvGradeMessage.text = "Nice Work!"
+            }
+            2 -> {
+                tvStar1.text = "⭐"
+                tvStar2.text = "⭐"
+                tvStar3.text = "☆"
+                tvStar3.alpha = 0.3f
+                tvStar4.text = "☆"
+                tvStar4.alpha = 0.3f
+                tvStar5.text = "☆"
+                tvStar5.alpha = 0.3f
+                tvGradeMessage.text = "Great Job!"
+            }
+            1 -> {
+                tvStar1.text = "⭐"
+                tvStar2.text = "☆"
+                tvStar2.alpha = 0.3f
+                tvStar3.text = "☆"
+                tvStar3.alpha = 0.3f
+                tvStar4.text = "☆"
+                tvStar4.alpha = 0.3f
+                tvStar5.text = "☆"
+                tvStar5.alpha = 0.3f
+                tvGradeMessage.text = "Good Effort!"
+            }
+            else -> {
+                tvStar1.text = "☆"
+                tvStar1.alpha = 0.3f
+                tvStar2.text = "☆"
+                tvStar2.alpha = 0.3f
+                tvStar3.text = "☆"
+                tvStar3.alpha = 0.3f
+                tvStar4.text = "☆"
+                tvStar4.alpha = 0.3f
+                tvStar5.text = "☆"
+                tvStar5.alpha = 0.3f
+                tvGradeMessage.text = "Keep Practicing!"
+            }
         }
 
         // Button listeners
         btnRetry.setOnClickListener {
-            // Restart the activity
-            val fragment = MultipleChoiceFragment.newInstance(
-                activity, userIdentifier, quarter, lessonNumber
-            )
+            // Restart the activity - check activity type
+            val fragment = when {
+                activity.questions.any { it is com.bitrealm.mathwizdomapp.models.Question.DragDrop } -> {
+                    DragDropFragment.newInstance(activity, userIdentifier, quarter, lessonNumber)
+                }
+                else -> {
+                    MultipleChoiceFragment.newInstance(activity, userIdentifier, quarter, lessonNumber)
+                }
+            }
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainer, fragment)
                 .commit()

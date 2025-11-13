@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_image">
 
     <!-- Top Bar -->
-
-    <!-- Progress Indicator -->
     <LinearLayout
         android:id="@+id/topBar"
         android:layout_width="0dp"
@@ -18,7 +15,6 @@
         android:orientation="horizontal"
         android:padding="5dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -60,6 +56,7 @@
 
     </LinearLayout>
 
+    <!-- Progress Indicator -->
     <TextView
         android:id="@+id/tvProgress"
         android:layout_width="wrap_content"
@@ -70,7 +67,7 @@
         android:paddingTop="4dp"
         android:paddingEnd="16dp"
         android:paddingBottom="4dp"
-        android:text="1 / 20"
+        android:text="1 / 5"
         android:textColor="#000000"
         android:textSize="14sp"
         android:textStyle="bold"
@@ -86,7 +83,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="32dp"
-        app:cardBackgroundColor="#000000"
+        app:cardBackgroundColor="#CC000000"
         app:cardCornerRadius="16dp"
         app:cardElevation="8dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -107,49 +104,19 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <!-- Answer Buttons Container -->
+    <!-- Answer Buttons Container (Horizontal) -->
     <LinearLayout
         android:id="@+id/layoutAnswers"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:gravity="center"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardQuestion">
-
-        <!-- Similar Button -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSimilar"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_marginEnd="16dp"
-            android:layout_weight="1"
-            android:text="Similar"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:backgroundTint="#4DD0E1"
-            app:cornerRadius="16dp" />
-
-        <!-- Dissimilar Button -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnDissimilar"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="16dp"
-            android:layout_weight="1"
-            android:text="Dissimilar"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:backgroundTint="#EF5350"
-            app:cornerRadius="16dp" />
-
-    </LinearLayout>
-
-    <!-- Example/Help Text -->
+        app:layout_constraintTop_toBottomOf="@id/cardQuestion" />
 
     <!-- Decorative Animal -->
     <ImageView

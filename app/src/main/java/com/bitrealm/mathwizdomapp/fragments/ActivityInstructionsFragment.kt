@@ -29,6 +29,7 @@ class ActivityInstructionsFragment : Fragment() {
     private lateinit var tvExample: TextView
     private lateinit var tvTimer: TextView
     private lateinit var ivAnimal: ImageView
+    private lateinit var btnStart: MaterialButton
 
     private val quarterAnimals = mapOf(
         1 to R.drawable.cat,
@@ -87,10 +88,10 @@ class ActivityInstructionsFragment : Fragment() {
         initViews(view)
         setupUI()
         setupListeners()
-        startCountdown()
     }
 
     private fun initViews(view: View) {
+        btnStart = view.findViewById(R.id.btnStart)
         btnSkip = view.findViewById(R.id.btnSkip)
         tvInstructionTitle = view.findViewById(R.id.tvInstructionTitle)
         tvTitleContent = view.findViewById(R.id.tvTitleContent)
@@ -127,6 +128,13 @@ class ActivityInstructionsFragment : Fragment() {
     }
 
     private fun setupListeners() {
+        btnStart.setOnClickListener {
+            btnStart.visibility = View.GONE
+            tvTimer.visibility = View.VISIBLE
+            btnSkip.visibility = View.VISIBLE
+            startCountdown()
+        }
+
         btnSkip.setOnClickListener {
             timer?.cancel()
             startActivity()
