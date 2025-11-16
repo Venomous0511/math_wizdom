@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bitrealm.mathwizdomapp.R
 import com.bitrealm.mathwizdomapp.models.Activity
 import com.bitrealm.mathwizdomapp.models.Question
+import com.bitrealm.mathwizdomapp.utils.MusicManager
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 
@@ -146,6 +147,16 @@ class DragDropFragment : Fragment() {
         setupUI()
         setupListeners()
         setupRecyclerViews()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        MusicManager.play()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        MusicManager.pause()
     }
 
     @SuppressLint("SetTextI18n")

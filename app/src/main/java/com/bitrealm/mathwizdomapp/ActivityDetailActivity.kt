@@ -19,6 +19,7 @@ import com.bitrealm.mathwizdomapp.fragments.MultipleChoiceFragment
 import com.bitrealm.mathwizdomapp.fragments.DragDropFragment
 import com.bitrealm.mathwizdomapp.fragments.RoutineProblemFragment
 import com.bitrealm.mathwizdomapp.models.ActivityType
+import com.bitrealm.mathwizdomapp.utils.MusicManager
 import com.google.android.material.navigation.NavigationView
 
 class ActivityDetailActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -47,6 +48,16 @@ class ActivityDetailActivity : AppCompatActivity(), NavigationView.OnNavigationI
         setupNavigationDrawer()
         setupBackPressHandler()
         loadActivityFragment()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        MusicManager.play()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        MusicManager.pause()
     }
 
     private fun initViews() {

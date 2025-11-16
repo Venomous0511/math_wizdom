@@ -21,7 +21,9 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.lifecycleScope
 import com.bitrealm.mathwizdomapp.database.AppDatabase
+import com.bitrealm.mathwizdomapp.dialogs.VolumeControlDialog
 import com.bitrealm.mathwizdomapp.repository.UserRepository
+import com.bitrealm.mathwizdomapp.utils.MusicManager
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.launch
@@ -40,7 +42,6 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
     private lateinit var userRepository: UserRepository
     private var userIdentifier: String = ""
     private var quarter: Int = 1
-    private var isSpeakerEnabled = true
 
     // Define lesson count per quarter
     private val lessonCounts = mapOf(
@@ -57,6 +58,26 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         3 to R.drawable.rat,
         4 to R.drawable.fox
     )
+
+    override fun onResume() {
+        super.onResume()
+        MusicManager.play()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        MusicManager.pause()
+    }
+
+    private fun updateVolumeIcon() {
+        btnSpeaker.setImageResource(
+            if (MusicManager.isMuted()) {
+                R.drawable.ic_volume_off
+            } else {
+                R.drawable.ic_volume_up
+            }
+        )
+    }
 
     // Quarter 1 Lesson Names
     private val quarter1LessonNames = listOf(
@@ -138,7 +159,6 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         setupNavigationDrawer()
         setupListeners()
         setupBackPressHandler()
-        loadSpeakerPreference()
         loadUserData()
         populateLessons()
     }
@@ -174,8 +194,14 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         }
 
         btnSpeaker.setOnClickListener {
-            toggleSpeaker()
+            showVolumeDialog()
         }
+    }
+
+    private fun showVolumeDialog() {
+        val dialog = VolumeControlDialog(this)
+        dialog.show()
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
     }
 
     private fun setupBackPressHandler() {
@@ -281,35 +307,6 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
                 println("Error loading user: ${e.message}")
             }
         }
-    }
-
-    private fun toggleSpeaker() {
-        isSpeakerEnabled = !isSpeakerEnabled
-
-        if (isSpeakerEnabled) {
-            btnSpeaker.setImageResource(R.drawable.ic_volume_up)
-            Toast.makeText(this, "Voice enabled", Toast.LENGTH_SHORT).show()
-        } else {
-            btnSpeaker.setImageResource(R.drawable.ic_volume_off)
-            Toast.makeText(this, "Voice disabled", Toast.LENGTH_SHORT).show()
-        }
-
-        saveSpeakerPreference(isSpeakerEnabled)
-    }
-
-    private fun saveSpeakerPreference(enabled: Boolean) {
-        val prefs = getSharedPreferences("app_prefs", MODE_PRIVATE)
-        prefs.edit { putBoolean("speaker_enabled", enabled) }
-    }
-
-    private fun loadSpeakerPreference() {
-        val prefs = getSharedPreferences("app_prefs", MODE_PRIVATE)
-        isSpeakerEnabled = prefs.getBoolean("speaker_enabled", true)
-
-        btnSpeaker.setImageResource(
-            if (isSpeakerEnabled) R.drawable.ic_volume_up
-            else R.drawable.ic_volume_off
-        )
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {

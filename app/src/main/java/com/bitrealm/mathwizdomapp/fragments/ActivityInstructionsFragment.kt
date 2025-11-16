@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import com.bitrealm.mathwizdomapp.R
 import com.bitrealm.mathwizdomapp.models.Activity
 import com.bitrealm.mathwizdomapp.models.ActivityType
+import com.bitrealm.mathwizdomapp.utils.MusicManager
 import com.google.android.material.button.MaterialButton
 
 class ActivityInstructionsFragment : Fragment() {
@@ -37,6 +38,16 @@ class ActivityInstructionsFragment : Fragment() {
         3 to R.drawable.dragon,
         4 to R.drawable.fox
     )
+
+    override fun onResume() {
+        super.onResume()
+        MusicManager.play()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        MusicManager.pause()
+    }
 
     companion object {
         private const val ARG_ACTIVITY = "activity"

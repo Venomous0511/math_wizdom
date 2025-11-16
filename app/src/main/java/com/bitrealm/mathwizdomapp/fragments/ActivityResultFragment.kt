@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.bitrealm.mathwizdomapp.R
 import com.bitrealm.mathwizdomapp.models.Activity
+import com.bitrealm.mathwizdomapp.utils.MusicManager
 import com.google.android.material.button.MaterialButton
 
 class ActivityResultFragment : Fragment() {
@@ -66,6 +67,16 @@ class ActivityResultFragment : Fragment() {
             quarter = it.getInt(ARG_QUARTER)
             lessonNumber = it.getInt(ARG_LESSON)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        MusicManager.play()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        MusicManager.pause()
     }
 
     override fun onCreateView(

@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bitrealm.mathwizdomapp.R
 import com.bitrealm.mathwizdomapp.models.Activity
 import com.bitrealm.mathwizdomapp.models.Question
+import com.bitrealm.mathwizdomapp.utils.MusicManager
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 
@@ -100,6 +101,16 @@ class WireMatchingFragment : Fragment() {
 
         val originalQuestion = activity.questions.filterIsInstance<Question.WireMatching>().first()
         question = selectRandomProblems(originalQuestion, QUESTIONS_TO_SHOW)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        MusicManager.play()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        MusicManager.pause()
     }
 
     private fun selectRandomProblems(

@@ -180,10 +180,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="@string/_099999999999"
                         android:textColor="?attr/colorPrimary"
                         android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:text="099999999999" />
 
                     <!-- Full Name Section -->
                     <LinearLayout
@@ -223,8 +223,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="@string/john_doe"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        tools:text="John Doe" />
 
                     <!-- Gender Section -->
                     <LinearLayout
@@ -250,9 +250,9 @@
                             android:id="@+id/tvGender"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/male"
                             android:textColor="?attr/colorPrimary"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            tools:text="Male" />
 
                     </LinearLayout>
 

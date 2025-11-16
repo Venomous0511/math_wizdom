@@ -19,6 +19,7 @@ import androidx.lifecycle.lifecycleScope
 import com.bitrealm.mathwizdomapp.database.AppDatabase
 import com.bitrealm.mathwizdomapp.database.entities.UserRole
 import com.bitrealm.mathwizdomapp.repository.UserRepository
+import com.bitrealm.mathwizdomapp.utils.MusicManager
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -61,6 +62,16 @@ class LoginActivity : AppCompatActivity() {
         setupToolbar()
         setupUI()
         setupListeners()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        MusicManager.play()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        MusicManager.pause()
     }
 
     private fun initViews() {

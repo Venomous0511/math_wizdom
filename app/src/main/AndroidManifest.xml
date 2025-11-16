@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MathWizdomApp">
         <activity
+            android:name=".dialogs.VolumeControlDialog"
+            android:exported="false" />
+        <activity
             android:name=".fragments.DrawingCanvasView"
             android:exported="false" />
         <activity
@@ -100,6 +103,7 @@
             tools:ignore="DiscouragedApi">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

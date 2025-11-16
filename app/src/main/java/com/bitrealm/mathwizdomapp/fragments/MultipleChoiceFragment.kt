@@ -18,6 +18,7 @@ import com.bitrealm.mathwizdomapp.models.Question
 import com.google.android.material.button.MaterialButton
 import androidx.core.graphics.toColorInt
 import android.widget.LinearLayout
+import com.bitrealm.mathwizdomapp.utils.MusicManager
 
 class MultipleChoiceFragment : Fragment() {
 
@@ -87,6 +88,16 @@ class MultipleChoiceFragment : Fragment() {
         // Always select 5 random questions
         val allQuestions = activity.questions.filterIsInstance<Question.MultipleChoice>()
         questions = allQuestions.shuffled().take(QUESTIONS_TO_SHOW).toMutableList()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        MusicManager.play()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        MusicManager.pause()
     }
 
     override fun onCreateView(

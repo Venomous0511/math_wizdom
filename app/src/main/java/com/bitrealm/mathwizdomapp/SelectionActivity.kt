@@ -6,15 +6,36 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import com.bitrealm.mathwizdomapp.utils.MusicManager
 import com.google.android.material.card.MaterialCardView
 
 class SelectionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Initialize music
+        MusicManager.init(this)
+
+        // Load music preference
+        val prefs = getSharedPreferences("app_prefs", MODE_PRIVATE)
+        val savedVolume = prefs.getFloat("music_volume", 0.5f)
+        MusicManager.setVolume(savedVolume)
+
+        MusicManager.play()
+
         setContentView(R.layout.selection_activity)
 
         setupImmersiveMode()
         setupRoleSelection()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        MusicManager.play()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        MusicManager.pause()
     }
 
     private fun setupImmersiveMode() {

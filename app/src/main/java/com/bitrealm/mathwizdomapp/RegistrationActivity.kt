@@ -23,6 +23,7 @@ import com.bitrealm.mathwizdomapp.database.entities.Gender
 import com.bitrealm.mathwizdomapp.database.entities.User
 import com.bitrealm.mathwizdomapp.database.entities.UserRole
 import com.bitrealm.mathwizdomapp.repository.UserRepository
+import com.bitrealm.mathwizdomapp.utils.MusicManager
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.textfield.TextInputEditText
@@ -84,6 +85,16 @@ class RegistrationActivity : AppCompatActivity() {
 
         // Check account limit on create
         checkAccountLimit()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        MusicManager.play()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        MusicManager.pause()
     }
 
     private fun initViews() {

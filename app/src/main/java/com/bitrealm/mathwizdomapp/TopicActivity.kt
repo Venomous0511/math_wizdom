@@ -24,8 +24,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.bitrealm.mathwizdomapp.adapters.SubtopicAdapter
 import com.bitrealm.mathwizdomapp.database.AppDatabase
+import com.bitrealm.mathwizdomapp.dialogs.VolumeControlDialog
 import com.bitrealm.mathwizdomapp.models.Subtopic
 import com.bitrealm.mathwizdomapp.repository.UserRepository
+import com.bitrealm.mathwizdomapp.utils.MusicManager
 import com.github.barteksc.pdfviewer.PDFView
 import com.github.barteksc.pdfviewer.util.FitPolicy
 import com.google.android.material.card.MaterialCardView
@@ -56,13 +58,32 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
     private var userIdentifier: String = ""
     private var quarter: Int = 1
     private var lessonNumber: Int = 1
-    private var isSpeakerEnabled = true
     private var isFullScreen = false
 
     // Store original constraints
     private val originalConstraints = ConstraintSet()
     private var currentPdfFileName: String = ""
     private var successfulPdfPath: String? = null
+
+    override fun onResume() {
+        super.onResume()
+        MusicManager.play()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        MusicManager.pause()
+    }
+
+    private fun updateVolumeIcon() {
+        btnSpeaker.setImageResource(
+            if (MusicManager.isMuted()) {
+                R.drawable.ic_volume_off
+            } else {
+                R.drawable.ic_volume_up
+            }
+        )
+    }
 
     companion object {
         private val quarterAnimals = mapOf(
@@ -340,7 +361,6 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         setupNavigationDrawer()
         setupListeners()
         setupBackPressHandler()
-        loadSpeakerPreference()
         loadUserData()
         setupSubtopics()
 
@@ -402,7 +422,7 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         }
 
         btnSpeaker.setOnClickListener {
-            toggleSpeaker()
+            showVolumeDialog()
         }
 
         btnPdfFullScreen.setOnClickListener {
@@ -412,6 +432,12 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         btnPdfMinimize.setOnClickListener {
             exitFullScreen()
         }
+    }
+
+    private fun showVolumeDialog() {
+        val dialog = VolumeControlDialog(this)
+        dialog.show()
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
     }
 
     private fun setupBackPressHandler() {
@@ -570,20 +596,6 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         }
     }
 
-    private fun toggleSpeaker() {
-        isSpeakerEnabled = !isSpeakerEnabled
-
-        if (isSpeakerEnabled) {
-            btnSpeaker.setImageResource(R.drawable.ic_volume_up)
-            Toast.makeText(this, getString(R.string.voice_enabled), Toast.LENGTH_SHORT).show()
-        } else {
-            btnSpeaker.setImageResource(R.drawable.ic_volume_off)
-            Toast.makeText(this, getString(R.string.voice_disabled), Toast.LENGTH_SHORT).show()
-        }
-
-        saveSpeakerPreference(isSpeakerEnabled)
-    }
-
     private fun enterFullScreen() {
         isFullScreen = true
         updateFullScreenButtons()
@@ -677,21 +689,6 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
             btnPdfFullScreen.visibility = View.VISIBLE
             btnPdfMinimize.visibility = View.GONE
         }
-    }
-
-    private fun saveSpeakerPreference(enabled: Boolean) {
-        val prefs = getSharedPreferences("app_prefs", MODE_PRIVATE)
-        prefs.edit { putBoolean("speaker_enabled", enabled) }
-    }
-
-    private fun loadSpeakerPreference() {
-        val prefs = getSharedPreferences("app_prefs", MODE_PRIVATE)
-        isSpeakerEnabled = prefs.getBoolean("speaker_enabled", true)
-
-        btnSpeaker.setImageResource(
-            if (isSpeakerEnabled) R.drawable.ic_volume_up
-            else R.drawable.ic_volume_off
-        )
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {

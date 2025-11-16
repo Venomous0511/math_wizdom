@@ -53,7 +53,7 @@
     <string name="activity">ACTIVITY</string>
     <string name="quarter_selection">Quarter Selection</string>
     <string name="topics">Similar and Dissimilar Fractions</string>
-=======
+    =======
     <string name="ActivitiesTitle">LESSON 1 - ACTIVITIES</string>
     <string name="LessonTitle">LESSON 1</string>
     <string name="LessonTopicTitle">LESSON 1 - TOPIC</string>
@@ -73,13 +73,13 @@
     <string name="activity_1">ACTIVITY #1</string>
     <string name="skip">Skip</string>
     <string name="countdown">Starting in 10…</string>
->>>>>>> 4ad503b453f88522accd4337dfcdb93bc97f0575
+    >>>>>>> 4ad503b453f88522accd4337dfcdb93bc97f0575
 
     <!-- New strings for TopicActivity -->
     <string name="toggle_fullscreen">Toggle fullscreen</string>
     <string name="lesson_topic">LESSON %d - TOPIC</string>
-=======
->>>>>>> 4ad503b453f88522accd4337dfcdb93bc97f0575
+    =======
+    >>>>>>> 4ad503b453f88522accd4337dfcdb93bc97f0575
     <string name="objective_lesson_1">After this lesson, you should be able to add and subtract simple fractions and mixed numbers, whether with regrouping or without regrouping.</string>
     <string name="objective_lesson_2">After this lesson, you should be able to relate fractions and ratios.</string>
     <string name="objective_lesson_3">After this lesson, you should be able to know a geometry of solid figures and its features.</string>

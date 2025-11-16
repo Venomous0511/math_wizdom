@@ -22,7 +22,9 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.lifecycleScope
 import com.bitrealm.mathwizdomapp.database.AppDatabase
 import com.bitrealm.mathwizdomapp.database.entities.User
+import com.bitrealm.mathwizdomapp.dialogs.VolumeControlDialog
 import com.bitrealm.mathwizdomapp.repository.UserRepository
+import com.bitrealm.mathwizdomapp.utils.MusicManager
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.launch
@@ -42,6 +44,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
     private lateinit var userRepository: UserRepository
     private var currentUser: User? = null
+    private var userIdentifier: String = ""
     private var isSpeakerEnabled = true
     private var selectedAvatarUri: Uri? = null
 
@@ -50,6 +53,16 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     ) { result ->
         if (result.resultCode == RESULT_OK) {
             result.data?.data?.let { uri ->
+                // Take persistable URI permission
+                try {
+                    contentResolver.takePersistableUriPermission(
+                        uri,
+                        Intent.FLAG_GRANT_READ_URI_PERMISSION
+                    )
+                } catch (e: Exception) {
+                    println("Could not take persistable permission: ${e.message}")
+                }
+
                 selectedAvatarUri = uri
                 ivAvatar.setImageURI(uri)
                 updateUserAvatar(uri.toString())
@@ -68,14 +81,35 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         userRepository = UserRepository(database.userDao())
 
         // Get user identifier from intent
-        val userIdentifier = intent.getStringExtra("USER_IDENTIFIER") ?: ""
+        userIdentifier = intent.getStringExtra("USER_IDENTIFIER") ?: ""
 
         initViews()
         setupNavigationDrawer()
         setupListeners()
         setupBackPressHandler()
         loadUserData(userIdentifier)
-        loadSpeakerPreference()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        MusicManager.play()
+        // Reload user data to ensure we have latest from database
+        loadUserData(userIdentifier)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        MusicManager.pause()
+    }
+
+    private fun updateVolumeIcon() {
+        btnSpeaker.setImageResource(
+            if (MusicManager.isMuted()) {
+                R.drawable.ic_volume_off
+            } else {
+                R.drawable.ic_volume_up
+            }
+        )
     }
 
     private fun initViews() {
@@ -89,6 +123,11 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         btnEditName = findViewById(R.id.btnEditName)
         tvFullName = findViewById(R.id.tvFullName)
         tvGender = findViewById(R.id.tvGender)
+
+        // Clear default text immediately
+        tvFullName.text = ""
+        tvLrnValue.text = ""
+        tvGender.text = ""
     }
 
     private fun setupNavigationDrawer() {
@@ -110,7 +149,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
         // Speaker toggle
         btnSpeaker.setOnClickListener {
-            toggleSpeaker()
+            showVolumeDialog()
         }
 
         // Edit avatar
@@ -122,6 +161,12 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         btnEditName.setOnClickListener {
             showEditNameDialog()
         }
+    }
+
+    private fun showVolumeDialog() {
+        val dialog = VolumeControlDialog(this)
+        dialog.show()
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
     }
 
     private fun setupBackPressHandler() {
@@ -139,99 +184,125 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     }
 
     private fun loadUserData(identifier: String) {
+        if (identifier.isEmpty()) {
+            Toast.makeText(this, "Invalid user identifier", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         lifecycleScope.launch {
             try {
-                currentUser = userRepository.getUserByIdentifier(identifier)
-                currentUser?.let { user ->
+                // Always fetch fresh data from database
+                val user = userRepository.getUserByIdentifier(identifier)
+
+                if (user == null) {
                     runOnUiThread {
-                        tvLrnValue.text = user.identifier
-                        tvFullName.text = user.fullName
-                        tvGender.text = user.gender.name.lowercase().replaceFirstChar { it.uppercase() }
-
-                        // Load avatar if exists
-                        user.avatarUri?.let { uri ->
-                            try {
-                                ivAvatar.setImageURI(uri.toUri())
-                            } catch (e: Exception) {
-                                // Keep default avatar
-                                println("Error loading avatar: ${e.message}")
-                            }
-                        }
-
-                        // Update navigation header
-                        val headerView = navigationView.getHeaderView(0)
-                        val navHeaderUserName = headerView.findViewById<TextView>(R.id.navHeaderUserName)
-                        navHeaderUserName.text = user.fullName
+                        Toast.makeText(
+                            this@DashboardActivity,
+                            "User not found",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
+                    return@launch
+                }
+
+                currentUser = user
+
+                runOnUiThread {
+                    tvLrnValue.text = user.identifier
+                    tvFullName.text = user.fullName
+                    tvGender.text = user.gender.name.lowercase().replaceFirstChar { it.uppercase() }
+
+                    // Load avatar if exists
+                    user.avatarUri?.let { uriString ->
+                        try {
+                            val uri = uriString.toUri()
+                            ivAvatar.setImageURI(uri)
+                            println("Avatar loaded successfully: $uriString")
+                        } catch (e: Exception) {
+                            println("Error loading avatar: ${e.message}")
+                            ivAvatar.setImageResource(R.drawable.ic_avatar_placeholder)
+                        }
+                    } ?: run {
+                        ivAvatar.setImageResource(R.drawable.ic_avatar_placeholder)
+                    }
+
+                    // Update navigation header
+                    val headerView = navigationView.getHeaderView(0)
+                    val navHeaderUserName = headerView.findViewById<TextView>(R.id.navHeaderUserName)
+                    navHeaderUserName.text = user.fullName
                 }
             } catch (e: Exception) {
                 runOnUiThread {
-                    Toast.makeText(this@DashboardActivity, "Error loading user data", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@DashboardActivity,
+                        "Error loading user data: ${e.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
                 println("Error loading user: ${e.message}")
+                e.printStackTrace()
             }
         }
     }
 
-    private fun toggleSpeaker() {
-        isSpeakerEnabled = !isSpeakerEnabled
-
-        if (isSpeakerEnabled) {
-            btnSpeaker.setImageResource(R.drawable.ic_volume_up)
-            Toast.makeText(this, "Voice enabled", Toast.LENGTH_SHORT).show()
-        } else {
-            btnSpeaker.setImageResource(R.drawable.ic_volume_off)
-            Toast.makeText(this, "Voice disabled", Toast.LENGTH_SHORT).show()
-        }
-
-        saveSpeakerPreference(isSpeakerEnabled)
-    }
-
-    private fun saveSpeakerPreference(enabled: Boolean) {
-        val prefs = getSharedPreferences("app_prefs", MODE_PRIVATE)
-        prefs.edit { putBoolean("speaker_enabled", enabled) }
-    }
-
-    private fun loadSpeakerPreference() {
-        val prefs = getSharedPreferences("app_prefs", MODE_PRIVATE)
-        isSpeakerEnabled = prefs.getBoolean("speaker_enabled", true)
-
-        btnSpeaker.setImageResource(
-            if (isSpeakerEnabled) R.drawable.ic_volume_up
-            else R.drawable.ic_volume_off
-        )
-    }
-
     private fun openImagePicker() {
-        val intent = Intent(Intent.ACTION_PICK)
-        intent.type = "image/*"
+        val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
+            addCategory(Intent.CATEGORY_OPENABLE)
+            type = "image/*"
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION)
+        }
         pickImageLauncher.launch(intent)
     }
 
     private fun updateUserAvatar(avatarUri: String) {
-        currentUser?.let { user ->
-            lifecycleScope.launch {
-                try {
-                    val updatedUser = user.copy(avatarUri = avatarUri)
-                    userRepository.updateUser(updatedUser)
-                    currentUser = updatedUser
+        lifecycleScope.launch {
+            try {
+                // Fetch the latest user data first
+                val latestUser = userRepository.getUserByIdentifier(userIdentifier)
 
+                if (latestUser == null) {
                     runOnUiThread {
                         Toast.makeText(
                             this@DashboardActivity,
-                            "Avatar updated successfully",
+                            "User not found",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
-                } catch (e: Exception) {
-                    runOnUiThread {
-                        Toast.makeText(
-                            this@DashboardActivity,
-                            "Failed to update avatar: ${e.message}",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
+                    return@launch
                 }
+
+                // Create updated user with new avatar
+                val updatedUser = latestUser.copy(
+                    avatarUri = avatarUri,
+                    updatedAt = System.currentTimeMillis()
+                )
+
+                // Update in database
+                userRepository.updateUser(updatedUser)
+
+                // Verify the update
+                val verifiedUser = userRepository.getUserByIdentifier(userIdentifier)
+                println("Avatar update verification - Saved URI: ${verifiedUser?.avatarUri}")
+
+                runOnUiThread {
+                    currentUser = updatedUser
+                    Toast.makeText(
+                        this@DashboardActivity,
+                        "Avatar updated successfully",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            } catch (e: Exception) {
+                runOnUiThread {
+                    Toast.makeText(
+                        this@DashboardActivity,
+                        "Failed to update avatar: ${e.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                println("Error updating avatar: ${e.message}")
+                e.printStackTrace()
             }
         }
     }
@@ -262,36 +333,56 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     }
 
     private fun updateUserName(newName: String) {
-        currentUser?.let { user ->
-            lifecycleScope.launch {
-                try {
-                    val updatedUser = user.copy(fullName = newName)
-                    userRepository.updateUser(updatedUser)
-                    currentUser = updatedUser
+        lifecycleScope.launch {
+            try {
+                // Fetch the latest user data first
+                val latestUser = userRepository.getUserByIdentifier(userIdentifier)
 
-                    runOnUiThread {
-                        tvFullName.text = newName
-
-                        // Update navigation header
-                        val headerView = navigationView.getHeaderView(0)
-                        val navHeaderUserName = headerView.findViewById<TextView>(R.id.navHeaderUserName)
-                        navHeaderUserName.text = newName
-
-                        Toast.makeText(
-                            this@DashboardActivity,
-                            "Name updated successfully",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                } catch (e: Exception) {
+                if (latestUser == null) {
                     runOnUiThread {
                         Toast.makeText(
                             this@DashboardActivity,
-                            "Failed to update name: ${e.message}",
+                            "User not found",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
+                    return@launch
                 }
+
+                // Create updated user with new name
+                val updatedUser = latestUser.copy(
+                    fullName = newName,
+                    updatedAt = System.currentTimeMillis()
+                )
+
+                // Update in database
+                userRepository.updateUser(updatedUser)
+
+                runOnUiThread {
+                    currentUser = updatedUser
+                    tvFullName.text = newName
+
+                    // Update navigation header
+                    val headerView = navigationView.getHeaderView(0)
+                    val navHeaderUserName = headerView.findViewById<TextView>(R.id.navHeaderUserName)
+                    navHeaderUserName.text = newName
+
+                    Toast.makeText(
+                        this@DashboardActivity,
+                        "Name updated successfully",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            } catch (e: Exception) {
+                runOnUiThread {
+                    Toast.makeText(
+                        this@DashboardActivity,
+                        "Failed to update name: ${e.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                println("Error updating name: ${e.message}")
+                e.printStackTrace()
             }
         }
     }

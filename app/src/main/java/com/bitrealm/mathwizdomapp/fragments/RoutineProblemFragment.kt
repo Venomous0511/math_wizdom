@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment
 import com.bitrealm.mathwizdomapp.R
 import com.bitrealm.mathwizdomapp.models.Activity
 import com.bitrealm.mathwizdomapp.models.Question
+import com.bitrealm.mathwizdomapp.utils.MusicManager
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.PlaybackException
@@ -110,6 +111,9 @@ class RoutineProblemFragment : Fragment() {
         initViews(view)
         setupListeners()
         initializePlayer()
+
+        // Pause music when video fragment loads
+        MusicManager.pauseForVideo()
     }
 
     @SuppressLint("SetTextI18n", "ClickableViewAccessibility")
@@ -194,10 +198,21 @@ class RoutineProblemFragment : Fragment() {
 
                 override fun onPlaybackStateChanged(playbackState: Int) {
                     when (playbackState) {
-                        Player.STATE_READY -> Log.d(TAG, "Player ready")
+                        Player.STATE_READY -> {
+                            Log.d(TAG, "Player ready")
+                            // Ensure music stays paused when video is ready
+                            MusicManager.pauseForVideo()
+                        }
                         Player.STATE_BUFFERING -> Log.d(TAG, "Buffering...")
                         Player.STATE_ENDED -> Log.d(TAG, "Playback ended")
                         Player.STATE_IDLE -> Log.d(TAG, "Player idle")
+                    }
+                }
+
+                override fun onIsPlayingChanged(isPlaying: Boolean) {
+                    if (isPlaying) {
+                        // Ensure music stays paused while video is playing
+                        MusicManager.pauseForVideo()
                     }
                 }
             })
@@ -291,6 +306,7 @@ class RoutineProblemFragment : Fragment() {
             .setTitle("Activity Completed")
             .setMessage("Great! You've watched the routine problem video.\n\nRemember to write your answers on paper for your teacher to check.")
             .setPositiveButton("OK") { _, _ ->
+                // Music will automatically resume when fragment is destroyed
                 requireActivity().finish()
             }
             .setCancelable(false)
@@ -302,6 +318,22 @@ class RoutineProblemFragment : Fragment() {
         if (player == null) {
             initializePlayer()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Keep music paused while in video fragment
+        MusicManager.pauseForVideo()
+
+        // Resume video playback if it was paused
+        player?.playWhenReady = true
+    }
+
+    override fun onPause() {
+        super.onPause()
+        // Pause video playback but don't resume music yet
+        player?.playWhenReady = false
+        // Don't resume music here - wait for fragment to be destroyed
     }
 
     override fun onStop() {
@@ -316,5 +348,8 @@ class RoutineProblemFragment : Fragment() {
         if (isFullscreen) {
             exitFullscreen()
         }
+
+        // Resume music when leaving video fragment
+        MusicManager.resumeAfterVideo()
     }
 }
