@@ -52,15 +52,15 @@
 
         </LinearLayout>
 
-        <!-- Quarter Cards Container -->
+        <!-- Quarter Cards Container - Centered with proper height -->
         <GridLayout
             android:id="@+id/gridQuarters"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
-            android:layout_marginBottom="60dp"
+            android:layout_marginBottom="32dp"
             android:columnCount="4"
             android:rowCount="1"
             android:alignmentMode="alignBounds"
@@ -69,7 +69,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/topBar">
+            app:layout_constraintTop_toBottomOf="@id/topBar">
 
             <!-- 1st Quarter Card -->
             <com.google.android.material.card.MaterialCardView
@@ -96,7 +96,7 @@
 
                     <ImageView
                         android:id="@+id/ivHorse"
-                        android:layout_width="128dp"
+                        android:layout_width="80dp"
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:contentDescription="@string/horse"
@@ -110,7 +110,7 @@
                         android:text="@string/_1st_quarter"
                         android:textAlignment="center"
                         android:textColor="@android:color/white"
-                        android:textSize="18sp"
+                        android:textSize="24sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -142,7 +142,7 @@
 
                     <ImageView
                         android:id="@+id/ivBird"
-                        android:layout_width="128dp"
+                        android:layout_width="80dp"
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:contentDescription="@string/bird"
@@ -156,7 +156,7 @@
                         android:text="@string/_2nd_quarter"
                         android:textAlignment="center"
                         android:textColor="@android:color/white"
-                        android:textSize="18sp"
+                        android:textSize="24sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -188,7 +188,7 @@
 
                     <ImageView
                         android:id="@+id/ivRat"
-                        android:layout_width="128dp"
+                        android:layout_width="80dp"
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:contentDescription="@string/rat"
@@ -202,7 +202,7 @@
                         android:text="@string/_3rd_quarter"
                         android:textAlignment="center"
                         android:textColor="@android:color/white"
-                        android:textSize="18sp"
+                        android:textSize="24sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -234,7 +234,7 @@
 
                     <ImageView
                         android:id="@+id/ivFox"
-                        android:layout_width="128dp"
+                        android:layout_width="80dp"
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:contentDescription="@string/fox"
@@ -248,7 +248,7 @@
                         android:text="@string/_4th_quarter"
                         android:textAlignment="center"
                         android:textColor="@android:color/white"
-                        android:textSize="18sp"
+                        android:textSize="24sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>

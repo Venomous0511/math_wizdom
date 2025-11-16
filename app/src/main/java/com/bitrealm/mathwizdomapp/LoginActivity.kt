@@ -39,10 +39,9 @@ class LoginActivity : AppCompatActivity() {
     private var userRole: UserRole = UserRole.STUDENT
     private var isLoading = false
 
-    // Constants for identifier limits
-    private companion object {
-        const val REQUIRED_IDENTIFIER_LENGTH = 12
-    }
+    // Different identifier lengths for student and teacher
+    private val studentIdentifierLength = 12
+    private val teacherIdentifierLength = 7
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -88,14 +87,14 @@ class LoginActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     private fun setupUI() {
         if (userRole == UserRole.STUDENT) {
-            toolbar.title = "Student Login"
+            toolbar.title = "Student"
             tvRoleEmoji.text = "👨‍🎓"
-            tvRoleTitle.text = "Student Login"
+            tvRoleTitle.text = "Student"
             tilIdentifier.hint = "LRN (Learner Reference No.)"
         } else {
-            toolbar.title = "Teacher Login"
+            toolbar.title = "Teacher"
             tvRoleEmoji.text = "👨‍🏫"
-            tvRoleTitle.text = "Teacher Login"
+            tvRoleTitle.text = "Teacher"
             tilIdentifier.hint = "Employee Number"
         }
 
@@ -107,19 +106,17 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun setupIdentifierRestrictions() {
-        // Set maximum length to 12 characters for both roles
-        val maxLengthFilter = InputFilter.LengthFilter(REQUIRED_IDENTIFIER_LENGTH)
+        // Set maximum length based on role
+        val maxLength = if (userRole == UserRole.STUDENT) studentIdentifierLength else teacherIdentifierLength
+        val maxLengthFilter = InputFilter.LengthFilter(maxLength)
         etIdentifier.filters = arrayOf(maxLengthFilter)
 
         // Allow only numbers for both roles
         etIdentifier.inputType = InputType.TYPE_CLASS_NUMBER
 
-        // Add counter
-        tilIdentifier.isCounterEnabled = true
-        tilIdentifier.counterMaxLength = REQUIRED_IDENTIFIER_LENGTH
-
-        // Set helper text
-        tilIdentifier.helperText = "Must be exactly $REQUIRED_IDENTIFIER_LENGTH digits"
+        // Remove counter and helper text to hide digit requirements
+        tilIdentifier.isCounterEnabled = false
+        tilIdentifier.helperText = null
     }
 
     private fun setupListeners() {
@@ -128,16 +125,9 @@ class LoginActivity : AppCompatActivity() {
             tilIdentifier.error = null
             tvError.visibility = View.GONE
 
-            // Show real-time feedback for both roles
-            val currentLength = text?.length ?: 0
-            if (currentLength > 0) {
-                val remaining = REQUIRED_IDENTIFIER_LENGTH - currentLength
-                if (remaining >= 0) {
-                    tilIdentifier.helperText = "$remaining digits remaining"
-                }
-            } else {
-                tilIdentifier.helperText = "Must be exactly $REQUIRED_IDENTIFIER_LENGTH digits"
-            }
+            // Remove real-time feedback to hide digit requirements
+            // Just clear helper text
+            tilIdentifier.helperText = null
         }
 
         btnSubmit.setOnClickListener {
@@ -162,12 +152,12 @@ class LoginActivity : AppCompatActivity() {
 
         btnSubmit.isEnabled = !isLoading && isValid
 
-        // Show error for invalid identifier length
-        if (identifier.isNotEmpty() && identifier.length != REQUIRED_IDENTIFIER_LENGTH) {
+        // Show error for invalid identifier length without revealing required digits
+        if (identifier.isNotEmpty() && !isValid) {
             if (userRole == UserRole.STUDENT) {
-                tilIdentifier.error = "LRN must be exactly $REQUIRED_IDENTIFIER_LENGTH digits"
+                tilIdentifier.error = "Please enter a valid LRN"
             } else {
-                tilIdentifier.error = "Employee number must be exactly $REQUIRED_IDENTIFIER_LENGTH digits"
+                tilIdentifier.error = "Please enter a valid employee number"
             }
         } else {
             tilIdentifier.error = null
@@ -175,17 +165,19 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun isValidIdentifier(identifier: String): Boolean {
-        // For both students and teachers: must be exactly 12 digits and contain only numbers
-        return identifier.length == REQUIRED_IDENTIFIER_LENGTH && identifier.matches(Regex("\\d+"))
+        val requiredLength = if (userRole == UserRole.STUDENT) studentIdentifierLength else teacherIdentifierLength
+
+        // Must be exactly the required digits and contain only numbers
+        return identifier.length == requiredLength && identifier.matches(Regex("\\d+"))
     }
 
     private fun onLoginClick(identifier: String) {
         // Validate identifier before proceeding
         if (!isValidIdentifier(identifier)) {
             if (userRole == UserRole.STUDENT) {
-                showError("LRN must be exactly $REQUIRED_IDENTIFIER_LENGTH digits")
+                showError("Please enter a valid LRN")
             } else {
-                showError("Employee number must be exactly $REQUIRED_IDENTIFIER_LENGTH digits")
+                showError("Please enter a valid employee number")
             }
             return
         }
@@ -242,7 +234,7 @@ class LoginActivity : AppCompatActivity() {
             btnSubmit.text = ""
             progressBar.visibility = View.VISIBLE
         } else {
-            btnSubmit.text = "Submit"
+            btnSubmit.text = "Submit" // Changed from "Login" to "Submit"
             progressBar.visibility = View.GONE
         }
     }

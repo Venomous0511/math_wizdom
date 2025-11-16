@@ -46,16 +46,77 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
     private val lessonCounts = mapOf(
         1 to 17,  // Quarter 1: 17 lessons
         2 to 11,  // Quarter 2: 11 lessons
-        3 to 8,  // Quarter 3: 8 lessons
-        4 to 9   // Quarter 4: 9 lessons
+        3 to 8,   // Quarter 3: 8 lessons
+        4 to 9    // Quarter 4: 9 lessons
     )
 
     // Animal images for each quarter
     private val quarterAnimals = mapOf(
         1 to R.drawable.cat,
         2 to R.drawable.bird,
-        3 to R.drawable.rat,  // Changed from dragon to rat to match your drawables
+        3 to R.drawable.rat,
         4 to R.drawable.fox
+    )
+
+    // Quarter 1 Lesson Names
+    private val quarter1LessonNames = listOf(
+        "Similar and dissimilar Fraction",
+        "Routine and Non-routine Problem",
+        "Multiplies simple fractions",
+        "Mathematical Phrases",
+        "Dividing Simple fractions",
+        "Some terms in Division",
+        "Rounding Off Decimals",
+        "Routine and Non-routine in Addition and Subtraction of Decimal",
+        "Multiplying Decimals",
+        "Multiplying Decimals by power of 10",
+        "Word problems involving multiplying decimals",
+        "STEPS TO UNDERSTAND AND SOLVE WORD PROBLEMS",
+        "Dividing Whole and Decimals Numbers",
+        "Dividing Decimals by 10",
+        "Rational and Irrational Number",
+        "Routine and Non-routine problems involving division of Decimal Numbers and Money",
+        "ROUTINE AND NON-ROUTINE INVOLVING ANY OF THE OPERATIONS INCLUDING AN DECIMALS, WHOLE NUMBERS, AND MONEY"
+    )
+
+    // Quarter 2 Lesson Names
+    private val quarter2LessonNames = listOf(
+        "Relating Fraction and Ratio",
+        "Proportion",
+        "Learning what is Percentage, Rate, and Base",
+        "Solving Discount, Original Price, Discount Rate, and Sale Price",
+        "Exponent and Base",
+        "Gemdas",
+        "Integers",
+        "Number Line",
+        "Adding and Subtracting of Integers using Algebra tiles",
+        "Multiplication, Division, Addition, and Subtraction of Integers",
+        "Routine and Non-routine involving basic Operations of Integers"
+    )
+
+    // Quarter 3 Lesson Names
+    private val quarter3LessonNames = listOf(
+        "Plane and Solid Figures and its Features (Geometry)",
+        "Formulating Rules for Sequence",
+        "Expressions and Equations",
+        "Algebraic Expression and Equation",
+        "Speed",
+        "Strategies for solving the area of composite figures",
+        "Visualizing the Surface Area of a Solid Figure",
+        "FINDING THE SURFACE AREA AND SOLVING WORD PROBLEMS RELATED TO IT"
+    )
+
+    // Quarter 4 Lesson Names
+    private val quarter4LessonNames = listOf(
+        "Understanding the Volume of Prisms, Pyramids, and other 3D shapes and solving word problems related to it",
+        "Finds the Volume of Cylinders, Pyramids, Cones, and Spheres, and Solves Routine and Non-Routine Problems Related to it",
+        "Electric Meter",
+        "CONSTRUCTING PIE GRAPH",
+        "Solving routine and non-routine problems using data presented in a pie graph",
+        "Probability",
+        "Using Listing Outcomes, Tree Diagrams, and Table or grid of Outcomes",
+        "SIMPLE PREDICTIONS OF EVENTS WITH PROBLEM SOLVING",
+        "FOUR-STEP PLAN USED IN SOLVING EXPERIMENTAL AND THEORETICAL PROBABILITY"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -134,14 +195,14 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         val lessonCount = lessonCounts[quarter] ?: 3
 
         for (i in 1..lessonCount) {
+            val lessonName = getLessonName(quarter, i)
             val button = MaterialButton(this).apply {
-                text = "LESSON $i"
-                textSize = 18f
+                text = lessonName
+                textSize = 14f // Slightly smaller text to fit longer lesson names
                 layoutParams = LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
-                    resources.getDimensionPixelSize(R.dimen.lesson_button_height)  // This will work now
+                    resources.getDimensionPixelSize(R.dimen.lesson_button_height)
                 ).apply {
-                    // Use the dimension resource safely
                     bottomMargin = resources.getDimensionPixelSize(R.dimen.lesson_button_margin)
                 }
                 gravity = Gravity.CENTER
@@ -149,6 +210,9 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
                 setTextColor(resources.getColor(android.R.color.white, theme))
                 cornerRadius = resources.getDimensionPixelSize(R.dimen.button_corner_radius)
                 elevation = 8f
+                isAllCaps = false // Disable all caps to preserve proper capitalization
+                maxLines = 2 // Allow text to wrap to 2 lines
+                lineHeight = (textSize * 1.2).toInt() // Adjust line height for better readability
 
                 setOnClickListener {
                     navigateToLessonDetail(i)
@@ -159,11 +223,46 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         }
     }
 
+    private fun getLessonName(quarter: Int, lessonNumber: Int): String {
+        return when (quarter) {
+            1 -> {
+                if (lessonNumber <= quarter1LessonNames.size) {
+                    quarter1LessonNames[lessonNumber - 1]
+                } else {
+                    "Lesson $lessonNumber"
+                }
+            }
+            2 -> {
+                if (lessonNumber <= quarter2LessonNames.size) {
+                    quarter2LessonNames[lessonNumber - 1]
+                } else {
+                    "Lesson $lessonNumber"
+                }
+            }
+            3 -> {
+                if (lessonNumber <= quarter3LessonNames.size) {
+                    quarter3LessonNames[lessonNumber - 1]
+                } else {
+                    "Lesson $lessonNumber"
+                }
+            }
+            4 -> {
+                if (lessonNumber <= quarter4LessonNames.size) {
+                    quarter4LessonNames[lessonNumber - 1]
+                } else {
+                    "Lesson $lessonNumber"
+                }
+            }
+            else -> "Lesson $lessonNumber"
+        }
+    }
+
     private fun navigateToLessonDetail(lessonNumber: Int) {
         val intent = Intent(this, LessonDetailActivity::class.java)
         intent.putExtra("USER_IDENTIFIER", userIdentifier)
         intent.putExtra("QUARTER", quarter)
         intent.putExtra("LESSON_NUMBER", lessonNumber)
+        intent.putExtra("LESSON_NAME", getLessonName(quarter, lessonNumber)) // Pass lesson name
         startActivity(intent)
     }
 

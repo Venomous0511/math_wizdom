@@ -468,7 +468,8 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
             println("Exception loading PDF: ${e.message}")
             e.printStackTrace()
             runOnUiThread {
-                Toast.makeText(this, "Error loading content: ${e.message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Error loading content: ${e.message}", Toast.LENGTH_LONG)
+                    .show()
             }
         }
     }
@@ -558,7 +559,8 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
                 user?.let {
                     runOnUiThread {
                         val headerView = navigationView.getHeaderView(0)
-                        val navHeaderUserName = headerView.findViewById<TextView>(R.id.navHeaderUserName)
+                        val navHeaderUserName =
+                            headerView.findViewById<TextView>(R.id.navHeaderUserName)
                         navHeaderUserName.text = it.fullName
                     }
                 }
@@ -601,10 +603,30 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         constraintSet.clear(pdfContainer.id)
 
         // Set PDF container to match parent
-        constraintSet.connect(pdfContainer.id, ConstraintSet.START, ConstraintSet.PARENT_ID, ConstraintSet.START)
-        constraintSet.connect(pdfContainer.id, ConstraintSet.END, ConstraintSet.PARENT_ID, ConstraintSet.END)
-        constraintSet.connect(pdfContainer.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP)
-        constraintSet.connect(pdfContainer.id, ConstraintSet.BOTTOM, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM)
+        constraintSet.connect(
+            pdfContainer.id,
+            ConstraintSet.START,
+            ConstraintSet.PARENT_ID,
+            ConstraintSet.START
+        )
+        constraintSet.connect(
+            pdfContainer.id,
+            ConstraintSet.END,
+            ConstraintSet.PARENT_ID,
+            ConstraintSet.END
+        )
+        constraintSet.connect(
+            pdfContainer.id,
+            ConstraintSet.TOP,
+            ConstraintSet.PARENT_ID,
+            ConstraintSet.TOP
+        )
+        constraintSet.connect(
+            pdfContainer.id,
+            ConstraintSet.BOTTOM,
+            ConstraintSet.PARENT_ID,
+            ConstraintSet.BOTTOM
+        )
 
         // Remove margins
         constraintSet.setMargin(pdfContainer.id, ConstraintSet.START, 0)
@@ -728,7 +750,8 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         WindowCompat.setDecorFitsSystemWindows(window, false)
         val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
         windowInsetsController.hide(WindowInsetsCompat.Type.systemBars())
-        windowInsetsController.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        windowInsetsController.systemBarsBehavior =
+            WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
     }
 
     private fun setupImmersiveMode() {
@@ -736,7 +759,8 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
         windowInsetsController.hide(WindowInsetsCompat.Type.statusBars())
         windowInsetsController.hide(WindowInsetsCompat.Type.navigationBars())
-        windowInsetsController.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        windowInsetsController.systemBarsBehavior =
+            WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
