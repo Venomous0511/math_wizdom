@@ -1,6 +1,10 @@
 package com.bitrealm.mathwizdomapp
 
+<<<<<<< HEAD
 import android.content.Context
+=======
+import android.annotation.SuppressLint
+>>>>>>> 4ad503b453f88522accd4337dfcdb93bc97f0575
 import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
@@ -47,7 +51,11 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         1 to 17,  // Quarter 1: 17 lessons
         2 to 11,  // Quarter 2: 11 lessons
         3 to 8,  // Quarter 3: 8 lessons
+<<<<<<< HEAD
         4 to 3   // Quarter 4: 3 lessons
+=======
+        4 to 9   // Quarter 4: 9 lessons
+>>>>>>> 4ad503b453f88522accd4337dfcdb93bc97f0575
     )
 
     // Animal images for each quarter
@@ -93,6 +101,10 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         lessonsContainer = findViewById(R.id.lessonsContainer)
     }
 
+<<<<<<< HEAD
+=======
+    @SuppressLint("SetTextI18n")
+>>>>>>> 4ad503b453f88522accd4337dfcdb93bc97f0575
     private fun setupUI() {
         tvTitle.text = "LESSON - QUARTER $quarter"
         ivAnimal.setImageResource(quarterAnimals[quarter] ?: R.drawable.cat)
@@ -128,6 +140,10 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         })
     }
 
+<<<<<<< HEAD
+=======
+    @SuppressLint("SetTextI18n")
+>>>>>>> 4ad503b453f88522accd4337dfcdb93bc97f0575
     private fun populateLessons() {
         val lessonCount = lessonCounts[quarter] ?: 3
 
@@ -158,7 +174,11 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
     }
 
     private fun navigateToLessonDetail(lessonNumber: Int) {
+<<<<<<< HEAD
         val intent = Intent(this, TopicActivity::class.java)  // Changed to TopicActivity
+=======
+        val intent = Intent(this, LessonDetailActivity::class.java)
+>>>>>>> 4ad503b453f88522accd4337dfcdb93bc97f0575
         intent.putExtra("USER_IDENTIFIER", userIdentifier)
         intent.putExtra("QUARTER", quarter)
         intent.putExtra("LESSON_NUMBER", lessonNumber)

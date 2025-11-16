@@ -28,7 +28,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="48dp"
+        android:paddingVertical="0dp"
+        android:paddingHorizontal="8dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <!-- Left Side - Icon and Info -->
@@ -116,11 +117,10 @@
                     android:id="@+id/etFullName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="48dp"
-                    android:contentDescription="@string/full_name"
                     android:imeOptions="actionDone"
                     android:inputType="textPersonName|textCapWords"
                     android:maxLines="1"
+                    android:minHeight="48dp"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white" />
 
@@ -247,13 +247,13 @@
             <Button
                 android:id="@+id/btnRegister"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="5dp"
-                android:text="@string/register"
-                android:textSize="12sp"
-                android:textColor="@color/white"
                 android:backgroundTint="@color/purple_500"
-                android:enabled="false" />
+                android:enabled="false"
+                android:text="@string/register"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
 
             <!-- Progress Bar (hidden by default) -->
             <ProgressBar

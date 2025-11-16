@@ -62,7 +62,7 @@
             android:shadowDx="2"
             android:shadowDy="2"
             android:shadowRadius="4"
-            android:text="LESSON 1"
+            android:text="@string/lesson_title"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="32sp"
@@ -87,6 +87,7 @@
 
         <!-- Buttons Container -->
         <LinearLayout
+            android:id="@+id/buttonsContainer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
