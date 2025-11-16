@@ -173,15 +173,16 @@
                             android:layout_height="wrap_content"
                             android:clickable="false"
                             android:focusable="false"
-                            android:buttonTint="@color/black" />
+                            android:buttonTint="@color/white" />
 
                         <TextView
+                            android:id="@+id/tvMale"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="0dp"
                             android:text="@string/male"
                             android:textSize="14sp"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/white" />
 
                     </LinearLayout>
 
@@ -215,15 +216,16 @@
                             android:layout_height="wrap_content"
                             android:clickable="false"
                             android:focusable="false"
-                            android:buttonTint="@color/black" />
+                            android:buttonTint="@color/white" />
 
                         <TextView
+                            android:id="@+id/tvFemale"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="0dp"
                             android:text="@string/female"
                             android:textSize="14sp"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/white" />
 
                     </LinearLayout>
 
@@ -264,13 +266,7 @@
                 android:visibility="gone"
                 android:indeterminateTint="@color/white" />
 
-            <TextView
-                android:id="@+id/tvIdentifierHint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/identifier_hint"
-                android:textColor="@color/white"
-                android:textSize="12sp" />
+            <!-- REMOVED: Identifier Hint TextView -->
 
         </LinearLayout>
 

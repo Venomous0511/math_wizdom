@@ -27,11 +27,7 @@ import com.bitrealm.mathwizdomapp.database.AppDatabase
 import com.bitrealm.mathwizdomapp.models.Subtopic
 import com.bitrealm.mathwizdomapp.repository.UserRepository
 import com.github.barteksc.pdfviewer.PDFView
-<<<<<<< HEAD
-import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle
-=======
 import com.github.barteksc.pdfviewer.util.FitPolicy
->>>>>>> 4ad503b453f88522accd4337dfcdb93bc97f0575
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.launch
@@ -66,31 +62,6 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
     // Store original constraints
     private val originalConstraints = ConstraintSet()
     private var currentPdfFileName: String = ""
-<<<<<<< HEAD
-
-    private val quarterAnimals = mapOf(
-        1 to R.drawable.cat,
-        2 to R.drawable.bird,
-        3 to R.drawable.rat,
-        4 to R.drawable.fox
-    )
-
-    // Define subtopics for each lesson
-    private val lessonSubtopics = mapOf(
-        "1_1" to listOf(
-            Subtopic(1, "Similar and Dissimilar Fractions", "topic1.pdf"),
-            Subtopic(2, "Add Simple and Mixed Fractions", "topic2.pdf"),
-            Subtopic(3, "Subtract Simple and Mixed Fractions", "topic3.pdf")
-        ),
-        "2_1" to listOf(
-            Subtopic(1, "Relating Fraction and Ratio", "topic1.pdf"),
-        ),
-        "3_1" to listOf(
-            Subtopic(1, "Planes and Solid Figures and its Features", "topic1.pdf"),
-        ),
-        "4_1" to listOf()
-    )
-=======
     private var successfulPdfPath: String? = null
 
     companion object {
@@ -348,7 +319,6 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
             ),
         )
     }
->>>>>>> 4ad503b453f88522accd4337dfcdb93bc97f0575
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -458,19 +428,13 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         })
     }
 
-<<<<<<< HEAD
-=======
     @SuppressLint("SetTextI18n")
->>>>>>> 4ad503b453f88522accd4337dfcdb93bc97f0575
     private fun setupSubtopics() {
         val lessonKey = "${quarter}_$lessonNumber"
         val subtopics = lessonSubtopics[lessonKey] ?: emptyList()
 
         subtopicAdapter = SubtopicAdapter(subtopics) { subtopic ->
-<<<<<<< HEAD
-=======
             successfulPdfPath = null
->>>>>>> 4ad503b453f88522accd4337dfcdb93bc97f0575
             loadPDF(subtopic.pdfFileName)
         }
 
@@ -489,67 +453,6 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         try {
             currentPdfFileName = fileName
 
-<<<<<<< HEAD
-            // Try multiple possible paths
-            val possiblePaths = listOf(
-                "quarter_$quarter/lesson_$lessonNumber/$fileName",
-                "quarter$quarter/lesson$lessonNumber/$fileName",
-                "quarter_$quarter/$fileName",
-                "pdfs/quarter_$quarter/lesson_$lessonNumber/$fileName",
-                "pdfs/$fileName",
-                fileName,
-                "sample.pdf"
-            )
-
-            var pdfLoaded = false
-
-            for (path in possiblePaths) {
-                try {
-                    println("Trying to load PDF from: $path")
-
-                    pdfView.fromAsset(path)
-                        .swipeHorizontal(true)
-                        .pageSnap(true)
-                        .autoSpacing(true)
-                        .pageFling(true)
-                        .scrollHandle(DefaultScrollHandle(this))
-                        .onError { error ->
-                            println("Failed to load from $path: ${error.message}")
-                        }
-                        .onLoad { nbPages ->
-                            println("SUCCESS: PDF loaded from $path - Pages: $nbPages")
-                            pdfLoaded = true
-                            runOnUiThread {
-                                Toast.makeText(this, "Content loaded successfully", Toast.LENGTH_SHORT).show()
-                            }
-                        }
-                        .load()
-
-                    if (pdfLoaded) {
-                        return
-                    }
-
-                } catch (e: Exception) {
-                    println("Exception with path $path: ${e.message}")
-                }
-            }
-
-            // If no PDF was loaded, show message
-            if (!pdfLoaded) {
-                runOnUiThread {
-                    Toast.makeText(this, "Content file not found: $fileName", Toast.LENGTH_LONG).show()
-                }
-            }
-
-        } catch (e: Exception) {
-            runOnUiThread {
-                Toast.makeText(this, "Error loading content", Toast.LENGTH_LONG).show()
-            }
-            println("Exception loading PDF: ${e.message}")
-        }
-    }
-
-=======
             // If we already found a working path, use it directly
             if (successfulPdfPath != null) {
                 loadPdfFromPath(successfulPdfPath!!, false)
@@ -565,7 +468,8 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
             println("Exception loading PDF: ${e.message}")
             e.printStackTrace()
             runOnUiThread {
-                Toast.makeText(this, "Error loading content: ${e.message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Error loading content: ${e.message}", Toast.LENGTH_LONG)
+                    .show()
             }
         }
     }
@@ -648,7 +552,6 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         tryNextPath()
     }
 
->>>>>>> 4ad503b453f88522accd4337dfcdb93bc97f0575
     private fun loadUserData() {
         lifecycleScope.launch {
             try {
@@ -656,7 +559,8 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
                 user?.let {
                     runOnUiThread {
                         val headerView = navigationView.getHeaderView(0)
-                        val navHeaderUserName = headerView.findViewById<TextView>(R.id.navHeaderUserName)
+                        val navHeaderUserName =
+                            headerView.findViewById<TextView>(R.id.navHeaderUserName)
                         navHeaderUserName.text = it.fullName
                     }
                 }
@@ -699,10 +603,30 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         constraintSet.clear(pdfContainer.id)
 
         // Set PDF container to match parent
-        constraintSet.connect(pdfContainer.id, ConstraintSet.START, ConstraintSet.PARENT_ID, ConstraintSet.START)
-        constraintSet.connect(pdfContainer.id, ConstraintSet.END, ConstraintSet.PARENT_ID, ConstraintSet.END)
-        constraintSet.connect(pdfContainer.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP)
-        constraintSet.connect(pdfContainer.id, ConstraintSet.BOTTOM, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM)
+        constraintSet.connect(
+            pdfContainer.id,
+            ConstraintSet.START,
+            ConstraintSet.PARENT_ID,
+            ConstraintSet.START
+        )
+        constraintSet.connect(
+            pdfContainer.id,
+            ConstraintSet.END,
+            ConstraintSet.PARENT_ID,
+            ConstraintSet.END
+        )
+        constraintSet.connect(
+            pdfContainer.id,
+            ConstraintSet.TOP,
+            ConstraintSet.PARENT_ID,
+            ConstraintSet.TOP
+        )
+        constraintSet.connect(
+            pdfContainer.id,
+            ConstraintSet.BOTTOM,
+            ConstraintSet.PARENT_ID,
+            ConstraintSet.BOTTOM
+        )
 
         // Remove margins
         constraintSet.setMargin(pdfContainer.id, ConstraintSet.START, 0)
@@ -826,7 +750,8 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         WindowCompat.setDecorFitsSystemWindows(window, false)
         val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
         windowInsetsController.hide(WindowInsetsCompat.Type.systemBars())
-        windowInsetsController.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        windowInsetsController.systemBarsBehavior =
+            WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
     }
 
     private fun setupImmersiveMode() {
@@ -834,7 +759,8 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
         windowInsetsController.hide(WindowInsetsCompat.Type.statusBars())
         windowInsetsController.hide(WindowInsetsCompat.Type.navigationBars())
-        windowInsetsController.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        windowInsetsController.systemBarsBehavior =
+            WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {

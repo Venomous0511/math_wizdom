@@ -12,6 +12,7 @@ import android.widget.ProgressBar
 import android.widget.RadioButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
@@ -41,6 +42,8 @@ class RegistrationActivity : AppCompatActivity() {
     private lateinit var cardFemale: MaterialCardView
     private lateinit var rbMale: RadioButton
     private lateinit var rbFemale: RadioButton
+    private lateinit var tvMale: TextView
+    private lateinit var tvFemale: TextView
     private lateinit var tvError: TextView
     private lateinit var btnRegister: Button
     private lateinit var progressBar: ProgressBar
@@ -77,6 +80,7 @@ class RegistrationActivity : AppCompatActivity() {
         setupToolbar()
         setupUI()
         setupListeners()
+        forceWhiteTextForGenderCards()
 
         // Check account limit on create
         checkAccountLimit()
@@ -94,6 +98,8 @@ class RegistrationActivity : AppCompatActivity() {
         cardFemale = findViewById(R.id.cardFemale)
         rbMale = findViewById(R.id.rbMale)
         rbFemale = findViewById(R.id.rbFemale)
+        tvMale = findViewById(R.id.tvMale)
+        tvFemale = findViewById(R.id.tvFemale)
         tvError = findViewById(R.id.tvError)
         btnRegister = findViewById(R.id.btnRegister)
         progressBar = findViewById(R.id.progressBar)
@@ -124,9 +130,7 @@ class RegistrationActivity : AppCompatActivity() {
         // Set character limit for full name
         setupCharacterLimit()
 
-        // Add identifier length requirement text - safely handle if view doesn't exist
-        val identifierHintText = getString(R.string.identifier_hint, REQUIRED_IDENTIFIER_LENGTH)
-        findViewById<TextView>(R.id.tvIdentifierHint)?.text = identifierHintText
+        // REMOVED: Identifier hint text setting
     }
 
     private fun setupCharacterLimit() {
@@ -199,28 +203,41 @@ class RegistrationActivity : AppCompatActivity() {
             Gender.MALE -> {
                 rbMale.isChecked = true
                 rbFemale.isChecked = false
-                cardMale.strokeColor = getColor(android.R.color.holo_blue_dark)
-                cardMale.setCardBackgroundColor(getColor(com.google.android.material.R.color.m3_sys_color_light_primary_container))
-                cardFemale.strokeColor = getColor(com.google.android.material.R.color.m3_sys_color_light_outline)
-                cardFemale.setCardBackgroundColor(getColor(com.google.android.material.R.color.m3_sys_color_light_surface))
+                cardMale.strokeColor = ContextCompat.getColor(this, android.R.color.holo_blue_dark)
+                cardMale.setCardBackgroundColor(ContextCompat.getColor(this, com.google.android.material.R.color.m3_sys_color_light_primary_container))
+                cardFemale.strokeColor = ContextCompat.getColor(this, com.google.android.material.R.color.m3_sys_color_light_outline)
+                cardFemale.setCardBackgroundColor(ContextCompat.getColor(this, com.google.android.material.R.color.m3_sys_color_light_surface))
             }
             Gender.FEMALE -> {
                 rbMale.isChecked = false
                 rbFemale.isChecked = true
-                cardFemale.strokeColor = getColor(android.R.color.holo_blue_dark)
-                cardFemale.setCardBackgroundColor(getColor(com.google.android.material.R.color.m3_sys_color_light_primary_container))
-                cardMale.strokeColor = getColor(com.google.android.material.R.color.m3_sys_color_light_outline)
-                cardMale.setCardBackgroundColor(getColor(com.google.android.material.R.color.m3_sys_color_light_surface))
+                cardFemale.strokeColor = ContextCompat.getColor(this, android.R.color.holo_blue_dark)
+                cardFemale.setCardBackgroundColor(ContextCompat.getColor(this, com.google.android.material.R.color.m3_sys_color_light_primary_container))
+                cardMale.strokeColor = ContextCompat.getColor(this, com.google.android.material.R.color.m3_sys_color_light_outline)
+                cardMale.setCardBackgroundColor(ContextCompat.getColor(this, com.google.android.material.R.color.m3_sys_color_light_surface))
             }
             null -> {
                 rbMale.isChecked = false
                 rbFemale.isChecked = false
-                cardMale.strokeColor = getColor(com.google.android.material.R.color.m3_sys_color_light_outline)
-                cardMale.setCardBackgroundColor(getColor(com.google.android.material.R.color.m3_sys_color_light_surface))
-                cardFemale.strokeColor = getColor(com.google.android.material.R.color.m3_sys_color_light_outline)
-                cardFemale.setCardBackgroundColor(getColor(com.google.android.material.R.color.m3_sys_color_light_surface))
+                cardMale.strokeColor = ContextCompat.getColor(this, com.google.android.material.R.color.m3_sys_color_light_outline)
+                cardMale.setCardBackgroundColor(ContextCompat.getColor(this, com.google.android.material.R.color.m3_sys_color_light_surface))
+                cardFemale.strokeColor = ContextCompat.getColor(this, com.google.android.material.R.color.m3_sys_color_light_outline)
+                cardFemale.setCardBackgroundColor(ContextCompat.getColor(this, com.google.android.material.R.color.m3_sys_color_light_surface))
             }
         }
+
+        // Always force white text regardless of selection state
+        forceWhiteTextForGenderCards()
+    }
+
+    private fun forceWhiteTextForGenderCards() {
+        // Force white text for gender labels
+        tvMale.setTextColor(ContextCompat.getColor(this, android.R.color.white))
+        tvFemale.setTextColor(ContextCompat.getColor(this, android.R.color.white))
+
+        // Force white radio button tint
+        rbMale.buttonTintList = android.content.res.ColorStateList.valueOf(ContextCompat.getColor(this, android.R.color.white))
+        rbFemale.buttonTintList = android.content.res.ColorStateList.valueOf(ContextCompat.getColor(this, android.R.color.white))
     }
 
     private fun validateForm() {

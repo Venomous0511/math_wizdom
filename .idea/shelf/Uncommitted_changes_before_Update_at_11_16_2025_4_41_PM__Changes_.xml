@@ -1,0 +1,43 @@
+<changelist name="Uncommitted_changes_before_Update_at_11_16_2025_4_41_PM_[Changes]" date="1763282509491" recycled="false" toDelete="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_16_2025_4_41_PM_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 11/16/2025 4:41 PM [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="app/release/baselineProfiles/1/app-release.dm" />
+    <option name="AFTER_PATH" value="app/release/baselineProfiles/1/app-release.dm" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_16_2025_4_41_PM_[Changes]/app-release.dm" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/src/main/assets/quarter_2/lesson_1/topic_1.pdf" />
+    <option name="AFTER_PATH" value="app/src/main/assets/quarter_2/lesson_1/topic_1.pdf" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_16_2025_4_41_PM_[Changes]/topic_1.pdf" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/release/baselineProfiles/0/app-release.dm" />
+    <option name="AFTER_PATH" value="app/release/baselineProfiles/0/app-release.dm" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_16_2025_4_41_PM_[Changes]/app-release1.dm" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/src/main/assets/quarter_1/lesson_1/topic_1.pdf" />
+    <option name="AFTER_PATH" value="app/src/main/assets/quarter_1/lesson_1/topic_1.pdf" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_16_2025_4_41_PM_[Changes]/topic_11.pdf" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/src/main/assets/quarter_3/lesson_1/topic_1.pdf" />
+    <option name="AFTER_PATH" value="app/src/main/assets/quarter_3/lesson_1/topic_1.pdf" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_16_2025_4_41_PM_[Changes]/topic_12.pdf" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/src/main/assets/quarter_1/lesson_1/topic_2.pdf" />
+    <option name="AFTER_PATH" value="app/src/main/assets/quarter_1/lesson_1/topic_2.pdf" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_16_2025_4_41_PM_[Changes]/topic_2.pdf" />
+  </binary>
+  <binary>
+    <option name="AFTER_PATH" value="app/src/main/assets/quarter_1/lesson_11/topic_1.pdf" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_16_2025_4_41_PM_[Changes]/topic_13.pdf" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="app/src/main/assets/quarter_1/lesson_1/topic_3.pdf" />
+    <option name="AFTER_PATH" value="app/src/main/assets/quarter_1/lesson_1/topic_3.pdf" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_16_2025_4_41_PM_[Changes]/topic_3.pdf" />
+  </binary>
+</changelist>
