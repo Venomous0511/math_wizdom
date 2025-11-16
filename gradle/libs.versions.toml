@@ -40,6 +40,9 @@ material-icons-extended = "1.7.8"
 # Drawer
 drawerlayout = "1.2.0"
 
+# Exo Player
+exoplayer = "2.19.1"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -95,6 +98,9 @@ androidx-compose-material-icons-extended = { group = "androidx.compose.material"
 
 # Drawer
 androidx-drawerlayout = { group = "androidx.drawerlayout", name = "drawerlayout", version.ref = "drawerlayout" }
+
+# Exo Player
+exoplayer = { group = "com.google.android.exoplayer", name = "exoplayer", version.ref = "exoplayer" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -48,9 +48,8 @@ class ActivityAdapter(
         return when (type) {
             ActivityType.MULTIPLE_CHOICE -> "Multiple Choice"
             ActivityType.DRAG_DROP -> "Drag & Drop"
-            // ActivityType.FILL_IN_BLANK -> "Fill in the Blank"
+            ActivityType.WIRE_MATCHING -> "Wire Matching"
             ActivityType.ROUTINE_PROBLEM -> "Routine Problem"
-            ActivityType.NON_ROUTINE_PROBLEM -> "Non-Routine Problem"
         }
     }
 }

@@ -175,11 +175,21 @@ class ActivityResultFragment : Fragment() {
 
         // Button listeners
         btnRetry.setOnClickListener {
-            // Restart the activity - check activity type
+            // Restart the activity based on question type
             val fragment = when {
+                // Check for Wire Matching
+                activity.questions.any { it is com.bitrealm.mathwizdomapp.models.Question.WireMatching } -> {
+                    WireMatchingFragment.newInstance(activity, userIdentifier, quarter, lessonNumber)
+                }
+                // Check for Drag and Drop
                 activity.questions.any { it is com.bitrealm.mathwizdomapp.models.Question.DragDrop } -> {
                     DragDropFragment.newInstance(activity, userIdentifier, quarter, lessonNumber)
                 }
+                // Check for Routine Problem
+                activity.questions.any { it is com.bitrealm.mathwizdomapp.models.Question.RoutineProblem } -> {
+                    RoutineProblemFragment.newInstance(activity, userIdentifier, quarter, lessonNumber)
+                }
+                // Default to Multiple Choice
                 else -> {
                     MultipleChoiceFragment.newInstance(activity, userIdentifier, quarter, lessonNumber)
                 }

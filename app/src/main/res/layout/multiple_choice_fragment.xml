@@ -99,7 +99,7 @@
             android:text="1/2 and 1/4"
             android:textAlignment="center"
             android:textColor="@android:color/white"
-            android:textSize="36sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
     </com.google.android.material.card.MaterialCardView>

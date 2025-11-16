@@ -34,7 +34,6 @@ class DragDropFragment : Fragment() {
     private lateinit var btnBack: ImageButton
     private lateinit var btnSettings: ImageButton
     private lateinit var tvActivityTitle: TextView
-    private lateinit var tvProgress: TextView
     private lateinit var rvColumnA: RecyclerView
     private lateinit var rvColumnB: RecyclerView
     private lateinit var btnSubmit: MaterialButton
@@ -154,14 +153,12 @@ class DragDropFragment : Fragment() {
         btnBack = view.findViewById(R.id.btnBack)
         btnSettings = view.findViewById(R.id.btnSettings)
         tvActivityTitle = view.findViewById(R.id.tvActivityTitle)
-        tvProgress = view.findViewById(R.id.tvProgress)
         rvColumnA = view.findViewById(R.id.rvColumnA)
         rvColumnB = view.findViewById(R.id.rvColumnB)
         btnSubmit = view.findViewById(R.id.btnSubmit)
         ivAnimal = view.findViewById(R.id.ivAnimal)
 
         tvActivityTitle.text = "ACTIVITY #${activity.activityNumber}"
-        tvProgress.text = "1 / 1" // Single question activity
         ivAnimal.setImageResource(quarterAnimals[quarter] ?: R.drawable.cat)
     }
 

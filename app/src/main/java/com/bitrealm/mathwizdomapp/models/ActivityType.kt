@@ -5,9 +5,8 @@ import java.io.Serializable
 enum class ActivityType {
     MULTIPLE_CHOICE,      // Similar/Dissimilar, True/False
     DRAG_DROP,           // Matching Type
-    // FILL_IN_BLANK,       // Text input
     ROUTINE_PROBLEM,     // Step-by-step solutions
-    NON_ROUTINE_PROBLEM  // Problem-solving
+    WIRE_MATCHING,       // Matching Type
 }
 
 data class Activity(
@@ -42,18 +41,22 @@ sealed class Question {
         val correctMatches: Map<Int, Int>
     ) : Question()
 
-//    data class FillInBlank(
-//        override val id: Int,
-//        override val text: String,
-//        override val imageUrl: String? = null,
-//        val correctAnswer: String
-//    ) : Question()
+    data class WireMatching(
+        override val id: Int,
+        override val text: String = "",
+        override val imageUrl: String? = null,
+        val columnA: List<String>,
+        val columnB: List<String>,
+        val correctMatches: Map<Int, Int>
+    ) : Question()
 
     data class RoutineProblem(
         override val id: Int,
-        override val text: String,
+        override val text: String = "",
         override val imageUrl: String? = null,
-        val steps: List<String>,
-        val finalAnswer: String
+        val videoFileName: String? = null,
+        val description: String = "",
+        val steps: List<String> = emptyList(),
+        val finalAnswer: String = ""
     ) : Question()
 }

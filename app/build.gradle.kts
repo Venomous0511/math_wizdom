@@ -86,6 +86,9 @@ dependencies {
     // Drawer
     implementation(libs.androidx.drawerlayout)
 
+    // Exo Player
+    implementation(libs.exoplayer)
+
     // Core Android dependencies
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
