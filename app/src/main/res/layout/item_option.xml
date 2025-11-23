@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.button.MaterialButton xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Widget.Material3.Button.OutlinedButton"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:minHeight="64dp"
+    android:padding="16dp"
+    android:text="Option"
+    android:textSize="16sp"
+    android:textColor="#FFFFFF"
+    android:gravity="start|center_vertical"
+    android:fontFamily="sans-serif"
+    app:strokeColor="#555555"
+    app:strokeWidth="2dp"
+    app:cornerRadius="12dp"
+    app:rippleColor="#FF9800" />

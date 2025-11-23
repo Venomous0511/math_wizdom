@@ -2339,7 +2339,7 @@ object ActivityDataProvider {
             Activity(
                 id = 2,
                 quarter = 1,
-                lessonNumber = 11,
+                lessonNumber = 12,
                 activityNumber = 2,
                 title = "Solve Multi-Step Problems, Involving Multiplying, Adding, or Subtracting Decimals, Mixed Decimals and Whole Numbers, such as those Related to Money",
                 type = ActivityType.ROUTINE_PROBLEM,

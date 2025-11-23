@@ -29,9 +29,8 @@ class SubtopicAdapter(
 
     override fun onBindViewHolder(holder: SubtopicViewHolder, position: Int) {
         val subtopic = subtopics[position]
-        holder.tvSubtopicName.text = subtopic.name
+        holder.tvSubtopicName.text = subtopic.title
 
-        // Highlight selected item
         if (position == selectedPosition) {
             holder.cardSubtopic.setCardBackgroundColor(
                 holder.itemView.context.getColor(R.color.lesson_button_selected)

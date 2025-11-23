@@ -23,8 +23,11 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.bitrealm.mathwizdomapp.adapters.SubtopicAdapter
+import com.bitrealm.mathwizdomapp.data.InteractiveLessonProvider
 import com.bitrealm.mathwizdomapp.database.AppDatabase
 import com.bitrealm.mathwizdomapp.dialogs.VolumeControlDialog
+import com.bitrealm.mathwizdomapp.fragments.InteractiveLessonFragment
+import com.bitrealm.mathwizdomapp.models.InteractiveLesson
 import com.bitrealm.mathwizdomapp.models.Subtopic
 import com.bitrealm.mathwizdomapp.repository.UserRepository
 import com.bitrealm.mathwizdomapp.utils.MusicManager
@@ -75,6 +78,7 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         MusicManager.pause()
     }
 
+    @Suppress("unused")
     private fun updateVolumeIcon() {
         btnSpeaker.setImageResource(
             if (MusicManager.isMuted()) {
@@ -83,6 +87,14 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
                 R.drawable.ic_volume_up
             }
         )
+    }
+
+    fun enterFragmentFullScreen() {
+        enterFullScreen()
+    }
+
+    fun exitFragmentFullScreen() {
+        exitFullScreen()
     }
 
     companion object {
@@ -459,25 +471,52 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         val lessonKey = "${quarter}_$lessonNumber"
         val subtopics = lessonSubtopics[lessonKey] ?: emptyList()
 
-        subtopicAdapter = SubtopicAdapter(subtopics) { subtopic ->
-            successfulPdfPath = null
-            loadPDF(subtopic.pdfFileName)
+        // Update subtopics with interactive lessons
+        val updatedSubtopics = subtopics.mapIndexed { index, subtopic ->
+            val interactiveLesson = InteractiveLessonProvider.getLesson(quarter, lessonNumber, index + 1)
+            subtopic.copy(interactiveLesson = interactiveLesson)
+        }
+
+        subtopicAdapter = SubtopicAdapter(updatedSubtopics) { subtopic ->
+            if (subtopic.interactiveLesson != null) {
+                // Show interactive lesson
+                loadInteractiveLesson(subtopic.interactiveLesson)
+            } else {
+                // Fallback to PDF
+                loadPDF(subtopic.pdfFileName)
+            }
         }
 
         rvSubtopics.adapter = subtopicAdapter
 
         // Load first subtopic by default
-        if (subtopics.isNotEmpty()) {
-            loadPDF(subtopics[0].pdfFileName)
-        } else {
-            // Show message if no subtopics available
-            tvObjective.text = "No content available for this lesson yet."
+        if (updatedSubtopics.isNotEmpty()) {
+            val firstSubtopic = updatedSubtopics[0]
+            if (firstSubtopic.interactiveLesson != null) {
+                loadInteractiveLesson(firstSubtopic.interactiveLesson)
+            } else {
+                loadPDF(firstSubtopic.pdfFileName)
+            }
         }
     }
 
-    private fun loadPDF(fileName: String) {
+    private fun loadInteractiveLesson(lesson: InteractiveLesson) {
+        // Hide PDF view
+        pdfView.visibility = View.GONE
+
+        // Show interactive lesson fragment IN pdfContainer (not lessonContainer)
+        val fragment = InteractiveLessonFragment.newInstance(lesson)
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.pdfContainer, fragment)
+            .commit()
+    }
+
+    private fun loadPDF(fileName: String?) {
         try {
-            currentPdfFileName = fileName
+            if (fileName != null) {
+                currentPdfFileName = fileName
+            }
 
             // If we already found a working path, use it directly
             if (successfulPdfPath != null) {
@@ -689,6 +728,9 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
             btnPdfFullScreen.visibility = View.VISIBLE
             btnPdfMinimize.visibility = View.GONE
         }
+
+        val fragment = supportFragmentManager.findFragmentById(R.id.pdfContainer) as? InteractiveLessonFragment
+        fragment?.updateFullScreenButtons(isFullScreen)
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
