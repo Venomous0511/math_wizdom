@@ -2,6 +2,7 @@ package com.bitrealm.mathwizdomapp.data
 
 import com.bitrealm.mathwizdomapp.models.InteractiveLesson
 import com.bitrealm.mathwizdomapp.models.Slide
+import com.bitrealm.mathwizdomapp.R
 
 object InteractiveLessonProvider {
 
@@ -24,28 +25,36 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Welcome!",
-                    content = "In this lesson, you will learn about Similar and Dissimilar Fractions.\n\nYou'll understand how to identify them by looking at their denominators."
+                    content = "In this lesson, you will learn about Similar and Dissimilar Fractions.\n\nYou'll understand how to identify them by looking at their DENOMINATORS."
                 ),
 
                 Slide.ConceptSlide(
                     id = 2,
+                    title = "What is a Fraction?",
+                    content = "Fractions play a big role in our daily lives. \n\nEverything we do is part of our tasks or goals for the day. \n\nWithout realizing it, you add up the parts of your day to see what you’ve completed.",
+                    keyPoints = emptyList(),
+                    imageResourceId = R.drawable.fraction_pieces
+                ),
+
+                Slide.ConceptSlide(
+                    id = 3,
                     title = "What are Similar Fractions?",
-                    content = "Similar fractions are fractions that have the SAME DENOMINATOR (bottom number).",
+                    content = "Fractions are similar if they have the same bottom number (denominator).",
                     keyPoints = listOf(
-                        "Look at the bottom numbers",
-                        "If they are the same = SIMILAR",
-                        "Example: 2/5 and 3/5"
+                        "Look at their bottom numbers (Denominator)",
+                        "If they the are same = SIMILAR",
+                        "Example : ⅖ and ⅗"
                     )
                 ),
 
                 Slide.ExampleSlide(
-                    id = 3,
+                    id = 4,
                     title = "Example 1: Similar",
-                    problem = "Are 2/5 and 3/5 similar or dissimilar?",
+                    problem = "Are ⅖ and ⅗ similar or dissimilar?",
                     steps = listOf(
                         "Step 1: Look at the denominators",
-                        "First fraction: 2/5 → denominator is 5",
-                        "Second fraction: 3/5 → denominator is 5",
+                        "First fraction: ⅖ → denominator is 5",
+                        "Second fraction: ⅗ → denominator is 5",
                         "Step 2: Compare them",
                         "5 = 5 (They are the same!)"
                     ),
@@ -53,24 +62,24 @@ object InteractiveLessonProvider {
                 ),
 
                 Slide.ConceptSlide(
-                    id = 4,
+                    id = 5,
                     title = "What are Dissimilar Fractions?",
-                    content = "Dissimilar fractions are fractions that have DIFFERENT DENOMINATORS.",
+                    content = "Fractions are dissimilar if they have the different bottom number (denominator).",
                     keyPoints = listOf(
-                        "Look at the bottom numbers",
-                        "If they are different = DISSIMILAR",
-                        "Example: 1/4 and 2/3"
+                        "Look at their bottom numbers (Denominator)",
+                        "If they the are different = DISSIMILAR",
+                        "Example : ½ and ⅔"
                     )
                 ),
 
                 Slide.ExampleSlide(
-                    id = 5,
+                    id = 6,
                     title = "Example 2: Dissimilar",
-                    problem = "Are 1/4 and 2/3 similar or dissimilar?",
+                    problem = "Are ¼ and ⅔ similar or dissimilar?",
                     steps = listOf(
                         "Step 1: Look at the denominators",
-                        "First fraction: 1/4 → denominator is 4",
-                        "Second fraction: 2/3 → denominator is 3",
+                        "First fraction: ¼ → denominator is 4",
+                        "Second fraction: ⅔ → denominator is 3",
                         "Step 2: Compare them",
                         "4 ≠ 3 (They are different!)"
                     ),
@@ -78,30 +87,28 @@ object InteractiveLessonProvider {
                 ),
 
                 Slide.PracticeSlide(
-                    id = 6,
-                    question = "Are 3/8 and 5/8 similar or dissimilar?",
+                    id = 7,
+                    question = "Are ⅜ and ⅛ similar or dissimilar?",
                     options = listOf("Similar", "Dissimilar"),
                     correctAnswer = 0,
                     explanation = "Correct! Both fractions have denominator 8, so they are SIMILAR."
                 ),
 
                 Slide.PracticeSlide(
-                    id = 7,
-                    question = "Are 2/7 and 3/9 similar or dissimilar?",
+                    id = 8,
+                    question = "Are ¼  and ½  similar or dissimilar?",
                     options = listOf("Similar", "Dissimilar"),
                     correctAnswer = 1,
-                    explanation = "Correct! The denominators are 7 and 9 (different), so they are DISSIMILAR."
+                    explanation = "Correct! The denominators are 4 and 2 (different), so they are DISSIMILAR."
                 ),
 
                 Slide.SummarySlide(
-                    id = 8,
+                    id = 9,
                     title = "Summary",
                     keyPoints = listOf(
-                        "SIMILAR fractions = SAME denominator",
-                        "DISSIMILAR fractions = DIFFERENT denominators",
-                        "Always look at the BOTTOM number",
-                        "Example Similar: 2/5 and 3/5",
-                        "Example Dissimilar: 1/4 and 2/3"
+                        "Fractions play a big role in our daily lives.",
+                        "Similar Fractions have the same denominator, like ⅔ and ⅓.",
+                        "Dissimilar Fractions have different denominators, like ¼ and ½.",
                     )
                 )
             )
@@ -112,21 +119,21 @@ object InteractiveLessonProvider {
     private fun getQuarter1Lesson1Subtopic2(): InteractiveLesson {
         return InteractiveLesson(
             id = 2,
-            title = "Add Simple and Mixed Fractions",
+            title = " Add Simple and Mixed Fractions with Regrouping or without Regrouping.",
             slides = listOf(
                 Slide.IntroSlide(
                     id = 1,
-                    title = "Adding Fractions",
-                    content = "Learn how to add fractions with the same denominator (similar fractions)."
+                    title = "Hi there!!",
+                    content = "In this topic, you will learn how to add fractions."
                 ),
 
                 Slide.ConceptSlide(
                     id = 2,
-                    title = "Rule for Adding Similar Fractions",
-                    content = "When fractions have the SAME denominator:\n\n1. Add the numerators (top numbers)\n2. Keep the denominator the same",
+                    title = "ADD SIMPLE FRACTIONS",
+                    content = "When you add simple fractions that are similar, just add the top numbers (numerators) and keep the same bottom number (denominator). Then simplify the fractions after that.",
                     keyPoints = listOf(
-                        "Same denominator = Just add tops",
-                        "Keep bottom number same",
+                        "Same Denominator = Just add their Numerator",
+                        "Keep the Denominator.",
                         "Formula: a/c + b/c = (a+b)/c"
                     )
                 ),
@@ -134,64 +141,100 @@ object InteractiveLessonProvider {
                 Slide.ExampleSlide(
                     id = 3,
                     title = "Example: Adding Similar Fractions",
-                    problem = "Add: 2/5 + 1/5 = ?",
+                    problem = "Add: ⅖ + ⅕ = ?",
                     steps = listOf(
-                        "Step 1: Check denominators (5 and 5 - same!)",
-                        "Step 2: Add numerators: 2 + 1 = 3",
-                        "Step 3: Keep denominator: 5",
-                        "Step 4: Write answer: 3/5"
+                        "Step 1: Check their Denominators (5 and 5, they are the same!)",
+                        "Step 2: Add numerators: 2+1 = 3",
+                        "Step 3: Keep the denominator.",
+                        "Step 4: Write the answer with the numerator and denominator based on your computation."
                     ),
-                    answer = "3/5"
+                    answer = "⅗"
                 ),
 
                 Slide.PracticeSlide(
                     id = 4,
-                    question = "What is 3/8 + 2/8?",
-                    options = listOf("5/8", "5/16", "6/8", "3/8"),
+                    question = "What is ⅜ + ²⁄₈?",
+                    options = listOf("⅝", "⅛", "¼", "½"),
                     correctAnswer = 0,
                     explanation = "Correct! Add numerators: 3 + 2 = 5. Keep denominator: 8. Answer: 5/8"
                 ),
 
                 Slide.ConceptSlide(
                     id = 5,
-                    title = "Adding Mixed Numbers",
-                    content = "Mixed numbers have a whole number and a fraction.\n\nExample: 2 1/4\n\nTo add mixed numbers:\n1. Add whole numbers\n2. Add fractions\n3. Combine results",
+                    title = "ADD DISSIMILAR FRACTIONS",
+                    content = "To add dissimilar fractions, first change them into similar fractions by finding equivalent fractions.",
                     keyPoints = listOf(
-                        "Add whole numbers separately",
-                        "Add fractions separately",
-                        "Combine at the end"
+                        "Find their Least Common Denominator (LCD)",
                     )
                 ),
 
                 Slide.ExampleSlide(
                     id = 6,
-                    title = "Example: Adding Mixed Numbers",
-                    problem = "Add: 2 1/4 + 1 2/4 = ?",
+                    title = "Example: Adding Dissimilar Fractions",
+                    problem = "Add: ⅓ + ⅙ = ?",
                     steps = listOf(
-                        "Step 1: Add whole numbers: 2 + 1 = 3",
-                        "Step 2: Add fractions: 1/4 + 2/4 = 3/4",
-                        "Step 3: Combine: 3 + 3/4",
-                        "Answer: 3 3/4"
+                        "Step 1: Find their LCD, it’s 6",
+                        "Step 2: Change their equivalent fractions.\n" +
+                                "6 ÷ 3 = 2 → multiply both 1 and 3 by 2 → ⅓ = 2/6\n" +
+                                "6 ÷ 6 = 1 → multiply both 1 and 6 by 1 → ⅙ = 1/6\n",
+                        "Step 3: ²⁄₆ and ⅙ are now SIMILAR",
+                        "Step 4: Now solve it, as how we solve the similar fraction earlier.",
                     ),
-                    answer = "3 3/4"
+                    answer = "³⁄₆"
+                ),
+
+                Slide.ConceptSlide(
+                    id = 7,
+                    title = "If any chance the result is an improper fraction, change it into a mixed numbers.",
+                    content = "Example: ³⁴⁄₂₁ → 1 ¹³⁄₂₁",
+                    keyPoints = listOf(
+                        "Why?",
+                        "How many 21 does 34 have? 1",
+                        "34 - 21 = 13",
+                        "So, the mixed number of 34/21 is 1 13/21.",
+                    ),
+                ),
+
+                Slide.ConceptSlide(
+                    id = 8,
+                    title = "ADD MIXED FRACTIONS",
+                    content = "If you know how to add similar and dissimilar fractions, you can easily add mixed numbers too. Just add the whole numbers together and then add the fraction parts.",
+                    keyPoints = listOf(
+                        "Add their whole numbers.",
+                        "Add their fractions.",
+                        "Write your answer by combining the answer of whole numbers and fractions.",
+                    ),
+                ),
+
+                Slide.ExampleSlide(
+                    id = 9,
+                    title = "Example: Adding Mixed Fractions",
+                    problem = "Add: 3 ⅖ + 1 ⅕ = ?",
+                    steps = listOf(
+                        "Step 1: Add the whole numbers. \n3 + 1 = 4",
+                        "Step 2: Add the fractions.\n ⅖ + ⅕ = ⅗",
+                        "Step 3: Combine the whole number and the fractions.\n 4 + ⅗ = 4 ⅗",
+                        "Step 4: The answer is 4 ⅗",
+                    ),
+                    answer = "4 ⅗"
                 ),
 
                 Slide.PracticeSlide(
-                    id = 7,
-                    question = "What is 1 2/5 + 2 1/5?",
-                    options = listOf("3 3/5", "3 2/5", "4 3/5", "3 1/5"),
-                    correctAnswer = 0,
-                    explanation = "Correct! Whole: 1+2=3. Fractions: 2/5+1/5=3/5. Answer: 3 3/5"
+                    id = 10,
+                    question = "What is 5 ⅖ + 2 ⅕ ?",
+                    options = listOf("⅗", "3 ⅗", "7 ⅗", "9"),
+                    correctAnswer = 2,
+                    explanation = "Correct answer is 7 ⅗"
                 ),
 
                 Slide.SummarySlide(
-                    id = 8,
-                    title = "Key Points",
+                    id = 11,
+                    title = "Summary:",
                     keyPoints = listOf(
-                        "Similar fractions: Add tops, keep bottom",
-                        "Mixed numbers: Add wholes + Add fractions",
-                        "Always keep denominator same",
-                        "Simplify if possible"
+                        "Adding Similar Fractions – \nSame denominator: add the numerators, keep the denominator.",
+                        "Adding Dissimilar Fractions – \nDifferent denominators: find the LCD, convert to equivalent fractions, then add.",
+                        "Mixed Fractions – \nAdd whole numbers first, then add fractions. \nConvert improper fractions to mixed numbers if needed.",
+                        "Key Tip: Always simplify the answer and check denominators!",
                     )
                 )
             )
@@ -202,21 +245,21 @@ object InteractiveLessonProvider {
     private fun getQuarter1Lesson1Subtopic3(): InteractiveLesson {
         return InteractiveLesson(
             id = 3,
-            title = "Subtract Simple and Mixed Fractions",
+            title = "Subtract Simple and Mixed Fractions with Regrouping or without Regrouping",
             slides = listOf(
                 Slide.IntroSlide(
                     id = 1,
-                    title = "Subtracting Fractions",
-                    content = "Learn how to subtract fractions with the same denominator."
+                    title = "Hellooo!!",
+                    content = "In this topic, you will learn how to subtract fractions."
                 ),
 
                 Slide.ConceptSlide(
                     id = 2,
-                    title = "Rule for Subtracting Similar Fractions",
-                    content = "When fractions have the SAME denominator:\n\n1. Subtract the numerators\n2. Keep the denominator the same",
+                    title = "SUBTRACT SIMPLE FRACTIONS",
+                    content = "When you subtract simple fractions that are similar, just subtract the top numbers (numerators) and keep the same bottom number (denominator). Then simplify the fractions after that.",
                     keyPoints = listOf(
-                        "Same denominator = Subtract tops",
-                        "Keep bottom number same",
+                        "Same Denominator= Just subtract their Numerator",
+                        "Keep the Denominator.",
                         "Formula: a/c - b/c = (a-b)/c"
                     )
                 ),
@@ -224,31 +267,120 @@ object InteractiveLessonProvider {
                 Slide.ExampleSlide(
                     id = 3,
                     title = "Example: Subtracting Similar Fractions",
-                    problem = "Subtract: 5/8 - 2/8 = ?",
+                    problem = "Add: ⅖ - ⅕ = ?",
                     steps = listOf(
-                        "Step 1: Check denominators (8 and 8 - same!)",
-                        "Step 2: Subtract numerators: 5 - 2 = 3",
-                        "Step 3: Keep denominator: 8",
-                        "Answer: 3/8"
+                        "Step 1: Check their Denominators (5 and 5, they are the same!)",
+                        "Step 2: Subtract numerators: 2-1 = 1",
+                        "Step 3: Keep the denominator",
+                        "Step 4: Write the answer with the numerator and denominator based on your computation."
                     ),
-                    answer = "3/8"
+                    answer = "⅕"
                 ),
 
                 Slide.PracticeSlide(
                     id = 4,
-                    question = "What is 7/10 - 3/10?",
-                    options = listOf("4/10", "4/20", "10/10", "3/10"),
+                    question = "What is ⅜ - ²⁄₈?",
+                    options = listOf("⅛", "½", "¼", "⅓"),
                     correctAnswer = 0,
-                    explanation = "Correct! Subtract numerators: 7 - 3 = 4. Keep denominator: 10. Answer: 4/10 (or 2/5 simplified)"
+                    explanation = "Correct answer is ⅛",
+                ),
+
+                Slide.ConceptSlide(
+                    id = 5,
+                    title = "SUBTRACT DISSIMILAR FRACTIONS",
+                    content = "To subtract dissimilar fractions, first change them into similar fractions by finding equivalent fractions.",
+                    keyPoints = listOf(
+                        "Find their Least Common Denominator (LCD)",
+                    )
+                ),
+
+                Slide.ExampleSlide(
+                    id = 6,
+                    title = "Example: Subtracting Dissimilar Fractions",
+                    problem = "Subtract: ¾ + ⅖ = ?",
+                    steps = listOf(
+                        "Step 1: Find their LCD, it’s 20",
+                        "Step 2: Change their equivalent fractions \n20 ÷ 4 = 5 → multiply both 3 and 4 by 5 → ¾ = ¹⁵⁄₂₀ \n20 ÷ 5 = 4 → multiply both 2 and 5 by 4 → ⅖ = ⁸⁄₂₀",
+                        "Step 3: ¹⁵⁄₂₀ and ⁸⁄₂₀ are now SIMILAR",
+                        "Step 4: Now solve it, as how we solve the similar fraction earlier."
+                    ),
+                    answer = "²³⁄₂₀"
+                ),
+
+                Slide.ConceptSlide(
+                    id = 7,
+                    title = "If any chance the result is an improper fraction, change it into a mixed numbers.",
+                    content = "Example: ³⁴⁄₂₁ → 1 ¹³⁄₂₁",
+                    keyPoints = listOf(
+                        "Why?",
+                        "How many 21 does 34 have? 1",
+                        "34 - 21 = 13",
+                        "So, the mixed number of ³⁴⁄₂₁ is 1 ¹³⁄₂₁",
+                    )
+                ),
+
+                Slide.ConceptSlide(
+                    id = 8,
+                    title = "SUBTRACT MIXED FRACTIONS",
+                    content = "If you know how to subtract similar and dissimilar fractions, you can easily subtract mixed numbers too. Just subtract the whole numbers together and then subtract the fraction parts.",
+                    keyPoints = listOf(
+                        "Subtract their whole numbers.",
+                        "Subtract their fractions.",
+                        "Write your answer by combining the answer of the subtraction of whole numbers and fractions.",
+                    )
+                ),
+
+                Slide.ExampleSlide(
+                    id = 9,
+                    title = "Example: Subtracting Mixed Fractions",
+                    problem = "Subtract: 3 ⅖ - 1 ⅕ = ?",
+                    steps = listOf(
+                        "Step 1: Subtract the whole numbers. \n3 - 1 = 2",
+                        "Step 2: Add the fractions. \n⅖ - ⅕ = ⅕",
+                        "Step 3: Combine the whole number and the fractions. \n2 + ⅕  = 2 ⅕",
+                        "Step 4: The answer is 2 ⅕"
+                    ),
+                    answer = "2 ⅕"
+                ),
+
+                Slide.PracticeSlide(
+                    id = 10,
+                    question = "What is 5 ⅖ - 2 ⅕ ?",
+                    options = listOf("3 ⅕", "3 ⅗", "7 ⅗", "7"),
+                    correctAnswer = 0,
+                    explanation = "Correct answer is 3 ⅕",
+                ),
+
+                Slide.ConceptSlide(
+                    id = 11,
+                    title = "Example: 5 ⅑ - 3 ⁴⁄₉ X",
+                    content = "Sometimes, you can’t subtract the fraction parts because the minuend is smaller than the subtrahend. When this happens, you can use regrouping. Regrouping means you borrow one from the whole number to make the minuend fraction larger than the subtrahend fraction.",
+                    keyPoints = emptyList(),
+                ),
+
+                Slide.ExampleSlide(
+                    id = 12,
+                    title = "Example: 5 ⅑ - 3 ⁴⁄₉ = ?",
+                    problem = "5 ⅑ - 3 ⁴⁄₉ = ?",
+                    steps = listOf(
+                        "Step 1: Check the fraction parts. Since ⅑ (minuend) is smaller than ⁴⁄₉ (subtrahend). You need to borrow from the whole number.",
+                        "Step 2: Borrow 1 from 5, 5 becomes 4",
+                        "Step 3: Convert the borrowed 1 to a fraction with the same denominator as the minuend: 1 = ⁹⁄₉",
+                        "Step 4: Then add ⁹⁄₉ to ⅑ = ¹⁰⁄₉",
+                        "Step 5: Subtract 5 ¹⁰⁄₉ and 3 ⁴⁄₉ = 2 ⁶⁄₉ or 2 ⅔"
+                    ),
+                    answer = "2 ⁶⁄₉ or 2 ⅔"
                 ),
 
                 Slide.SummarySlide(
-                    id = 5,
+                    id = 13,
                     title = "Remember",
                     keyPoints = listOf(
-                        "Similar fractions: Subtract tops, keep bottom",
-                        "Same rule as addition, but subtract instead",
-                        "Always check if you can simplify"
+                        "Similar Fractions: Subtract numerators, keep denominator.",
+                        "Dissimilar Fractions: Find LCD, convert, then subtract.",
+                        "Improper Fractions: Convert to mixed numbers if numerator > denominator.",
+                        "Mixed Numbers: Subtract whole numbers and fractions, then Combine.",
+                        "Regrouping: Borrow 1 from the whole if fraction part is smaller; \nadjust fractions and subtract.",
                     )
                 )
             )

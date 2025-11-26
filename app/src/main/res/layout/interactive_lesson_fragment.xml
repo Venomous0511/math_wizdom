@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1A1A1A"
+    android:background="@drawable/background_lesson"
     tools:context=".fragments.InteractiveLessonFragment">
 
     <!-- Progress Bar -->
@@ -56,7 +56,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="24dp"
         android:text="Slide 1 of 5"
-        android:textColor="#999999"
+        android:textColor="#FFFFFFFF"
         android:textSize="12sp"
         android:fontFamily="sans-serif-medium"
         app:layout_constraintEnd_toEndOf="parent"
@@ -88,7 +88,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="16dp"
-        app:cardBackgroundColor="#252525"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="20dp"
         app:cardElevation="12dp"
         app:strokeWidth="0dp"
@@ -97,20 +97,46 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvSlideTitle">
 
-        <ScrollView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="24dp"
-            android:scrollbars="none"
-            tools:ignore="SpeakableTextPresentCheck">
+            android:layout_height="match_parent">
 
-            <LinearLayout
-                android:id="@+id/slideContentContainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" />
+            <!-- Content ScrollView -->
+            <ScrollView
+                android:id="@+id/scrollContent"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:padding="24dp"
+                android:paddingEnd="16dp"
+                android:scrollbars="none"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/imgCharacter"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpeakableTextPresentCheck,RtlSymmetry">
 
-        </ScrollView>
+                <LinearLayout
+                    android:id="@+id/slideContentContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+            </ScrollView>
+
+            <!-- Character Image on Right Side -->
+            <ImageView
+                android:id="@+id/imgCharacter"
+                android:layout_width="180dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="character image"
+                android:scaleType="fitEnd"
+                android:src="@drawable/girl_lesson"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -140,6 +166,7 @@
             android:textColor="#FFFFFF"
             android:fontFamily="sans-serif-medium"
             app:strokeColor="#555555"
+            app:backgroundTint="#FF9800"
             app:strokeWidth="2dp"
             app:cornerRadius="16dp"
             app:icon="@drawable/ic_arrow_back"
@@ -156,6 +183,8 @@
             android:fontFamily="sans-serif-medium"
             app:backgroundTint="#FF9800"
             app:cornerRadius="16dp"
+            app:icon="@drawable/ic_arrow_forward"
+            app:iconTint="#FFFFFF"
             app:iconGravity="end" />
 
     </LinearLayout>

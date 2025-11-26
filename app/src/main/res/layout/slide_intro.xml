@@ -13,7 +13,7 @@
         android:gravity="center"
         android:text="Intro content here"
         android:textAlignment="center"
-        android:textColor="#EEEEEE"
+        android:textColor="#000000"
         android:textSize="18sp"
         android:lineSpacingExtra="8dp"
         android:fontFamily="sans-serif-light" />

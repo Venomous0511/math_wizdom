@@ -23,7 +23,7 @@ sealed class Slide : Serializable {
         val title: String,
         val content: String,
         val keyPoints: List<String> = emptyList(),
-        val imageRes: Int? = null
+        val imageResourceId: Int? = null
     ) : Slide()
 
     data class ExampleSlide(

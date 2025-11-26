@@ -9,7 +9,7 @@
     android:padding="16dp"
     android:text="Option"
     android:textSize="16sp"
-    android:textColor="#FFFFFF"
+    android:textColor="#000000"
     android:gravity="start|center_vertical"
     android:fontFamily="sans-serif"
     app:strokeColor="#555555"

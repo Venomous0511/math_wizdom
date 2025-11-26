@@ -1,10 +1,12 @@
 package com.bitrealm.mathwizdomapp.fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -60,8 +62,23 @@ class InteractiveLessonFragment : Fragment() {
         return inflater.inflate(R.layout.interactive_lesson_fragment, container, false)
     }
 
+    private fun setupCharacterImage() {
+        val characterImg = view?.findViewById<ImageView>(R.id.imgCharacter)
+
+        // Array of your character drawables
+        val characters = arrayOf(
+            R.drawable.girl_lesson,
+            R.drawable.boy_lesson,
+        )
+
+        // Pick random character
+        val randomCharacter = characters.random()
+        characterImg?.setImageResource(randomCharacter)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupCharacterImage()
 
         initViews(view)
         setupListeners()
@@ -147,6 +164,15 @@ class InteractiveLessonFragment : Fragment() {
 
         view.findViewById<TextView>(R.id.tvContent).text = slide.content
 
+        // Load image if available
+        val imageView = view.findViewById<ImageView>(R.id.ivSlideImage)
+        if (slide.imageResourceId != null) {
+            imageView.setImageResource(slide.imageResourceId)
+            imageView.visibility = View.VISIBLE
+        } else {
+            imageView.visibility = View.GONE
+        }
+        
         // Add key points
         val keyPointsContainer = view.findViewById<ViewGroup>(R.id.keyPointsContainer)
         slide.keyPoints.forEach { point ->
@@ -162,6 +188,7 @@ class InteractiveLessonFragment : Fragment() {
         slideContentContainer.addView(view)
     }
 
+    @SuppressLint("UseKtx", "SetTextI18n")
     private fun renderExampleSlide(slide: Slide.ExampleSlide) {
         tvSlideTitle.text = slide.title
 
@@ -216,8 +243,9 @@ class InteractiveLessonFragment : Fragment() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun renderPracticeSlide(slide: Slide.PracticeSlide) {
-        tvSlideTitle.text = "Practice"
+        tvSlideTitle.text = "Practice Time!!"
 
         val view = LayoutInflater.from(context).inflate(
             R.layout.slide_practice,
@@ -306,6 +334,7 @@ class InteractiveLessonFragment : Fragment() {
         slideContentContainer.addView(view)
     }
 
+    @SuppressLint("SetTextI18n")
     private fun updateNavigationButtons() {
         btnPrevious.isEnabled = currentSlideIndex > 0
         btnNext.isEnabled = currentSlideIndex < lesson.slides.size - 1
@@ -317,6 +346,7 @@ class InteractiveLessonFragment : Fragment() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun updateProgress() {
         tvProgress.text = "Slide ${currentSlideIndex + 1} of ${lesson.slides.size}"
 
