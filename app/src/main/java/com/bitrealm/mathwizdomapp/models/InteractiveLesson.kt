@@ -15,7 +15,7 @@ sealed class Slide : Serializable {
         override val id: Int,
         val title: String,
         val content: String,
-        val imageRes: Int? = null
+        val imageResourceId: Int? = null
     ) : Slide()
 
     data class ConceptSlide(
@@ -32,7 +32,7 @@ sealed class Slide : Serializable {
         val problem: String,
         val steps: List<String>,
         val answer: String,
-        val imageRes: Int? = null
+        val imageResourceId: Int? = null
     ) : Slide()
 
     data class PracticeSlide(
