@@ -184,6 +184,6 @@ Have questions or want to get in touch?
 
 **Made with ❤️ for math learners everywhere**
 
-[⬆ Back to Top](#)
+[⬆ Back to Top](https://github.com/Venomous0511/math_wizdom)
 
 </div>
