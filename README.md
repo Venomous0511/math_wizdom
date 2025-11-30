@@ -184,6 +184,6 @@ Have questions or want to get in touch?
 
 **Made with ❤️ for math learners everywhere**
 
-[⬆ Back to Top](#-math-wizdom)
+[⬆ Back to Top](#math_wizdom)
 
 </div>
