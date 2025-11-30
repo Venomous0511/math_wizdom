@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="8dp"
+            android:padding="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -57,7 +57,7 @@
             android:id="@+id/tvLessonTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="5dp"
             android:shadowColor="#000000"
             android:shadowDx="2"
             android:shadowDy="2"
@@ -115,13 +115,28 @@
                 android:id="@+id/btnActivity"
                 android:layout_width="300dp"
                 android:layout_height="80dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="10dp"
                 android:text="@string/activity"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:backgroundTint="#1B5E20"
                 app:cornerRadius="16dp"
                 app:elevation="8dp" />
+
+            <!-- YouTube Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnYoutube"
+                android:layout_width="300dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/youtube"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:backgroundTint="#FF0000"
+                app:cornerRadius="16dp"
+                app:elevation="8dp"
+                app:icon="@drawable/ic_youtube"
+                app:iconGravity="textStart" />
 
         </LinearLayout>
 

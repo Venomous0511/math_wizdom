@@ -2,6 +2,7 @@ package com.bitrealm.mathwizdomapp
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.ImageButton
@@ -37,6 +38,8 @@ class LessonDetailActivity : AppCompatActivity(), NavigationView.OnNavigationIte
     private lateinit var btnTopic: MaterialButton
     private lateinit var btnActivity: MaterialButton
 
+    private lateinit var btnYoutube: MaterialButton
+
     private lateinit var userRepository: UserRepository
     private var userIdentifier: String = ""
     private var quarter: Int = 1
@@ -59,6 +62,7 @@ class LessonDetailActivity : AppCompatActivity(), NavigationView.OnNavigationIte
         MusicManager.pause()
     }
 
+    @Suppress("unused")
     private fun updateVolumeIcon() {
         btnSpeaker.setImageResource(
             if (MusicManager.isMuted()) {
@@ -101,6 +105,7 @@ class LessonDetailActivity : AppCompatActivity(), NavigationView.OnNavigationIte
         ivAnimal = findViewById(R.id.ivAnimal)
         btnTopic = findViewById(R.id.btnTopic)
         btnActivity = findViewById(R.id.btnActivity)
+        btnYoutube = findViewById(R.id.btnYoutube)
     }
 
     @SuppressLint("SetTextI18n")
@@ -128,6 +133,10 @@ class LessonDetailActivity : AppCompatActivity(), NavigationView.OnNavigationIte
 
         btnActivity.setOnClickListener {
             navigateToActivity()
+        }
+
+        btnYoutube.setOnClickListener {
+            navigateToYoutube()
         }
     }
 
@@ -165,6 +174,15 @@ class LessonDetailActivity : AppCompatActivity(), NavigationView.OnNavigationIte
         startActivity(intent)
     }
 
+    private fun navigateToYoutube() {
+        val intent = Intent(this, YoutubeActivity::class.java)
+        intent.putExtra("USER_IDENTIFIER", userIdentifier)
+        intent.putExtra("QUARTER", quarter)
+        intent.putExtra("LESSON_NUMBER", lessonNumber)
+        startActivity(intent)
+    }
+
+    @SuppressLint("UseKtx")
     private fun loadUserData() {
         lifecycleScope.launch {
             try {
@@ -173,7 +191,21 @@ class LessonDetailActivity : AppCompatActivity(), NavigationView.OnNavigationIte
                     runOnUiThread {
                         val headerView = navigationView.getHeaderView(0)
                         val navHeaderUserName = headerView.findViewById<TextView>(R.id.navHeaderUserName)
+                        val navHeaderAvatar = headerView.findViewById<com.google.android.material.imageview.ShapeableImageView>(R.id.navHeaderAvatar)
+
                         navHeaderUserName.text = it.fullName
+
+                        // Load avatar from URI
+                        if (!it.avatarUri.isNullOrEmpty()) {
+                            try {
+                                val uri = Uri.parse(it.avatarUri)
+                                navHeaderAvatar.setImageURI(uri)
+                            } catch (_: Exception) {
+                                navHeaderAvatar.setImageResource(R.drawable.ic_profile)
+                            }
+                        } else {
+                            navHeaderAvatar.setImageResource(R.drawable.ic_profile)
+                        }
                     }
                 }
             } catch (e: Exception) {

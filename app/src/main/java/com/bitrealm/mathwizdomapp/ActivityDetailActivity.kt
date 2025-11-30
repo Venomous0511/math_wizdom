@@ -15,10 +15,6 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.bitrealm.mathwizdomapp.data.ActivityDataProvider
 import com.bitrealm.mathwizdomapp.fragments.ActivityInstructionsFragment
-import com.bitrealm.mathwizdomapp.fragments.MultipleChoiceFragment
-import com.bitrealm.mathwizdomapp.fragments.DragDropFragment
-import com.bitrealm.mathwizdomapp.fragments.RoutineProblemFragment
-import com.bitrealm.mathwizdomapp.models.ActivityType
 import com.bitrealm.mathwizdomapp.utils.MusicManager
 import com.google.android.material.navigation.NavigationView
 

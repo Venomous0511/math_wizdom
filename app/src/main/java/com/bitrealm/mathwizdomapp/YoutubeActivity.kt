@@ -19,10 +19,9 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.GridLayoutManager
-import com.bitrealm.mathwizdomapp.adapters.LessonItem
-import com.bitrealm.mathwizdomapp.adapters.LessonsAdapter
+import com.bitrealm.mathwizdomapp.adapters.YoutubeLinksAdapter
 import com.bitrealm.mathwizdomapp.database.AppDatabase
 import com.bitrealm.mathwizdomapp.dialogs.VolumeControlDialog
 import com.bitrealm.mathwizdomapp.repository.UserRepository
@@ -30,36 +29,49 @@ import com.bitrealm.mathwizdomapp.utils.MusicManager
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.launch
 
-class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class YoutubeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navigationView: NavigationView
     private lateinit var btnBack: ImageButton
-    private lateinit var btnMenu: ImageButton
     private lateinit var btnSpeaker: ImageButton
     private lateinit var tvTitle: TextView
+    private lateinit var rvYoutubeLinks: RecyclerView
     private lateinit var ivAnimal: ImageView
-    private lateinit var lessonsContainer: RecyclerView
 
     private lateinit var userRepository: UserRepository
     private var userIdentifier: String = ""
     private var quarter: Int = 1
+    private var lessonNumber: Int = 1
 
-    // Define lesson count per quarter
-    private val lessonCounts = mapOf(
-        1 to 17,  // Quarter 1: 17 lessons
-        2 to 11,  // Quarter 2: 11 lessons
-        3 to 8,   // Quarter 3: 8 lessons
-        4 to 9    // Quarter 4: 9 lessons
-    )
-
-    // Animal images for each quarter
     private val quarterAnimals = mapOf(
         1 to R.drawable.cat,
         2 to R.drawable.bird,
-        3 to R.drawable.rat,
+        3 to R.drawable.dragon,
         4 to R.drawable.fox
     )
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_youtube)
+
+        setupImmersiveMode()
+
+        val database = AppDatabase.getDatabase(this)
+        userRepository = UserRepository(database.userDao())
+
+        userIdentifier = intent.getStringExtra("USER_IDENTIFIER") ?: ""
+        quarter = intent.getIntExtra("QUARTER", 1)
+        lessonNumber = intent.getIntExtra("LESSON_NUMBER", 1)
+
+        initViews()
+        setupUI()
+        setupNavigationDrawer()
+        setupListeners()
+        setupBackPressHandler()
+        loadUserData()
+        loadYoutubeLinks()
+    }
 
     override fun onResume() {
         super.onResume()
@@ -71,115 +83,19 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         MusicManager.pause()
     }
 
-    @Suppress("unused")
-    private fun updateVolumeIcon() {
-        btnSpeaker.setImageResource(
-            if (MusicManager.isMuted()) {
-                R.drawable.ic_volume_off
-            } else {
-                R.drawable.ic_volume_up
-            }
-        )
-    }
-
-    // Quarter 1 Lesson Names
-    private val quarter1LessonNames = listOf(
-        "Adds and Subtracts Simple Fractions and Mixed",
-        "Solve Routine and Non-routine Problems Involving Addition and/or Subtraction of Fractions",
-        "Multiplies Simple Fractions and Mixed Fractions",
-        "Solves Routine or Non-routine Problems Involving Multiplication without or with Addition or Subtraction of Fractions and Mixed Fractions",
-        "Divides Simple Fractions and Mixed Fractions",
-        "Solves Routine or Non-routine Problems Involving Division of Fractions using appropriate Problem Solving strategies and tools",
-        "Adds and Subtracts Decimals and Mixed Decimals Through Ten Thousandths",
-        "Problem Solving Involving Addition and Subtraction of Decimal Numbers",
-        "Multiplication of Numbers With Two Decimal Place Factors",
-        "Multiplies Decimals Numbers Mentally by Powers of 10",
-        "Problem Solving Involving Decimal Numbers",
-        "Multi-step Problem Solving Involving Whole Numbers and Decimals",
-        "Division of Whole Numbers and Decimal Numbers",
-        "Divide Decimal Numbers by Powers of 10",
-        "Types of Decimal Numbers",
-        "Problem Solving Involving Division of Decimal Numbers and Money",
-        "Problem Solving Involving Multiplication of Decimal Numbers and Money"
-    )
-
-    // Quarter 2 Lesson Names
-    private val quarter2LessonNames = listOf(
-        "Expressing One Value as a Fraction of another Given their Ratio and Vice Versa",
-        "Concept of Ratio and Proportion and Different Types of Proportion",
-        "Percentage, Rate and Base",
-        "Solving Percent Problems",
-        "Describing and Giving the Value of Numbers Expressed in Exponential Form",
-        "Interpreting the GEMDAS Rule and Performing Two or More Different Operations",
-        "Describing the Set of Integers and Identifying Real-life Situations that Make Use of It",
-        "Comparing and Arranging Integers",
-        "Addition and Subtraction of Integer",
-        "Performs Basic Operations on Integers",
-        "Solving Basic Operations on Integers"
-    )
-
-    // Quarter 3 Lesson Names
-    private val quarter3LessonNames = listOf(
-        "Visualizes and describes the different solid figures",
-        "Writing Rules for Sequence",
-        "Translating Real-life Verbal Expressions and Equations into Letters and Symbols and Vice Versa",
-        "Representing Quantities in Real-life Situations Using Algebraic Expressions and Equations",
-        "The Relationship of Speed, Distance and Time",
-        "Finds the area, solving routine and non-routine problems involving areas of composite figures formed",
-        "Visualizes and describes surface area and names the unit of measure used for measuring the surface area of solid/space figures",
-        "Problem Solving Involving Surface Area of Solid Figures"
-    )
-
-    // Quarter 4 Lesson Names
-    private val quarter4LessonNames = listOf(
-        "Relationship of Volume of Prisms and Pyramids & Other 3D Figures",
-        "Volume of Solid Figures",
-        "Reading and Interpreting Electric and Water Meter Readings",
-        "The Pie Graph",
-        "Problem Solving involving Data in a Pie Graph",
-        "Describing probability, performing experiments, and recording outcomes",
-        "Making Lists and Diagrams of Outcomes and Telling the Number of Favorable Outcomes and Chances",
-        "Makes simple predictions of events based on the results of experiments",
-        "Solving Routine and Non-Routine Problems Involving Experimental and Theoretical Probability"
-    )
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_lessons_list)
-
-        setupImmersiveMode()
-
-        // Initialize database and repository
-        val database = AppDatabase.getDatabase(this)
-        userRepository = UserRepository(database.userDao())
-
-        // Get data from intent
-        userIdentifier = intent.getStringExtra("USER_IDENTIFIER") ?: ""
-        quarter = intent.getIntExtra("QUARTER", 1)
-
-        initViews()
-        setupUI()
-        setupNavigationDrawer()
-        setupListeners()
-        setupBackPressHandler()
-        loadUserData()
-        populateLessons()
-    }
-
     private fun initViews() {
         drawerLayout = findViewById(R.id.drawerLayout)
         navigationView = findViewById(R.id.navigationView)
         btnBack = findViewById(R.id.btnBack)
-        btnMenu = findViewById(R.id.btnMenu)
         btnSpeaker = findViewById(R.id.btnSpeaker)
-        tvTitle = findViewById(R.id.tvTitle)
+        tvTitle = findViewById(R.id.tvYoutubeTitle)
+        rvYoutubeLinks = findViewById(R.id.rvYoutubeLinks)
         ivAnimal = findViewById(R.id.ivAnimal)
-        lessonsContainer = findViewById(R.id.lessonsContainer)
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupUI() {
-        tvTitle.text = "LESSON - QUARTER $quarter"
+        tvTitle.text = "LESSON $lessonNumber - YOUTUBE VIDEOS"
         ivAnimal.setImageResource(quarterAnimals[quarter] ?: R.drawable.cat)
     }
 
@@ -190,10 +106,6 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
     private fun setupListeners() {
         btnBack.setOnClickListener {
             finish()
-        }
-
-        btnMenu.setOnClickListener {
-            drawerLayout.openDrawer(GravityCompat.START)
         }
 
         btnSpeaker.setOnClickListener {
@@ -219,66 +131,99 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         })
     }
 
-    private fun populateLessons() {
-        val lessonCount = lessonCounts[quarter] ?: 3
+    private fun loadYoutubeLinks() {
+        val youtubeLinks = getYoutubeLinksForLesson(quarter, lessonNumber)
 
-        // Create list of lesson items
-        val lessons = mutableListOf<LessonItem>()
-        for (i in 1..lessonCount) {
-            lessons.add(LessonItem(i, getLessonName(quarter, i)))
+        if (youtubeLinks.isEmpty()) {
+            Toast.makeText(this, "No YouTube videos available for this lesson", Toast.LENGTH_SHORT).show()
+            return
         }
 
-        // Set up RecyclerView with GridLayoutManager
-        lessonsContainer.layoutManager = GridLayoutManager(this, 4)
-
-        // Set up adapter
-        val adapter = LessonsAdapter(lessons) { lessonNumber ->
-            navigateToLessonDetail(lessonNumber)
+        rvYoutubeLinks.layoutManager = LinearLayoutManager(this)
+        val adapter = YoutubeLinksAdapter(youtubeLinks) { url ->
+            openYoutubeLink(url)
         }
-        lessonsContainer.adapter = adapter
+        rvYoutubeLinks.adapter = adapter
     }
 
-    private fun getLessonName(quarter: Int, lessonNumber: Int): String {
-        return when (quarter) {
-            1 -> {
-                if (lessonNumber <= quarter1LessonNames.size) {
-                    quarter1LessonNames[lessonNumber - 1]
-                } else {
-                    "Lesson $lessonNumber"
-                }
-            }
-            2 -> {
-                if (lessonNumber <= quarter2LessonNames.size) {
-                    quarter2LessonNames[lessonNumber - 1]
-                } else {
-                    "Lesson $lessonNumber"
-                }
-            }
-            3 -> {
-                if (lessonNumber <= quarter3LessonNames.size) {
-                    quarter3LessonNames[lessonNumber - 1]
-                } else {
-                    "Lesson $lessonNumber"
-                }
-            }
-            4 -> {
-                if (lessonNumber <= quarter4LessonNames.size) {
-                    quarter4LessonNames[lessonNumber - 1]
-                } else {
-                    "Lesson $lessonNumber"
-                }
-            }
-            else -> "Lesson $lessonNumber"
+    @SuppressLint("UseKtx")
+    private fun openYoutubeLink(url: String) {
+        try {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            startActivity(intent)
+        } catch (_: Exception) {
+            Toast.makeText(this, "Could not open YouTube link", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun navigateToLessonDetail(lessonNumber: Int) {
-        val intent = Intent(this, LessonDetailActivity::class.java)
-        intent.putExtra("USER_IDENTIFIER", userIdentifier)
-        intent.putExtra("QUARTER", quarter)
-        intent.putExtra("LESSON_NUMBER", lessonNumber)
-        intent.putExtra("LESSON_NAME", getLessonName(quarter, lessonNumber))
-        startActivity(intent)
+    private fun getYoutubeLinksForLesson(quarter: Int, lessonNumber: Int): List<YoutubeLink> {
+        // Quarter 1 YouTube links
+        if (quarter == 1) {
+            return when (lessonNumber) {
+                1 -> listOf(
+                    YoutubeLink("Similar and Dissimilar Fractions", "https://www.youtube.com/watch?v=_46tgcv1drY"),
+                    YoutubeLink("Add Simple and Mixed Fractions", "https://www.youtube.com/watch?v=icrgiBxrrR0"),
+                    YoutubeLink("Subtract Simple and Mixed Fractions", "https://www.youtube.com/watch?v=OTm3YwUCOME")
+                )
+                2 -> listOf(
+                    YoutubeLink("Routine and Non-routine Problems", "https://www.youtube.com/watch?v=LAjcpEc3lBY")
+                )
+                3 -> listOf(
+                    YoutubeLink("Multiplies Simple Fractions", "https://www.youtube.com/watch?v=alstJ37BoZo"),
+                    YoutubeLink("Cancellation Method", "https://www.youtube.com/watch?v=TtQUtySj9Ac"),
+                    YoutubeLink("Multiplies Mixed Numbers", "https://www.youtube.com/watch?v=gMJBu8BXhgU")
+                )
+                4 -> listOf(
+                    YoutubeLink("Problem Solving with Multiplication", "https://www.youtube.com/watch?v=wExX0QYwM8E")
+                )
+                5 -> listOf(
+                    YoutubeLink("Dividing Simple Fractions", "https://www.youtube.com/watch?v=RAKwouL-lTc"),
+                    YoutubeLink("Dividing Mixed Fractions", "https://www.youtube.com/watch?v=cARsEw-s8Fg")
+                )
+                6 -> listOf(
+                    YoutubeLink("Problem Solving with Division", "https://www.youtube.com/watch?v=9uCxZk7sDpY")
+                )
+                7 -> listOf(
+                    YoutubeLink("Rounding Off Decimals", "https://www.youtube.com/watch?v=P7ozJW8LSxw"),
+                    YoutubeLink("Adding and Subtracting Decimals", "https://www.youtube.com/watch?v=PnwLv6khwk8")
+                )
+                8 -> listOf(
+                    YoutubeLink("Problem Solving with Decimals", "https://www.youtube.com/watch?v=xrdTnPlWcH8")
+                )
+                9 -> listOf(
+                    YoutubeLink("Multiplying Decimals", "https://www.youtube.com/watch?v=Dm028SSei88")
+                )
+                10 -> listOf(
+                    YoutubeLink("Multiplying by Powers of 10", "https://www.youtube.com/watch?v=v2qLlJ7KwHk")
+                )
+                11 -> listOf(
+                    YoutubeLink("Word Problems with Decimals", "https://www.youtube.com/watch?v=NpCQ9IThSgk")
+                )
+                12 -> listOf(
+                    YoutubeLink("Multi-step Problem Solving", "https://www.youtube.com/watch?v=ZsRcZo-Km60")
+                )
+                13 -> listOf(
+                    YoutubeLink("Division of Decimals", "https://www.youtube.com/watch?v=Val4TmjHXRY")
+                )
+                14 -> listOf(
+                    YoutubeLink("Dividing by Powers of 10", "https://www.youtube.com/watch?v=aa8R5tSHEng")
+                )
+                15 -> listOf(
+                    YoutubeLink("Rational and Irrational Numbers", "https://www.youtube.com/watch?v=4IQZ83iUBjI"),
+                    YoutubeLink("Terminating and Non-terminating Decimals", "https://www.youtube.com/watch?v=Jf_-FfaMMZM")
+                )
+                16 -> listOf(
+                    YoutubeLink("Problem Solving with Division", "https://www.youtube.com/watch?v=_GeSlide")
+                )
+                17 -> listOf(
+                    YoutubeLink("Problem Solving with All Operations", "https://www.youtube.com/watch?v=E8jD1W4SaBY&t=193s")
+                )
+                else -> emptyList()
+            }
+        }
+
+        // Add more quarters here as needed
+        return emptyList()
     }
 
     @SuppressLint("UseKtx")
@@ -322,19 +267,16 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
                 startActivity(intent)
                 finish()
             }
-
             R.id.nav_profile -> {
                 val intent = Intent(this, DashboardActivity::class.java)
                 intent.putExtra("USER_IDENTIFIER", userIdentifier)
                 startActivity(intent)
             }
-
             R.id.nav_logout -> {
                 showLogoutDialog()
                 return true
             }
         }
-
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
@@ -367,16 +309,12 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
 
     private fun setupImmersiveMode() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
-
         val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
-
         windowInsetsController.apply {
             isAppearanceLightStatusBars = true
             isAppearanceLightNavigationBars = true
-
             hide(WindowInsetsCompat.Type.statusBars())
             hide(WindowInsetsCompat.Type.navigationBars())
-
             systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         }
     }
@@ -388,3 +326,9 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         }
     }
 }
+
+// Data class for YouTube links
+data class YoutubeLink(
+    val title: String,
+    val url: String
+)

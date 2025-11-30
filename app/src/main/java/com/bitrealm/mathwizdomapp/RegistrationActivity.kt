@@ -242,13 +242,33 @@ class RegistrationActivity : AppCompatActivity() {
     }
 
     private fun forceWhiteTextForGenderCards() {
-        // Force white text for gender labels
-        tvMale.setTextColor(ContextCompat.getColor(this, android.R.color.white))
-        tvFemale.setTextColor(ContextCompat.getColor(this, android.R.color.white))
+        // If any gender is selected, make both text labels and radio buttons black
+        // Otherwise, keep them white
+        if (selectedGender != null) {
+            // Text labels to black
+            tvMale.setTextColor(ContextCompat.getColor(this, android.R.color.black))
+            tvFemale.setTextColor(ContextCompat.getColor(this, android.R.color.black))
 
-        // Force white radio button tint
-        rbMale.buttonTintList = android.content.res.ColorStateList.valueOf(ContextCompat.getColor(this, android.R.color.white))
-        rbFemale.buttonTintList = android.content.res.ColorStateList.valueOf(ContextCompat.getColor(this, android.R.color.white))
+            // Radio buttons to black
+            rbMale.buttonTintList = android.content.res.ColorStateList.valueOf(
+                ContextCompat.getColor(this, android.R.color.black)
+            )
+            rbFemale.buttonTintList = android.content.res.ColorStateList.valueOf(
+                ContextCompat.getColor(this, android.R.color.black)
+            )
+        } else {
+            // Text labels to white
+            tvMale.setTextColor(ContextCompat.getColor(this, android.R.color.white))
+            tvFemale.setTextColor(ContextCompat.getColor(this, android.R.color.white))
+
+            // Radio buttons to white
+            rbMale.buttonTintList = android.content.res.ColorStateList.valueOf(
+                ContextCompat.getColor(this, android.R.color.white)
+            )
+            rbFemale.buttonTintList = android.content.res.ColorStateList.valueOf(
+                ContextCompat.getColor(this, android.R.color.white)
+            )
+        }
     }
 
     private fun validateForm() {

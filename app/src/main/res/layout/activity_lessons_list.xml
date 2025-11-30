@@ -67,7 +67,7 @@
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="0dp"
             android:shadowColor="#000000"
             android:shadowDx="2"
             android:shadowDy="2"
@@ -80,43 +80,40 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/topBar" />
 
-        <!-- Decorative Animal Image -->
-
         <!-- Scrollable Lessons List -->
 
         <ImageView
             android:id="@+id/ivAnimal"
             android:layout_width="89dp"
             android:layout_height="82dp"
-            android:layout_marginEnd="148dp"
-            android:alpha=".7"
+            android:layout_marginEnd="156dp"
+            android:alpha=".8"
             android:contentDescription="@string/animal"
             android:scaleType="fitCenter"
             android:src="@drawable/cat"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.182" />
+            app:layout_constraintVertical_bias="0.097" />
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
             android:fillViewport="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTitle">
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:layout_constraintVertical_bias="0.0">
 
-            <LinearLayout
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/lessonsContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:orientation="vertical"
                 android:padding="16dp" />
 
         </androidx.core.widget.NestedScrollView>

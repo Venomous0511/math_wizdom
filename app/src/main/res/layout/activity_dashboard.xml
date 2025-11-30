@@ -72,9 +72,9 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="32dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="8dp"
             app:cardCornerRadius="16dp"
             app:cardElevation="8dp"
             app:layout_constraintBottom_toTopOf="@id/tvNote"
@@ -172,7 +172,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/lrn"
-                        android:textSize="12sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -181,7 +181,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:textColor="?attr/colorPrimary"
-                        android:textSize="14sp"
+                        android:textSize="24sp"
                         android:textStyle="bold"
                         tools:text="099999999999" />
 
@@ -198,7 +198,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/full_name_label"
-                            android:textSize="12sp"
+                            android:textSize="18sp"
                             android:textStyle="bold" />
 
                         <Space
@@ -223,7 +223,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:textSize="14sp"
+                        android:textSize="24sp"
                         tools:text="John Doe" />
 
                     <!-- Gender Section -->
@@ -239,7 +239,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/gender_label"
-                            android:textSize="12sp"
+                            android:textSize="18sp"
                             android:textStyle="bold" />
 
                         <Space
@@ -251,7 +251,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="?attr/colorPrimary"
-                            android:textSize="14sp"
+                            android:textSize="24sp"
                             tools:text="Male" />
 
                     </LinearLayout>
@@ -271,7 +271,7 @@
             android:text="@string/note_description"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="10sp"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

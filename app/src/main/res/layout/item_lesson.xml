@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.button.MaterialButton xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/btnLesson"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/lesson_button_height"
+    android:layout_margin="4dp"
+    android:gravity="center"
+    android:textColor="@android:color/white"
+    android:textSize="11sp"
+    android:textStyle="bold"
+    app:backgroundTint="@color/lesson_button_color"
+    app:cornerRadius="@dimen/button_corner_radius"
+    app:elevation="8dp"
+    tools:ignore="SpeakableTextPresentCheck" />

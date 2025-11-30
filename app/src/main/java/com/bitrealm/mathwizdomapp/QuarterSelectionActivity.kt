@@ -1,5 +1,6 @@
 package com.bitrealm.mathwizdomapp
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
@@ -23,6 +24,7 @@ import com.bitrealm.mathwizdomapp.utils.MusicManager
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.launch
+import android.net.Uri
 
 class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -37,6 +39,7 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
 
     private lateinit var userRepository: UserRepository
     private var userIdentifier: String = ""
+    @Suppress("unused")
     private var isSpeakerEnabled = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -122,16 +125,30 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
         })
     }
 
+    @SuppressLint("UseKtx")
     private fun loadUserData() {
         lifecycleScope.launch {
             try {
                 val user = userRepository.getUserByIdentifier(userIdentifier)
                 user?.let {
                     runOnUiThread {
-                        // Update navigation header
                         val headerView = navigationView.getHeaderView(0)
                         val navHeaderUserName = headerView.findViewById<TextView>(R.id.navHeaderUserName)
+                        val navHeaderAvatar = headerView.findViewById<com.google.android.material.imageview.ShapeableImageView>(R.id.navHeaderAvatar)
+
                         navHeaderUserName.text = it.fullName
+
+                        // Load avatar from URI
+                        if (!it.avatarUri.isNullOrEmpty()) {
+                            try {
+                                val uri = Uri.parse(it.avatarUri)
+                                navHeaderAvatar.setImageURI(uri)
+                            } catch (   _: Exception) {
+                                navHeaderAvatar.setImageResource(R.drawable.ic_profile)
+                            }
+                        } else {
+                            navHeaderAvatar.setImageResource(R.drawable.ic_profile)
+                        }
                     }
                 }
             } catch (e: Exception) {

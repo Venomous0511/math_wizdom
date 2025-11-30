@@ -19,6 +19,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimaryContainer"
             app:navigationIcon="@drawable/ic_arrow_back"
+            app:navigationIconTint="@color/white"
             app:title="@string/student_registration"
             app:titleTextColor="@color/white" />
 
@@ -157,7 +158,7 @@
                     app:cardCornerRadius="8dp"
                     app:strokeWidth="2dp"
                     app:strokeColor="@color/white"
-                    app:cardBackgroundColor="?attr/colorSurface"
+                    app:cardBackgroundColor="@color/black"
                     app:cardElevation="0dp">
 
                     <LinearLayout
@@ -173,7 +174,7 @@
                             android:layout_height="wrap_content"
                             android:clickable="false"
                             android:focusable="false"
-                            android:buttonTint="@color/white" />
+                            android:buttonTint="@color/radio_button_color" />
 
                         <TextView
                             android:id="@+id/tvMale"
@@ -200,7 +201,7 @@
                     app:cardCornerRadius="8dp"
                     app:strokeWidth="2dp"
                     app:strokeColor="@color/white"
-                    app:cardBackgroundColor="?attr/colorSurface"
+                    app:cardBackgroundColor="@color/black"
                     app:cardElevation="0dp">
 
                     <LinearLayout
@@ -216,7 +217,7 @@
                             android:layout_height="wrap_content"
                             android:clickable="false"
                             android:focusable="false"
-                            android:buttonTint="@color/white" />
+                            android:buttonTint="@color/radio_button_color" />
 
                         <TextView
                             android:id="@+id/tvFemale"
@@ -230,7 +231,6 @@
                     </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
-
             </LinearLayout>
 
             <!-- Error Message -->

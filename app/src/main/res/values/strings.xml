@@ -53,7 +53,6 @@
     <string name="activity">ACTIVITY</string>
     <string name="quarter_selection">Quarter Selection</string>
     <string name="topics">Similar and Dissimilar Fractions</string>
-    =======
     <string name="ActivitiesTitle">LESSON 1 - ACTIVITIES</string>
     <string name="LessonTitle">LESSON 1</string>
     <string name="LessonTopicTitle">LESSON 1 - TOPIC</string>
@@ -73,30 +72,85 @@
     <string name="activity_1">ACTIVITY #1</string>
     <string name="skip">Skip</string>
     <string name="countdown">Starting in 10…</string>
-    >>>>>>> 4ad503b453f88522accd4337dfcdb93bc97f0575
 
-    <!-- New strings for TopicActivity -->
+    <!-- Topic Activity strings -->
     <string name="toggle_fullscreen">Toggle fullscreen</string>
     <string name="lesson_topic">LESSON %d - TOPIC</string>
-    =======
-    >>>>>>> 4ad503b453f88522accd4337dfcdb93bc97f0575
-    <string name="objective_lesson_1">After this lesson, you should be able to add and subtract simple fractions and mixed numbers, whether with regrouping or without regrouping.</string>
-    <string name="objective_lesson_2">After this lesson, you should be able to relate fractions and ratios.</string>
-    <string name="objective_lesson_3">After this lesson, you should be able to know a geometry of solid figures and its features.</string>
+    <string name="lesson_topic_title">LESSON - TOPIC</string>
+
+    <!-- Lesson objectives -->
+    <!-- Quarter 1 Lesson Objectives -->
+    <string name="objective_lesson_1_1">After this lesson, you should be able to add and subtract simple fractions and mixed numbers, whether with regrouping or without regrouping.</string>
+    <string name="objective_lesson_1_2">After this lesson, you should be able to solve both routine and non-routine problems that involve adding or subtracting fractions using the appropriate solving strategies and tools.</string>
+    <string name="objective_lesson_1_3">After this lesson, you should be able to multiply simple fractions and mixed fractions.</string>
+    <string name="objective_lesson_1_4">After this lesson, you should be able to solve both routine and non-routine problems that involve multiplying fractions and mixed numbers with or without addition or subtraction using appropriate problem-solving strategies and tools.</string>
+    <string name="objective_lesson_1_5">After this lesson, you should be able to divide simple fractions and mixed numbers.</string>
+    <string name="objective_lesson_1_6">After this lesson, you should be able to solve both routine and non-routine problems that involve dividing fractions and mixed numbers with or without any of the other operations, using appropriate problem-solving strategies and tools.</string>
+    <string name="objective_lesson_1_7">After this lesson, you should be able to add and subtract decimals and mixed decimals up to ten thousandths, with or without regrouping.</string>
+    <string name="objective_lesson_1_8">After this lesson, you should be able to solve 1 or more steps of routine and non-routine problems that involve adding and/or subtracting decimals and mixed decimals. You can use the appropriate problem-solving strategies and tools to do this.</string>
+    <string name="objective_lesson_1_9">After completing this lesson, you should be able to multiply decimals and mixed decimals with up to 2 decimal places.</string>
+    <string name="objective_lesson_1_10">After going through this lesson, you are expected to multiply mentally decimals up to 2 decimal places by 0.1, 0.01, 10, and 100.</string>
+    <string name="objective_lesson_1_11">After this lesson, you should be able to solve both routine and non-routine problems that involve multiplying decimals and mixed decimals, including money, using appropriate problem-solving strategies.</string>
+    <string name="objective_lesson_1_12">After this lesson, you should be able to solve multi-step problems that involve multiplying and adding or subtracting decimals, mixed decimals, and whole numbers, including money, using the appropriate problem-solving strategies and tools.</string>
+    <string name="objective_lesson_1_13">After completing this lesson, you should be able to divide whole numbers by decimals with up to two decimal places and also divide decimals by whole numbers and mixed decimals with up to two decimal places.</string>
+    <string name="objective_lesson_1_14">After this lesson, you should be able to divide decimals with up to four decimal places by 0.1, 0.01, and 0.001, and decimals with up to two decimal places by 10, 100, and 1,000 in your head.</string>
+    <string name="objective_lesson_1_15">After this lesson, you should be able to tell the difference between decimal numbers that end (terminating) and those that go on forever in a repeating pattern (repeating, non-terminating).</string>
+    <string name="objective_lesson_1_16">By the end of this lesson, you should be able to solve routine and non-routine problems involving the division of decimals, mixed decimals, whole numbers, and money using effective problem-solving strategies and tools.</string>
+    <string name="objective_lesson_1_17">This lesson will help you solve complex, multi-step problems involving division with decimals, whole numbers, and money. You\'ll learn to apply effective problem-solving strategies and tools, building confidence to tackle real-world problems with these operations.</string>
+
+    <!-- Quarter 2 Lesson Objectives -->
+    <string name="objective_lesson_2_1">Upon completing this lesson, you should be able to express one value as a fraction of another based on their ratio and do the reverse as well.</string>
+    <string name="objective_lesson_2_2">After this lesson, you should be able to explain and understand ratio and proportion.</string>
+    <string name="objective_lesson_2_3">After this lesson, you should be able to find the percentage, rate, and base in a given problem and also solve both routine and non-routine problems involving these concepts.</string>
+    <string name="objective_lesson_2_4">By the end of this lesson, you will be able to solve a variety of problems involving percentages, including discounts, original prices, discount rates, sale prices, markup prices, commissions, sales tax, and simple interest and principal. You will also learn how to calculate Percentage, Rate, and Base.</string>
+    <string name="objective_lesson_2_5">This lesson will help you understand exponents and bases in numbers written in exponential notation, as well as the importance of this topic in various mathematical operations.</string>
+    <string name="objective_lesson_2_6">After this lesson, we will learn the order of operations used to simplify expressions. The order of operations refers to the sequence in which steps must be followed to correctly simplify an expression, based on specific rules for each set of operations.</string>
+    <string name="objective_lesson_2_7">In this lesson, we will explore the set of integers and identify real-life situations where they are used. In the number system, there are two main categories: real numbers and imaginary numbers. Integers are classified as real numbers.</string>
+    <string name="objective_lesson_2_8">In the previous lesson, we explored integers and the basic concept of the number line. In this topic, we will compare and arrange integers on the number line.</string>
+    <string name="objective_lesson_2_9">In this lesson, we will also explore how to interpret and describe the basic operations of integers are addition and subtraction using materials such as algebra tiles, counters, or chips.</string>
+    <string name="objective_lesson_2_10">In this lesson, we will learn how to perform basic operations with integers.</string>
+    <string name="objective_lesson_2_11">In this lesson, you will learn how to solve both routine and non-routine problems involving the basic operations of integers, using the appropriate strategies and tools.</string>
+
+    <!-- Quarter 3 Lesson Objectives -->
+    <string name="objective_lesson_3_1">In this lesson, we will explore basic geometry concepts and learn how to describe the shapes we see around us. We will look at pictures of different figures and talk about how geometry appears in everyday objects. We will also learn about different solid figures and their common characteristics.</string>
+    <string name="objective_lesson_3_2">In this module, we will explore additional concepts in algebra. We\'ll develop strategies for finding the nth term of a sequence by using various methods, such as identifying patterns, making educated guesses, and working backward. Additionally, we\'ll focus on distinguishing between expressions and equations.</string>
+    <string name="objective_lesson_3_3">In this lesson, we will focus on translating real-life word expressions and equations into letters and vice versa.</string>
+    <string name="objective_lesson_3_4">This time in this lesson, we will focus and practice on how to represent quantities in real-life situations using algebraic expressions and equations.</string>
+    <string name="objective_lesson_3_5">In this lesson, you will learn the mathematical relation between speed, distance, and time. You will calculate speed based on the distance traveled and the time taken and also solve problems that involve average rate and speed.</string>
+    <string name="objective_lesson_3_6">In this lesson, you will learn how to apply the concept of finding the area of composite figures in real-life situations. By the end, you\'ll be able to clearly visualize different composite shapes and solve problems related to their areas.</string>
+    <string name="objective_lesson_3_7">In this lesson, you will explore how to visualize the surface area of various solid figures, including cubes, prisms, pyramids, cones, cylinders, and spheres. You\'ll also learn the formulas used to calculate surface area. Surface area is defined as the total sum of the areas of all the surfaces of a solid shape.</string>
+    <string name="objective_lesson_3_8">By the end of the lesson, you will be able to understand and use formulas to calculate the surface area of cubes, prisms, pyramids, cylinders, cones, and spheres and apply it to real-life situations. You will also practice solving problems related to the surface area of these shapes.</string>
+
+    <!-- Quarter 4 Lesson Objectives -->
+    <string name="objective_lesson_4_1">In this lesson, we will focus on how to determine the relationship of volume between a rectangular prism and a pyramid; a cylinder and a cone; a cylinder and a sphere.</string>
+    <string name="objective_lesson_4_2">In this lesson, we will explore the volume of solid figures and practice solving both routine and non-routine problems related to their volumes. We will also derive formulas to calculate volume in cubic units.</string>
+    <string name="objective_lesson_4_3">In this lesson, we will learn how to read and understand electric and water meter readings. You will also practice recording, interpreting, and writing these meter readings.</string>
+    <string name="objective_lesson_4_4">In this lesson, we will explore pie graphs and learn how to create them. However, before focusing on pie graphs, it\'s important to cover some basic concepts about measuring angles.</string>
+    <string name="objective_lesson_4_5">In this lesson, we will learn how to solve both routine and non-routine problems using data presented in a pie chart.</string>
+    <string name="objective_lesson_4_6">In this lesson, you will learn how to explain the concept of probability, using examples like a 50% chance of rain or a one-in-a-million chance of winning.</string>
+    <string name="objective_lesson_4_7">This time we will focus on making listings and diagrams of outcomes and tell the number of favorable outcomes and chances using these listings and diagrams.</string>
+    <string name="objective_lesson_4_8">In this lesson, we will focus on making simple predictions of events using theoretical and experimental probability.</string>
+    <string name="objective_lesson_4_9">In this lesson, we will focus on solving both routine and non-routine problems related to experimental and theoretical probability.</string>
     <string name="objective_default">Complete this lesson to master the concepts.</string>
+
+    <!-- PDF functionality -->
     <string name="minimize">Minimize PDF</string>
     <string name="full_screen">Full Screen PDF</string>
     <string name="exit_full_screen">Exit Full Screen</string>
-
-    <!-- Additional strings for PDF functionality -->
     <string name="pdf_minimized">PDF minimized</string>
     <string name="pdf_full_screen">PDF full screen</string>
+    <string name="error_loading_pdf">Error loading PDF</string>
+    <string name="pdf_not_found">PDF not found</string>
+
+    <!-- Voice functionality -->
     <string name="voice_enabled">Voice enabled</string>
     <string name="voice_disabled">Voice disabled</string>
+
+    <!-- Screen modes -->
     <string name="full_screen_mode">Full screen mode</string>
     <string name="normal_mode">Normal mode</string>
 
-    <!-- Navigation drawer strings -->
+    <!-- Navigation drawer -->
     <string name="nav_header_title">Math Wizdom</string>
     <string name="nav_header_subtitle">Grade 6 Mathematics</string>
 
@@ -107,27 +161,32 @@
     <string name="no">No</string>
     <string name="logged_out_successfully">Logged out successfully</string>
 
-    <string name="error_loading_pdf">Error loading PDF</string>
-    <string name="pdf_not_found">PDF not found</string>
+    <!-- Error messages -->
     <string name="error_loading_user">Error loading user data</string>
+    <string name="unknown_error">Unknown error</string>
 
-    <!-- Updated strings for TopicActivity -->
-    <string name="lesson_topic_title">LESSON - TOPIC</string>
-
+    <!-- Registration validation -->
     <string name="identifier_hint">Identifier must be exactly %d characters</string>
     <string name="identifier_required_length">Identifier must be exactly %d characters to register</string>
     <string name="max_accounts_reached">Maximum %d %s accounts reached. Cannot create new account.</string>
     <string name="registration_successful">Registration successful!</string>
     <string name="registration_failed">Registration failed: %s</string>
-    <string name="unknown_error">Unknown error</string>
 
+    <!-- Character limit -->
     <string name="full_name_hint">Full Name (max %d characters)</string>
     <string name="full_name_too_long">Full name cannot exceed %d characters</string>
     <string name="characters_remaining">%d characters remaining</string>
 
+    <!-- Activity strings -->
     <string name="activity_number">ACTIVITY #1</string>
     <string name="progress_indicator">1 / 5</string>
     <string name="sample_question">1/2 and 1/4</string>
     <string name="lesson_title">LESSON 1</string>
     <string name="objective_description">Objective description goes here</string>
+
+    <!-- Media -->
+    <string name="youtube">YouTube Videos</string>
+    <string name="youtube_videos">YouTube Videos</string>
+    <string name="play">Play</string>
+    <string name="user_avatar">User Avatar</string>
 </resources>

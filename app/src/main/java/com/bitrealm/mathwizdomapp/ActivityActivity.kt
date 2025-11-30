@@ -28,6 +28,8 @@ import com.bitrealm.mathwizdomapp.repository.UserRepository
 import com.bitrealm.mathwizdomapp.utils.MusicManager
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.launch
+import android.net.Uri
+import androidx.recyclerview.widget.LinearLayoutManager
 
 class ActivityActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -44,6 +46,7 @@ class ActivityActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
     private var userIdentifier: String = ""
     private var quarter: Int = 1
     private var lessonNumber: Int = 1
+    @Suppress("unused")
     private var isSpeakerEnabled = true
 
     private val quarterAnimals = mapOf(
@@ -87,6 +90,7 @@ class ActivityActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         MusicManager.pause()
     }
 
+    @Suppress("unused")
     private fun updateVolumeIcon() {
         btnSpeaker.setImageResource(
             if (MusicManager.isMuted()) {
@@ -147,11 +151,14 @@ class ActivityActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
     private fun loadActivities() {
         val activities = ActivityDataProvider.getActivitiesForLesson(quarter, lessonNumber)
+        val recyclerView = findViewById<RecyclerView>(R.id.rvActivities)
 
         if (activities.isEmpty()) {
             Toast.makeText(this, "No activities available for this lesson", Toast.LENGTH_SHORT).show()
             return
         }
+
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
         activityAdapter = ActivityAdapter(activities) { activity ->
             navigateToActivityDetail(activity)
@@ -160,7 +167,6 @@ class ActivityActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         rvActivities.adapter = activityAdapter
     }
 
-    // TODO: FIX THIS ERROR
     private fun navigateToActivityDetail(activity: Activity) {
         val intent = Intent(this, ActivityDetailActivity::class.java)
         intent.putExtra("USER_IDENTIFIER", userIdentifier)
@@ -170,6 +176,7 @@ class ActivityActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         startActivity(intent)
     }
 
+    @SuppressLint("UseKtx")
     private fun loadUserData() {
         lifecycleScope.launch {
             try {
@@ -178,7 +185,21 @@ class ActivityActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
                     runOnUiThread {
                         val headerView = navigationView.getHeaderView(0)
                         val navHeaderUserName = headerView.findViewById<TextView>(R.id.navHeaderUserName)
+                        val navHeaderAvatar = headerView.findViewById<com.google.android.material.imageview.ShapeableImageView>(R.id.navHeaderAvatar)
+
                         navHeaderUserName.text = it.fullName
+
+                        // Load avatar from URI
+                        if (!it.avatarUri.isNullOrEmpty()) {
+                            try {
+                                val uri = Uri.parse(it.avatarUri)
+                                navHeaderAvatar.setImageURI(uri)
+                            } catch (_: Exception) {
+                                navHeaderAvatar.setImageResource(R.drawable.ic_profile)
+                            }
+                        } else {
+                            navHeaderAvatar.setImageResource(R.drawable.ic_profile)
+                        }
                     }
                 }
             } catch (e: Exception) {

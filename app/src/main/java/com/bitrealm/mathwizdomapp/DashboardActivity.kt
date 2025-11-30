@@ -45,6 +45,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     private lateinit var userRepository: UserRepository
     private var currentUser: User? = null
     private var userIdentifier: String = ""
+    @Suppress("unused")
     private var isSpeakerEnabled = true
     private var selectedAvatarUri: Uri? = null
 
@@ -102,6 +103,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         MusicManager.pause()
     }
 
+    @Suppress("unused")
     private fun updateVolumeIcon() {
         btnSpeaker.setImageResource(
             if (MusicManager.isMuted()) {
@@ -229,7 +231,21 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                     // Update navigation header
                     val headerView = navigationView.getHeaderView(0)
                     val navHeaderUserName = headerView.findViewById<TextView>(R.id.navHeaderUserName)
+                    val navHeaderAvatar = headerView.findViewById<com.google.android.material.imageview.ShapeableImageView>(R.id.navHeaderAvatar)
+
                     navHeaderUserName.text = user.fullName
+
+                    // Update navigation header avatar
+                    user.avatarUri?.let { uriString ->
+                        try {
+                            val uri = uriString.toUri()
+                            navHeaderAvatar.setImageURI(uri)
+                        } catch (_: Exception) {
+                            navHeaderAvatar.setImageResource(R.drawable.ic_profile)
+                        }
+                    } ?: run {
+                        navHeaderAvatar.setImageResource(R.drawable.ic_profile)
+                    }
                 }
             } catch (e: Exception) {
                 runOnUiThread {
@@ -365,7 +381,18 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                     // Update navigation header
                     val headerView = navigationView.getHeaderView(0)
                     val navHeaderUserName = headerView.findViewById<TextView>(R.id.navHeaderUserName)
+                    val navHeaderAvatar = headerView.findViewById<com.google.android.material.imageview.ShapeableImageView>(R.id.navHeaderAvatar)
+
                     navHeaderUserName.text = newName
+
+                    // Keep the avatar updated
+                    updatedUser.avatarUri?.let { uriString ->
+                        try {
+                            navHeaderAvatar.setImageURI(uriString.toUri())
+                        } catch (_: Exception) {
+                            navHeaderAvatar.setImageResource(R.drawable.ic_profile)
+                        }
+                    }
 
                     Toast.makeText(
                         this@DashboardActivity,

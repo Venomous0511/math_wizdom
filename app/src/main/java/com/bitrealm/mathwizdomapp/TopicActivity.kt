@@ -2,11 +2,11 @@ package com.bitrealm.mathwizdomapp
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageButton
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
@@ -51,7 +51,6 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
     private lateinit var rvSubtopics: RecyclerView
     private lateinit var pdfView: PDFView
     private lateinit var pdfContainer: View
-    private lateinit var ivAnimal: ImageView
     private lateinit var guideline: View
     private lateinit var topBar: View
     private lateinit var mainContent: ConstraintLayout
@@ -98,13 +97,6 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
     }
 
     companion object {
-        private val quarterAnimals = mapOf(
-            1 to R.drawable.cat,
-            2 to R.drawable.bird,
-            3 to R.drawable.rat,
-            4 to R.drawable.fox
-        )
-
         // Define subtopics for each lesson
         private val lessonSubtopics = mapOf(
             // QUARTER 1
@@ -393,7 +385,6 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         rvSubtopics = findViewById(R.id.rvSubtopics)
         pdfView = findViewById(R.id.pdfView)
         pdfContainer = findViewById(R.id.pdfContainer)
-        ivAnimal = findViewById(R.id.ivAnimal)
         guideline = findViewById(R.id.guideline)
         topBar = findViewById(R.id.topBar)
         mainContent = findViewById(R.id.main)
@@ -402,7 +393,6 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
     @SuppressLint("SetTextI18n")
     private fun setupUI() {
         tvTopicTitle.text = "LESSON $lessonNumber - TOPIC"
-        ivAnimal.setImageResource(quarterAnimals[quarter] ?: R.drawable.cat)
 
         // Set objective text based on lesson
         tvObjective.text = getObjectiveText()
@@ -413,9 +403,59 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
     private fun getObjectiveText(): String {
         return when ("${quarter}_$lessonNumber") {
-            "1_1" -> getString(R.string.objective_lesson_1)
-            "2_1" -> getString(R.string.objective_lesson_2)
-            "3_1" -> getString(R.string.objective_lesson_3)
+            // Quarter 1
+            "1_1" -> getString(R.string.objective_lesson_1_1)
+            "1_2" -> getString(R.string.objective_lesson_1_2)
+            "1_3" -> getString(R.string.objective_lesson_1_3)
+            "1_4" -> getString(R.string.objective_lesson_1_4)
+            "1_5" -> getString(R.string.objective_lesson_1_5)
+            "1_6" -> getString(R.string.objective_lesson_1_6)
+            "1_7" -> getString(R.string.objective_lesson_1_7)
+            "1_8" -> getString(R.string.objective_lesson_1_8)
+            "1_9" -> getString(R.string.objective_lesson_1_9)
+            "1_10" -> getString(R.string.objective_lesson_1_10)
+            "1_11" -> getString(R.string.objective_lesson_1_11)
+            "1_12" -> getString(R.string.objective_lesson_1_12)
+            "1_13" -> getString(R.string.objective_lesson_1_13)
+            "1_14" -> getString(R.string.objective_lesson_1_14)
+            "1_15" -> getString(R.string.objective_lesson_1_15)
+            "1_16" -> getString(R.string.objective_lesson_1_16)
+            "1_17" -> getString(R.string.objective_lesson_1_17)
+
+            // Quarter 2
+            "2_1" -> getString(R.string.objective_lesson_2_1)
+            "2_2" -> getString(R.string.objective_lesson_2_2)
+            "2_3" -> getString(R.string.objective_lesson_2_3)
+            "2_4" -> getString(R.string.objective_lesson_2_4)
+            "2_5" -> getString(R.string.objective_lesson_2_5)
+            "2_6" -> getString(R.string.objective_lesson_2_6)
+            "2_7" -> getString(R.string.objective_lesson_2_7)
+            "2_8" -> getString(R.string.objective_lesson_2_8)
+            "2_9" -> getString(R.string.objective_lesson_2_9)
+            "2_10" -> getString(R.string.objective_lesson_2_10)
+            "2_11" -> getString(R.string.objective_lesson_2_11)
+
+            // Quarter 3
+            "3_1" -> getString(R.string.objective_lesson_3_1)
+            "3_2" -> getString(R.string.objective_lesson_3_2)
+            "3_3" -> getString(R.string.objective_lesson_3_3)
+            "3_4" -> getString(R.string.objective_lesson_3_4)
+            "3_5" -> getString(R.string.objective_lesson_3_5)
+            "3_6" -> getString(R.string.objective_lesson_3_6)
+            "3_7" -> getString(R.string.objective_lesson_3_7)
+            "3_8" -> getString(R.string.objective_lesson_3_8)
+
+            // Quarter 4
+            "4_1" -> getString(R.string.objective_lesson_4_1)
+            "4_2" -> getString(R.string.objective_lesson_4_2)
+            "4_3" -> getString(R.string.objective_lesson_4_3)
+            "4_4" -> getString(R.string.objective_lesson_4_4)
+            "4_5" -> getString(R.string.objective_lesson_4_5)
+            "4_6" -> getString(R.string.objective_lesson_4_6)
+            "4_7" -> getString(R.string.objective_lesson_4_7)
+            "4_8" -> getString(R.string.objective_lesson_4_8)
+            "4_9" -> getString(R.string.objective_lesson_4_9)
+
             else -> getString(R.string.objective_default)
         }
     }
@@ -617,6 +657,7 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         tryNextPath()
     }
 
+    @SuppressLint("UseKtx")
     private fun loadUserData() {
         lifecycleScope.launch {
             try {
@@ -624,9 +665,22 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
                 user?.let {
                     runOnUiThread {
                         val headerView = navigationView.getHeaderView(0)
-                        val navHeaderUserName =
-                            headerView.findViewById<TextView>(R.id.navHeaderUserName)
+                        val navHeaderUserName = headerView.findViewById<TextView>(R.id.navHeaderUserName)
+                        val navHeaderAvatar = headerView.findViewById<com.google.android.material.imageview.ShapeableImageView>(R.id.navHeaderAvatar)
+
                         navHeaderUserName.text = it.fullName
+
+                        // Load avatar from URI
+                        if (!it.avatarUri.isNullOrEmpty()) {
+                            try {
+                                val uri = Uri.parse(it.avatarUri)
+                                navHeaderAvatar.setImageURI(uri)
+                            } catch (_: Exception) {
+                                navHeaderAvatar.setImageResource(R.drawable.ic_profile)
+                            }
+                        } else {
+                            navHeaderAvatar.setImageResource(R.drawable.ic_profile)
+                        }
                     }
                 }
             } catch (e: Exception) {
@@ -643,7 +697,6 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         topBar.visibility = View.GONE
         cardObjective.visibility = View.GONE
         rvSubtopics.visibility = View.GONE
-        ivAnimal.visibility = View.GONE
         guideline.visibility = View.GONE
 
         // Make PDF container full screen using ConstraintSet
@@ -702,7 +755,6 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         topBar.visibility = View.VISIBLE
         cardObjective.visibility = View.VISIBLE
         rvSubtopics.visibility = View.VISIBLE
-        ivAnimal.visibility = View.VISIBLE
         guideline.visibility = View.VISIBLE
 
         // Restore original constraints using the saved ConstraintSet
