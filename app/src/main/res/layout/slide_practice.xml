@@ -41,9 +41,31 @@
                 android:fontFamily="sans-serif-medium"
                 android:lineSpacingExtra="4dp" />
 
+            <ImageView
+                android:id="@+id/ivSlideImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="Image show here"
+                android:scaleType="fitCenter"
+                android:visibility="gone" />
+
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
+
+    <!-- Image Items Container -->
+    <LinearLayout
+        android:id="@+id/imageItemsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/key_point_background"
+        android:padding="12dp" />
 
     <!-- Options Header -->
     <TextView

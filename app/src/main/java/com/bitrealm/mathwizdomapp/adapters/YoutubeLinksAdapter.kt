@@ -16,11 +16,13 @@ class YoutubeLinksAdapter(
 
     inner class YoutubeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvTitle: TextView = itemView.findViewById(R.id.tvYoutubeTitle)
+        val tvOwner: TextView = itemView.findViewById(R.id.tvYoutubeOwner)
         @Suppress("unused")
         val ivYoutube: ImageView = itemView.findViewById(R.id.ivYoutube)
 
         fun bind(youtubeLink: YoutubeLink) {
             tvTitle.text = youtubeLink.title
+            tvOwner.text = "by ${youtubeLink.owner}"
 
             itemView.setOnClickListener {
                 onLinkClick(youtubeLink.url)

@@ -18,4 +18,15 @@
         android:lineSpacingExtra="8dp"
         android:fontFamily="sans-serif-light" />
 
+    <!-- Image View -->
+    <ImageView
+        android:id="@+id/ivSlideImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="Image showing Here"
+        android:scaleType="fitCenter"
+        android:visibility="gone" />
+
 </LinearLayout>
