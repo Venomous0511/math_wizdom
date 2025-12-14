@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.GridLayout
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
@@ -139,6 +140,7 @@ class InteractiveLessonFragment : Fragment() {
         updateNavigationButtons()
         updateProgress()
     }
+
     private fun renderIntroSlide(slide: Slide.IntroSlide) {
         tvSlideTitle.text = slide.title
 
@@ -149,6 +151,15 @@ class InteractiveLessonFragment : Fragment() {
         )
 
         view.findViewById<TextView>(R.id.tvContent).text = slide.content
+
+        // Load image if available
+        val imageView = view.findViewById<ImageView>(R.id.ivSlideImage)
+        if (slide.imageResourceId != null) {
+            imageView.setImageResource(slide.imageResourceId)
+            imageView.visibility = View.VISIBLE
+        } else {
+            imageView.visibility = View.GONE
+        }
 
         slideContentContainer.addView(view)
     }
@@ -165,24 +176,50 @@ class InteractiveLessonFragment : Fragment() {
         view.findViewById<TextView>(R.id.tvContent).text = slide.content
 
         // Load image if available
-        val imageView = view.findViewById<ImageView>(R.id.ivSlideImage)
-        if (slide.imageResourceId != null) {
-            imageView.setImageResource(slide.imageResourceId)
-            imageView.visibility = View.VISIBLE
+        val singleImageView = view.findViewById<ImageView>(R.id.ivSlideImage)
+        val multiImageContainer = view.findViewById<ViewGroup>(R.id.multiImageContainer)
+
+        if (!slide.imageResourceIds.isNullOrEmpty()) {
+            singleImageView.visibility = View.GONE
+            multiImageContainer.visibility = View.VISIBLE
+
+            slide.imageResourceIds.forEach { imageResId ->
+                val imageView = ImageView(requireContext()).apply {
+                    setImageResource(imageResId)
+                    adjustViewBounds = true
+                    layoutParams = ViewGroup.MarginLayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT
+                    ).apply {
+                        bottomMargin = 16.dpToPx()
+                    }
+                }
+                multiImageContainer.addView(imageView)
+            }
+        } else if (slide.imageResourceId != null) {
+            singleImageView.setImageResource(slide.imageResourceId)
+            singleImageView.visibility = View.VISIBLE
+            multiImageContainer.visibility = View.GONE
         } else {
-            imageView.visibility = View.GONE
+            singleImageView.visibility = View.GONE
+            multiImageContainer.visibility = View.GONE
         }
-        
+
         // Add key points
         val keyPointsContainer = view.findViewById<ViewGroup>(R.id.keyPointsContainer)
-        slide.keyPoints.forEach { point ->
-            val pointView = LayoutInflater.from(context).inflate(
-                R.layout.item_key_point,
-                keyPointsContainer,
-                false
-            )
-            pointView.findViewById<TextView>(R.id.tvKeyPoint).text = point
-            keyPointsContainer.addView(pointView)
+        if (slide.keyPoints != null && slide.keyPoints.isNotEmpty()) {
+            keyPointsContainer.visibility = View.VISIBLE
+            slide.keyPoints.forEach { point ->
+                val pointView = LayoutInflater.from(context).inflate(
+                    R.layout.item_key_point,
+                    keyPointsContainer,
+                    false
+                )
+                pointView.findViewById<TextView>(R.id.tvKeyPoint).text = point
+                keyPointsContainer.addView(pointView)
+            }
+        } else {
+            keyPointsContainer.visibility = View.GONE
         }
 
         slideContentContainer.addView(view)
@@ -199,6 +236,15 @@ class InteractiveLessonFragment : Fragment() {
         )
 
         view.findViewById<TextView>(R.id.tvProblem).text = slide.problem
+
+        // Display image items if available
+        val imageItemsContainer = view.findViewById<ViewGroup>(R.id.imageItemsContainer)
+        if (slide.imageItems != null && slide.imageItems.isNotEmpty()) {
+            imageItemsContainer.visibility = View.VISIBLE
+            displayImageItems(imageItemsContainer, slide.imageItems)
+        } else {
+            imageItemsContainer.visibility = View.GONE
+        }
 
         // Add steps
         val stepsContainer = view.findViewById<ViewGroup>(R.id.stepsContainer)
@@ -255,6 +301,24 @@ class InteractiveLessonFragment : Fragment() {
 
         view.findViewById<TextView>(R.id.tvQuestion).text = slide.question
 
+        // Load image if available
+        val imageView = view.findViewById<ImageView>(R.id.ivSlideImage)
+        if (slide.imageResourceId != null) {
+            imageView.setImageResource(slide.imageResourceId)
+            imageView.visibility = View.VISIBLE
+        } else {
+            imageView.visibility = View.GONE
+        }
+
+        // Display image items if available
+        val imageItemsContainer = view.findViewById<ViewGroup>(R.id.imageItemsContainer)
+        if (slide.imageItems != null && slide.imageItems.isNotEmpty()) {
+            imageItemsContainer.visibility = View.VISIBLE
+            displayImageItems(imageItemsContainer, slide.imageItems)
+        } else {
+            imageItemsContainer.visibility = View.GONE
+        }
+
         val optionsContainer = view.findViewById<ViewGroup>(R.id.optionsContainer)
         val cardFeedback = view.findViewById<MaterialCardView>(R.id.cardFeedback)
         val tvFeedback = view.findViewById<TextView>(R.id.tvFeedback)
@@ -266,7 +330,7 @@ class InteractiveLessonFragment : Fragment() {
                 R.layout.item_option,
                 optionsContainer,
                 false
-            ) as MaterialButton  // Fixed: Use proper inflation
+            ) as MaterialButton
 
             optionView.text = option
             optionView.setOnClickListener {
@@ -332,6 +396,57 @@ class InteractiveLessonFragment : Fragment() {
         }
 
         slideContentContainer.addView(view)
+    }
+
+    // Function to display image items
+    private fun displayImageItems(container: ViewGroup, imageItems: List<Slide.ImageItem>) {
+        container.removeAllViews()
+
+        imageItems.forEach { item ->
+            val itemView = LayoutInflater.from(context).inflate(
+                R.layout.item_image_group,
+                container,
+                false
+            )
+
+            // Set label if provided
+            val labelView = itemView.findViewById<TextView>(R.id.tvImageLabel)
+            if (!item.label.isNullOrEmpty()) {
+                labelView.text = item.label
+                labelView.visibility = View.VISIBLE
+            } else {
+                labelView.visibility = View.GONE
+            }
+
+            // Create image grid
+            val gridLayout = itemView.findViewById<GridLayout>(R.id.imageGrid)
+            createImageGrid(gridLayout, item.imageResourceId, item.count)
+
+            container.addView(itemView)
+        }
+    }
+
+    // Function to create grid of images
+    private fun createImageGrid(gridLayout: GridLayout, imageResId: Int, count: Int) {
+        gridLayout.removeAllViews()
+
+        repeat(count) {
+            val imageView = ImageView(requireContext()).apply {
+                setImageResource(imageResId)
+                layoutParams = GridLayout.LayoutParams().apply {
+                    width = 48.dpToPx()
+                    height = 48.dpToPx()
+                    setMargins(4.dpToPx(), 4.dpToPx(), 4.dpToPx(), 4.dpToPx())
+                }
+                scaleType = ImageView.ScaleType.FIT_CENTER
+            }
+            gridLayout.addView(imageView)
+        }
+    }
+
+    // Extension function for dp to px conversion
+    private fun Int.dpToPx(): Int {
+        return (this * resources.displayMetrics.density).toInt()
     }
 
     @SuppressLint("SetTextI18n")

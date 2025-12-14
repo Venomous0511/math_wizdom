@@ -157,73 +157,192 @@ class YoutubeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
     }
 
     private fun getYoutubeLinksForLesson(quarter: Int, lessonNumber: Int): List<YoutubeLink> {
-        // Quarter 1 YouTube links
-        if (quarter == 1) {
-            return when (lessonNumber) {
-                1 -> listOf(
-                    YoutubeLink("Similar and Dissimilar Fractions", "https://www.youtube.com/watch?v=_46tgcv1drY"),
-                    YoutubeLink("Add Simple and Mixed Fractions", "https://www.youtube.com/watch?v=icrgiBxrrR0"),
-                    YoutubeLink("Subtract Simple and Mixed Fractions", "https://www.youtube.com/watch?v=OTm3YwUCOME")
-                )
-                2 -> listOf(
-                    YoutubeLink("Routine and Non-routine Problems", "https://www.youtube.com/watch?v=LAjcpEc3lBY")
-                )
-                3 -> listOf(
-                    YoutubeLink("Multiplies Simple Fractions", "https://www.youtube.com/watch?v=alstJ37BoZo"),
-                    YoutubeLink("Cancellation Method", "https://www.youtube.com/watch?v=TtQUtySj9Ac"),
-                    YoutubeLink("Multiplies Mixed Numbers", "https://www.youtube.com/watch?v=gMJBu8BXhgU")
-                )
-                4 -> listOf(
-                    YoutubeLink("Problem Solving with Multiplication", "https://www.youtube.com/watch?v=wExX0QYwM8E")
-                )
-                5 -> listOf(
-                    YoutubeLink("Dividing Simple Fractions", "https://www.youtube.com/watch?v=RAKwouL-lTc"),
-                    YoutubeLink("Dividing Mixed Fractions", "https://www.youtube.com/watch?v=cARsEw-s8Fg")
-                )
-                6 -> listOf(
-                    YoutubeLink("Problem Solving with Division", "https://www.youtube.com/watch?v=9uCxZk7sDpY")
-                )
-                7 -> listOf(
-                    YoutubeLink("Rounding Off Decimals", "https://www.youtube.com/watch?v=P7ozJW8LSxw"),
-                    YoutubeLink("Adding and Subtracting Decimals", "https://www.youtube.com/watch?v=PnwLv6khwk8")
-                )
-                8 -> listOf(
-                    YoutubeLink("Problem Solving with Decimals", "https://www.youtube.com/watch?v=xrdTnPlWcH8")
-                )
-                9 -> listOf(
-                    YoutubeLink("Multiplying Decimals", "https://www.youtube.com/watch?v=Dm028SSei88")
-                )
-                10 -> listOf(
-                    YoutubeLink("Multiplying by Powers of 10", "https://www.youtube.com/watch?v=v2qLlJ7KwHk")
-                )
-                11 -> listOf(
-                    YoutubeLink("Word Problems with Decimals", "https://www.youtube.com/watch?v=NpCQ9IThSgk")
-                )
-                12 -> listOf(
-                    YoutubeLink("Multi-step Problem Solving", "https://www.youtube.com/watch?v=ZsRcZo-Km60")
-                )
-                13 -> listOf(
-                    YoutubeLink("Division of Decimals", "https://www.youtube.com/watch?v=Val4TmjHXRY")
-                )
-                14 -> listOf(
-                    YoutubeLink("Dividing by Powers of 10", "https://www.youtube.com/watch?v=aa8R5tSHEng")
-                )
-                15 -> listOf(
-                    YoutubeLink("Rational and Irrational Numbers", "https://www.youtube.com/watch?v=4IQZ83iUBjI"),
-                    YoutubeLink("Terminating and Non-terminating Decimals", "https://www.youtube.com/watch?v=Jf_-FfaMMZM")
-                )
-                16 -> listOf(
-                    YoutubeLink("Problem Solving with Division", "https://www.youtube.com/watch?v=_GeSlide")
-                )
-                17 -> listOf(
-                    YoutubeLink("Problem Solving with All Operations", "https://www.youtube.com/watch?v=E8jD1W4SaBY&t=193s")
-                )
-                else -> emptyList()
-            }
+        return when (quarter) {
+            1 -> getQuarter1Links(lessonNumber)
+            2 -> getQuarter2Links(lessonNumber)
+            3 -> getQuarter3Links(lessonNumber)
+            4 -> getQuarter4Links(lessonNumber)
+            else -> emptyList()
         }
+    }
 
-        // Add more quarters here as needed
-        return emptyList()
+    private fun getQuarter1Links(lessonNumber: Int): List<YoutubeLink> {
+        return when (lessonNumber) {
+            1 -> listOf(
+                YoutubeLink("Similar and Dissimilar Fractions", "https://www.youtube.com/watch?v=_46tgcv1drY", "Ms. Jessa's Tutorial"),
+                YoutubeLink("Add Simple and Mixed Fractions", "https://www.youtube.com/watch?v=icrgiBxrrR0", "Sir Marion"),
+                YoutubeLink("Subtract Simple and Mixed Fractions", "https://www.youtube.com/watch?v=OTm3YwUCOME", "Sir Marion")
+            )
+            2 -> listOf(
+                YoutubeLink("Routine and Non-routine Problems", "https://www.youtube.com/watch?v=LAjcpEc3lBY", "MATHster Kids")
+            )
+            3 -> listOf(
+                YoutubeLink("Multiplies Simple Fractions", "https://www.youtube.com/watch?v=alstJ37BoZo", "Math with Mr. J"),
+                YoutubeLink("Cancellation Method", "https://www.youtube.com/watch?v=TtQUtySj9Ac", "MATH TEACHER GON"),
+                YoutubeLink("Multiplies Mixed Numbers", "https://www.youtube.com/watch?v=gMJBu8BXhgU", "Math with Mr. J")
+            )
+            4 -> listOf(
+                YoutubeLink("Problem Solving with Multiplication", "https://www.youtube.com/watch?v=wExX0QYwM8E", "Math is Fun")
+            )
+            5 -> listOf(
+                YoutubeLink("Dividing Simple Fractions", "https://www.youtube.com/watch?v=RAKwouL-lTc", "Math with Mr. J"),
+                YoutubeLink("Dividing Mixed Fractions", "https://www.youtube.com/watch?v=cARsEw-s8Fg", "Math with Mr. J")
+            )
+            6 -> listOf(
+                YoutubeLink("Problem Solving with Division", "https://www.youtube.com/watch?v=9uCxZk7sDpY", "Math is Fun")
+            )
+            7 -> listOf(
+                YoutubeLink("Rounding Off Decimals", "https://www.youtube.com/watch?v=P7ozJW8LSxw", "Math with Mr. J"),
+                YoutubeLink("Adding and Subtracting Decimals", "https://www.youtube.com/watch?v=PnwLv6khwk8", "Math with Mr. J")
+            )
+            8 -> listOf(
+                YoutubeLink("Problem Solving with Decimals", "https://www.youtube.com/watch?v=xrdTnPlWcH8", "Mr. Math Deontoy")
+            )
+            9 -> listOf(
+                YoutubeLink("Multiplying Decimals", "https://www.youtube.com/watch?v=Dm028SSei88", "Math with Mr. J")
+            )
+            10 -> listOf(
+                YoutubeLink("Multiplying by Powers of 10", "https://www.youtube.com/watch?v=v2qLlJ7KwHk", "Math with Mr. J")
+            )
+            11 -> listOf(
+                YoutubeLink("Word Problems with Decimals", "https://www.youtube.com/watch?v=NpCQ9IThSgk", "Teacher Frell")
+            )
+            12 -> listOf(
+                YoutubeLink("Multi-step Problem Solving", "https://www.youtube.com/watch?v=ZsRcZo-Km60", "Teacher Frell")
+            )
+            13 -> listOf(
+                YoutubeLink("Division of Decimals", "https://www.youtube.com/watch?v=Val4TmjHXRY", "Math with Mr. J")
+            )
+            14 -> listOf(
+                YoutubeLink("Dividing by Powers of 10", "https://www.youtube.com/watch?v=aa8R5tSHEng", "Let's Do Math")
+            )
+            15 -> listOf(
+                YoutubeLink("Rational and Irrational Numbers", "https://www.youtube.com/watch?v=4IQZ83iUBjI", "Let's Do Math"),
+                YoutubeLink("Terminating and Non-terminating Decimals", "https://www.youtube.com/watch?v=Jf_-FfaMMZM", "Math with Mr. J")
+            )
+            16 -> listOf(
+                YoutubeLink("Problem Solving with Division", "https://www.youtube.com/watch?v=_GeSlide", "SIR EFREN VILLAESTER")
+            )
+            17 -> listOf(
+                YoutubeLink("Problem Solving with All Operations", "https://www.youtube.com/watch?v=E8jD1W4SaBY&t=193s", "Teacher Frell")
+            )
+            else -> emptyList()
+        }
+    }
+
+    private fun getQuarter2Links(lessonNumber: Int): List<YoutubeLink> {
+        return when (lessonNumber) {
+            1 -> listOf(
+                YoutubeLink("Relating Fraction and Ratio", "https://www.youtube.com/watch?v=aAaVkrYJQVg", "Teacher Frell")
+            )
+            2 -> listOf(
+                YoutubeLink("Proportion", "https://www.youtube.com/watch?v=wT8tGc-SwKk", "Math with Mr. J"),
+                YoutubeLink("Types of Proportion", "https://www.youtube.com/watch?v=fPQQsGL74CA", "Sheena Doria")
+            )
+            3 -> listOf(
+                YoutubeLink("Percentage, Rate, and Base", "https://www.youtube.com/watch?v=aV8bgQ73L4w", "Math is Fun"),
+                YoutubeLink("Finding Percentage, Rate, and Base", "https://www.youtube.com/watch?v=WIkfkR15ElM", "Sheena Doria"),
+                YoutubeLink("Routine and Non-routine Problems", "https://www.youtube.com/watch?v=tDpJEpbdNw4", "Math is Fun")
+            )
+            4 -> listOf(
+                YoutubeLink("Solving Discount and Sale Price", "https://www.youtube.com/watch?v=UTaVBeDkig0", "Math is Fun"),
+                YoutubeLink("Solving Markup Price", "https://www.youtube.com/watch?v=Uvd89SAbFB4", "Sheena Doria"),
+                YoutubeLink("Solving Commission", "https://www.youtube.com/watch?v=YSWpoyEhYzA", "Sheena Doria"),
+                YoutubeLink("Solving Sales Tax", "https://www.youtube.com/watch?v=nNhGLjHjNc8", "Math with Mr. J"),
+                YoutubeLink("Solving Simple Interest", "https://www.youtube.com/watch?v=AdF-8ydl0mk", "What's Up Dude")
+            )
+            5 -> listOf(
+                YoutubeLink("Exponent and Base", "https://www.youtube.com/watch?v=O1QFagsKL58", "Math is Fun")
+            )
+            6 -> listOf(
+                YoutubeLink("GEMDAS", "https://www.youtube.com/watch?v=HLhW00sZs1s", "Teacher Frell")
+            )
+            7 -> listOf(
+                YoutubeLink("Integers", "https://www.youtube.com/watch?v=gKRCx0OCCqg", "Math is Fun")
+            )
+            8 -> listOf(
+                YoutubeLink("Number Line", "https://www.youtube.com/watch?v=1ayVZUEoMH8", "Sheena Doria")
+            )
+            9 -> listOf(
+                YoutubeLink("Adding and Subtracting Integers", "https://www.youtube.com/watch?v=Js9sVSFpyFE", "Mathispower4u")
+            )
+            10 -> listOf(
+                YoutubeLink("Basic Operations on Integers", "https://www.youtube.com/watch?v=O6bRgxVRoZ4", "Math with Mr. J")
+            )
+            11 -> listOf(
+                YoutubeLink("Routine and Non-routine Problems", "https://www.youtube.com/watch?v=1S3Mzr3yUW8", "Math is Fun")
+            )
+            else -> emptyList()
+        }
+    }
+
+    private fun getQuarter3Links(lessonNumber: Int): List<YoutubeLink> {
+        return when (lessonNumber) {
+            1 -> listOf(
+                YoutubeLink("Plane and Solid Figures", "https://www.youtube.com/watch?v=TWu15v8eJ4A", "Teacher Lee YT")
+            )
+            2 -> listOf(
+                YoutubeLink("Formulating Rules for Sequence", "https://www.youtube.com/watch?v=JVXiNx3ZcSo", "MATH & ENGLISH TV")
+            )
+            3 -> listOf(
+                YoutubeLink("Expressions and Equations", "https://www.youtube.com/watch?v=QvxWrYtzrtM", "Cognito"),
+                YoutubeLink("Translating Word Phrases", "https://www.youtube.com/watch?v=yCU2-3_x4C0", "KATHLEEN HERNANDEZ"),
+                YoutubeLink("Variable and Constant", "https://www.youtube.com/watch?v=_CoI83FTCbo", "Theresa Reedy")
+            )
+            4 -> listOf(
+                YoutubeLink("Algebraic Expression and Equation", "https://www.youtube.com/watch?v=9BXFmrjUflo", "Sheena Doria"),
+                YoutubeLink("Four Basic Rules for Solving Equations", "https://www.youtube.com/watch?v=kWOTmyoaWJg", "The Organic Chemistry Tutor")
+            )
+            5 -> listOf(
+                YoutubeLink("Speed", "https://www.youtube.com/watch?v=dZ_oI7WbQTo", "Sheena Doria"),
+                YoutubeLink("Distance and Time", "https://www.youtube.com/watch?v=zAo2dyOChYc", "Sheena Doria")
+            )
+            6 -> listOf(
+                YoutubeLink("Area of Composite Figures", "https://www.youtube.com/watch?v=TxTJtKa14I4", "SIR EFREN VILLAESTER")
+            )
+            7 -> listOf(
+                YoutubeLink("Surface Area of Solid Figures", "https://www.youtube.com/watch?v=hn_g0uSQQsQ", "MATH & ENGLISH TV")
+            )
+            8 -> listOf(
+                YoutubeLink("Problem Solving with Surface Area", "https://www.youtube.com/watch?v=YvHTeADh5Es", "Math with Ms Sun")
+            )
+            else -> emptyList()
+        }
+    }
+
+    private fun getQuarter4Links(lessonNumber: Int): List<YoutubeLink> {
+        return when (lessonNumber) {
+            1 -> listOf(
+                YoutubeLink("Volume of Prisms and Pyramids", "https://www.youtube.com/watch?v=WY95RxDM9L0", "SIR EFREN VILLAESTER")
+            )
+            2 -> listOf(
+                YoutubeLink("Volume of Solid Figures", "https://www.youtube.com/watch?v=72iYB3XVJxM", "Math is Fun")
+            )
+            3 -> listOf(
+                YoutubeLink("Electric Meter", "https://www.youtube.com/watch?v=hpUxdQbYMm4", "SEAMEO INNOTECH"),
+                YoutubeLink("Water Meter", "https://www.youtube.com/watch?v=gfdPzlybOV4", "Mike Jhared"),
+                YoutubeLink("Computing Meter Consumption", "https://www.youtube.com/watch?v=KcGwv3umjJ8", "SIR EFREN VILLAESTER")
+            )
+            4 -> listOf(
+                YoutubeLink("Constructing Pie Graph", "https://www.youtube.com/watch?v=Y42vARgDr_s", "Rodil Raymundo")
+            )
+            5 -> listOf(
+                YoutubeLink("Problem Solving with Pie Graph", "https://www.youtube.com/watch?v=bZBeAsuuMZg&t=245s", "MATH & ENGLISH TV")
+            )
+            6 -> listOf(
+                YoutubeLink("Probability", "https://www.youtube.com/watch?v=WFInqAojy6A", "Val Live")
+            )
+            7 -> listOf(
+                YoutubeLink("Listing Outcomes and Tree Diagrams", "https://www.youtube.com/watch?v=tpry4CAhoIw", "Teacher Jem Rymon")
+            )
+            8 -> listOf(
+                YoutubeLink("Simple Predictions of Events", "https://www.youtube.com/watch?v=wp5q-OUHf20", "Cynde The Thrifty")
+            )
+            9 -> listOf(
+                YoutubeLink("Experimental and Theoretical Probability", "https://www.youtube.com/watch?v=CkGtOAuSgGA", "KATHLEEN HERNANDEZ")
+            )
+            else -> emptyList()
+        }
     }
 
     @SuppressLint("UseKtx")
@@ -239,7 +358,6 @@ class YoutubeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
                         navHeaderUserName.text = it.fullName
 
-                        // Load avatar from URI
                         if (!it.avatarUri.isNullOrEmpty()) {
                             try {
                                 val uri = Uri.parse(it.avatarUri)
@@ -327,8 +445,9 @@ class YoutubeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
     }
 }
 
-// Data class for YouTube links
+// Updated data class for YouTube links with owner
 data class YoutubeLink(
     val title: String,
-    val url: String
+    val url: String,
+    val owner: String = "Unknown"
 )

@@ -22,8 +22,10 @@ sealed class Slide : Serializable {
         override val id: Int,
         val title: String,
         val content: String,
-        val keyPoints: List<String> = emptyList(),
-        val imageResourceId: Int? = null
+        val keyPoints: List<String>? = null,
+        val imageResourceId: Int? = null,
+        val imageResourceIds: List<Int>? = null,
+        val imageItems: List<ImageItem>? = null
     ) : Slide()
 
     data class ExampleSlide(
@@ -32,7 +34,8 @@ sealed class Slide : Serializable {
         val problem: String,
         val steps: List<String>,
         val answer: String,
-        val imageResourceId: Int? = null
+        val imageResourceId: Int? = null,
+        val imageItems: List<ImageItem>? = null
     ) : Slide()
 
     data class PracticeSlide(
@@ -40,7 +43,9 @@ sealed class Slide : Serializable {
         val question: String,
         val options: List<String>,
         val correctAnswer: Int,
-        val explanation: String
+        val explanation: String,
+        val imageResourceId: Int? = null,
+        val imageItems: List<ImageItem>? = null
     ) : Slide()
 
     data class SummarySlide(
@@ -48,4 +53,10 @@ sealed class Slide : Serializable {
         val title: String,
         val keyPoints: List<String>
     ) : Slide()
+
+    data class ImageItem(
+        val imageResourceId: Int,
+        val count: Int,
+        val label: String? = null
+    ) : Serializable
 }

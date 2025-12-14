@@ -358,6 +358,308 @@ class ActivityInstructionsFragment : Fragment() {
                         "Change it into equation: 4× +12 = 60"
             }
 
+            // Quarter 2, Lesson 1, Activity 1
+            "2_1_1" -> {
+                tvTitleContent.text = "FINDING THE RATIO IN COLON FORM"
+                tvDirection.text = "Examine each pair of figures and determine their ratio in colon form (A:B). Compare the quantities carefully, then choose the correct answer from the options provided."
+                tvExample.text = "Ratio of sun to moon:\n☀️☀️☀️ 🌙\nColon form: 3:1"
+            }
+
+            // Quarter 2, Lesson 1, Activity 2
+            "2_1_2" -> {
+                tvTitleContent.text = "FINDING THE RATIO IN FRACTION FORM"
+                tvDirection.text = "Examine each pair of figures and determine their ratio in fraction form (A/B). Compare the quantities carefully, then choose the correct answer from the options provided."
+                tvExample.text = "Ratio of broom to dust pan:\n🧹 🗑️🗑️🗑️\nFraction form: ¹⁄₃"
+            }
+
+            // Quarter 2, Lesson 2, Activity 1
+            "2_2_1" -> {
+                tvTitleContent.text = "IDENTIFYING THE TYPE OF PROPORTION"
+                tvDirection.text = "Read each word problem carefully and identify whether it shows a Direct, Inverse, or Partitive proportion. Select the correct answer for each item."
+                tvExample.text = "Direct Proportion: More units → More cost (e.g., 5 apples cost more than 3 apples)\n\n" +
+                        "Inverse Proportion: More workers → Less time (e.g., 10 workers finish faster than 5 workers)\n\n" +
+                        "Partitive Proportion: Dividing a total into parts using ratios (e.g., sharing $100 in ratio 2:3:5)"
+            }
+
+            // Quarter 2, Lesson 2, Activity 2
+            "2_2_2" -> {
+                tvTitleContent.text = "ANALYZE IF PROPORTION"
+                tvDirection.text = "Read the given problem carefully and decide whether it shows a Proportion or Not Proportion. Select the correct answer."
+                tvExample.text = "PROPORTION:\n⁴⁄₆ , ²⁄₃\n4 × 3 = 6 × 2\n12 = 12 ✓\n\n" +
+                        "NOT PROPORTION:\n⁴⁄₆ , ²⁄₅\n4 × 5 = 6 × 2\n20 ≠ 12 ✗"
+            }
+
+            // Quarter 2, Lesson 3, Activity 1
+            "2_3_1" -> {
+                tvTitleContent.text = "IDENTIFYING PERCENTAGE, RATE AND BASE"
+                tvDirection.text = "Examine the highlighted value in the problem and identify whether it represents the Rate, Base, or Percentage. Select the correct answer."
+                tvExample.text = "The school has 120 boy scouts, as 40% of 300 pupils is 120.\n\n" +
+                        "R - 120 (PERCENTAGE)\n" +
+                        "B - 40% (RATE)\n" +
+                        "P - 300 (BASE)"
+            }
+
+            // Quarter 2, Lesson 3, Activity 2
+            "2_3_2" -> {
+                tvTitleContent.text = "SOLVING PERCENTAGE, RATE AND BASE"
+                tvDirection.text = "Read the problem carefully, find the solution, and choose the correct answer from the given options."
+                tvExample.text = "FORMULAS:\n\n" +
+                        "Finding Base (B):\nB = P/R × 100\n\n" +
+                        "Finding Rate (R):\nR = P/B × 100\n\n" +
+                        "Finding Percentage (P):\nP = R × B / 100\n\n" +
+                        "Where:\nP = Percentage Value\nR = Rate (%)\nB = Base (Total)"
+            }
+
+            // Quarter 2, Lesson 4, Activity 1
+            "2_4_1" -> {
+                tvTitleContent.text = "SOLVING DISCOUNT AMOUNT, SALE PRICE, DISCOUNT RATE, AND ORIGINAL PRICE"
+                tvDirection.text = "Carefully study the given problem, solve it step by step, and choose the correct answer from the options provided."
+                tvExample.text = "FORMULAS:\n\n" +
+                        "Discount Amount:\n= Original Price × Discount Rate\n\n" +
+                        "Sale Price:\n= Original Price − Discount Amount\n\n" +
+                        "Discount Rate:\n= (Discount Amount / Original Price) × 100\n\n" +
+                        "Original Price:\n= Sale Price / (1 − Discount Rate)"
+            }
+
+            // Quarter 2, Lesson 4, Activity 2
+            "2_4_2" -> {
+                tvTitleContent.text = "SOLVING MARKUP PRICE, COMMISSION, SALES TAX, SIMPLE INTEREST, PRINCIPAL"
+                tvDirection.text = "Examine the given problem and the question carefully. Determine whether it's True or False."
+                tvExample.text = "FORMULAS:\n\n" +
+                        "Markup Price:\nSelling Price = Cost + (Cost × Markup %)\n\n" +
+                        "Commission:\nCommission = Sales × Rate\n\n" +
+                        "Sales Tax:\nTotal = Price + (Price × Tax Rate)\n\n" +
+                        "Simple Interest:\nI = P × R × T\n\n" +
+                        "Principal:\nP = I / (R × T)"
+            }
+
+            // Quarter 2, Lesson 5, Activity 1
+            "2_5_1" -> {
+                tvTitleContent.text = "COMPUTING THE VALUE OF NUMBERS EXPRESSED IN EXPONENTIAL FORM"
+                tvDirection.text = "Carefully analyze the given exponent and compute. Choose the right answer from column B, and drag and drop the right answer into the box provided in column A."
+                tvExample.text = "12² = 12 × 12 = 144\n2³ = 2 × 2 × 2 = 8\n3⁴ = 3 × 3 × 3 × 3 = 81"
+            }
+
+            // Quarter 2, Lesson 5, Activity 2
+            "2_5_2" -> {
+                tvTitleContent.text = "DESCRIBING AND GIVING THE VALUE OF NUMBERS EXPRESSED IN EXPONENTIAL FORM"
+                tvDirection.text = "Carefully work through each problem, then choose the correct answer from the given options."
+                tvExample.text = "4 × 4 × 4 × 4 × 4 = ?\n4⁵ = 4 × 4 × 4 × 4 × 4 = 1024"
+            }
+
+            // Quarter 2, Lesson 6, Activity 1
+            "2_6_1" -> {
+                tvTitleContent.text = "COMPUTING EXPONENTS"
+                tvDirection.text = "Observe the given exponents and choose the correct answer for each. Drag the correct answer to match its corresponding exponent in the space provided."
+                tvExample.text = "12² = 12 × 12 = 144\n18³ = 18 × 18 × 18 = 5,832\n22⁴ = 22 × 22 × 22 × 22 = 234,256\n5⁵ = 5 × 5 × 5 × 5 × 5 = 3,125"
+            }
+
+            // Quarter 2, Lesson 6, Activity 2
+            "2_6_2" -> {
+                tvTitleContent.text = "SOLVING EXPONENTS WITH THE OPERATION OF PEMDAS"
+                tvDirection.text = "Carefully solve the given problem and check if the provided answer is correct. Then, choose True if it's right or False if it's wrong."
+                tvExample.text = "1 × 1 = 1 ✓\n11 × 11 × 11 = 1,331 ✓"
+            }
+
+            // Quarter 2, Lesson 7, Activity 1
+            "2_7_1" -> {
+                tvTitleContent.text = "KNOW THE INTEGER"
+                tvDirection.text = "Examine the given integer and decide whether it is POSITIVE or NEGATIVE. Select the correct answer."
+                tvExample.text = "-81 → NEGATIVE\n81 → POSITIVE"
+            }
+
+            // Quarter 2, Lesson 7, Activity 2
+            "2_7_2" -> {
+                tvTitleContent.text = "EXAMINE IF OPPOSITE NUMBERS"
+                tvDirection.text = "Solve the given numbers and identify whether they are opposite numbers or not opposite numbers. Select the correct answer."
+                tvExample.text = "-9 + 9 = 0 → OPPOSITE\n14 + (-7) = 7 → NOT OPPOSITE\n\nNote: Opposite numbers sum to zero."
+            }
+
+            // Quarter 2, Lesson 8, Activity 1
+            "2_8_1" -> {
+                tvTitleContent.text = "INTEGER WRITTEN AS?"
+                tvDirection.text = "Examine the given pair of integers and identify how they are written. Choose the correct answer from the options provided."
+                tvExample.text = "+4 is to the left of +6, written as +4 < +6\n-7 is to the left of -3, written as -7 < -3\n\nRemember: Left = Less than (<)\nRight = Greater than (>)"
+            }
+
+            // Quarter 2, Lesson 8, Activity 2
+            "2_8_2" -> {
+                tvTitleContent.text = "COMPARISON OPERATOR"
+                tvDirection.text = "Examine the given pair of integers and identify the correct comparison operator (> or <). Choose the correct answer for each pair from the options provided."
+                tvExample.text = "+30 ? +25 → +30 > +25 (+30 is greater than +25)\n-4 ? +2 → -4 < +2 (-4 is less than +2)"
+            }
+
+            // Quarter 2, Lesson 9, Activity 1
+            "2_9_1" -> {
+                tvTitleContent.text = "ADDING AND SUBTRACTING INTEGERS"
+                tvDirection.text = "Calculate the given pair of integers, then choose the correct answer from the options provided."
+                tvExample.text = "+5 + (-8) = -3\n-7 + 13 = +6\n\nRemember:\n• Adding a negative = Subtract\n• Subtracting a negative = Add"
+            }
+
+            // Quarter 2, Lesson 9, Activity 2
+            "2_9_2" -> {
+                tvTitleContent.text = "ADDING AND SUBTRACTING INTEGERS"
+                tvDirection.text = "Carefully solve the given integers, then choose the correct answer from the options provided."
+                tvExample.text = "-7 + 12 = 5\n15 - (-8) = 23\n\nRules:\n• Same signs: Add and keep the sign\n• Different signs: Subtract and use the sign of the larger number"
+            }
+
+            // Quarter 2, Lesson 10, Activity 1
+            "2_10_1" -> {
+                tvTitleContent.text = "COMPUTING INTEGERS IN ALL OPERATIONS"
+                tvDirection.text = "Carefully examine the given problem. Solve it on your own, then check if the provided answer is correct. Choose whether it is TRUE or FALSE based on your calculation."
+                tvExample.text = "Addition: -7 + 4 = -3\nSubtraction: 10 - (-5) = 15\nMultiplication: (-6) × 3 = -18\nDivision: (-16) ÷ 4 = -4\n\nRules:\n• Same signs → Positive result\n• Different signs → Negative result"
+            }
+
+            // Quarter 2, Lesson 10, Activity 2
+            "2_10_2" -> {
+                tvTitleContent.text = "SOLVE INTEGERS IN ALL OPERATIONS"
+                tvDirection.text = "Calculate the given integers, select the correct answer from Column B and cross-match it with the appropriate option in Column A."
+                tvExample.text = "Operations:\n• Addition: -7 + 4 = -3\n• Subtraction: 10 - (-5) = 15\n• Multiplication: (-6) × 3 = -18\n• Division: (-16) ÷ 4 = -4"
+            }
+
+            // Quarter 2, Lesson 11, Activity 1
+            "2_11_1" -> {
+                tvTitleContent.text = "SOLVE INTEGERS INVOLVING BASIC OPERATIONS"
+                tvDirection.text = "Solve the given integers and choose the correct answer by dragging and dropping it into the box provided."
+                tvExample.text = "Addition: −7 + 4 = ?\nSubtract: 7 − 4 = 3, keep the sign of the bigger number (7 is negative).\nAnswer: −3\n\n" +
+                        "Subtraction: 10 − (−5) = ?\nChange subtraction to addition: 10 + 5.\nAnswer: 15\n\n" +
+                        "Multiplication: (−6) × 3 = ?\nMultiply: 6 × 3 = 18, a negative times a positive is negative.\nAnswer: −18\n\n" +
+                        "Division: (−16) ÷ 4 = ?\nDivide: 16 ÷ 4 = 4, a negative divided by a positive is negative.\nAnswer: −4"
+            }
+
+            // Quarter 2, Lesson 11, Activity 2
+            "2_11_2" -> {
+                tvTitleContent.text = "SOLVE INTEGERS INVOLVING BASIC OPERATIONS"
+                tvDirection.text = "Solve the given integers in Column A. Then, select the correct answer from Column B and drag it into the corresponding box in Column A."
+                tvExample.text = "Addition: −7 + 4 = ?\nSubtract: 7 − 4 = 3, keep the sign of the bigger number (7 is negative).\nAnswer: −3\n\n" +
+                        "Subtraction: 10 − (−5) = ?\nChange subtraction to addition: 10 + 5.\nAnswer: 15\n\n" +
+                        "Multiplication: (−6) × 3 = ?\nMultiply: 6 × 3 = 18, a negative times a positive is negative.\nAnswer: −18\n\n" +
+                        "Division: (−16) ÷ 4 = ?\nDivide: 16 ÷ 4 = 4, a negative divided by a positive is negative.\nAnswer: −4"
+            }
+
+            // Quarter 3, Lesson 1, Activity 1
+            "3_1_1" -> {
+                tvTitleContent.text = "EXAMINE THE FIGURES"
+                tvDirection.text = "Examine each figure carefully and choose whether it is a plane figure or a solid figure."
+                tvExample.text = "Plane Figure: A flat, two-dimensional shape (like a circle, square, or triangle)\n\n" +
+                        "Solid Figure: A three-dimensional object with length, width, and height (like a sphere, cube, or cone)"
+            }
+
+            // Quarter 3, Lesson 1, Activity 2
+            "3_1_2" -> {
+                tvTitleContent.text = "KNOW THE FIGURES"
+                tvDirection.text = "Carefully examine each figure and read the question, then answer Yes or No."
+                tvExample.text = "Look at the image carefully:\n\n" +
+                        "• If it's flat (2D) → It's a plane figure\n" +
+                        "• If it has depth (3D) → It's a solid figure\n\n" +
+                        "Answer the question based on what you see."
+            }
+
+            // Quarter 3, Lesson 2, Activity 1
+            "3_2_1" -> {
+                tvTitleContent.text = "SOLVING SEQUENCE"
+                tvDirection.text = "Find the missing number in the sequence, then choose the correct answer from the options."
+                tvExample.text = "Look for the pattern:\n\n" +
+                        "Example 1: 49, 64, 81, __, 121\n" +
+                        "Pattern: n² (squares)\n" +
+                        "7² = 49, 8² = 64, 9² = 81, 10² = 100, 11² = 121\n" +
+                        "Answer: 100\n\n" +
+                        "Example 2: 4, __, 16, 25, 36\n" +
+                        "Pattern: n² (squares)\n" +
+                        "2² = 4, 3² = 9, 4² = 16, 5² = 25, 6² = 36\n" +
+                        "Answer: 9"
+            }
+
+            // Quarter 3, Lesson 2, Activity 2
+            "3_2_2" -> {
+                tvTitleContent.text = "COMPLETE THE SEQUENCE"
+                tvDirection.text = "Find the missing number in the sequence, then choose the correct answer from Column B and drag it into the matching box in Column A."
+                tvExample.text = "Identify the pattern:\n\n" +
+                        "• Arithmetic: Add/subtract the same number\n" +
+                        "  (2, 5, 8, 11... → add 3)\n\n" +
+                        "• Geometric: Multiply/divide by the same number\n" +
+                        "  (2, 4, 8, 16... → multiply by 2)\n\n" +
+                        "• Square numbers: n²\n" +
+                        "  (1, 4, 9, 16... → 1², 2², 3², 4²...)"
+            }
+
+            // Quarter 3, Lesson 3, Activity 1
+            "3_3_1" -> {
+                tvTitleContent.text = "KNOW EXPRESSION AND EQUATION"
+                tvDirection.text = "Look at the given mathematical statement and identify whether it is an expression or an equation."
+                tvExample.text = "Expression: 2y - 7 (no equal sign)\nEquation: 5x + 3 = 18 (has equal sign)\n\nAn equation has an equal sign (=), while an expression does not."
+            }
+
+            // Quarter 3, Lesson 3, Activity 2
+            "3_3_2" -> {
+                tvTitleContent.text = "KNOW COEFFICIENT, VARIABLE, AND CONSTANT"
+                tvDirection.text = "Examine the highlighted part of the given expression and determine whether it is a coefficient, variable, or constant."
+                tvExample.text = "Expression: 2y - 7\n\n" +
+                        "Coefficient: 2 (number multiplying variable)\n" +
+                        "Variable: y (letter representing unknown)\n" +
+                        "Constant: 7 (number alone)\n\n" +
+                        "Identify which one is highlighted in red."
+            }
+
+            // Quarter 3, Lesson 4, Activity 1
+            "3_4_1" -> {
+                tvTitleContent.text = "ALGEBRAIC EQUATION OR EXPRESSION"
+                tvDirection.text = "Examine the given statement and identify if it is an algebraic EQUATION or EXPRESSION."
+                tvExample.text = "Expression: 3x + 4\n(No = sign, so it is an expression)\n\n" +
+                        "Equation: 2y − 5 = 7\n(Has = sign, so it is an equation)\n\n" +
+                        "Key: Look for the equal sign (=)"
+            }
+
+            // Quarter 3, Lesson 4, Activity 2
+            "3_4_2" -> {
+                tvTitleContent.text = "SOLVING EQUATION"
+                tvDirection.text = "Solve the given equation and select the correct answer from the choices provided."
+                tvExample.text = "Addition: x + 6 = 14 → Subtract 6 → x = 8\n\n" +
+                        "Subtraction: y − 9 = 15 → Add 9 → y = 24\n\n" +
+                        "Multiplication: 4z = 32 → Divide by 4 → z = 8\n\n" +
+                        "Division: a ÷ 5 = 7 → Multiply by 5 → a = 35"
+            }
+
+            // Quarter 3, Lesson 5, Activity 1
+            "3_5_1" -> {
+                tvTitleContent.text = "COMPUTING THE SPEED"
+                tvDirection.text = "Examine each problem and choose the right answer from the given choices."
+                tvExample.text = "Formula:\nSpeed = Distance ÷ Time\n\n" +
+                        "Example:\nA jeep travels 200 miles in 4 hours.\n" +
+                        "Speed = 200 ÷ 4 = 50 miles per hour (mph)\n\n" +
+                        "Remember: Speed tells how fast something moves."
+            }
+
+            // Quarter 3, Lesson 5, Activity 2
+            "3_5_2" -> {
+                tvTitleContent.text = "SPEED, DISTANCE, AND TIME"
+                tvDirection.text = "Look and examine the highlighted part of the given, then identify if it's SPEED, DISTANCE or TIME."
+                tvExample.text = "The car traveled 240 km at a speed of 80 km/h, taking a total time of 3 hours.\n\n" +
+                        "Distance: 240 km (how far)\n" +
+                        "Speed: 80 km/h (how fast)\n" +
+                        "Time: 3 hours (how long)\n\n" +
+                        "Identify which one is highlighted in red."
+            }
+
+            // Quarter 3, Lesson 6, Activity 1
+            "3_6_1" -> {
+                tvTitleContent.text = "FIND THE AREA"
+                tvDirection.text = "Examine each problem and compute its area. Select the correct answer from the given choices."
+                tvExample.text = "Formula for Rectangle:\nArea = Length × Width\n\n" +
+                        "Example:\nA swimming pool is 44 meters long and 17 meters wide.\n" +
+                        "Area = 44 m × 17 m = 748 m²\n\n" +
+                        "Remember: Area measures the space inside a shape."
+            }
+
+            // Quarter 3, Lesson 6, Activity 2
+            "3_6_2" -> {
+                tvTitleContent.text = "ROUTINE AND NON-ROUTINE PROBLEMS INVOLVING DIVISION OF DECIMAL NUMBERS AND MONEY"
+                tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
+                tvExample.text = "Follow the steps carefully to solve division word problems."
+            }
+
+
+
             else -> {
                 tvTitleContent.text = activity.title.uppercase()
                 tvDirection.text = "Complete the activity by following the instructions for each question."

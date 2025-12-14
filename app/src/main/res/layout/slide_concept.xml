@@ -17,6 +17,13 @@
         android:fontFamily="sans-serif" />
 
     <!-- Image View -->
+    <LinearLayout
+        android:id="@+id/multiImageContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone" />
+
     <ImageView
         android:id="@+id/ivSlideImage"
         android:layout_width="match_parent"

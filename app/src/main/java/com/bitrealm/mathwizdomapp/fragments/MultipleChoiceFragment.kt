@@ -5,6 +5,7 @@ import androidx.appcompat.app.AlertDialog
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -164,7 +165,7 @@ class MultipleChoiceFragment : Fragment() {
             .show()
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint("SetTextI18n", "DiscouragedApi")
     private fun loadQuestion() {
         if (currentQuestionIndex >= questions.size) {
             showResults()
@@ -176,7 +177,25 @@ class MultipleChoiceFragment : Fragment() {
 
         // Update UI
         tvProgress.text = "${currentQuestionIndex + 1} / ${questions.size}"
-        tvQuestion.text = question.text
+        tvQuestion.text = Html.fromHtml(question.text, Html.FROM_HTML_MODE_LEGACY)
+
+        // Load image if available
+        val ivQuestionImage = view?.findViewById<ImageView>(R.id.ivQuestionImage)
+        if (question.imageUrl != null) {
+            ivQuestionImage?.visibility = View.VISIBLE
+            val resourceId = resources.getIdentifier(
+                question.imageUrl,
+                "drawable",
+                requireContext().packageName
+            )
+            if (resourceId != 0) {
+                ivQuestionImage?.setImageResource(resourceId)
+            } else {
+                ivQuestionImage?.visibility = View.GONE
+            }
+        } else {
+            ivQuestionImage?.visibility = View.GONE
+        }
 
         // Clear previous buttons
         layoutAnswers.removeAllViews()

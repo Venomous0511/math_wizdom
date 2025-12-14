@@ -6,14 +6,15 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Problem Card -->
+    <!-- Problem Statement Card -->
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="#2D2D2D"
         app:cardCornerRadius="12dp"
         app:cardElevation="4dp"
-        app:strokeWidth="0dp">
+        app:strokeWidth="0dp"
+        android:layout_marginBottom="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,38 +39,36 @@
                 android:text="Problem here"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
-                android:fontFamily="sans-serif-medium" />
+                android:fontFamily="sans-serif-medium"
+                android:lineSpacingExtra="4dp" />
 
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
 
-    <!-- Solution Header -->
+    <!-- Image Items Container -->
     <LinearLayout
+        android:id="@+id/imageItemsContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="12dp">
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/key_point_background"
+        android:padding="12dp" />
 
-        <View
-            android:layout_width="4dp"
-            android:layout_height="20dp"
-            android:background="#4CAF50"
-            android:layout_marginEnd="12dp" />
+    <!-- Steps Label -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Solution Steps:"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginBottom="12dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Solution Steps"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:fontFamily="sans-serif-medium" />
-
-    </LinearLayout>
-
+    <!-- Steps Container -->
     <LinearLayout
         android:id="@+id/stepsContainer"
         android:layout_width="match_parent"
@@ -80,15 +79,12 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnRevealAnswer"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginTop="24dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="Reveal Answer"
-        android:textSize="15sp"
-        android:fontFamily="sans-serif-medium"
-        app:backgroundTint="#4CAF50"
-        app:cornerRadius="12dp"
-        app:icon="@drawable/ic_arrow_back"
-        app:iconGravity="start" />
+        android:textColor="#FFFFFF"
+        app:cornerRadius="8dp"
+        app:backgroundTint="#4CAF50" />
 
     <!-- Answer Card -->
     <com.google.android.material.card.MaterialCardView
@@ -96,11 +92,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:visibility="gone"
-        app:cardBackgroundColor="#2E7D32"
+        app:cardBackgroundColor="#1E88E5"
         app:cardCornerRadius="12dp"
         app:cardElevation="8dp"
-        app:strokeWidth="0dp">
+        app:strokeWidth="0dp"
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -109,23 +105,24 @@
             android:padding="16dp">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="✓ Final Answer"
+                android:text="✓ Answer"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
-                android:fontFamily="sans-serif-medium" />
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginBottom="8dp" />
 
             <TextView
                 android:id="@+id/tvAnswer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:text="Answer here"
                 android:textColor="#FFFFFF"
-                android:textSize="22sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
+                android:lineSpacingExtra="4dp"
                 android:fontFamily="sans-serif-medium" />
 
         </LinearLayout>

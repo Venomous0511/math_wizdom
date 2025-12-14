@@ -183,6 +183,7 @@
     <string name="sample_question">1/2 and 1/4</string>
     <string name="lesson_title">LESSON 1</string>
     <string name="objective_description">Objective description goes here</string>
+    <string name="question_image">Question Image</string>
 
     <!-- Media -->
     <string name="youtube">YouTube Videos</string>

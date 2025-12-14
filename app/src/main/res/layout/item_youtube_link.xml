@@ -5,8 +5,8 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     app:cardCornerRadius="12dp"
-    app:cardElevation="6dp"
-    app:cardBackgroundColor="#FF0000">
+    app:cardElevation="4dp"
+    app:strokeWidth="0dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,36 +15,48 @@
         android:padding="16dp"
         android:gravity="center_vertical">
 
-        <!-- YouTube Icon -->
         <ImageView
             android:id="@+id/ivYoutube"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:src="@drawable/ic_youtube"
-            android:contentDescription="@string/youtube"
-            app:tint="@android:color/white" />
+            android:src="@drawable/ic_youtube" />
 
-        <!-- YouTube Video Title -->
-        <TextView
-            android:id="@+id/tvYoutubeTitle"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginStart="16dp"
-            android:text="YouTube Video Title"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:maxLines="2"
-            android:ellipsize="end" />
+            android:orientation="vertical">
 
-        <!-- Play Icon -->
+            <TextView
+                android:id="@+id/tvYoutubeTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="YouTube Video Title"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:maxLines="2"
+                android:ellipsize="end" />
+
+            <TextView
+                android:id="@+id/tvYoutubeOwner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="by Channel Name"
+                android:textSize="12sp"
+                android:textColor="@android:color/darker_gray"
+                android:layout_marginTop="4dp"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+        </LinearLayout>
+
         <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:src="@drawable/ic_play"
-            android:contentDescription="@string/play"
-            app:tint="@android:color/white" />
+            android:layout_marginStart="8dp" />
 
     </LinearLayout>
 
