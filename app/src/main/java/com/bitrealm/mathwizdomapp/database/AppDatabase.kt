@@ -5,18 +5,21 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.bitrealm.mathwizdomapp.database.dao.LessonProgressDao
 import com.bitrealm.mathwizdomapp.database.dao.UserDao
+import com.bitrealm.mathwizdomapp.database.entities.LessonProgress
 import com.bitrealm.mathwizdomapp.database.entities.User
 
 @Database(
-    entities = [User::class],
-    version = 1,
+    entities = [User::class, LessonProgress::class],
+    version = 2, // CHANGE version to 2
     exportSchema = false
 )
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
+    abstract fun lessonProgressDao(): LessonProgressDao
 
     companion object {
         @Volatile
@@ -29,7 +32,7 @@ abstract class AppDatabase : RoomDatabase() {
                     AppDatabase::class.java,
                     "math_wizdom_database"
                 )
-                    .fallbackToDestructiveMigration(false)
+                    .fallbackToDestructiveMigration(true)
                     .build()
                 INSTANCE = instance
                 instance

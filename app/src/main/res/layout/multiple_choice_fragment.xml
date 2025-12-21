@@ -96,6 +96,14 @@
             android:orientation="vertical"
             android:padding="8dp">
 
+            <ImageView
+                android:id="@+id/ivGroupImage"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:visibility="gone"
+                android:scaleType="fitCenter"
+                android:layout_marginBottom="16dp"/>
+
             <!-- Question Image (optional) -->
             <ImageView
                 android:id="@+id/ivQuestionImage"

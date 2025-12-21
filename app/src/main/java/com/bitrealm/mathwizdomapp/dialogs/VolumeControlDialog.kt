@@ -17,6 +17,12 @@ class VolumeControlDialog(context: Context) : Dialog(context) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.volume_control_dialog)
 
+        window?.setLayout(
+            android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+            android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        window?.setBackgroundDrawableResource(android.R.color.transparent)
+
         val seekBarVolume = findViewById<SeekBar>(R.id.seekBarVolume)
         val tvVolumePercent = findViewById<TextView>(R.id.tvVolumePercent)
         val btnMute = findViewById<MaterialButton>(R.id.btnMute)

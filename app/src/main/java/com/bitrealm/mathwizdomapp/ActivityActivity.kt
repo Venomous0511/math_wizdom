@@ -30,6 +30,7 @@ import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.launch
 import android.net.Uri
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bitrealm.mathwizdomapp.database.dao.LessonProgressDao
 
 class ActivityActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -43,6 +44,7 @@ class ActivityActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
     private lateinit var userRepository: UserRepository
     private lateinit var activityAdapter: ActivityAdapter
+    private lateinit var lessonProgressDao: LessonProgressDao
     private var userIdentifier: String = ""
     private var quarter: Int = 1
     private var lessonNumber: Int = 1
@@ -70,6 +72,7 @@ class ActivityActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         userIdentifier = intent.getStringExtra("USER_IDENTIFIER") ?: ""
         quarter = intent.getIntExtra("QUARTER", 1)
         lessonNumber = intent.getIntExtra("LESSON_NUMBER", 1)
+        lessonProgressDao = database.lessonProgressDao()
 
         initViews()
         setupUI()
@@ -150,23 +153,39 @@ class ActivityActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
     }
 
     private fun loadActivities() {
-        val activities = ActivityDataProvider.getActivitiesForLesson(quarter, lessonNumber)
-        val recyclerView = findViewById<RecyclerView>(R.id.rvActivities)
+        lifecycleScope.launch {
+            val activities = ActivityDataProvider.getActivitiesForLesson(quarter, lessonNumber)
 
-        if (activities.isEmpty()) {
-            Toast.makeText(this, "No activities available for this lesson", Toast.LENGTH_SHORT).show()
-            return
+            if (activities.isEmpty()) {
+                Toast.makeText(this@ActivityActivity, "No activities available", Toast.LENGTH_SHORT).show()
+                return@launch
+            }
+
+            // Load completion status for all activities
+            val completionStatus = mutableMapOf<String, Boolean>()
+            for (activity in activities) {
+                val progress = lessonProgressDao.getActivityProgress(
+                    userIdentifier,
+                    quarter,
+                    lessonNumber,
+                    activity.id.toString()
+                )
+                // Activity is complete if score >= 3
+                completionStatus[activity.id.toString()] = (progress != null && progress.score >= 3)
+            }
+
+            runOnUiThread {
+                val recyclerView = findViewById<RecyclerView>(R.id.rvActivities)
+                recyclerView.layoutManager = LinearLayoutManager(this@ActivityActivity)
+
+                activityAdapter = ActivityAdapter(activities, completionStatus) { activity ->
+                    navigateToActivityDetail(activity)
+                }
+
+                rvActivities.adapter = activityAdapter
+            }
         }
-
-        recyclerView.layoutManager = LinearLayoutManager(this)
-
-        activityAdapter = ActivityAdapter(activities) { activity ->
-            navigateToActivityDetail(activity)
-        }
-
-        rvActivities.adapter = activityAdapter
     }
-
     private fun navigateToActivityDetail(activity: Activity) {
         val intent = Intent(this, ActivityDetailActivity::class.java)
         intent.putExtra("USER_IDENTIFIER", userIdentifier)

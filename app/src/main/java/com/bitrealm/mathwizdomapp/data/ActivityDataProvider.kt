@@ -45,6 +45,20 @@ object ActivityDataProvider {
             "3_4" -> getQuarter3Lesson4Activities()
             "3_5" -> getQuarter3Lesson5Activities()
             "3_6" -> getQuarter3Lesson6Activities()
+            "3_7" -> getQuarter3Lesson7Activities()
+            "3_8" -> getQuarter3Lesson8Activities()
+
+            // ----------- QUARTER 4 -----------
+            "4_1" -> getQuarter4Lesson1Activities()
+            "4_2" -> getQuarter4Lesson2Activities()
+            "4_3" -> getQuarter4Lesson3Activities()
+            "4_4" -> getQuarter4Lesson4Activities()
+            "4_5" -> getQuarter4Lesson5Activities()
+            "4_6" -> getQuarter4Lesson6Activities()
+            "4_7" -> getQuarter4Lesson7Activities()
+            "4_8" -> getQuarter4Lesson8Activities()
+            "4_9" -> getQuarter4Lesson9Activities()
+
             else -> emptyList()
         }
     }
@@ -8534,6 +8548,3078 @@ object ActivityDataProvider {
 //                        text = "",
 //                        videoFileName = "activity_1-n2.mp4",
 //                        description = "Routine or Non-routine Problems Involving Any of the Operations Including any Decimals, Whole Numbers and Money"
+//                    ),
+//                )
+//            ),
+        )
+    }
+
+    private fun getQuarter3Lesson7Activities(): List<Activity> {
+        return listOf(
+            // Activity 1: Solid Figures
+            Activity(
+                id = 1,
+                quarter = 3,
+                lessonNumber = 7,
+                activityNumber = 1,
+                title = "Solid Figures",
+                type = ActivityType.MULTIPLE_CHOICE,
+                questions = listOf(
+                    Question.MultipleChoice(
+                        id = 1,
+                        text = "What shape is this?",
+                        imageUrl = "solid_figure_cube",
+                        options = listOf("Cube", "Cylinder", "Sphere", "Cone"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 2,
+                        text = "What shape is this?",
+                        imageUrl = "solid_figure_rectangular_prism",
+                        options = listOf("Cube", "Rectangular Prism", "Tetrahedron", "Cylinder"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 3,
+                        text = "What shape is this?",
+                        imageUrl = "solid_figure_triangular_prism",
+                        options = listOf("Triangular Prism", "Cone", "Square Pyramid", "Sphere"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 4,
+                        text = "What shape is this?",
+                        imageUrl = "solid_figure_pentagonal_prism",
+                        options = listOf("Cylinder", "Pentagonal Prism", "Hexagonal Pyramid", "Octahedron"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 5,
+                        text = "What shape is this?",
+                        imageUrl = "solid_figure_hexagonal_prism",
+                        options = listOf("Sphere", "Hexagonal Prism", "Triangular Pyramid", "Cone"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 6,
+                        text = "What shape is this?",
+                        imageUrl = "solid_figure_cylinder",
+                        options = listOf("Cube", "Cone", "Cylinder", "Triangular Prism"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 7,
+                        text = "What shape is this?",
+                        imageUrl = "solid_figure_cone",
+                        options = listOf("Sphere", "Cube", "Cone", "Cylinder"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 8,
+                        text = "What shape is this?",
+                        imageUrl = "solid_figure_sphere",
+                        options = listOf("Cube", "Rectangular Prism", "Sphere", "Cylinder"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 9,
+                        text = "What shape is this?",
+                        imageUrl = "solid_figure_square_pyramid",
+                        options = listOf("Square Pyramid", "Cube", "Triangular Prism", "Sphere"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 10,
+                        text = "What shape is this?",
+                        imageUrl = "solid_figure_tetrahedron",
+                        options = listOf("Cylinder", "Tetrahedron", "Hexagonal Prism", "Octahedron"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 11,
+                        text = "What shape is this?",
+                        imageUrl = "solid_figure_pentagonal_pyramid",
+                        options = listOf("Cone", "Cylinder", "Pentagonal Pyramid", "Triangular Prism"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 12,
+                        text = "What shape is this?",
+                        imageUrl = "solid_figure_hexagonal_pyramid",
+                        options = listOf("Cube", "Hexagonal Pyramid", "Sphere", "Trapezoidal Prism"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 13,
+                        text = "What shape is this?",
+                        imageUrl = "solid_figure_octahedron",
+                        options = listOf("Octahedron", "Rectangular Prism", "Cone", "Cube"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 14,
+                        text = "What shape is this?",
+                        imageUrl = "solid_figure_dodecahedron",
+                        options = listOf("Tetrahedron", "Dodecahedron", "Cylinder", "Hemisphere"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 15,
+                        text = "What shape is this?",
+                        imageUrl = "solid_figure_icosahedron",
+                        options = listOf("Cone", "Cube", "Icosahedron", "Sphere"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 16,
+                        text = "What shape is this?",
+                        imageUrl = "solid_figure_torus",
+                        options = listOf("Cylinder", "Torus", "Cube", "Octahedron"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 17,
+                        text = "What shape is this?",
+                        imageUrl = "solid_figure_frustum",
+                        options = listOf("Cylinder", "Frustum", "Sphere", "Tetrahedron"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 18,
+                        text = "What shape is this?",
+                        imageUrl = "solid_figure_ellipsoid",
+                        options = listOf("Cube", "Ellipsoid", "Octahedron", "Cone"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 19,
+                        text = "What shape is this?",
+                        imageUrl = "solid_figure_oblate_spheroid",
+                        options = listOf("Rectangular Prism", "Sphere", "Oblate Spheroid", "Hexagonal Pyramid"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 20,
+                        text = "What shape is this?",
+                        imageUrl = "solid_figure_parallelepiped",
+                        options = listOf("Cube", "Parallelepiped", "Cylinder", "Torus"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 21,
+                        text = "What shape is this?",
+                        imageUrl = "solid_figure_bicone",
+                        options = listOf("Bicone", "Cone", "Cube", "Sphere"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 22,
+                        text = "What shape is this?",
+                        imageUrl = "solid_figure_hemisphere",
+                        options = listOf("Cone", "Hemisphere", "Torus", "Cylinder"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 23,
+                        text = "What shape is this?",
+                        imageUrl = "solid_figure_rhombic_dodecahedron",
+                        options = listOf("Rhombic Dodecahedron", "Octahedron", "Cube", "Sphere"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 24,
+                        text = "What shape is this?",
+                        imageUrl = "solid_figure_trapezoidal_prism",
+                        options = listOf("Cylinder", "Cube", "Trapezoidal Prism", "Hexagonal Pyramid"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 25,
+                        text = "What shape is this?",
+                        imageUrl = "solid_figure_hyperboloid",
+                        options = listOf("Torus", "Hyperboloid", "Cube", "Sphere"),
+                        correctAnswer = 1
+                    )
+                )
+            ),
+
+            // Activity 2: Sides
+            Activity(
+                id = 2,
+                quarter = 3,
+                lessonNumber = 7,
+                activityNumber = 2,
+                title = "Sides",
+                type = ActivityType.MULTIPLE_CHOICE,
+                questions = listOf(
+                    Question.MultipleChoice(
+                        id = 1,
+                        text = "Does this shape have 6 sides?",
+                        imageUrl = "sides_q1",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 2,
+                        text = "Does this shape have 3 sides?",
+                        imageUrl = "sides_q2",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 3,
+                        text = "Does this shape have 4 sides?",
+                        imageUrl = "sides_q3",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 4,
+                        text = "Does this shape have 6 sides?",
+                        imageUrl = "sides_q4",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 5,
+                        text = "Does this shape have 6 sides?",
+                        imageUrl = "sides_q5",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 6,
+                        text = "Does this shape have 8 sides?",
+                        imageUrl = "sides_q6",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 7,
+                        text = "Does this shape have 3 sides?",
+                        imageUrl = "sides_q7",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 8,
+                        text = "Does this shape have 5 sides?",
+                        imageUrl = "sides_q8",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 9,
+                        text = "Does this shape have 2 sides?",
+                        imageUrl = "sides_q9",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 10,
+                        text = "Does this shape have 4 sides?",
+                        imageUrl = "sides_q10",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 11,
+                        text = "Does this shape have 10 sides?",
+                        imageUrl = "sides_q11",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 12,
+                        text = "Does this shape have 6 sides?",
+                        imageUrl = "sides_q12",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 13,
+                        text = "Does this shape have 5 sides?",
+                        imageUrl = "sides_q13",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 14,
+                        text = "Does this shape have 12 sides?",
+                        imageUrl = "sides_q14",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 15,
+                        text = "Does this shape have 3 sides?",
+                        imageUrl = "sides_q15",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 16,
+                        text = "Does this shape have 3 sides?",
+                        imageUrl = "sides_q16",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 17,
+                        text = "Does this shape have 4 sides?",
+                        imageUrl = "sides_q17",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 18,
+                        text = "Does this shape have 6 sides?",
+                        imageUrl = "sides_q18",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 19,
+                        text = "Does this shape have 6 sides?",
+                        imageUrl = "sides_q19",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 20,
+                        text = "Does this shape have 2 sides?",
+                        imageUrl = "sides_q20",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 21,
+                        text = "Does this shape have 1 side?",
+                        imageUrl = "sides_q21",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 22,
+                        text = "Does this shape have 1 side?",
+                        imageUrl = "sides_q22",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 23,
+                        text = "Does this shape have no side?",
+                        imageUrl = "sides_q23",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 24,
+                        text = "Does this shape have no side?",
+                        imageUrl = "sides_q24",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 25,
+                        text = "Does this shape have 3 sides?",
+                        imageUrl = "sides_q25",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    )
+                )
+            )
+        )
+    }
+
+    private fun getQuarter3Lesson8Activities(): List<Activity> {
+        return listOf(
+            // Activity 1: Routine and Non-Routine Problems - Problem Solving Involving Surface Area (Video-based)
+//            Activity(
+//                id = 1,
+//                quarter = 3,
+//                lessonNumber = 8,
+//                activityNumber = 1,
+//                title = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area",
+//                type = ActivityType.ROUTINE_PROBLEM,
+//                questions = listOf(
+//                    Question.RoutineProblem(
+//                        id = 1,
+//                        text = "",
+//                        videoFileName = "activity_1-n1.mp4",
+//                        description = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area"
+//                    ),
+//                    Question.RoutineProblem(
+//                        id = 2,
+//                        text = "",
+//                        videoFileName = "activity_1-n2.mp4",
+//                        description = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area"
+//                    ),
+//                )
+//            ),
+
+            // Activity 2: Routine and Non-Routine Problems - Problem Solving Involving Surface Area (Video-based)
+//            Activity(
+//                id = 2,
+//                quarter = 3,
+//                lessonNumber = 8,
+//                activityNumber = 2,
+//                title = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area",
+//                type = ActivityType.ROUTINE_PROBLEM,
+//                questions = listOf(
+//                    Question.RoutineProblem(
+//                        id = 1,
+//                        text = "",
+//                        videoFileName = "activity_1-n1.mp4",
+//                        description = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area"
+//                    ),
+//                    Question.RoutineProblem(
+//                        id = 2,
+//                        text = "",
+//                        videoFileName = "activity_1-n2.mp4",
+//                        description = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area"
+//                    ),
+//                )
+//            ),
+        )
+    }
+
+    // ------------------- QUARTER 4 -------------------
+    private fun getQuarter4Lesson1Activities(): List<Activity> {
+        return listOf(
+            // Activity 1: Relationship of Volume of Prisms and Pyramids & Other 3D Figures
+            Activity(
+                id = 1,
+                quarter = 4,
+                lessonNumber = 1,
+                activityNumber = 1,
+                title = "Relationship of Volume of Prisms and Pyramids & Other 3D Figures",
+                type = ActivityType.MULTIPLE_CHOICE,
+                questions = listOf(
+                    Question.MultipleChoice(
+                        id = 1,
+                        text = "The volume of the given prism is 210 cubic units. Find the volume of the pyramid.",
+                        options = listOf("60 cubic units", "70 cubic units", "80 cubic units", "90 cubic units"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 2,
+                        text = "The volume of the pyramid is 96 cubic units. Find the volume of the rectangular prism.",
+                        options = listOf("192 cubic units", "280 cubic units", "288 cubic units", "320 cubic units"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 3,
+                        text = "The volume of the given prism is 150 cubic units. Find the volume of the pyramid.",
+                        options = listOf("40 cubic units", "45 cubic units", "50 cubic units", "60 cubic units"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 4,
+                        text = "The volume of the pyramid is 42 cubic units. Find the volume of the rectangular prism.",
+                        options = listOf("120 cubic units", "126 cubic units", "132 cubic units", "150 cubic units"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 5,
+                        text = "The volume of the given prism is 450 cubic units. Find the volume of the pyramid.",
+                        options = listOf("120 cubic units", "135 cubic units", "150 cubic units", "180 cubic units"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 6,
+                        text = "The volume of the pyramid is 64 cubic units. Find the volume of the rectangular prism.",
+                        options = listOf("180 cubic units", "192 cubic units", "210 cubic units", "240 cubic units"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 7,
+                        text = "The volume of the given prism is 360 cubic units. Find the volume of the pyramid.",
+                        options = listOf("100 cubic units", "110 cubic units", "120 cubic units", "150 cubic units"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 8,
+                        text = "The volume of the pyramid is 81 cubic units. Find the volume of the rectangular prism.",
+                        options = listOf("210 cubic units", "230 cubic units", "243 cubic units", "270 cubic units"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 9,
+                        text = "The volume of the given prism is 510 cubic units. Find the volume of the pyramid.",
+                        options = listOf("160 cubic units", "165 cubic units", "170 cubic units", "180 cubic units"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 10,
+                        text = "The volume of the pyramid is 108 cubic units. Find the volume of the rectangular prism.",
+                        options = listOf("300 cubic units", "315 cubic units", "324 cubic units", "333 cubic units"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 11,
+                        text = "The volume of the cylinder is 240 cubic units. Find the volume of the cone.",
+                        options = listOf("70 cubic units", "75 cubic units", "80 cubic units", "90 cubic units"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 12,
+                        text = "The volume of the cone is 72 cubic units. Find the volume of the cylinder.",
+                        options = listOf("180 cubic units", "200 cubic units", "210 cubic units", "216 cubic units"),
+                        correctAnswer = 3
+                    ),
+                    Question.MultipleChoice(
+                        id = 13,
+                        text = "The volume of the cylinder is 600 cubic units. Find the volume of the cone.",
+                        options = listOf("180 cubic units", "190 cubic units", "200 cubic units", "210 cubic units"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 14,
+                        text = "The volume of the cone is 95 cubic units. Find the volume of the cylinder.",
+                        options = listOf("270 cubic units", "280 cubic units", "285 cubic units", "300 cubic units"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 15,
+                        text = "The volume of the cylinder is 180 cubic units. Find the volume of the cone.",
+                        options = listOf("55 cubic units", "58 cubic units", "60 cubic units", "65 cubic units"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 16,
+                        text = "The volume of the cone is 50 cubic units. Find the volume of the cylinder.",
+                        options = listOf("140 cubic units", "145 cubic units", "150 cubic units", "155 cubic units"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 17,
+                        text = "The volume of the cylinder is 750 cubic units. Find the volume of the cone.",
+                        options = listOf("230 cubic units", "240 cubic units", "250 cubic units", "260 cubic units"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 18,
+                        text = "The volume of the cone is 120 cubic units. Find the volume of the cylinder.",
+                        options = listOf("330 cubic units", "340 cubic units", "350 cubic units", "360 cubic units"),
+                        correctAnswer = 3
+                    ),
+                    Question.MultipleChoice(
+                        id = 19,
+                        text = "The volume of the cylinder is 390 cubic units. Find the volume of the cone.",
+                        options = listOf("120 cubic units", "125 cubic units", "130 cubic units", "135 cubic units"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 20,
+                        text = "The volume of the cone is 84 cubic units. Find the volume of the cylinder.",
+                        options = listOf("240 cubic units", "246 cubic units", "250 cubic units", "252 cubic units"),
+                        correctAnswer = 3
+                    ),
+                    Question.MultipleChoice(
+                        id = 21,
+                        text = "The volume of the cylinder is 150 cubic units. Find the volume of the sphere.",
+                        options = listOf("40 cubic units", "45 cubic units", "50 cubic units", "55 cubic units"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 22,
+                        text = "The volume of the sphere is 75 cubic units. Find the volume of the cylinder.",
+                        options = listOf("210 cubic units", "220 cubic units", "225 cubic units", "230 cubic units"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 23,
+                        text = "The volume of the cylinder is 240 cubic units. Find the volume of the sphere.",
+                        options = listOf("70 cubic units", "75 cubic units", "80 cubic units", "85 cubic units"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 24,
+                        text = "The volume of the sphere is 60 cubic units. Find the volume of the cylinder.",
+                        options = listOf("170 cubic units", "175 cubic units", "180 cubic units", "190 cubic units"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 25,
+                        text = "The volume of the cylinder is 390 cubic units. Find the volume of the sphere.",
+                        options = listOf("120 cubic units", "125 cubic units", "130 cubic units", "135 cubic units"),
+                        correctAnswer = 2
+                    )
+                )
+            ),
+
+            // Activity 2: Relationship of Volume - True or False
+            Activity(
+                id = 2,
+                quarter = 4,
+                lessonNumber = 1,
+                activityNumber = 2,
+                title = "Relationship of Volume of Prisms and Pyramids & Other 3D Figures",
+                type = ActivityType.MULTIPLE_CHOICE,
+                questions = listOf(
+                    Question.MultipleChoice(
+                        id = 1,
+                        text = "The volume of the given prism is 360 cubic units. Its pyramid's volume is 130 cubic units.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 2,
+                        text = "The volume of the pyramid is 150 cubic units. Its rectangular prism's volume is 450 cubic units.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 3,
+                        text = "The volume of the given prism is 270 cubic units. Its pyramid's volume is 90 cubic units.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 4,
+                        text = "The volume of the pyramid is 120 cubic units. Its rectangular prism's volume is 350 cubic units.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 5,
+                        text = "The volume of the given prism is 600 cubic units. Its pyramid's volume is 200 cubic units.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 6,
+                        text = "The volume of the pyramid is 72 cubic units. Its rectangular prism's volume is 216 cubic units.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 7,
+                        text = "The volume of the given prism is 480 cubic units. Its pyramid's volume is 140 cubic units.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 8,
+                        text = "The volume of the pyramid is 135 cubic units. Its rectangular prism's volume is 405 cubic units.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 9,
+                        text = "The volume of the given prism is 300 cubic units. Its pyramid's volume is 100 cubic units.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 10,
+                        text = "The volume of the pyramid is 210 cubic units. Its rectangular prism's volume is 640 cubic units.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 11,
+                        text = "The volume of the cylinder is 360 cubic units. Its cone's volume is 120 cubic units.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 12,
+                        text = "The volume of the cone is 110 cubic units. Its cylinder's volume is 340 cubic units.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 13,
+                        text = "The volume of the cylinder is 420 cubic units. Its cone's volume is 140 cubic units.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 14,
+                        text = "The volume of the cone is 75 cubic units. Its cylinder's volume is 225 cubic units.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 15,
+                        text = "The volume of the cylinder is 510 cubic units. Its cone's volume is 160 cubic units.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 16,
+                        text = "The volume of the cone is 200 cubic units. Its cylinder's volume is 600 cubic units.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 17,
+                        text = "The volume of the cylinder is 270 cubic units. Its cone's volume is 85 cubic units.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 18,
+                        text = "The volume of the cone is 145 cubic units. Its cylinder's volume is 435 cubic units.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 19,
+                        text = "The volume of the cylinder is 720 cubic units. Its cone's volume is 240 cubic units.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 20,
+                        text = "The volume of the cone is 66 cubic units. Its cylinder's volume is 190 cubic units.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 21,
+                        text = "The volume of the cylinder is 240 cubic units. Its sphere's volume is 80 cubic units.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 22,
+                        text = "The volume of the sphere is 55 cubic units. Its cylinder's volume is 150 cubic units.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 23,
+                        text = "The volume of the cylinder is 330 cubic units. Its sphere's volume is 110 cubic units.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 24,
+                        text = "The volume of the sphere is 72 cubic units. Its cylinder's volume is 216 cubic units.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 25,
+                        text = "The volume of the cylinder is 450 cubic units. Its sphere's volume is 160 cubic units.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    )
+                )
+            )
+        )
+    }
+
+    private fun getQuarter4Lesson2Activities(): List<Activity> {
+        return listOf(
+            // Activity 1: Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres (Video-based)
+//            Activity(
+//                id = 1,
+//                quarter = 4,
+//                lessonNumber = 2,
+//                activityNumber = 1,
+//                title = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres",
+//                type = ActivityType.ROUTINE_PROBLEM,
+//                questions = listOf(
+//                    Question.RoutineProblem(
+//                        id = 1,
+//                        text = "",
+//                        videoFileName = "activity_1-n1.mp4",
+//                        description = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres"
+//                    ),
+//                    Question.RoutineProblem(
+//                        id = 2,
+//                        text = "",
+//                        videoFileName = "activity_1-n2.mp4",
+//                        description = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres"
+//                    ),
+//                )
+//            ),
+
+            // Activity 2: Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres (Video-based)
+//            Activity(
+//                id = 2,
+//                quarter = 4,
+//                lessonNumber = 2,
+//                activityNumber = 2,
+//                title = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres",
+//                type = ActivityType.ROUTINE_PROBLEM,
+//                questions = listOf(
+//                    Question.RoutineProblem(
+//                        id = 1,
+//                        text = "",
+//                        videoFileName = "activity_1-n1.mp4",
+//                        description = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres"
+//                    ),
+//                    Question.RoutineProblem(
+//                        id = 2,
+//                        text = "",
+//                        videoFileName = "activity_1-n2.mp4",
+//                        description = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres"
+//                    ),
+//                )
+//            ),
+        )
+    }
+
+    private fun getQuarter4Lesson3Activities(): List<Activity> {
+        return listOf(
+            // Activity 1: Reading and Interpreting Electric and Water Meter Readings
+            Activity(
+                id = 1,
+                quarter = 4,
+                lessonNumber = 3,
+                activityNumber = 1,
+                title = "Reading and Interpreting Electric and Water Meter Readings",
+                type = ActivityType.MULTIPLE_CHOICE,
+                questions = listOf(
+                    Question.MultipleChoice(
+                        id = 1,
+                        text = "What is the correct reading of the electric meter?",
+                        imageUrl = "electric_meter_q1",
+                        options = listOf("48273 kWh", "48372 kWh", "48372 kWh", "42387 kWh"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 2,
+                        text = "What is the correct reading of the electric meter?",
+                        imageUrl = "electric_meter_q2",
+                        options = listOf("15749 kWh", "15794 kWh", "15947 kWh", "15764 kWh"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 3,
+                        text = "What is the correct reading of the electric meter?",
+                        imageUrl = "electric_meter_q3",
+                        options = listOf("62958 kWh", "69285 kWh", "62985 kWh", "62895 kWh"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 4,
+                        text = "What is the correct reading of the electric meter?",
+                        imageUrl = "electric_meter_q4",
+                        options = listOf("31126 kWh", "31162 kWh", "31216 kWh", "31026 kWh"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 5,
+                        text = "What is the correct reading of the electric meter?",
+                        imageUrl = "electric_meter_q5",
+                        options = listOf("84751 kWh", "84715 kWh", "84157 kWh", "87451 kWh"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 6,
+                        text = "What is the correct reading of the electric meter?",
+                        imageUrl = "electric_meter_q6",
+                        options = listOf("23568 kWh", "25368 kWh", "23658 kWh", "23856 kWh"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 7,
+                        text = "What is the correct reading of the electric meter?",
+                        imageUrl = "electric_meter_q7",
+                        options = listOf("97423 kWh", "94732 kWh", "97432 kWh", "97243 kWh"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 8,
+                        text = "What is the correct reading of the electric meter?",
+                        imageUrl = "electric_meter_q8",
+                        options = listOf("54617 kWh", "54671 kWh", "54761 kWh", "56471 kWh"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 9,
+                        text = "What is the correct reading of the electric meter?",
+                        imageUrl = "electric_meter_q9",
+                        options = listOf("12859 kWh", "12589 kWh", "18259 kWh", "12895 kWh"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 10,
+                        text = "What is the correct reading of the electric meter?",
+                        imageUrl = "electric_meter_q10",
+                        options = listOf("73624 kWh", "76324 kWh", "76234 kWh", "73642 kWh"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 11,
+                        text = "What is the correct reading of the electric meter?",
+                        imageUrl = "electric_meter_q11",
+                        options = listOf("39174 kWh", "39147 kWh", "39417 kWh", "39471 kWh"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 12,
+                        text = "What is the correct reading of the electric meter?",
+                        imageUrl = "electric_meter_q12",
+                        options = listOf("54289 kWh", "52849 kWh", "59284 kWh", "58942 kWh"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 13,
+                        text = "What is the correct reading of the electric meter?",
+                        imageUrl = "electric_meter_q13",
+                        options = listOf("67521 kWh", "65712 kWh", "67512 kWh", "67125 kWh"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 14,
+                        text = "What is the correct reading of the water meter?",
+                        imageUrl = "water_meter_q14",
+                        options = listOf("65382 m³", "65328 m³", "63528 m³", "65382 m³"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 15,
+                        text = "What is the correct reading of the water meter?",
+                        imageUrl = "water_meter_q15",
+                        options = listOf("87421 m³", "87142 m³", "87412 m³", "84172 m³"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 16,
+                        text = "What is the correct reading of the water meter?",
+                        imageUrl = "water_meter_q16",
+                        options = listOf("71359 m³", "73159 m³", "73195 m³", "73519 m³"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 17,
+                        text = "What is the correct reading of the water meter?",
+                        imageUrl = "water_meter_q17",
+                        options = listOf("12735 m³", "12753 m³", "12375 m³", "12573 m³"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 18,
+                        text = "What is the correct reading of the water meter?",
+                        imageUrl = "water_meter_q18",
+                        options = listOf("45968 m³", "45698 m³", "49568 m³", "46958 m³"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 19,
+                        text = "What is the correct reading of the water meter?",
+                        imageUrl = "water_meter_q19",
+                        options = listOf("81234 m³", "81324 m³", "82134 m³", "81243 m³"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 20,
+                        text = "What is the correct reading of the water meter?",
+                        imageUrl = "water_meter_q20",
+                        options = listOf("36825 m³", "38625 m³", "36852 m³", "36582 m³"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 21,
+                        text = "What is the correct reading of the water meter?",
+                        imageUrl = "water_meter_q21",
+                        options = listOf("49784 m³", "49748 m³", "47948 m³", "49478 m³"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 22,
+                        text = "What is the correct reading of the water meter?",
+                        imageUrl = "water_meter_q22",
+                        options = listOf("54671 m³", "56471 m³", "54617 m³", "54167 m³"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 23,
+                        text = "What is the correct reading of the water meter?",
+                        imageUrl = "water_meter_q23",
+                        options = listOf("81623 m³", "82163 m³", "81263 m³", "82613 m³"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 24,
+                        text = "What is the correct reading of the water meter?",
+                        imageUrl = "water_meter_q24",
+                        options = listOf("12479 m³", "12497 m³", "12947 m³", "14297 m³"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 25,
+                        text = "What is the correct reading of the water meter?",
+                        imageUrl = "water_meter_q25",
+                        options = listOf("65396 m³", "65369 m³", "63569 m³", "65359 m³"),
+                        correctAnswer = 1
+                    )
+                )
+            ),
+
+            // Activity 2: Reading and Interpreting Electric and Water Meter Readings (Matching Type)
+            Activity(
+                id = 2,
+                quarter = 4,
+                lessonNumber = 3,
+                activityNumber = 2,
+                title = "Reading and Interpreting Electric and Water Meter Readings",
+                type = ActivityType.DRAG_DROP,
+                questions = listOf(
+                    Question.DragDrop(
+                        id = 1,
+                        text = "Calculate the consumption by finding the difference between the present reading and previous reading. Match each problem in Column A with the correct answer in Column B.",
+                        columnA = listOf(
+                            "04992 kWh - 04578 kWh =",
+                            "06825 kWh - 06215 kWh =",
+                            "04475 kWh - 03867 kWh =",
+                            "10200 kWh - 09420 kWh =",
+                            "06075 kWh - 05600 kWh =",
+                            "03245 kWh - 02300 kWh =",
+                            "08555 kWh - 07840 kWh =",
+                            "12199 kWh - 11255 kWh =",
+                            "04799 kWh - 04100 kWh =",
+                            "07895 kWh - 06780 kWh =",
+                            "11050 kWh - 10100 kWh =",
+                            "16125 kWh - 15200 kWh =",
+                            "19560 kWh - 18500 kWh =",
+                            "01458 m³ - 01234 m³ =",
+                            "02985 m³ - 02567 m³ =",
+                            "04250 m³ - 03789 m³ =",
+                            "05375 m³ - 04900 m³ =",
+                            "06123 m³ - 05555 m³ =",
+                            "07455 m³ - 06780 m³ =",
+                            "08795 m³ - 08020 m³ =",
+                            "10000 m³ - 09210 m³ =",
+                            "11111 m³ - 10435 m³ =",
+                            "12475 m³ - 11590 m³ =",
+                            "13985 m³ - 13020 m³ =",
+                            "15210 m³ - 14250 m³ ="
+                        ),
+                        columnB = listOf(
+                            "0414 kWh",
+                            "0610 kWh",
+                            "0608 kWh",
+                            "0780 kWh",
+                            "0475 kWh",
+                            "0945 kWh",
+                            "0715 kWh",
+                            "0944 kWh",
+                            "0699 kWh",
+                            "1115 kWh",
+                            "0950 kWh",
+                            "0925 kWh",
+                            "1060 kWh",
+                            "0224 m³",
+                            "0418 m³",
+                            "0461 m³",
+                            "0475 m³",
+                            "0568 m³",
+                            "0675 m³",
+                            "0775 m³",
+                            "0790 m³",
+                            "0676 m³",
+                            "0885 m³",
+                            "0965 m³",
+                            "0960 m³"
+                        ),
+                        correctMatches = mapOf(
+                            0 to 0,   // 0414 kWh
+                            1 to 1,   // 0610 kWh
+                            2 to 2,   // 0608 kWh
+                            3 to 3,   // 0780 kWh
+                            4 to 4,   // 0475 kWh
+                            5 to 5,   // 0945 kWh
+                            6 to 6,   // 0715 kWh
+                            7 to 7,   // 0944 kWh
+                            8 to 8,   // 0699 kWh
+                            9 to 9,   // 1115 kWh
+                            10 to 10, // 0950 kWh
+                            11 to 11, // 0925 kWh
+                            12 to 12, // 1060 kWh
+                            13 to 13, // 0224 m³
+                            14 to 14, // 0418 m³
+                            15 to 15, // 0461 m³
+                            16 to 16, // 0475 m³
+                            17 to 17, // 0568 m³
+                            18 to 18, // 0675 m³
+                            19 to 19, // 0775 m³
+                            20 to 20, // 0790 m³
+                            21 to 21, // 0676 m³
+                            22 to 22, // 0885 m³
+                            23 to 23, // 0965 m³
+                            24 to 24  // 0960 m³
+                        )
+                    )
+                )
+            )
+        )
+    }
+
+    private fun getQuarter4Lesson4Activities(): List<Activity> {
+        return listOf(
+            // Activity 1: Interpreting Pie Graph
+            Activity(
+                id = 1,
+                quarter = 4,
+                lessonNumber = 4,
+                activityNumber = 1,
+                title = "Interpreting Pie Graph",
+                type = ActivityType.MULTIPLE_CHOICE,
+                questions = listOf(
+                    // GROUP 1: School Subjects (Questions 1-5)
+                    Question.MultipleChoice(
+                        id = 1,
+                        text = "What is the angle size of Filipino?",
+                        imageUrl = "pie_graph_subjects",
+                        options = listOf("70°", "72°", "74°", "76°"),
+                        correctAnswer = 0,
+                        groupId = 1,
+                        isGroupHeader = true
+                    ),
+                    Question.MultipleChoice(
+                        id = 2,
+                        text = "What is the angle size of English?",
+                        imageUrl = "pie_graph_subjects",
+                        options = listOf("28.8°", "28.6°", "28.4°", "28.2°"),
+                        correctAnswer = 0,
+                        groupId = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 3,
+                        text = "What is the angle size of Science?",
+                        imageUrl = "pie_graph_subjects",
+                        options = listOf("86.8°", "86.6°", "86.4°", "86.2°"),
+                        correctAnswer = 2,
+                        groupId = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 4,
+                        text = "What is the angle size of Mathematics?",
+                        imageUrl = "pie_graph_subjects",
+                        options = listOf("115.0°", "115.4°", "115.6°", "115.2°"),
+                        correctAnswer = 3,
+                        groupId = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 5,
+                        text = "What is the angle size of Araling Panlipunan?",
+                        imageUrl = "pie_graph_subjects",
+                        options = listOf("57.6°", "57.8°", "57.2°", "57.4°"),
+                        correctAnswer = 0,
+                        groupId = 1
+                    ),
+
+                    // GROUP 2: Social Media (Questions 6-10)
+                    Question.MultipleChoice(
+                        id = 6,
+                        text = "What is the angle size of X (Twitter)?",
+                        imageUrl = "pie_graph_social_media",
+                        options = listOf("72°", "74°", "76°", "70°"),
+                        correctAnswer = 0,
+                        groupId = 2,
+                        isGroupHeader = true
+                    ),
+                    Question.MultipleChoice(
+                        id = 7,
+                        text = "What is the angle size of Instagram?",
+                        imageUrl = "pie_graph_social_media",
+                        options = listOf("28.2°", "28.8°", "28.4°", "28.6°"),
+                        correctAnswer = 1,
+                        groupId = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 8,
+                        text = "What is the angle size of Facebook?",
+                        imageUrl = "pie_graph_social_media",
+                        options = listOf("86.2°", "86.6°", "86.4°", "86.8°"),
+                        correctAnswer = 2,
+                        groupId = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 9,
+                        text = "What is the angle size of Tiktok?",
+                        imageUrl = "pie_graph_social_media",
+                        options = listOf("115.8°", "115.6°", "115.4°", "115.2°"),
+                        correctAnswer = 3,
+                        groupId = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 10,
+                        text = "What is the angle size of Messenger?",
+                        imageUrl = "pie_graph_social_media",
+                        options = listOf("57.6°", "57.4°", "57.8°", "57.2°"),
+                        correctAnswer = 0,
+                        groupId = 2
+                    ),
+
+                    // GROUP 3: Fast Food (Questions 11-15)
+                    Question.MultipleChoice(
+                        id = 11,
+                        text = "What is the angle size of McDonald's?",
+                        imageUrl = "pie_graph_fastfood",
+                        options = listOf("91.2°", "91.4°", "91.6°", "91.8°"),
+                        correctAnswer = 0,
+                        groupId = 3,
+                        isGroupHeader = true
+                    ),
+                    Question.MultipleChoice(
+                        id = 12,
+                        text = "What is the angle size of Chowking?",
+                        imageUrl = "pie_graph_fastfood",
+                        options = listOf("55.6°", "55.2°", "55.4°", "55.8°"),
+                        correctAnswer = 1,
+                        groupId = 3
+                    ),
+                    Question.MultipleChoice(
+                        id = 13,
+                        text = "What is the angle size of Mang Inasal?",
+                        imageUrl = "pie_graph_fastfood",
+                        options = listOf("43.4°", "43.6°", "43.2°", "43.8°"),
+                        correctAnswer = 2,
+                        groupId = 3
+                    ),
+                    Question.MultipleChoice(
+                        id = 14,
+                        text = "What is the angle size of Jollibee?",
+                        imageUrl = "pie_graph_fastfood",
+                        options = listOf("141.8°", "141.4°", "141.2°", "141.6°"),
+                        correctAnswer = 3,
+                        groupId = 3
+                    ),
+                    Question.MultipleChoice(
+                        id = 15,
+                        text = "What is the angle size of Greenwich?",
+                        imageUrl = "pie_graph_fastfood",
+                        options = listOf("8.8°", "8.6°", "8.4°", "8.2°"),
+                        correctAnswer = 0,
+                        groupId = 3
+                    ),
+
+                    // GROUP 4: Fruits (Questions 16-20)
+                    Question.MultipleChoice(
+                        id = 16,
+                        text = "What is the angle size of Banana?",
+                        imageUrl = "pie_graph_fruits",
+                        options = listOf("117°", "119°", "115°", "113°"),
+                        correctAnswer = 0,
+                        groupId = 4,
+                        isGroupHeader = true
+                    ),
+                    Question.MultipleChoice(
+                        id = 17,
+                        text = "What is the angle size of Mango?",
+                        imageUrl = "pie_graph_fruits",
+                        options = listOf("85°", "90°", "95°", "100°"),
+                        correctAnswer = 1,
+                        groupId = 4
+                    ),
+                    Question.MultipleChoice(
+                        id = 18,
+                        text = "What is the angle size of Pineapple?",
+                        imageUrl = "pie_graph_fruits",
+                        options = listOf("61°", "65°", "63°", "67°"),
+                        correctAnswer = 2,
+                        groupId = 4
+                    ),
+                    Question.MultipleChoice(
+                        id = 19,
+                        text = "What is the angle size of Papaya?",
+                        imageUrl = "pie_graph_fruits",
+                        options = listOf("41°", "43°", "47°", "45°"),
+                        correctAnswer = 3,
+                        groupId = 4
+                    ),
+                    Question.MultipleChoice(
+                        id = 20,
+                        text = "What is the angle size of Watermelon?",
+                        imageUrl = "pie_graph_fruits",
+                        options = listOf("45°", "43°", "47°", "41°"),
+                        correctAnswer = 0,
+                        groupId = 4
+                    ),
+
+                    // GROUP 5: Filipino Games (Questions 21-25)
+                    Question.MultipleChoice(
+                        id = 21,
+                        text = "What is the angle size of Patintero?",
+                        imageUrl = "pie_graph_games",
+                        options = listOf("86.4°", "86.2°", "86.6°", "86.8°"),
+                        correctAnswer = 0,
+                        groupId = 5,
+                        isGroupHeader = true
+                    ),
+                    Question.MultipleChoice(
+                        id = 22,
+                        text = "What is the angle size of Tumbang Preso?",
+                        imageUrl = "pie_graph_games",
+                        options = listOf("79.4°", "79.2°", "79.6°", "79.8°"),
+                        correctAnswer = 1,
+                        groupId = 5
+                    ),
+                    Question.MultipleChoice(
+                        id = 23,
+                        text = "What is the angle size of Piko?",
+                        imageUrl = "pie_graph_games",
+                        options = listOf("45°", "55°", "50°", "60°"),
+                        correctAnswer = 2,
+                        groupId = 5
+                    ),
+                    Question.MultipleChoice(
+                        id = 24,
+                        text = "What is the angle size of Luksong Baka?",
+                        imageUrl = "pie_graph_games",
+                        options = listOf("64.2°", "64.4°", "64.6°", "64.8°"),
+                        correctAnswer = 3,
+                        groupId = 5
+                    ),
+                    Question.MultipleChoice(
+                        id = 25,
+                        text = "What is the angle size of Sipa?",
+                        imageUrl = "pie_graph_games",
+                        options = listOf("57.6°", "57.2°", "57.4°", "57.8°"),
+                        correctAnswer = 0,
+                        groupId = 5
+                    )
+                )
+            ),
+
+            // Activity 2: Reading and Interpreting Pie Graphs
+            Activity(
+                id = 2,
+                quarter = 4,
+                lessonNumber = 4,
+                activityNumber = 2,
+                title = "Reading and Interpreting Pie Graphs",
+                type = ActivityType.MULTIPLE_CHOICE,
+                questions = listOf(
+                    // GROUP 1: Favorite Subject (Questions 1-5)
+                    Question.MultipleChoice(
+                        id = 1,
+                        text = "Mr. Abad surveyed 50 students about their favorite subject. \n\n What fraction of students' favorite is Araling Panlipunan?",
+                        imageUrl = "pie_graph_subjects_2",
+                        options = listOf("⁶⁄₂₅", "⁵⁄₂₅", "⁷⁄₂₅", "⁴⁄₂₅"),
+                        correctAnswer = 0,
+                        groupId = 1,
+                        isGroupHeader = true
+                    ),
+                    Question.MultipleChoice(
+                        id = 2,
+                        text = "Mr. Abad surveyed 50 students about their favorite subject. \n\n What fraction of students' favorite is Science?",
+                        imageUrl = "pie_graph_subjects_2",
+                        options = listOf("¹⁄₇", "¹⁄₅", "¹⁄₆", "²⁄₅"),
+                        correctAnswer = 1,
+                        groupId = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 3,
+                        text = "Mr. Abad surveyed 50 students about their favorite subject. \n\n What fraction of students' favorite is Filipino?",
+                        imageUrl = "pie_graph_subjects_2",
+                        options = listOf("¹⁰⁄₂₅", "¹⁄₂₀", "⁴⁄₂₅", "⁵⁄₂₀"),
+                        correctAnswer = 2,
+                        groupId = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 4,
+                        text = "Mr. Abad surveyed 50 students about their favorite subject. \n\n What fraction of students' favorite is English?",
+                        imageUrl = "pie_graph_subjects_2",
+                        options = listOf("⁸⁄₄₀", "⁸⁄₅₀", "¹⁰⁄₅₀", "⁹⁄₅₀"),
+                        correctAnswer = 3,
+                        groupId = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 5,
+                        text = "Mr. Abad surveyed 50 students about their favorite subject. \n\n What fraction of students' favorite is Mathematics?",
+                        imageUrl = "pie_graph_subjects_2",
+                        options = listOf("¹¹⁄₅₀", "¹⁰⁄₅₀", "¹⁵⁄₇₀", "¹³⁄₆₀"),
+                        correctAnswer = 0,
+                        groupId = 1
+                    ),
+
+                    // GROUP 2: Messaging Apps (Questions 6-10)
+                    Question.MultipleChoice(
+                        id = 6,
+                        text = "In 2025, the top messaging application used for daily conversations in the Philippines. Based on a survey of 120 people. \n\n What fraction of Messenger?",
+                        imageUrl = "pie_graph_messaging",
+                        options = listOf("¹⁷⁄₃₀", "¹⁷⁄₄₀", "¹⁵⁄₅₀", "¹⁹⁄₃₀"),
+                        correctAnswer = 0,
+                        groupId = 2,
+                        isGroupHeader = true
+                    ),
+                    Question.MultipleChoice(
+                        id = 7,
+                        text = "In 2025, the top messaging application used for daily conversations in the Philippines. Based on a survey of 120 people. \n\n What fraction of WhatsApp?",
+                        imageUrl = "pie_graph_messaging",
+                        options = listOf("¹⁷⁄₂₀", "⁵⁄₂₄", "¹⁷⁄₃₀", "⁹⁄₂₄"),
+                        correctAnswer = 1,
+                        groupId = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 8,
+                        text = "In 2025, the top messaging application used for daily conversations in the Philippines. Based on a survey of 120 people. \n\n What fraction of Telegram?",
+                        imageUrl = "pie_graph_messaging",
+                        options = listOf("⁹⁄₁₀", "⁴⁄₁₀", "¹⁄₁₀", "⁷⁄₁₀"),
+                        correctAnswer = 2,
+                        groupId = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 9,
+                        text = "In 2025, the top messaging application used for daily conversations in the Philippines. Based on a survey of 120 people. \n\n What fraction of Viber?",
+                        imageUrl = "pie_graph_messaging",
+                        options = listOf("¹¹⁄₁₂", "⁵⁄₁₂", "⁷⁄₁₂", "¹⁄₁₂"),
+                        correctAnswer = 3,
+                        groupId = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 10,
+                        text = "In 2025, the top messaging application used for daily conversations in the Philippines. Based on a survey of 120 people. \n\n What fraction of Discord?",
+                        imageUrl = "pie_graph_messaging",
+                        options = listOf("¹⁄₂₄", "⁸⁄₂₄", "¹⁷⁄₂₄", "⁵⁄₂₄"),
+                        correctAnswer = 0,
+                        groupId = 2
+                    ),
+
+                    // GROUP 3: Former Presidents (Questions 11-15)
+                    Question.MultipleChoice(
+                        id = 11,
+                        text = "Pulse Asia Research Inc. surveyed 300 Filipinos for their most known former president of the Philippines. \n\n What's the fraction of Ferdinand Marcos Sr.?",
+                        imageUrl = "pie_graph_presidents",
+                        options = listOf("⁴⁷⁄₁₀₀", "⁵³⁄₁₀₀", "⁴¹⁄₁₀₀", "⁵⁰⁄₁₁₀"),
+                        correctAnswer = 0,
+                        groupId = 3,
+                        isGroupHeader = true
+                    ),
+                    Question.MultipleChoice(
+                        id = 12,
+                        text = "Pulse Asia Research Inc. surveyed 300 Filipinos for their most known former president of the Philippines. \n\n What fraction of Manuel L. Quezon?",
+                        imageUrl = "pie_graph_presidents",
+                        options = listOf("²⁄₅", "¹⁄₅", "³⁄₅", "⁴⁄₅"),
+                        correctAnswer = 1,
+                        groupId = 3
+                    ),
+                    Question.MultipleChoice(
+                        id = 13,
+                        text = "Pulse Asia Research Inc. surveyed 300 Filipinos for their most known former president of the Philippines. \n\n What fraction of Jose P. Laurel?",
+                        imageUrl = "pie_graph_presidents",
+                        options = listOf("⁷⁄₂₀", "¹³⁄₂₀", "¹⁄₂₀", "¹⁵⁄₂₀"),
+                        correctAnswer = 2,
+                        groupId = 3
+                    ),
+                    Question.MultipleChoice(
+                        id = 14,
+                        text = "Pulse Asia Research Inc. surveyed 300 Filipinos for their most known former president of the Philippines. \n\n What fraction of Corazon Aquino?",
+                        imageUrl = "pie_graph_presidents",
+                        options = listOf("²³⁄₁₀₀", "²⁶⁄₁₀₀", "⁵⁵⁄₁₀₀", "¹³⁄₁₀₀"),
+                        correctAnswer = 3,
+                        groupId = 3
+                    ),
+                    Question.MultipleChoice(
+                        id = 15,
+                        text = "Pulse Asia Research Inc. surveyed 300 Filipinos for their most known former president of the Philippines. \n\n What fraction of Rodrigo Duterte?",
+                        imageUrl = "pie_graph_presidents",
+                        options = listOf("³⁄₂₀", "³⁄₁₅", "¹⁄₅", "⁷⁄₂₀"),
+                        correctAnswer = 0,
+                        groupId = 3
+                    ),
+
+                    // GROUP 4: Phone Brands (Questions 16-20)
+                    Question.MultipleChoice(
+                        id = 16,
+                        text = "There are 100 people asked by someone about the brand of their phone. \n\n What fraction of Samsung?",
+                        imageUrl = "pie_graph_phones",
+                        options = listOf("³⁄₁₀", "¹⁄₁₀", "⁷⁄₁₀", "⁹⁄₁₀"),
+                        correctAnswer = 0,
+                        groupId = 4,
+                        isGroupHeader = true
+                    ),
+                    Question.MultipleChoice(
+                        id = 17,
+                        text = "There are 100 people asked by someone about the brand of their phone. \n\n What fraction of Oppo?",
+                        imageUrl = "pie_graph_phones",
+                        options = listOf("³⁄₄", "¹⁄₄", "³⁄₁₀", "³⁄₇"),
+                        correctAnswer = 1,
+                        groupId = 4
+                    ),
+                    Question.MultipleChoice(
+                        id = 18,
+                        text = "There are 100 people asked by someone about the brand of their phone. \n\n What fraction of Infinix?",
+                        imageUrl = "pie_graph_phones",
+                        options = listOf("¹⁄₅", "³⁄₁₀", "¹⁄₅", "³⁄₈"),
+                        correctAnswer = 2,
+                        groupId = 4
+                    ),
+                    Question.MultipleChoice(
+                        id = 19,
+                        text = "There are 100 people asked by someone about the brand of their phone. \n\n What fraction of Apple?",
+                        imageUrl = "pie_graph_phones",
+                        options = listOf("³⁄₁₀", "⁷⁄₂₀", "⁴⁄₁₀", "³⁄₂₀"),
+                        correctAnswer = 3,
+                        groupId = 4
+                    ),
+                    Question.MultipleChoice(
+                        id = 20,
+                        text = "There are 100 people asked by someone about the brand of their phone. \n\n What fraction of Xiaomi?",
+                        imageUrl = "pie_graph_phones",
+                        options = listOf("¹⁄₁₀", "³⁄₁₀", "⁷⁄₁₀", "⁹⁄₁₀"),
+                        correctAnswer = 0,
+                        groupId = 4
+                    ),
+
+                    // GROUP 5: Tourist Destinations (Questions 21-25)
+                    Question.MultipleChoice(
+                        id = 21,
+                        text = "In 2025, the Philippines will remain a popular summer destination with attractions for all kinds of travelers. Based on the opinions of 150 people, here are the top five most visited places. \n\n What fraction of Boracay?",
+                        imageUrl = "pie_graph_destinations",
+                        options = listOf("⁴⁄₁₅", "⁸⁄₁₅", "⁵⁄₁₅", "⁷⁄₁₅"),
+                        correctAnswer = 0,
+                        groupId = 5,
+                        isGroupHeader = true
+                    ),
+                    Question.MultipleChoice(
+                        id = 22,
+                        text = "In 2025, the Philippines will remain a popular summer destination with attractions for all kinds of travelers. Based on the opinions of 150 people, here are the top five most visited places. \n\n What fraction of Palawan?",
+                        imageUrl = "pie_graph_destinations",
+                        options = listOf("⁴⁄₁₅", "⁷⁄₃₀", "⁴⁄₃₀", "⁷⁄₁₅"),
+                        correctAnswer = 1,
+                        groupId = 5
+                    ),
+                    Question.MultipleChoice(
+                        id = 23,
+                        text = "In 2025, the Philippines will remain a popular summer destination with attractions for all kinds of travelers. Based on the opinions of 150 people, here are the top five most visited places. \n\n What fraction of Baguio City?",
+                        imageUrl = "pie_graph_destinations",
+                        options = listOf("⁴⁄₅", "⁴⁄₁₅", "¹⁄₅", "⁴⁄₁₀"),
+                        correctAnswer = 2,
+                        groupId = 5
+                    ),
+                    Question.MultipleChoice(
+                        id = 24,
+                        text = "In 2025, the Philippines will remain a popular summer destination with attractions for all kinds of travelers. Based on the opinions of 150 people, here are the top five most visited places. \n\n What fraction of Cebu?",
+                        imageUrl = "pie_graph_destinations",
+                        options = listOf("⁴⁄₁₅", "⁵⁄₆", "¹⁄₁₅", "¹⁄₆"),
+                        correctAnswer = 3,
+                        groupId = 5
+                    ),
+                    Question.MultipleChoice(
+                        id = 25,
+                        text = "In 2025, the Philippines will remain a popular summer destination with attractions for all kinds of travelers. Based on the opinions of 150 people, here are the top five most visited places. \n\n What fraction of Siargao?",
+                        imageUrl = "pie_graph_destinations",
+                        options = listOf("²⁄₁₅", "⁴⁄₁₅", "⁶⁄₁₅", "⁸⁄₁₅"),
+                        correctAnswer = 0,
+                        groupId = 5
+                    )
+                )
+            )
+        )
+    }
+
+    private fun getQuarter4Lesson5Activities(): List<Activity> {
+        return listOf(
+            // Activity 1: Problem Solving Involving Data in a Pie Graph
+            Activity(
+                id = 1,
+                quarter = 4,
+                lessonNumber = 5,
+                activityNumber = 1,
+                title = "Problem Solving Involving Data in a Pie Graph",
+                type = ActivityType.MULTIPLE_CHOICE,
+                questions = listOf(
+                    // GROUP 1: Vacation Destination (Questions 1-5)
+                    Question.MultipleChoice(
+                        id = 1,
+                        text = "A vlogger surveyed 150 people to determine their preferred vacation destination.\n\nWhich vacation destination got the highest percentage of votes?",
+                        imageUrl = "pie_graph_vacation",
+                        options = listOf("Baguio City", "Siargao", "Cebu", "Boracay"),
+                        correctAnswer = 3,
+                        groupId = 1,
+                        isGroupHeader = true
+                    ),
+                    Question.MultipleChoice(
+                        id = 2,
+                        text = "A vlogger surveyed 150 people to determine their preferred vacation destination.\n\nWhich vacation destination got the lowest percentage of votes?",
+                        imageUrl = "pie_graph_vacation",
+                        options = listOf("Palawan", "Siargao", "Cebu", "Baguio City"),
+                        correctAnswer = 1,
+                        groupId = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 3,
+                        text = "A vlogger surveyed 150 people to determine their preferred vacation destination.\n\nWhat percentage of the people surveyed want to go to Baguio City?",
+                        imageUrl = "pie_graph_vacation",
+                        options = listOf("18%", "20%", "26%", "30%"),
+                        correctAnswer = 2,
+                        groupId = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 4,
+                        text = "A vlogger surveyed 150 people to determine their preferred vacation destination.\n\nWhat percentage of the people surveyed want to go to Cebu?",
+                        imageUrl = "pie_graph_vacation",
+                        options = listOf("15%", "18%", "20%", "22%"),
+                        correctAnswer = 1,
+                        groupId = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 5,
+                        text = "A vlogger surveyed 150 people to determine their preferred vacation destination.\n\nHow many times more people prefer to go to Cebu than those who prefer to go to Palawan?",
+                        imageUrl = "pie_graph_vacation",
+                        options = listOf("2 times", "2.5 times", "3 times", "3.4 times"),
+                        correctAnswer = 3,
+                        groupId = 1
+                    ),
+
+                    // GROUP 2: Milk Tea Flavor (Questions 6-10)
+                    Question.MultipleChoice(
+                        id = 6,
+                        text = "Ms. Santos plans to start a milk tea shop and surveyed 200 people to find out their favorite flavor.\n\nWhich milk tea flavor got the highest percentage of votes?",
+                        imageUrl = "pie_graph_milktea",
+                        options = listOf("Okinawa", "Matcha", "Classic", "Taro"),
+                        correctAnswer = 0,
+                        groupId = 2,
+                        isGroupHeader = true
+                    ),
+                    Question.MultipleChoice(
+                        id = 7,
+                        text = "Ms. Santos plans to start a milk tea shop and surveyed 200 people to find out their favorite flavor.\n\nWhich milk tea flavor got the lowest percentage of votes?",
+                        imageUrl = "pie_graph_milktea",
+                        options = listOf("Taro", "Mango", "Classic", "Matcha"),
+                        correctAnswer = 1,
+                        groupId = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 8,
+                        text = "Ms. Santos plans to start a milk tea shop and surveyed 200 people to find out their favorite flavor.\n\nWhat percentage of the people surveyed preferred Matcha flavor?",
+                        imageUrl = "pie_graph_milktea",
+                        options = listOf("20%", "25%", "30%", "35%"),
+                        correctAnswer = 1,
+                        groupId = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 9,
+                        text = "Ms. Santos plans to start a milk tea shop and surveyed 200 people to find out their favorite flavor.\n\nWhat percentage of the people surveyed preferred the Taro flavor?",
+                        imageUrl = "pie_graph_milktea",
+                        options = listOf("10%", "15%", "20%", "25%"),
+                        correctAnswer = 1,
+                        groupId = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 10,
+                        text = "Ms. Santos plans to start a milk tea shop and surveyed 200 people to find out their favorite flavor.\n\nHow many times more people prefer Okinawa flavor than Mango flavor?",
+                        imageUrl = "pie_graph_milktea",
+                        options = listOf("2 times", "3 times", "4 times", "5 times"),
+                        correctAnswer = 1,
+                        groupId = 2
+                    ),
+
+                    // GROUP 3: Physical Pain (Questions 11-15)
+                    Question.MultipleChoice(
+                        id = 11,
+                        text = "A doctor conducted a survey with 300 participants to determine the most common physical pain people experience.\n\nWhich physical pain got the highest percentage of votes?",
+                        imageUrl = "pie_graph_pain",
+                        options = listOf("Headache", "Back Pain", "Fever", "Stomach Pain"),
+                        correctAnswer = 1,
+                        groupId = 3,
+                        isGroupHeader = true
+                    ),
+                    Question.MultipleChoice(
+                        id = 12,
+                        text = "A doctor conducted a survey with 300 participants to determine the most common physical pain people experience.\n\nWhich physical pain got the lowest percentage of votes?",
+                        imageUrl = "pie_graph_pain",
+                        options = listOf("Toothache", "Fever", "Headache", "Stomach Pain"),
+                        correctAnswer = 1,
+                        groupId = 3
+                    ),
+                    Question.MultipleChoice(
+                        id = 13,
+                        text = "A doctor conducted a survey with 300 participants to determine the most common physical pain people experience.\n\nWhat percentage of the people surveyed mostly experienced Toothache?",
+                        imageUrl = "pie_graph_pain",
+                        options = listOf("10%", "15%", "20%", "25%"),
+                        correctAnswer = 1,
+                        groupId = 3
+                    ),
+                    Question.MultipleChoice(
+                        id = 14,
+                        text = "A doctor conducted a survey with 300 participants to determine the most common physical pain people experience.\n\nWhat percentage of the people surveyed mostly experienced Headache?",
+                        imageUrl = "pie_graph_pain",
+                        options = listOf("15%", "20%", "25%", "30%"),
+                        correctAnswer = 1,
+                        groupId = 3
+                    ),
+                    Question.MultipleChoice(
+                        id = 15,
+                        text = "A doctor conducted a survey with 300 participants to determine the most common physical pain people experience.\n\nHow many times more people are experiencing Back Pain rather than experiencing Fever?",
+                        imageUrl = "pie_graph_pain",
+                        options = listOf("2 times", "3 times", "4 times", "5 times"),
+                        correctAnswer = 2,
+                        groupId = 3
+                    ),
+
+                    // GROUP 4: Birthday Dishes (Questions 16-20)
+                    Question.MultipleChoice(
+                        id = 16,
+                        text = "Joshua's mother surveyed 500 people to find out their preferred birthday dish.\n\nWhich dish got the highest percentage of votes?",
+                        imageUrl = "pie_graph_birthday_dishes",
+                        options = listOf("Lumpia", "Spaghetti", "Pancit", "Chicken"),
+                        correctAnswer = 0,
+                        groupId = 4,
+                        isGroupHeader = true
+                    ),
+                    Question.MultipleChoice(
+                        id = 17,
+                        text = "Joshua's mother surveyed 500 people to find out their preferred birthday dish.\n\nWhich dish got the lowest percentage of votes?",
+                        imageUrl = "pie_graph_birthday_dishes",
+                        options = listOf("Hotdog", "Puto", "Cake", "Carbonara"),
+                        correctAnswer = 1,
+                        groupId = 4
+                    ),
+                    Question.MultipleChoice(
+                        id = 18,
+                        text = "Joshua's mother surveyed 500 people to find out their preferred birthday dish.\n\nWhat percentage of the people surveyed preferred Chicken?",
+                        imageUrl = "pie_graph_birthday_dishes",
+                        options = listOf("0.06%", "0.08%", "0.10%", "0.12%"),
+                        correctAnswer = 1,
+                        groupId = 4
+                    ),
+                    Question.MultipleChoice(
+                        id = 19,
+                        text = "Joshua's mother surveyed 500 people to find out their preferred birthday dish.\n\nWhat percentage of the people surveyed preferred Carbonara?",
+                        imageUrl = "pie_graph_birthday_dishes",
+                        options = listOf("15%", "18%", "20%", "22%"),
+                        correctAnswer = 1,
+                        groupId = 4
+                    ),
+                    Question.MultipleChoice(
+                        id = 20,
+                        text = "Joshua's mother surveyed 500 people to find out their preferred birthday dish.\n\nHow many times more people prefer Lumpia than Puto?",
+                        imageUrl = "pie_graph_birthday_dishes",
+                        options = listOf("3 times", "4 times", "5 times", "6 times"),
+                        correctAnswer = 2,
+                        groupId = 4
+                    ),
+
+                    // GROUP 5: Zoo Animals (Questions 21-25)
+                    Question.MultipleChoice(
+                        id = 21,
+                        text = "Zookeepers surveyed 120 kids to find out which animal they are most excited to see.\n\nWhich animal got the highest percentage of votes?",
+                        imageUrl = "pie_graph_zoo",
+                        options = listOf("Lion", "Elephant", "Tiger", "Monkey"),
+                        correctAnswer = 3,
+                        groupId = 5,
+                        isGroupHeader = true
+                    ),
+                    Question.MultipleChoice(
+                        id = 22,
+                        text = "Zookeepers surveyed 120 kids to find out which animal they are most excited to see.\n\nWhich animal got the lowest percentage of votes?",
+                        imageUrl = "pie_graph_zoo",
+                        options = listOf("Birds", "Tiger", "Lion", "Elephant"),
+                        correctAnswer = 1,
+                        groupId = 5
+                    ),
+                    Question.MultipleChoice(
+                        id = 23,
+                        text = "Zookeepers surveyed 120 kids to find out which animal they are most excited to see.\n\nWhat percentage of the children surveyed were most excited to see Birds?",
+                        imageUrl = "pie_graph_zoo",
+                        options = listOf("20.5%", "22.5%", "24.5%", "26.5%"),
+                        correctAnswer = 1,
+                        groupId = 5
+                    ),
+                    Question.MultipleChoice(
+                        id = 24,
+                        text = "Zookeepers surveyed 120 kids to find out which animal they are most excited to see.\n\nWhat percentage of the children surveyed were most excited to see Tiger?",
+                        imageUrl = "pie_graph_zoo",
+                        options = listOf("12%", "15%", "18%", "20%"),
+                        correctAnswer = 1,
+                        groupId = 5
+                    ),
+                    Question.MultipleChoice(
+                        id = 25,
+                        text = "Zookeepers surveyed 120 kids to find out which animal they are most excited to see.\n\nHow many times more children were more excited to see Elephant than Lion?",
+                        imageUrl = "pie_graph_zoo",
+                        options = listOf("1 time", "2 times", "3 times", "4 times"),
+                        correctAnswer = 0,
+                        groupId = 5
+                    )
+                )
+            ),
+
+            // Activity 2: Problem Solving Involving Data in a Pie Graph
+            Activity(
+                id = 2,
+                quarter = 4,
+                lessonNumber = 5,
+                activityNumber = 2,
+                title = "Problem Solving Involving Data in a Pie Graph",
+                type = ActivityType.MULTIPLE_CHOICE,
+                questions = listOf(
+                    // GROUP 1: Phone Brands (Questions 1-5)
+                    Question.MultipleChoice(
+                        id = 1,
+                        text = "A technician surveyed 60 people on what brand of phone they preferred about specifications and price.\n\nWhich brand of phone got the highest percentage of votes?",
+                        imageUrl = "pie_graph_phone_brands",
+                        options = listOf("Huawei", "Vivo", "Samsung", "Infinix"),
+                        correctAnswer = 3,
+                        groupId = 1,
+                        isGroupHeader = true
+                    ),
+                    Question.MultipleChoice(
+                        id = 2,
+                        text = "A technician surveyed 60 people on what brand of phone they preferred about specifications and price.\n\nWhich brand of phone got the lowest percentage of votes?",
+                        imageUrl = "pie_graph_phone_brands",
+                        options = listOf("iPhone", "Samsung", "Huawei", "Vivo"),
+                        correctAnswer = 1,
+                        groupId = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 3,
+                        text = "A technician surveyed 60 people on what brand of phone they preferred about specifications and price.\n\nWhat percentage of the users surveyed used the iPhone the most?",
+                        imageUrl = "pie_graph_phone_brands",
+                        options = listOf("5%", "10%", "15%", "20%"),
+                        correctAnswer = 1,
+                        groupId = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 4,
+                        text = "A technician surveyed 60 people on what brand of phone they preferred about specifications and price.\n\nWhat percentage of the users surveyed used Vivo the most?",
+                        imageUrl = "pie_graph_phone_brands",
+                        options = listOf("20%", "25%", "30%", "35%"),
+                        correctAnswer = 1,
+                        groupId = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 5,
+                        text = "A technician surveyed 60 people on what brand of phone they preferred about specifications and price.\n\nHow many times more phone users used Infinix than Huawei?",
+                        imageUrl = "pie_graph_phone_brands",
+                        options = listOf("2 times", "2.5 times", "3 times", "3.4 times"),
+                        correctAnswer = 3,
+                        groupId = 1
+                    ),
+
+                    // GROUP 2: Filipino Dishes (Questions 6-10)
+                    Question.MultipleChoice(
+                        id = 6,
+                        text = "The chef surveyed one hundred people about the dishes they frequently prepare.\n\nWhich dish got the highest percentage of votes?",
+                        imageUrl = "pie_graph_dishes",
+                        options = listOf("Adobo", "Sinigang", "Afritada", "Menudo"),
+                        correctAnswer = 1,
+                        groupId = 2,
+                        isGroupHeader = true
+                    ),
+                    Question.MultipleChoice(
+                        id = 7,
+                        text = "The chef surveyed one hundred people about the dishes they frequently prepare.\n\nWhich dish got the lowest percentage of votes?",
+                        imageUrl = "pie_graph_dishes",
+                        options = listOf("Menudo", "Kaldereta", "Afritada", "Adobo"),
+                        correctAnswer = 1,
+                        groupId = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 8,
+                        text = "The chef surveyed one hundred people about the dishes they frequently prepare.\n\nWhat percentage of the people surveyed preferred the dish Afritada?",
+                        imageUrl = "pie_graph_dishes",
+                        options = listOf("20%", "25%", "30%", "35%"),
+                        correctAnswer = 1,
+                        groupId = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 9,
+                        text = "The chef surveyed one hundred people about the dishes they frequently prepare.\n\nWhat percentage of the people surveyed preferred the dish Menudo?",
+                        imageUrl = "pie_graph_dishes",
+                        options = listOf("5%", "10%", "15%", "20%"),
+                        correctAnswer = 1,
+                        groupId = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 10,
+                        text = "The chef surveyed one hundred people about the dishes they frequently prepare.\n\nHow many times more people preferred Sinigang than Kaldereta?",
+                        imageUrl = "pie_graph_dishes",
+                        options = listOf("10 times", "11 times", "11.2 times", "12 times"),
+                        correctAnswer = 2,
+                        groupId = 2
+                    ),
+
+                    // GROUP 3: Shoe Brands (Questions 11-15)
+                    Question.MultipleChoice(
+                        id = 11,
+                        text = "BigBoy Cheng, a sneaker enthusiast, conducted a survey of 400 individuals to find out the most preferred shoe brand.\n\nWhich shoe brand got the highest percentage of votes?",
+                        imageUrl = "pie_graph_shoes",
+                        options = listOf("New Balance", "Adidas", "Nike", "Puma"),
+                        correctAnswer = 2,
+                        groupId = 3,
+                        isGroupHeader = true
+                    ),
+                    Question.MultipleChoice(
+                        id = 12,
+                        text = "BigBoy Cheng, a sneaker enthusiast, conducted a survey of 400 individuals to find out the most preferred shoe brand.\n\nWhich shoe brand got the lowest percentage of votes?",
+                        imageUrl = "pie_graph_shoes",
+                        options = listOf("Asics", "Puma", "New Balance", "Adidas"),
+                        correctAnswer = 0,
+                        groupId = 3
+                    ),
+                    Question.MultipleChoice(
+                        id = 13,
+                        text = "BigBoy Cheng, a sneaker enthusiast, conducted a survey of 400 individuals to find out the most preferred shoe brand.\n\nWhat percentage of the people surveyed preferred the New Balance?",
+                        imageUrl = "pie_graph_shoes",
+                        options = listOf("18%", "21%", "24%", "27%"),
+                        correctAnswer = 1,
+                        groupId = 3
+                    ),
+                    Question.MultipleChoice(
+                        id = 14,
+                        text = "BigBoy Cheng, a sneaker enthusiast, conducted a survey of 400 individuals to find out the most preferred shoe brand.\n\nWhat percentage of the people surveyed preferred the Puma?",
+                        imageUrl = "pie_graph_shoes",
+                        options = listOf("12%", "15%", "18%", "21%"),
+                        correctAnswer = 1,
+                        groupId = 3
+                    ),
+                    Question.MultipleChoice(
+                        id = 15,
+                        text = "BigBoy Cheng, a sneaker enthusiast, conducted a survey of 400 individuals to find out the most preferred shoe brand.\n\nHow many times more people preferred Nike than Asics?",
+                        imageUrl = "pie_graph_shoes",
+                        options = listOf("2 times", "2.5 times", "3 times", "3.5 times"),
+                        correctAnswer = 2,
+                        groupId = 3
+                    ),
+
+                    // GROUP 4: Flowers (Questions 16-20)
+                    Question.MultipleChoice(
+                        id = 16,
+                        text = "Kimbery Ga. surveyed 180 women to determine which flower they preferred as a gift from their partners.\n\nWhich flower got the highest percentage of votes?",
+                        imageUrl = "pie_graph_flowers",
+                        options = listOf("Sunflowers", "Roses", "Lilies", "Tulips"),
+                        correctAnswer = 1,
+                        groupId = 4,
+                        isGroupHeader = true
+                    ),
+                    Question.MultipleChoice(
+                        id = 17,
+                        text = "Kimbery Ga. surveyed 180 women to determine which flower they preferred as a gift from their partners.\n\nWhich flower got the lowest percentage of votes?",
+                        imageUrl = "pie_graph_flowers",
+                        options = listOf("Sunflowers", "Peonies", "Tulips", "Lilies"),
+                        correctAnswer = 0,
+                        groupId = 4
+                    ),
+                    Question.MultipleChoice(
+                        id = 18,
+                        text = "Kimbery Ga. surveyed 180 women to determine which flower they preferred as a gift from their partners.\n\nWhat percentage of the people surveyed preferred the Lilies?",
+                        imageUrl = "pie_graph_flowers",
+                        options = listOf("16%", "19%", "22%", "25%"),
+                        correctAnswer = 1,
+                        groupId = 4
+                    ),
+                    Question.MultipleChoice(
+                        id = 19,
+                        text = "Kimbery Ga. surveyed 180 women to determine which flower they preferred as a gift from their partners.\n\nWhat percentage of the people surveyed preferred the Peonies?",
+                        imageUrl = "pie_graph_flowers",
+                        options = listOf("13%", "16%", "19%", "22%"),
+                        correctAnswer = 1,
+                        groupId = 4
+                    ),
+                    Question.MultipleChoice(
+                        id = 20,
+                        text = "Kimbery Ga. surveyed 180 women to determine which flower they preferred as a gift from their partners.\n\nHow many times more people preferred Rose than Peonies?",
+                        imageUrl = "pie_graph_flowers",
+                        options = listOf("2 times", "2.14 times", "2.5 times", "3 times"),
+                        correctAnswer = 1,
+                        groupId = 4
+                    ),
+
+                    // GROUP 5: Luxury Bags (Questions 21-25)
+                    Question.MultipleChoice(
+                        id = 21,
+                        text = "Heart surveyed 180 women to determine which luxury bag brand they preferred to invest in.\n\nWhich brand of bag got the highest percentage of votes?",
+                        imageUrl = "pie_graph_bags",
+                        options = listOf("Chanel", "Dior", "Hermès", "Gucci"),
+                        correctAnswer = 3,
+                        groupId = 5,
+                        isGroupHeader = true
+                    ),
+                    Question.MultipleChoice(
+                        id = 22,
+                        text = "Heart surveyed 180 women to determine which luxury bag brand they preferred to invest in.\n\nWhich brand of bag got the lowest percentage of votes?",
+                        imageUrl = "pie_graph_bags",
+                        options = listOf("Hermès", "Chanel", "Dior", "Louis Vuitton"),
+                        correctAnswer = 0,
+                        groupId = 5
+                    ),
+                    Question.MultipleChoice(
+                        id = 23,
+                        text = "Heart surveyed 180 women to determine which luxury bag brand they preferred to invest in.\n\nWhat percentage of the people surveyed preferred to invest in a Dior bag?",
+                        imageUrl = "pie_graph_bags",
+                        options = listOf("15%", "20%", "25%", "30%"),
+                        correctAnswer = 1,
+                        groupId = 5
+                    ),
+                    Question.MultipleChoice(
+                        id = 24,
+                        text = "Heart surveyed 180 women to determine which luxury bag brand they preferred to invest in.\n\nWhat percentage of the people surveyed preferred to invest in a Chanel bag?",
+                        imageUrl = "pie_graph_bags",
+                        options = listOf("10%", "15%", "20%", "25%"),
+                        correctAnswer = 1,
+                        groupId = 5
+                    ),
+                    Question.MultipleChoice(
+                        id = 25,
+                        text = "Heart surveyed 180 women to determine which luxury bag brand they preferred to invest in.\n\nHow many times more people preferred Gucci than Chanel?",
+                        imageUrl = "pie_graph_bags",
+                        options = listOf("1.5 times", "2 times", "2.5 times", "3 times"),
+                        correctAnswer = 1,
+                        groupId = 5
+                    )
+                )
+            )
+        )
+    }
+
+    private fun getQuarter4Lesson6Activities(): List<Activity> {
+        return listOf(
+            // Activity 1: Problem Solving Involving Data - Probability Levels
+            Activity(
+                id = 1,
+                quarter = 4,
+                lessonNumber = 6,
+                activityNumber = 1,
+                title = "Problem Solving Involving Data in a Pie Graph",
+                type = ActivityType.MULTIPLE_CHOICE,
+                questions = listOf(
+                    Question.MultipleChoice(
+                        id = 1,
+                        text = "The sun will rise tomorrow.",
+                        options = listOf("Certain", "Likely", "Most Likely", "Unlikely", "Most Unlikely"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 2,
+                        text = "A dropped object will fall to the ground.",
+                        options = listOf("Certain", "Likely", "Most Likely", "Unlikely", "Most Unlikely"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 3,
+                        text = "A human needs oxygen to survive.",
+                        options = listOf("Certain", "Likely", "Most Likely", "Unlikely", "Most Unlikely"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 4,
+                        text = "Water will freeze at 0°C under normal conditions.",
+                        options = listOf("Certain", "Likely", "Most Likely", "Unlikely", "Most Unlikely"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 5,
+                        text = "A person drinking a glass of water will feel hydrated afterward.",
+                        options = listOf("Certain", "Likely", "Most Likely", "Unlikely", "Most Unlikely"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 6,
+                        text = "The Philippines will experience a typhoon within the year.",
+                        options = listOf("Certain", "Likely", "Most Likely", "Unlikely", "Most Unlikely"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 7,
+                        text = "A student who studies regularly will pass the exam.",
+                        options = listOf("Certain", "Likely", "Most Likely", "Unlikely", "Most Unlikely"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 8,
+                        text = "A refrigerator will keep food cold.",
+                        options = listOf("Certain", "Likely", "Most Likely", "Unlikely", "Most Unlikely"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 9,
+                        text = "A parked car will remain in the same place overnight.",
+                        options = listOf("Certain", "Likely", "Most Likely", "Unlikely", "Most Unlikely"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 10,
+                        text = "A person who exercises daily will be physically fit.",
+                        options = listOf("Certain", "Likely", "Most Likely", "Unlikely", "Most Unlikely"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 11,
+                        text = "An ice cube left outside under the sun will melt.",
+                        options = listOf("Certain", "Likely", "Most Likely", "Unlikely", "Most Unlikely"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 12,
+                        text = "A volcano in the Philippines will erupt this year.",
+                        options = listOf("Certain", "Likely", "Most Likely", "Unlikely", "Most Unlikely"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 13,
+                        text = "A person eating spicy food will feel heat in their mouth.",
+                        options = listOf("Certain", "Likely", "Most Likely", "Unlikely", "Most Unlikely"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 14,
+                        text = "There will be heavy traffic in Metro Manila during rush hour.",
+                        options = listOf("Certain", "Likely", "Most Likely", "Unlikely", "Most Unlikely"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 15,
+                        text = "A basketball player will make a free throw.",
+                        options = listOf("Certain", "Likely", "Most Likely", "Unlikely", "Most Unlikely"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 16,
+                        text = "A person will roll a six on a fair six-sided die.",
+                        options = listOf("Certain", "Likely", "Most Likely", "Unlikely", "Most Unlikely"),
+                        correctAnswer = 3
+                    ),
+                    Question.MultipleChoice(
+                        id = 17,
+                        text = "A randomly selected person from a crowd of 1,000 people will have the same birthday as you.",
+                        options = listOf("Certain", "Likely", "Most Likely", "Unlikely", "Most Unlikely"),
+                        correctAnswer = 3
+                    ),
+                    Question.MultipleChoice(
+                        id = 18,
+                        text = "You will find money on the street today.",
+                        options = listOf("Certain", "Likely", "Most Likely", "Unlikely", "Most Unlikely"),
+                        correctAnswer = 3
+                    ),
+                    Question.MultipleChoice(
+                        id = 19,
+                        text = "A street vendor will sell out all their products before noon.",
+                        options = listOf("Certain", "Likely", "Most Likely", "Unlikely", "Most Unlikely"),
+                        correctAnswer = 3
+                    ),
+                    Question.MultipleChoice(
+                        id = 20,
+                        text = "A person will see a shooting star tonight.",
+                        options = listOf("Certain", "Likely", "Most Likely", "Unlikely", "Most Unlikely"),
+                        correctAnswer = 3
+                    ),
+                    Question.MultipleChoice(
+                        id = 21,
+                        text = "The chance of drawing the ace of spades from a deck of 52 cards is 2%.",
+                        options = listOf("Certain", "Likely", "Most Likely", "Unlikely", "Most Unlikely"),
+                        correctAnswer = 4
+                    ),
+                    Question.MultipleChoice(
+                        id = 22,
+                        text = "It will snow tomorrow in the Philippines.",
+                        options = listOf("Certain", "Likely", "Most Likely", "Unlikely", "Most Unlikely"),
+                        correctAnswer = 4
+                    ),
+                    Question.MultipleChoice(
+                        id = 23,
+                        text = "A person will win the jackpot in a lottery.",
+                        options = listOf("Certain", "Likely", "Most Likely", "Unlikely", "Most Unlikely"),
+                        correctAnswer = 4
+                    ),
+                    Question.MultipleChoice(
+                        id = 24,
+                        text = "It will rain in the desert tomorrow.",
+                        options = listOf("Certain", "Likely", "Most Likely", "Unlikely", "Most Unlikely"),
+                        correctAnswer = 4
+                    ),
+                    Question.MultipleChoice(
+                        id = 25,
+                        text = "A basketball player will make 10 half-court shots in a row.",
+                        options = listOf("Certain", "Likely", "Most Likely", "Unlikely", "Most Unlikely"),
+                        correctAnswer = 4
+                    )
+                )
+            ),
+
+            // Activity 2: Problem Solving Involving Data - True or False
+            Activity(
+                id = 2,
+                quarter = 4,
+                lessonNumber = 6,
+                activityNumber = 2,
+                title = "Problem Solving Involving Data in a Pie Graph",
+                type = ActivityType.MULTIPLE_CHOICE,
+                questions = listOf(
+                    Question.MultipleChoice(
+                        id = 1,
+                        text = "It is certain that the moon will appear in the sky tonight.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 2,
+                        text = "It is certain that a lit candle will produce light.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 3,
+                        text = "It is certain that a newborn baby will need food to survive.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 4,
+                        text = "It is certain that boiling water will produce steam.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 5,
+                        text = "It is certain that a person who does not eat for a week will feel weak.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 6,
+                        text = "It is most likely that there will be traffic in New York City during rush hour.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 7,
+                        text = "It is most likely that a power outage will occur in a country that frequently experiences blackouts.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 8,
+                        text = "It is most likely that a well-maintained car will fail to start when the ignition is turned on.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 9,
+                        text = "It is most likely that a professional chef will cook a delicious meal.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 10,
+                        text = "It is most likely that a well-fed pet will be happy and energetic.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 11,
+                        text = "It is likely that a person who does not wear sunscreen on a sunny day will get sunburned.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 12,
+                        text = "It is likely that a smartphone battery will stay fully charged all day with regular use.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 13,
+                        text = "It is likely that a person who drinks coffee in the evening will have trouble sleeping.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 14,
+                        text = "It is likely that a person walking in the rain without an umbrella will stay dry.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 15,
+                        text = "It is likely that a dog will bark when a stranger enters the house.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 16,
+                        text = "It is unlikely that a person rolling two dice will get a total of 12.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 17,
+                        text = "It is unlikely that a person will randomly pick a red marble from a bag containing mostly blue marbles.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 18,
+                        text = "It is unlikely that a person will receive an urgent email at midnight.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 19,
+                        text = "It is unlikely that a child will eat all the vegetables on their plate without complaint.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 20,
+                        text = "It is unlikely that a student will win a prize in a school raffle with 500 participants.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 21,
+                        text = "It is most unlikely that a person will find a four-leaf clover in a random field.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 22,
+                        text = "It is most unlikely that it will hail tomorrow in a tropical country.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 23,
+                        text = "It is most unlikely that a person will guess a randomly chosen number between 1 and 1000 on the first try.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 24,
+                        text = "It is most unlikely that a randomly chosen person will become the president of a country.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 25,
+                        text = "It is most unlikely that a person will win a million-dollar lottery twice in their lifetime.",
+                        options = listOf("True", "False"),
+                        correctAnswer = 0
+                    )
+                )
+            )
+        )
+    }
+
+    private fun getQuarter4Lesson7Activities(): List<Activity> {
+        return listOf(
+            // Activity 1: Making Lists and Diagrams of Outcomes
+            Activity(
+                id = 1,
+                quarter = 4,
+                lessonNumber = 7,
+                activityNumber = 1,
+                title = "Making Lists and Diagrams of Outcomes and Telling the Number of Favorable Outcomes and Chances",
+                type = ActivityType.MULTIPLE_CHOICE,
+                questions = listOf(
+                    Question.MultipleChoice(
+                        id = 1,
+                        text = "Sarah has six flavors of ice cream: vanilla, chocolate, strawberry, mango, cookies & cream, and mint. She wants to eat two. How many combinations are possible?",
+                        options = listOf("15", "12", "14", "16"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 2,
+                        text = "Jake has seven transportation options: bicycle, scooter, skateboard, roller skates, train, bus, and car. If he chooses any two to use today, how many different combinations can he make?",
+                        options = listOf("23", "21", "24", "19"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 3,
+                        text = "Lily has four favorite books: mystery, fantasy, science fiction, and historical fiction. If she can read only two this week, how many different pairs can she choose?",
+                        options = listOf("9", "7", "6", "5"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 4,
+                        text = "Tom has eight different animals at the zoo: a lion, an elephant, a giraffe, a zebra, a panda, a tiger, a flamingo, and a koala. He wants to visit two. How many different pairs of animals can he visit?",
+                        options = listOf("22", "24", "26", "28"),
+                        correctAnswer = 3
+                    ),
+                    Question.MultipleChoice(
+                        id = 5,
+                        text = "Emma has five different clothing items: a jacket, a sweater, a hoodie, a t-shirt, and a vest. She wants to wear two. How many possible pairs of different clothing she can wear?",
+                        options = listOf("10", "12", "14", "16"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 6,
+                        text = "Noah has nine different types of pasta: spaghetti, penne, macaroni, fusilli, ravioli, fettuccine, lasagna, angel hair, and tortellini. He wants to cook two. How many possible pairs of pasta can he cook?",
+                        options = listOf("33", "36", "39", "41"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 7,
+                        text = "Olivia has three pets: a dog, a cat, and a bird. She can only take two for a walk today. How many are her possible choices?",
+                        options = listOf("4", "5", "3", "2"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 8,
+                        text = "Ethan has six sports to choose from: soccer, baseball, basketball, swimming, running, and cycling. He can play only two today. How many are his possible choices?",
+                        options = listOf("12", "18", "21", "15"),
+                        correctAnswer = 3
+                    ),
+                    Question.MultipleChoice(
+                        id = 9,
+                        text = "Mia has ten different phone apps: Instagram, Facebook, Twitter, TikTok, YouTube, Snapchat, WhatsApp, Discord, Spotify, and Netflix. She wants to use two. How many are her possible selections?",
+                        options = listOf("45", "40", "50", "55"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 10,
+                        text = "Lucas has seven favorite fruits: apple, banana, orange, mango, grapes, peach, and watermelon. He wants to eat two. How many are his possible choices?",
+                        options = listOf("18", "21", "24", "27"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 11,
+                        text = "Ava has four vacation destinations: Paris, Tokyo, Sydney, and New York. She wants to visit two. How many possible pairs of destinations does she have?",
+                        options = listOf("5", "7", "6", "8"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 12,
+                        text = "James has eight types of sandwiches: ham, turkey, roast beef, chicken, tuna, veggie, egg salad, and peanut butter & jelly. He wants to eat two. How many are the possible combinations?",
+                        options = listOf("24", "26", "30", "28"),
+                        correctAnswer = 3
+                    ),
+                    Question.MultipleChoice(
+                        id = 13,
+                        text = "Charlotte has five different hobbies: painting, photography, hiking, knitting, and baking. She wants to do two today. How many are her possible options?",
+                        options = listOf("10", "12", "14", "15"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 14,
+                        text = "Henry has three different game consoles: PlayStation, Xbox, and Nintendo Switch. He wants to play on two. How many are his possible choices?",
+                        options = listOf("2", "3", "4", "5"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 15,
+                        text = "Sophia has six colors of nail polish: red, blue, green, purple, pink, and yellow. She wants to use two. How many are the possible pairs?",
+                        options = listOf("13", "14", "15", "16"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 16,
+                        text = "Benjamin has four different hats: a baseball cap, a fedora, a beanie, and a sun hat. He wants to wear two. How many are his possible choices?",
+                        options = listOf("4", "5", "7", "6"),
+                        correctAnswer = 3
+                    ),
+                    Question.MultipleChoice(
+                        id = 17,
+                        text = "Amelia has ten different flowers in her garden: roses, tulips, daisies, sunflowers, lilies, orchids, violets, peonies, hydrangeas, and lavender. She wants to pick two for a bouquet. How many are the possible pairs?",
+                        options = listOf("45", "43", "46", "44"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 18,
+                        text = "Jack has nine school subjects: Math, Science, History, English, Geography, Art, Music, Physical Education, and Computer Science. He can study only two today. How many are his possible options?",
+                        options = listOf("35", "36", "37", "34"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 19,
+                        text = "Emily has five different board games: Monopoly, Scrabble, Chess, Clue, and Risk. She wants to play two. How many are the possible choices?",
+                        options = listOf("8", "12", "10", "11"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 20,
+                        text = "Daniel has six flavors of chips: barbecue, sour cream & onion, salt & vinegar, cheese, jalapeño, and plain. He wants to eat two. How many are the possible combinations?",
+                        options = listOf("13", "16", "14", "15"),
+                        correctAnswer = 3
+                    ),
+                    Question.MultipleChoice(
+                        id = 21,
+                        text = "Harper has seven types of cookies: chocolate chip, oatmeal raisin, peanut butter, sugar, shortbread, gingerbread, and macadamia nut. She wants to eat two. How many are the possible pairs?",
+                        options = listOf("21", "19", "20", "22"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 22,
+                        text = "Matthew has three different drinks: coffee, tea, and hot chocolate. He wants to have two. How many are his possible options?",
+                        options = listOf("5", "3", "4", "6"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 23,
+                        text = "Ella has five favorite desserts: cake, pie, pudding, brownies, and cheesecake. She wants to eat two. How many are the possible combinations?",
+                        options = listOf("8", "9", "10", "11"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 24,
+                        text = "David has eight pairs of shoes: sneakers, boots, flip-flops, high heels, loafers, dress shoes, sandals, and running shoes. He wants to wear two. How many are the possible choices?",
+                        options = listOf("26", "30", "32", "28"),
+                        correctAnswer = 3
+                    ),
+                    Question.MultipleChoice(
+                        id = 25,
+                        text = "Madison has nine different music genres: pop, rock, jazz, country, classical, hip-hop, R&B, reggae, and electronic. She wants to listen to two. How many are the possible pairs?",
+                        options = listOf("36", "34", "35", "37"),
+                        correctAnswer = 0
+                    )
+                )
+            ),
+
+            // Activity 2: Making Lists and Diagrams of Outcomes
+            Activity(
+                id = 2,
+                quarter = 4,
+                lessonNumber = 7,
+                activityNumber = 2,
+                title = "Making Lists and Diagrams of Outcomes",
+                type = ActivityType.MULTIPLE_CHOICE,
+                questions = listOf(
+                    Question.MultipleChoice(
+                        id = 1,
+                        text = "",
+                        imageUrl = "q4_l7_a2_q1",
+                        options = listOf("2", "3", "4", "5"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 2,
+                        text = "",
+                        imageUrl = "q4_l7_a2_q2",
+                        options = listOf("4", "5", "6", "7"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 3,
+                        text = "",
+                        imageUrl = "q4_l7_a2_q3",
+                        options = listOf("2", "3", "4", "5"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 4,
+                        text = "",
+                        imageUrl = "q4_l7_a2_q4",
+                        options = listOf("3", "4", "5", "6"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 5,
+                        text = "",
+                        imageUrl = "q4_l7_a2_q5",
+                        options = listOf("4", "5", "6", "7"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 6,
+                        text = "",
+                        imageUrl = "q4_l7_a2_q6",
+                        options = listOf("6", "7", "8", "9"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 7,
+                        text = "",
+                        imageUrl = "q4_l7_a2_q7",
+                        options = listOf("7", "8", "9", "10"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 8,
+                        text = "",
+                        imageUrl = "q4_l7_a2_q8",
+                        options = listOf("8", "9", "10", "11"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 9,
+                        text = "",
+                        imageUrl = "q4_l7_a2_q9",
+                        options = listOf("10", "11", "12", "13"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 10,
+                        text = "",
+                        imageUrl = "q4_l7_a2_q10",
+                        options = listOf("12", "13", "14", "15"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 11,
+                        text = "",
+                        imageUrl = "q4_l7_a2_q11",
+                        options = listOf("13", "14", "15", "16"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 12,
+                        text = "",
+                        imageUrl = "q4_l7_a2_q12",
+                        options = listOf("14", "15", "16", "17"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 13,
+                        text = "",
+                        imageUrl = "q4_l7_a2_q13",
+                        options = listOf("1", "2", "3", "4"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 14,
+                        text = "",
+                        imageUrl = "q4_l7_a2_q14",
+                        options = listOf("2", "3", "4", "5"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 15,
+                        text = "",
+                        imageUrl = "q4_l7_a2_q15",
+                        options = listOf("3", "4", "5", "6"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 16,
+                        text = "",
+                        imageUrl = "q4_l7_a2_q16",
+                        options = listOf("4", "5", "6", "7"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 17,
+                        text = "",
+                        imageUrl = "q4_l7_a2_q17",
+                        options = listOf("6", "7", "8", "9"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 18,
+                        text = "",
+                        imageUrl = "q4_l7_a2_q18",
+                        options = listOf("7", "8", "9", "10"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 19,
+                        text = "",
+                        imageUrl = "q4_l7_a2_q19",
+                        options = listOf("8", "9", "10", "11"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 20,
+                        text = "",
+                        imageUrl = "q4_l7_a2_q20",
+                        options = listOf("10", "11", "12", "13"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 21,
+                        text = "",
+                        imageUrl = "q4_l7_a2_q21",
+                        options = listOf("12", "13", "14", "15"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 22,
+                        text = "",
+                        imageUrl = "q4_l7_a2_q22",
+                        options = listOf("13", "14", "15", "16"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 23,
+                        text = "",
+                        imageUrl = "q4_l7_a2_q23",
+                        options = listOf("14", "15", "16", "17"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 24,
+                        text = "",
+                        imageUrl = "q4_l7_a2_q24",
+                        options = listOf("16", "17", "18", "19"),
+                        correctAnswer = 2
+                    ),
+                    Question.MultipleChoice(
+                        id = 25,
+                        text = "",
+                        imageUrl = "q4_l7_a2_q25",
+                        options = listOf("18", "19", "20", "21"),
+                        correctAnswer = 2
+                    )
+                )
+            )
+        )
+    }
+
+    private fun getQuarter4Lesson8Activities(): List<Activity> {
+        return listOf(
+            // Activity 1: Most likely to happen or Unlikely to occur
+            Activity(
+                id = 1,
+                quarter = 4,
+                lessonNumber = 8,
+                activityNumber = 1,
+                title = "Makes Simple Predictions of Events Based on the Results of Experiments",
+                type = ActivityType.MULTIPLE_CHOICE,
+                questions = listOf(
+                    Question.MultipleChoice(
+                        id = 1,
+                        text = "Winning a jackpot in a lottery",
+                        options = listOf("Most likely to happen", "Unlikely to occur"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 2,
+                        text = "Flipping a coin and getting heads",
+                        options = listOf("Most likely to happen", "Unlikely to occur"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 3,
+                        text = "Meeting a celebrity while walking in the mall",
+                        options = listOf("Most likely to happen", "Unlikely to occur"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 4,
+                        text = "Experiencing rain during the rainy season",
+                        options = listOf("Most likely to happen", "Unlikely to occur"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 5,
+                        text = "Finding a pearl inside an oyster you eat",
+                        options = listOf("Most likely to happen", "Unlikely to occur"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 6,
+                        text = "Rolling a die and getting a number between 1 and 6",
+                        options = listOf("Most likely to happen", "Unlikely to occur"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 7,
+                        text = "Discovering a hidden treasure in your backyard",
+                        options = listOf("Most likely to happen", "Unlikely to occur"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 8,
+                        text = "Getting a sunburn after staying outside at noon without protection",
+                        options = listOf("Most likely to happen", "Unlikely to occur"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 9,
+                        text = "Being struck by lightning while standing outside",
+                        options = listOf("Most likely to happen", "Unlikely to occur"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 10,
+                        text = "Feeling sleepy after staying awake all night",
+                        options = listOf("Most likely to happen", "Unlikely to occur"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 11,
+                        text = "Accidentally running into your childhood best friend in another country",
+                        options = listOf("Most likely to happen", "Unlikely to occur"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 12,
+                        text = "Getting wet when you step into a puddle",
+                        options = listOf("Most likely to happen", "Unlikely to occur"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 13,
+                        text = "Finding money on the street",
+                        options = listOf("Most likely to happen", "Unlikely to occur"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 14,
+                        text = "Getting hungry if you skip breakfast",
+                        options = listOf("Most likely to happen", "Unlikely to occur"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 15,
+                        text = "Seeing a shooting star at night",
+                        options = listOf("Most likely to happen", "Unlikely to occur"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 16,
+                        text = "Having your phone battery drain if you use it all day without charging",
+                        options = listOf("Most likely to happen", "Unlikely to occur"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 17,
+                        text = "Receiving a surprise gift from a stranger",
+                        options = listOf("Most likely to happen", "Unlikely to occur"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 18,
+                        text = "Getting thirsty after exercising",
+                        options = listOf("Most likely to happen", "Unlikely to occur"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 19,
+                        text = "Seeing a rainbow after heavy rain with sunlight",
+                        options = listOf("Most likely to happen", "Unlikely to occur"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 20,
+                        text = "Being chosen as the next president of your country",
+                        options = listOf("Most likely to happen", "Unlikely to occur"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 21,
+                        text = "Dropping a glass and it breaking",
+                        options = listOf("Most likely to happen", "Unlikely to occur"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 22,
+                        text = "Waking up in the morning and seeing the sun rise",
+                        options = listOf("Most likely to happen", "Unlikely to occur"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 23,
+                        text = "Discovering alien life in your backyard",
+                        options = listOf("Most likely to happen", "Unlikely to occur"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 24,
+                        text = "Catching a cold during the cold season",
+                        options = listOf("Most likely to happen", "Unlikely to occur"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 25,
+                        text = "Finding a four-leaf clover in a random field",
+                        options = listOf("Most likely to happen", "Unlikely to occur"),
+                        correctAnswer = 1
+                    )
+                )
+            ),
+
+            // Activity 2: Theoretical Probability or Experimental Probability
+            Activity(
+                id = 2,
+                quarter = 4,
+                lessonNumber = 8,
+                activityNumber = 2,
+                title = "Makes Simple Predictions of Events Based on the Results of Experiments",
+                type = ActivityType.MULTIPLE_CHOICE,
+                questions = listOf(
+                    Question.MultipleChoice(
+                        id = 1,
+                        text = "A bag has 10 red marbles and 5 blue marbles. What is the probability of picking a red marble?",
+                        options = listOf("Theoretical Probability", "Experimental Probability"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 2,
+                        text = "A spinner is divided into 4 equal sections: red, yellow, green, blue. What is the probability of landing on yellow?",
+                        options = listOf("Theoretical Probability", "Experimental Probability"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 3,
+                        text = "In 200 coin flips, a coin landed heads 118 times. Find the probability of getting heads.",
+                        options = listOf("Theoretical Probability", "Experimental Probability"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 4,
+                        text = "A standard die is rolled. What is the probability of rolling a 3?",
+                        options = listOf("Theoretical Probability", "Experimental Probability"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 5,
+                        text = "Out of 100 people surveyed, 60 preferred coffee over tea. What is the probability that a person prefers coffee?",
+                        options = listOf("Theoretical Probability", "Experimental Probability"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 6,
+                        text = "A deck of 52 cards is shuffled. What is the probability of drawing a king?",
+                        options = listOf("Theoretical Probability", "Experimental Probability"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 7,
+                        text = "A basketball player took 50 free throws and made 32. What is the probability of making a free throw?",
+                        options = listOf("Theoretical Probability", "Experimental Probability"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 8,
+                        text = "A coin has two sides: heads and tails. What is the probability of flipping tails?",
+                        options = listOf("Theoretical Probability", "Experimental Probability"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 9,
+                        text = "A box contains 8 chocolates. 3 are caramel-filled. What is the probability of selecting a caramel chocolate?",
+                        options = listOf("Theoretical Probability", "Experimental Probability"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 10,
+                        text = "A class of 40 students took a test. 28 students passed. What is the probability that a student passed?",
+                        options = listOf("Theoretical Probability", "Experimental Probability"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 11,
+                        text = "Rolling a pair of dice, what is the probability of getting a sum of 7?",
+                        options = listOf("Theoretical Probability", "Experimental Probability"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 12,
+                        text = "Out of 25 days, it rained for 6 days. What is the probability of rain on a given day?",
+                        options = listOf("Theoretical Probability", "Experimental Probability"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 13,
+                        text = "A spinner has 5 equal sections labeled 1–5. What is the probability of spinning a 4?",
+                        options = listOf("Theoretical Probability", "Experimental Probability"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 14,
+                        text = "In a school survey of 500 students, 300 said they like pizza. Find the probability a student likes pizza.",
+                        options = listOf("Theoretical Probability", "Experimental Probability"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 15,
+                        text = "A deck of 52 cards is shuffled. What is the probability of drawing an ace?",
+                        options = listOf("Theoretical Probability", "Experimental Probability"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 16,
+                        text = "Out of 400 bulbs tested, 380 worked properly. What is the probability a bulb works?",
+                        options = listOf("Theoretical Probability", "Experimental Probability"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 17,
+                        text = "A die is rolled. What is the probability of rolling an even number?",
+                        options = listOf("Theoretical Probability", "Experimental Probability"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 18,
+                        text = "A science experiment found that 45 out of 60 plants grew taller with fertilizer. What is the probability of plant growth?",
+                        options = listOf("Theoretical Probability", "Experimental Probability"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 19,
+                        text = "A bag has 3 black marbles and 7 white marbles. What is the probability of drawing a black marble?",
+                        options = listOf("Theoretical Probability", "Experimental Probability"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 20,
+                        text = "Out of 1,000 website visitors, 250 clicked an ad. Find the probability of clicking the ad.",
+                        options = listOf("Theoretical Probability", "Experimental Probability"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 21,
+                        text = "Drawing a card from a deck, what is the probability of drawing a heart?",
+                        options = listOf("Theoretical Probability", "Experimental Probability"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 22,
+                        text = "In 100 tosses of a coin, the coin landed tails 52 times. What is the probability of tails?",
+                        options = listOf("Theoretical Probability", "Experimental Probability"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 23,
+                        text = "A spinner is divided into 3 equal parts: red, blue, green. What is the probability of landing on green?",
+                        options = listOf("Theoretical Probability", "Experimental Probability"),
+                        correctAnswer = 0
+                    ),
+                    Question.MultipleChoice(
+                        id = 24,
+                        text = "Out of 1,200 flights, 1,150 arrived on time. What is the probability a flight arrives on time?",
+                        options = listOf("Theoretical Probability", "Experimental Probability"),
+                        correctAnswer = 1
+                    ),
+                    Question.MultipleChoice(
+                        id = 25,
+                        text = "In 150 coin tosses, the coin landed on heads 73 times. What is the probability of getting heads?",
+                        options = listOf("Theoretical Probability", "Experimental Probability"),
+                        correctAnswer = 1
+                    )
+                )
+            )
+        )
+    }
+
+    private fun getQuarter4Lesson9Activities(): List<Activity> {
+        return listOf(
+            // Activity 1: Routine and Non-Routine Problems - Involving Experimental and Theoretical probability (Video-based)
+//            Activity(
+//                id = 1,
+//                quarter = 4,
+//                lessonNumber = 2,
+//                activityNumber = 1,
+//                title = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability",
+//                type = ActivityType.ROUTINE_PROBLEM,
+//                questions = listOf(
+//                    Question.RoutineProblem(
+//                        id = 1,
+//                        text = "",
+//                        videoFileName = "activity_1-n1.mp4",
+//                        description = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability"
+//                    ),
+//                    Question.RoutineProblem(
+//                        id = 2,
+//                        text = "",
+//                        videoFileName = "activity_1-n2.mp4",
+//                        description = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability"
+//                    ),
+//                )
+//            ),
+
+            // Activity 2: Routine and Non-Routine Problems - Involving Experimental and Theoretical probability (Video-based)
+//            Activity(
+//                id = 2,
+//                quarter = 4,
+//                lessonNumber = 2,
+//                activityNumber = 2,
+//                title = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability",
+//                type = ActivityType.ROUTINE_PROBLEM,
+//                questions = listOf(
+//                    Question.RoutineProblem(
+//                        id = 1,
+//                        text = "",
+//                        videoFileName = "activity_1-n1.mp4",
+//                        description = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability"
+//                    ),
+//                    Question.RoutineProblem(
+//                        id = 2,
+//                        text = "",
+//                        videoFileName = "activity_1-n2.mp4",
+//                        description = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability"
 //                    ),
 //                )
 //            ),

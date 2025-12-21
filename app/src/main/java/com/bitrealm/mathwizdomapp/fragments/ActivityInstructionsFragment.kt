@@ -658,7 +658,243 @@ class ActivityInstructionsFragment : Fragment() {
                 tvExample.text = "Follow the steps carefully to solve division word problems."
             }
 
+            // Quarter 3, Lesson 7, Activity 1
+            "3_7_1" -> {
+                tvTitleContent.text = "SOLID FIGURES"
+                tvDirection.text = "Examine the given picture and answer each question. Select the correct option from the choices provided."
+                tvExample.text = "Look at the 3D shape carefully:\n\n" +
+                        "• Count the faces, edges, and vertices\n" +
+                        "• Look at the shape of the faces\n" +
+                        "• Identify if it's a prism, pyramid, or other solid\n\n" +
+                        "Common shapes:\n" +
+                        "Cube, Sphere, Cylinder, Cone, Pyramid, Prism"
+            }
 
+            // Quarter 3, Lesson 7, Activity 2
+            "3_7_2" -> {
+                tvTitleContent.text = "SIDES"
+                tvDirection.text = "Examine the given shape and answer the question by selecting True or False."
+                tvExample.text = "Count the sides of the shape:\n\n" +
+                        "• A side is a straight edge of a polygon\n" +
+                        "• Count each edge carefully\n" +
+                        "• Curved shapes like circles have no sides\n\n" +
+                        "Examples:\n" +
+                        "Triangle = 3 sides\n" +
+                        "Square = 4 sides\n" +
+                        "Pentagon = 5 sides\n" +
+                        "Hexagon = 6 sides\n" +
+                        "Circle = 0 sides (curved)"
+            }
+
+            // Quarter 3, Lesson 8, Activity 1
+            "3_8_1" -> {
+                tvTitleContent.text = "ROUTINE AND NON-ROUTINE PROBLEMS INVOLVING DIVISION OF DECIMAL NUMBERS AND MONEY"
+                tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
+                tvExample.text = "Follow the steps carefully to solve division word problems."
+            }
+
+            // Quarter 3, Lesson 8, Activity 2
+            "3_8_2" -> {
+                tvTitleContent.text = "ROUTINE AND NON-ROUTINE PROBLEMS INVOLVING DIVISION OF DECIMAL NUMBERS AND MONEY"
+                tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
+                tvExample.text = "Follow the steps carefully to solve division word problems."
+            }
+
+            // Quarter 4, Lesson 1, Activity 1
+            "4_1_1" -> {
+                tvTitleContent.text = "RELATIONSHIP OF VOLUME OF PRISMS AND PYRAMIDS & OTHER 3D FIGURES"
+                tvDirection.text = "Read the problem carefully, solve it, and select the correct answer from the given choices."
+                tvExample.text = "Volume Relationships:\n\n" +
+                        "Pyramid = Prism ÷ 3\n" +
+                        "Prism = Pyramid × 3\n\n" +
+                        "Cone = Cylinder ÷ 3\n" +
+                        "Cylinder = Cone × 3\n\n" +
+                        "Sphere = Cylinder × ⅔\n" +
+                        "Cylinder = Sphere × 1.5\n\n" +
+                        "Example:\nPrism = 192 cubic units\nPyramid = 192 ÷ 3 = 64 cubic units"
+            }
+
+            // Quarter 4, Lesson 1, Activity 2
+            "4_1_2" -> {
+                tvTitleContent.text = "RELATIONSHIP OF VOLUME OF PRISMS AND PYRAMIDS & OTHER 3D FIGURES"
+                tvDirection.text = "Read the problem carefully, solve it, and check if the given answer is correct. Choose True if it is correct and False if it is incorrect."
+                tvExample.text = "Check the relationship:\n\n" +
+                        "• Pyramid = Prism ÷ 3\n" +
+                        "• Cone = Cylinder ÷ 3\n" +
+                        "• Sphere = Cylinder × ⅔\n\n" +
+                        "Example:\nPrism = 360, Pyramid = 120\n" +
+                        "Check: 360 ÷ 3 = 120 ✓ (True)\n\n" +
+                        "Prism = 360, Pyramid = 130\n" +
+                        "Check: 360 ÷ 3 = 120 ≠ 130 (False)"
+            }
+
+            // Quarter 4, Lesson 2, Activity 1
+            "4_2_1" -> {
+                tvTitleContent.text = "ROUTINE AND NON-ROUTINE PROBLEMS INVOLVING DIVISION OF DECIMAL NUMBERS AND MONEY"
+                tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
+                tvExample.text = "Follow the steps carefully to solve division word problems."
+            }
+
+            // Quarter 4, Lesson 2, Activity 2
+            "4_2_2" -> {
+                tvTitleContent.text = "ROUTINE AND NON-ROUTINE PROBLEMS INVOLVING DIVISION OF DECIMAL NUMBERS AND MONEY"
+                tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
+                tvExample.text = "Follow the steps carefully to solve division word problems."
+            }
+
+            // Quarter 4, Lesson 3, Activity 1
+            "4_3_1" -> {
+                tvTitleContent.text = "READING AND INTERPRETING ELECTRIC AND WATER METER READINGS"
+                tvDirection.text = "Examine each meter image carefully and choose the correct reading from the given options."
+                tvExample.text = "Electric Meter Example:\nThis reads 12490 kWh\n\nWater Meter Example:\nThis reads 12753 m³\n\nLook at the numbers shown on each dial carefully."
+            }
+
+            // Quarter 4, Lesson 3, Activity 2
+            "4_3_2" -> {
+                tvTitleContent.text = "READING AND INTERPRETING ELECTRIC AND WATER METER READINGS - CONSUMPTION"
+                tvDirection.text = "Calculate the consumption by subtracting the previous reading from the present reading. Match each calculation with its correct answer."
+                tvExample.text = "Formula:\nConsumption = Present Reading - Previous Reading\n\nExample:\nElectric: 00197 kWh - 00124 kWh = 73 kWh\nWater: 1500 m³ - 1400 m³ = 100 m³"
+            }
+
+            // Quarter 4, Lesson 4, Activity 1
+            "4_4_1" -> {
+                tvTitleContent.text = "INTERPRETING PIE GRAPH"
+                tvDirection.text = "Find the angle for each section. Answer the question using the given pie graph."
+                tvExample.text = "Formula:\nAngle = (Frequency/Total) × 360°\n\n" +
+                        "Example:\nGroup 1 = 15 out of 60\n" +
+                        "Angle = (15/60) × 360° = 90°\n\n" +
+                        "Questions are grouped by topic. Each group of 5 questions shares the same pie chart!"
+            }
+
+            // Quarter 4, Lesson 4, Activity 2
+            "4_4_2" -> {
+                tvTitleContent.text = "READING AND INTERPRETING PIE GRAPHS"
+                tvDirection.text = "Express the results as a fraction."
+                tvExample.text = "Mrs. Cinco surveyed 50 students about their favorite sports.\n\n" +
+                        "Example:\n" +
+                        "• Tennis sector shows: ¹⁄₅\n" +
+                        "• Arnis sector shows: ¹⁄₁₀\n\n" +
+                        "Read the pie chart carefully and express each sector as a fraction.\n\n" +
+                        "Each group of 5 questions shares the same pie chart!"
+            }
+
+            // Quarter 4, Lesson 5, Activity 1
+            "4_5_1" -> {
+                tvTitleContent.text = "PROBLEM SOLVING INVOLVING DATA IN A PIE GRAPH"
+                tvDirection.text = "Read each problem carefully and analyze the pie graph. Answer the questions based on the data shown."
+                tvExample.text = "Look at the pie graph:\n\n" +
+                        "• Find the largest/smallest section\n" +
+                        "• Read the percentages carefully\n" +
+                        "• Calculate comparisons when needed\n\n" +
+                        "Each group of 5 questions shares the same pie chart!"
+            }
+
+            // Quarter 4, Lesson 5, Activity 2
+            "4_5_2" -> {
+                tvTitleContent.text = "PROBLEM SOLVING INVOLVING DATA IN A PIE GRAPH"
+                tvDirection.text = "Examine the pie graph and answer each question. Choose the correct answer from the options provided."
+                tvExample.text = "Tips for solving:\n\n" +
+                        "• Identify what the graph represents\n" +
+                        "• Compare different sections\n" +
+                        "• Use the given numbers to calculate\n\n" +
+                        "Questions are grouped - each group shares the same graph!"
+            }
+
+            // Quarter 4, Lesson 6, Activity 1
+            "4_6_1" -> {
+                tvTitleContent.text = "PROBABILITY LEVELS"
+                tvDirection.text = "Read each statement carefully and determine the probability level. Choose from: Certain, Most Likely, Likely, Unlikely, or Most Unlikely."
+                tvExample.text = "Probability Levels:\n\n" +
+                        "• CERTAIN: Will definitely happen (100%)\n" +
+                        "  Example: The sun will rise tomorrow\n\n" +
+                        "• MOST LIKELY: Very high chance (75-99%)\n" +
+                        "  Example: It will rain during rainy season\n\n" +
+                        "• LIKELY: Good chance (50-74%)\n" +
+                        "  Example: Internet slows during heavy rain\n\n" +
+                        "• UNLIKELY: Low chance (1-25%)\n" +
+                        "  Example: Rolling a 6 on a die\n\n" +
+                        "• MOST UNLIKELY: Very low chance (<1%)\n" +
+                        "  Example: A fish flying in the sky"
+            }
+
+            // Quarter 4, Lesson 6, Activity 2
+            "4_6_2" -> {
+                tvTitleContent.text = "PROBABILITY STATEMENTS"
+                tvDirection.text = "Read each probability statement and determine if it is TRUE or FALSE based on the probability level described."
+                tvExample.text = "Evaluate if the statement matches reality:\n\n" +
+                        "• Check if the probability level fits the event\n" +
+                        "• Consider real-world likelihood\n" +
+                        "• Use logic and common sense\n\n" +
+                        "Example:\n" +
+                        "\"It is certain water will freeze at 0°C\"\n" +
+                        "Answer: TRUE ✓"
+            }
+
+            // Quarter 4, Lesson 7, Activity 1
+            "4_7_1" -> {
+                tvTitleContent.text = "MAKING LISTS AND DIAGRAMS OF OUTCOMES"
+                tvDirection.text = "Read each problem and determine how many different combinations of two items can be made from the given set."
+                tvExample.text = "Formula for Combinations:\nC(n,2) = n × (n-1) ÷ 2\n\n" +
+                        "Example:\n" +
+                        "Sarah has 4 types of candies and wants to choose 2.\n\n" +
+                        "Possible pairs:\n" +
+                        "• Chocolate, Caramel\n" +
+                        "• Chocolate, Gummy bears\n" +
+                        "• Chocolate, Lollipops\n" +
+                        "• Caramel, Gummy bears\n" +
+                        "• Caramel, Lollipops\n" +
+                        "• Gummy bears, Lollipops\n\n" +
+                        "Total: 6 possible combinations\n\n" +
+                        "Using formula: 4 × 3 ÷ 2 = 6"
+            }
+
+            // Quarter 4, Lesson 7, Activity 2
+            "4_7_2" -> {
+                tvTitleContent.text = "MAKING LISTS AND DIAGRAMS OF OUTCOMES"
+                tvDirection.text = "Look at each diagram carefully and count the total number of possible combinations shown. Choose the correct answer."
+                tvExample.text = "Example:\nPares can pair with Tokwa or Puto = 2 combinations\nLugaw can pair with Tokwa or Puto = 2 combinations\nTotal = 4 combinations\n\nFor coffee with condiments:\nCoffee can have Creamer, Sugar, or Milk = 3 combinations"
+            }
+
+            // Quarter 4, Lesson 8, Activity 1
+            "4_8_1" -> {
+                tvTitleContent.text = "MAKES SIMPLE PREDICTIONS OF EVENTS BASED ON RESULTS OF EXPERIMENTS"
+                tvDirection.text = "Read each statement and determine if it is 'Most likely to happen' or 'Unlikely to occur' based on probability and real-world likelihood."
+                tvExample.text = "Most likely to happen:\n" +
+                        "• The internet connection slows down during heavy rain\n" +
+                        "• Getting thirsty after exercising\n\n" +
+                        "Unlikely to occur:\n" +
+                        "• A cat learning to solve math problems on its own\n" +
+                        "• Finding a hidden treasure in your backyard"
+            }
+
+            // Quarter 4, Lesson 8, Activity 2
+            "4_8_2" -> {
+                tvTitleContent.text = "MAKES SIMPLE PREDICTIONS OF EVENTS BASED ON RESULTS OF EXPERIMENTS"
+                tvDirection.text = "Read each probability question and identify if it is asking for Theoretical Probability or Experimental Probability."
+                tvExample.text = "Theoretical Probability:\n" +
+                        "• Based on what should happen mathematically\n" +
+                        "• Example: The chance of getting heads when flipping a coin is ½\n\n" +
+                        "Experimental Probability:\n" +
+                        "• Based on actual results from an experiment\n" +
+                        "• Example: After flipping a coin 50 times, you get 28 heads\n\n" +
+                        "Key difference:\n" +
+                        "• Theoretical = What SHOULD happen\n" +
+                        "• Experimental = What DID happen"
+            }
+
+            // Quarter 4, Lesson 2, Activity 1
+            "4_9_1" -> {
+                tvTitleContent.text = "ROUTINE AND NON-ROUTINE PROBLEMS INVOLVING DIVISION OF DECIMAL NUMBERS AND MONEY"
+                tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
+                tvExample.text = "Follow the steps carefully to solve division word problems."
+            }
+
+            // Quarter 4, Lesson 2, Activity 2
+            "4_9_2" -> {
+                tvTitleContent.text = "ROUTINE AND NON-ROUTINE PROBLEMS INVOLVING DIVISION OF DECIMAL NUMBERS AND MONEY"
+                tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
+                tvExample.text = "Follow the steps carefully to solve division word problems."
+            }
 
             else -> {
                 tvTitleContent.text = activity.title.uppercase()

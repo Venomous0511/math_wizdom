@@ -17,4 +17,8 @@
     <color name="lesson_button_color">#1B5E20</color>
     <color name="lesson_button_selected">#2E7D32</color>
 
+    <!-- Activity Result Button Colors -->
+    <color name="completed_activity_color">#2E7D32</color>
+    <color name="default_activity_color">#1B5E20</color>
+
 </resources>

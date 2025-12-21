@@ -18,15 +18,27 @@ class LessonsAdapter(
 
         fun bind(lesson: LessonItem) {
             btnLesson.apply {
-                text = lesson.name
+                // Show lock icon if lesson is locked
+                text = if (lesson.isLocked) {
+                    "🔒\n${lesson.number}"
+                } else {
+                    lesson.name
+                }
+
                 textSize = 11f
                 gravity = Gravity.CENTER
                 isAllCaps = false
                 maxLines = 2
                 lineHeight = (textSize * 1.2).toInt()
 
+                // Disable button if locked and reduce opacity
+                isEnabled = !lesson.isLocked
+                alpha = if (lesson.isLocked) 0.5f else 1.0f
+
                 setOnClickListener {
-                    onLessonClick(lesson.number)
+                    if (!lesson.isLocked) {
+                        onLessonClick(lesson.number)
+                    }
                 }
             }
         }
@@ -45,8 +57,8 @@ class LessonsAdapter(
     override fun getItemCount(): Int = lessons.size
 }
 
-// Data class for lesson items
 data class LessonItem(
     val number: Int,
-    val name: String
+    val name: String,
+    val isLocked: Boolean = false
 )

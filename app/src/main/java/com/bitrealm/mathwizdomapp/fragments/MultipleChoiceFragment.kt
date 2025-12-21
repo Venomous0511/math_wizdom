@@ -41,6 +41,7 @@ class MultipleChoiceFragment : Fragment() {
     private lateinit var tvQuestion: TextView
     private lateinit var layoutAnswers: LinearLayout
     private lateinit var ivAnimal: ImageView
+    private lateinit var ivGroupImage: ImageView
 
     private val answerButtons = mutableListOf<MaterialButton>()
 
@@ -86,9 +87,30 @@ class MultipleChoiceFragment : Fragment() {
             lessonNumber = it.getInt(ARG_LESSON)
         }
 
-        // Always select 5 random questions
+        // Select questions - keep groups intact for grouped activities
         val allQuestions = activity.questions.filterIsInstance<Question.MultipleChoice>()
-        questions = allQuestions.shuffled().take(QUESTIONS_TO_SHOW).toMutableList()
+
+        // Check if this activity has grouped questions
+        val hasGroupedQuestions = allQuestions.any { it.groupId != null }
+
+        if (hasGroupedQuestions) {
+            // For grouped activities, take exactly 5 questions that form a complete group
+            // Group questions by groupId
+            val groupedQuestions = allQuestions.groupBy { it.groupId }
+
+            // Pick a random group and take all its questions (should be 5)
+            val randomGroup = groupedQuestions.filter { it.key != null }.values.randomOrNull()
+
+            questions = if (randomGroup != null && randomGroup.size == 5) {
+                randomGroup.sortedBy { it.id }.toMutableList()
+            } else {
+                // Fallback: just take first 5 questions
+                allQuestions.take(QUESTIONS_TO_SHOW).toMutableList()
+            }
+        } else {
+            // For non-grouped activities, shuffle and take 5 random questions
+            questions = allQuestions.shuffled().take(QUESTIONS_TO_SHOW).toMutableList()
+        }
     }
 
     override fun onResume() {
@@ -126,6 +148,7 @@ class MultipleChoiceFragment : Fragment() {
         tvQuestion = view.findViewById(R.id.tvQuestion)
         layoutAnswers = view.findViewById(R.id.layoutAnswers)
         ivAnimal = view.findViewById(R.id.ivAnimal)
+        ivGroupImage = view.findViewById(R.id.ivGroupImage)
 
         tvActivityTitle.text = "ACTIVITY #${activity.activityNumber}"
         ivAnimal.setImageResource(quarterAnimals[quarter] ?: R.drawable.cat)
@@ -179,22 +202,60 @@ class MultipleChoiceFragment : Fragment() {
         tvProgress.text = "${currentQuestionIndex + 1} / ${questions.size}"
         tvQuestion.text = Html.fromHtml(question.text, Html.FROM_HTML_MODE_LEGACY)
 
+        // Handle GROUP images (shared across multiple questions)
+        val ivGroupImage = view?.findViewById<ImageView>(R.id.ivGroupImage)
         // Load image if available
         val ivQuestionImage = view?.findViewById<ImageView>(R.id.ivQuestionImage)
-        if (question.imageUrl != null) {
-            ivQuestionImage?.visibility = View.VISIBLE
-            val resourceId = resources.getIdentifier(
-                question.imageUrl,
-                "drawable",
-                requireContext().packageName
-            )
-            if (resourceId != 0) {
-                ivQuestionImage?.setImageResource(resourceId)
+
+        if (question.groupId != null) {
+            // This is a grouped question - handle group image
+            if (question.isGroupHeader) {
+                // First question of the group - show the group image
+                ivGroupImage?.visibility = View.VISIBLE
+                ivQuestionImage?.visibility = View.GONE
+
+                if (question.imageUrl != null) {
+                    val resourceId = resources.getIdentifier(
+                        question.imageUrl,
+                        "drawable",
+                        requireContext().packageName
+                    )
+                    if (resourceId != 0) {
+                        ivGroupImage?.setImageResource(resourceId)
+                    }
+                }
+            } else if (currentQuestionIndex > 0) {
+                // Check if we're still in the same group
+                val previousQuestion = questions[currentQuestionIndex - 1]
+                if (question.groupId == previousQuestion.groupId) {
+                    // Same group - keep the group image visible
+                    ivGroupImage?.visibility = View.VISIBLE
+                    ivQuestionImage?.visibility = View.GONE
+                } else {
+                    // Different group - this shouldn't happen with proper grouping
+                    ivGroupImage?.visibility = View.GONE
+                    ivQuestionImage?.visibility = View.GONE
+                }
+            }
+        } else {
+            // Not a grouped question - use regular question image
+            ivGroupImage?.visibility = View.GONE
+
+            if (question.imageUrl != null) {
+                ivQuestionImage?.visibility = View.VISIBLE
+                val resourceId = resources.getIdentifier(
+                    question.imageUrl,
+                    "drawable",
+                    requireContext().packageName
+                )
+                if (resourceId != 0) {
+                    ivQuestionImage?.setImageResource(resourceId)
+                } else {
+                    ivQuestionImage?.visibility = View.GONE
+                }
             } else {
                 ivQuestionImage?.visibility = View.GONE
             }
-        } else {
-            ivQuestionImage?.visibility = View.GONE
         }
 
         // Clear previous buttons
@@ -275,143 +336,6 @@ class MultipleChoiceFragment : Fragment() {
 
         layoutAnswers.addView(horizontalLayout)
     }
-
-//    private fun createTwoOptionsLayout(question: Question.MultipleChoice) {
-//        // Create horizontal container for 2 options
-//        val horizontalLayout = LinearLayout(requireContext()).apply {
-//            orientation = LinearLayout.HORIZONTAL
-//            layoutParams = LinearLayout.LayoutParams(
-//                LinearLayout.LayoutParams.MATCH_PARENT,
-//                LinearLayout.LayoutParams.WRAP_CONTENT
-//            )
-//            gravity = android.view.Gravity.CENTER
-//        }
-//
-//        question.options.forEachIndexed { index, option ->
-//            val button = MaterialButton(requireContext()).apply {
-//                text = option
-//                textSize = 20f
-//                layoutParams = LinearLayout.LayoutParams(
-//                    0,
-//                    200,
-//                    1f
-//                ).apply {
-//                    if (index == 0) setMargins(0, 0, 8, 0)
-//                    else setMargins(8, 0, 0, 0)
-//                }
-//
-//                setBackgroundColor(
-//                    if (index == 0) "#4DD0E1".toColorInt() else "#EF5350".toColorInt()
-//                )
-//
-//                cornerRadius = 16
-//                elevation = 8f
-//
-//                setOnClickListener {
-//                    if (!isAnswered) {
-//                        checkAnswer(index)
-//                    }
-//                }
-//            }
-//
-//            answerButtons.add(button)
-//            horizontalLayout.addView(button)
-//        }
-//
-//        layoutAnswers.addView(horizontalLayout)
-//    }
-//
-//    private fun createFourOptionsLayout(question: Question.MultipleChoice) {
-//        val labels = listOf("A", "B", "C", "D")
-//        val colors = listOf("#2196F3", "#4CAF50", "#FF9800", "#9C27B0")
-//
-//        // Create 2x2 grid
-//        // First row
-//        val row1 = LinearLayout(requireContext()).apply {
-//            orientation = LinearLayout.HORIZONTAL
-//            layoutParams = LinearLayout.LayoutParams(
-//                LinearLayout.LayoutParams.MATCH_PARENT,
-//                LinearLayout.LayoutParams.WRAP_CONTENT
-//            ).apply {
-//                setMargins(0, 0, 0, 16)
-//            }
-//        }
-//
-//        // Second row
-//        val row2 = LinearLayout(requireContext()).apply {
-//            orientation = LinearLayout.HORIZONTAL
-//            layoutParams = LinearLayout.LayoutParams(
-//                LinearLayout.LayoutParams.MATCH_PARENT,
-//                LinearLayout.LayoutParams.WRAP_CONTENT
-//            )
-//        }
-//
-//        question.options.forEachIndexed { index, option ->
-//            val button = MaterialButton(requireContext()).apply {
-//                text = "${labels[index]}: $option"
-//                textSize = 18f
-//                layoutParams = LinearLayout.LayoutParams(
-//                    0,
-//                    200,
-//                    1f
-//                ).apply {
-//                    if (index % 2 == 0) setMargins(0, 0, 8, 0)
-//                    else setMargins(8, 0, 0, 0)
-//                }
-//
-//                setBackgroundColor(colors[index].toColorInt())
-//                cornerRadius = 16
-//                elevation = 8f
-//
-//                setOnClickListener {
-//                    if (!isAnswered) {
-//                        checkAnswer(index)
-//                    }
-//                }
-//            }
-//
-//            answerButtons.add(button)
-//
-//            // Add to appropriate row
-//            if (index < 2) {
-//                row1.addView(button)
-//            } else {
-//                row2.addView(button)
-//            }
-//        }
-//
-//        layoutAnswers.addView(row1)
-//        layoutAnswers.addView(row2)
-//    }
-//
-//    private fun createDefaultLayout(question: Question.MultipleChoice) {
-//        // Fallback for other option counts (vertical layout)
-//        question.options.forEachIndexed { index, option ->
-//            val button = MaterialButton(requireContext()).apply {
-//                text = option
-//                textSize = 20f
-//                layoutParams = LinearLayout.LayoutParams(
-//                    LinearLayout.LayoutParams.MATCH_PARENT,
-//                    LinearLayout.LayoutParams.WRAP_CONTENT
-//                ).apply {
-//                    setMargins(0, 8, 0, 8)
-//                }
-//
-//                setBackgroundColor("#FF9800".toColorInt())
-//                cornerRadius = 16
-//                elevation = 8f
-//
-//                setOnClickListener {
-//                    if (!isAnswered) {
-//                        checkAnswer(index)
-//                    }
-//                }
-//            }
-//
-//            answerButtons.add(button)
-//            layoutAnswers.addView(button)
-//        }
-//    }
 
     private fun animateQuestionCard() {
         val cardView = view?.findViewById<View>(R.id.cardQuestion)

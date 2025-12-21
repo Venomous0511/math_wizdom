@@ -29,7 +29,9 @@ sealed class Question {
         override val text: String,
         override val imageUrl: String? = null,
         val options: List<String>,
-        val correctAnswer: Int
+        val correctAnswer: Int,
+        val groupId: Int? = null,
+        val isGroupHeader: Boolean = false
     ) : Question()
 
     data class DragDrop(

@@ -29,6 +29,11 @@ import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.ui.StyledPlayerView
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
+import androidx.lifecycle.lifecycleScope
+import com.bitrealm.mathwizdomapp.database.AppDatabase
+import com.bitrealm.mathwizdomapp.database.dao.LessonProgressDao
+import com.bitrealm.mathwizdomapp.database.entities.LessonProgress
+import kotlinx.coroutines.launch
 
 class RoutineProblemFragment : Fragment() {
 
@@ -50,6 +55,11 @@ class RoutineProblemFragment : Fragment() {
 
     private var player: ExoPlayer? = null
     private var isFullscreen = false
+    private lateinit var lessonProgressDao: LessonProgressDao
+
+    // Track video completion
+    private var hasWatchedEnough = false
+    private var videoWatchPercentage = 0
 
     private val quarterAnimals = mapOf(
         1 to R.drawable.cat,
@@ -64,6 +74,7 @@ class RoutineProblemFragment : Fragment() {
         private const val ARG_USER_ID = "user_id"
         private const val ARG_QUARTER = "quarter"
         private const val ARG_LESSON = "lesson"
+        private const val MIN_WATCH_PERCENTAGE = 90
 
         fun newInstance(
             activity: Activity,
@@ -108,6 +119,9 @@ class RoutineProblemFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val database = AppDatabase.getDatabase(requireContext())
+        lessonProgressDao = database.lessonProgressDao()
+
         initViews(view)
         setupListeners()
         initializePlayer()
@@ -133,6 +147,10 @@ class RoutineProblemFragment : Fragment() {
 
         playerView.useController = false
         playerView.setOnTouchListener { _, _ -> true }
+
+        // Initially disable complete button
+        btnComplete.isEnabled = false
+        btnComplete.alpha = 0.5f
     }
 
     private fun setupListeners() {
@@ -160,6 +178,7 @@ class RoutineProblemFragment : Fragment() {
         }
     }
 
+    @Suppress("UnusedVariable")
     @SuppressLint("UseKtx")
     private fun initializePlayer() {
         player = ExoPlayer.Builder(requireContext()).build().also { exoPlayer ->
@@ -175,7 +194,7 @@ class RoutineProblemFragment : Fragment() {
 
             try {
                 val inputStream = requireContext().assets.open(videoPath)
-                val fileSize = inputStream.available()
+                @Suppress("unused") val fileSize = inputStream.available()
                 inputStream.close()
             } catch (_: Exception) {
                 showError("Video file not found:\n$videoPath")
@@ -200,22 +219,56 @@ class RoutineProblemFragment : Fragment() {
                     when (playbackState) {
                         Player.STATE_READY -> {
                             Log.d(TAG, "Player ready")
-                            // Ensure music stays paused when video is ready
                             MusicManager.pauseForVideo()
                         }
                         Player.STATE_BUFFERING -> Log.d(TAG, "Buffering...")
-                        Player.STATE_ENDED -> Log.d(TAG, "Playback ended")
+                        Player.STATE_ENDED -> {
+                            Log.d(TAG, "Playback ended")
+                            // Video finished playing completely
+                            hasWatchedEnough = true
+                            videoWatchPercentage = 100
+                            enableCompleteButton()
+                        }
                         Player.STATE_IDLE -> Log.d(TAG, "Player idle")
                     }
                 }
 
                 override fun onIsPlayingChanged(isPlaying: Boolean) {
                     if (isPlaying) {
-                        // Ensure music stays paused while video is playing
                         MusicManager.pauseForVideo()
+
+                        checkWatchProgress()
                     }
                 }
             })
+        }
+    }
+
+    private fun checkWatchProgress() {
+        player?.let { exoPlayer ->
+            val currentPosition = exoPlayer.currentPosition
+            val duration = exoPlayer.duration
+
+            if (duration > 0) {
+                val percentage = ((currentPosition.toFloat() / duration.toFloat()) * 100).toInt()
+                videoWatchPercentage = maxOf(videoWatchPercentage, percentage)
+
+                Log.d(TAG, "Watch progress: $videoWatchPercentage%")
+
+                // If watched at least MIN_WATCH_PERCENTAGE%, enable complete button
+                if (videoWatchPercentage >= MIN_WATCH_PERCENTAGE && !hasWatchedEnough) {
+                    hasWatchedEnough = true
+                    enableCompleteButton()
+                }
+            }
+        }
+    }
+
+    private fun enableCompleteButton() {
+        requireActivity().runOnUiThread {
+            btnComplete.isEnabled = true
+            btnComplete.alpha = 1.0f
+            Log.d(TAG, "Complete button enabled - watched $videoWatchPercentage%")
         }
     }
 
@@ -286,7 +339,7 @@ class RoutineProblemFragment : Fragment() {
     private fun showHelpDialog() {
         AlertDialog.Builder(requireContext())
             .setTitle("Instructions")
-            .setMessage("Watch the video to see the routine problem. The video contains:\n\n• The word problem\n• Questions to answer\n• Step-by-step solution\n• Final answers\n\nPay close attention and learn from the example!")
+            .setMessage("Watch the video to see the routine problem. The video contains:\n\n• The word problem\n• Questions to answer\n• Step-by-step solution\n• Final answers\n\nPay close attention and learn from the example!\n\nYou must watch at least $MIN_WATCH_PERCENTAGE% of the video to complete this activity.")
             .setPositiveButton("OK", null)
             .show()
     }
@@ -302,15 +355,51 @@ class RoutineProblemFragment : Fragment() {
     }
 
     private fun markAsComplete() {
-        AlertDialog.Builder(requireContext())
-            .setTitle("Activity Completed")
-            .setMessage("Great! You've watched the routine problem video.\n\nRemember to write your answers on paper for your teacher to check.")
-            .setPositiveButton("OK") { _, _ ->
-                // Music will automatically resume when fragment is destroyed
-                requireActivity().finish()
+        // Check if video has been watched enough
+        if (!hasWatchedEnough) {
+            AlertDialog.Builder(requireContext())
+                .setTitle("Watch the Video")
+                .setMessage("Please watch at least $MIN_WATCH_PERCENTAGE% of the video before marking as complete.\n\nCurrent progress: $videoWatchPercentage%")
+                .setPositiveButton("OK", null)
+                .show()
+            return
+        }
+
+        // Save progress to database
+        lifecycleScope.launch {
+            try {
+                val progress = LessonProgress(
+                    userIdentifier = userIdentifier,
+                    quarter = quarter,
+                    lessonNumber = lessonNumber,
+                    activityId = activity.id.toString(),
+                    score = 5,
+                    totalQuestions = 5
+                )
+                lessonProgressDao.insertProgress(progress)
+
+                requireActivity().runOnUiThread {
+                    AlertDialog.Builder(requireContext())
+                        .setTitle("Activity Completed")
+                        .setMessage("Great! You've watched the routine problem video (${videoWatchPercentage}% completed).\n\nRemember to write your answers on paper for your teacher to check.")
+                        .setPositiveButton("OK") { _, _ ->
+                            requireActivity().finish()
+                        }
+                        .setCancelable(false)
+                        .show()
+                }
+            } catch (e: Exception) {
+                requireActivity().runOnUiThread {
+                    AlertDialog.Builder(requireContext())
+                        .setTitle("Error")
+                        .setMessage("Failed to save progress: ${e.message}")
+                        .setPositiveButton("OK") { _, _ ->
+                            requireActivity().finish()
+                        }
+                        .show()
+                }
             }
-            .setCancelable(false)
-            .show()
+        }
     }
 
     override fun onStart() {
@@ -322,18 +411,15 @@ class RoutineProblemFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        // Keep music paused while in video fragment
         MusicManager.pauseForVideo()
-
-        // Resume video playback if it was paused
         player?.playWhenReady = true
+
+        checkWatchProgress()
     }
 
     override fun onPause() {
         super.onPause()
-        // Pause video playback but don't resume music yet
         player?.playWhenReady = false
-        // Don't resume music here - wait for fragment to be destroyed
     }
 
     override fun onStop() {
@@ -349,7 +435,6 @@ class RoutineProblemFragment : Fragment() {
             exitFullscreen()
         }
 
-        // Resume music when leaving video fragment
         MusicManager.resumeAfterVideo()
     }
 }

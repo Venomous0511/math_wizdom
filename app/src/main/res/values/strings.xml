@@ -48,7 +48,7 @@
     <string name="_4th_quarter">4th Quarter</string>
     <string name="animal">Decorative Animal</string>
     <string name="back">Back</string>
-    <string name="lesson_quarter_1">LESSON - QUARTER 1</string>
+    <string name="lesson_quarter_1">QUARTER 1 LESSONS</string>
     <string name="topic">TOPIC</string>
     <string name="activity">ACTIVITY</string>
     <string name="quarter_selection">Quarter Selection</string>
@@ -186,8 +186,8 @@
     <string name="question_image">Question Image</string>
 
     <!-- Media -->
-    <string name="youtube">YouTube Videos</string>
-    <string name="youtube_videos">YouTube Videos</string>
+    <string name="youtube">VIDEO TUTORIALS</string>
+    <string name="youtube_videos">VIDEO TUTORIALS</string>
     <string name="play">Play</string>
     <string name="user_avatar">User Avatar</string>
 </resources>
