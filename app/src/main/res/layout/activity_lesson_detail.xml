@@ -130,7 +130,7 @@
                 android:layout_height="80dp"
                 android:layout_marginTop="10dp"
                 android:text="@string/youtube"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:backgroundTint="#FF0000"
                 app:cornerRadius="16dp"

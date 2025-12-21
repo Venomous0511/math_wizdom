@@ -24,6 +24,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.bitrealm.mathwizdomapp.adapters.LessonItem
 import com.bitrealm.mathwizdomapp.adapters.LessonsAdapter
 import com.bitrealm.mathwizdomapp.database.AppDatabase
+import com.bitrealm.mathwizdomapp.database.dao.LessonProgressDao
 import com.bitrealm.mathwizdomapp.dialogs.VolumeControlDialog
 import com.bitrealm.mathwizdomapp.repository.UserRepository
 import com.bitrealm.mathwizdomapp.utils.MusicManager
@@ -44,6 +45,7 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
     private lateinit var userRepository: UserRepository
     private var userIdentifier: String = ""
     private var quarter: Int = 1
+    private lateinit var lessonProgressDao: LessonProgressDao
 
     // Define lesson count per quarter
     private val lessonCounts = mapOf(
@@ -157,6 +159,8 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         userIdentifier = intent.getStringExtra("USER_IDENTIFIER") ?: ""
         quarter = intent.getIntExtra("QUARTER", 1)
 
+        lessonProgressDao = database.lessonProgressDao()
+
         initViews()
         setupUI()
         setupNavigationDrawer()
@@ -179,7 +183,7 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
 
     @SuppressLint("SetTextI18n")
     private fun setupUI() {
-        tvTitle.text = "LESSON - QUARTER $quarter"
+        tvTitle.text = "QUARTER $quarter LESSONS"
         ivAnimal.setImageResource(quarterAnimals[quarter] ?: R.drawable.cat)
     }
 
@@ -220,22 +224,38 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
     }
 
     private fun populateLessons() {
-        val lessonCount = lessonCounts[quarter] ?: 3
+        lifecycleScope.launch {
+            val lessonCount = lessonCounts[quarter] ?: 3
+            val lessons = mutableListOf<LessonItem>()
 
-        // Create list of lesson items
-        val lessons = mutableListOf<LessonItem>()
-        for (i in 1..lessonCount) {
-            lessons.add(LessonItem(i, getLessonName(quarter, i)))
+            for (i in 1..lessonCount) {
+                val isLocked = !isLessonUnlocked(i)
+                lessons.add(LessonItem(i, getLessonName(quarter, i), isLocked))
+            }
+
+            runOnUiThread {
+                lessonsContainer.layoutManager = GridLayoutManager(this@LessonsListActivity, 3)
+                val adapter = LessonsAdapter(lessons) { lessonNumber ->
+                    navigateToLessonDetail(lessonNumber)
+                }
+                lessonsContainer.adapter = adapter
+            }
         }
+    }
 
-        // Set up RecyclerView with GridLayoutManager
-        lessonsContainer.layoutManager = GridLayoutManager(this, 4)
+    private suspend fun isLessonUnlocked(lessonNumber: Int): Boolean {
+        // Lesson 1 is always unlocked
+        if (lessonNumber == 1) return true
 
-        // Set up adapter
-        val adapter = LessonsAdapter(lessons) { lessonNumber ->
-            navigateToLessonDetail(lessonNumber)
-        }
-        lessonsContainer.adapter = adapter
+        // Check if previous lesson has at least 2 activities completed with score >= 3
+        val previousLesson = lessonNumber - 1
+        val completedCount = lessonProgressDao.getCompletedActivitiesCount(
+            userIdentifier,
+            quarter,
+            previousLesson
+        )
+
+        return completedCount >= 2
     }
 
     private fun getLessonName(quarter: Int, lessonNumber: Int): String {

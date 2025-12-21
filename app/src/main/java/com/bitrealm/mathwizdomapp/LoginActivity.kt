@@ -7,6 +7,7 @@ import android.text.InputFilter
 import android.text.InputType
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
@@ -20,15 +21,13 @@ import com.bitrealm.mathwizdomapp.database.AppDatabase
 import com.bitrealm.mathwizdomapp.database.entities.UserRole
 import com.bitrealm.mathwizdomapp.repository.UserRepository
 import com.bitrealm.mathwizdomapp.utils.MusicManager
-import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var toolbar: MaterialToolbar
-    private lateinit var tvRoleEmoji: TextView
+    private lateinit var ivRoleIcon: ImageView
     private lateinit var tvRoleTitle: TextView
     private lateinit var tilIdentifier: TextInputLayout
     private lateinit var etIdentifier: TextInputEditText
@@ -59,7 +58,6 @@ class LoginActivity : AppCompatActivity() {
         userRole = UserRole.valueOf(roleString)
 
         initViews()
-        setupToolbar()
         setupUI()
         setupListeners()
     }
@@ -75,8 +73,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
-        toolbar = findViewById(R.id.toolbar)
-        tvRoleEmoji = findViewById(R.id.tvRoleEmoji)
+        ivRoleIcon = findViewById(R.id.ivRoleIcon)
         tvRoleTitle = findViewById(R.id.tvRoleTitle)
         tilIdentifier = findViewById(R.id.tilIdentifier)
         etIdentifier = findViewById(R.id.etIdentifier)
@@ -85,26 +82,14 @@ class LoginActivity : AppCompatActivity() {
         progressBar = findViewById(R.id.progressBar)
     }
 
-    private fun setupToolbar() {
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
-
-        toolbar.setNavigationOnClickListener {
-            finish()
-        }
-    }
-
     @SuppressLint("SetTextI18n")
     private fun setupUI() {
         if (userRole == UserRole.STUDENT) {
-            toolbar.title = "Student"
-            tvRoleEmoji.text = "👨‍🎓"
+            ivRoleIcon.setImageResource(R.drawable.student_icon)
             tvRoleTitle.text = "Student"
             tilIdentifier.hint = "LRN (Learner Reference No.)"
         } else {
-            toolbar.title = "Teacher"
-            tvRoleEmoji.text = "👨‍🏫"
+//            ivRoleIcon.setImageResource(R.drawable.teacher_icon)
             tvRoleTitle.text = "Teacher"
             tilIdentifier.hint = "Employee Number"
         }
@@ -245,7 +230,7 @@ class LoginActivity : AppCompatActivity() {
             btnSubmit.text = ""
             progressBar.visibility = View.VISIBLE
         } else {
-            btnSubmit.text = "Submit" // Changed from "Login" to "Submit"
+            btnSubmit.text = "Submit"
             progressBar.visibility = View.GONE
         }
     }
@@ -261,7 +246,7 @@ class LoginActivity : AppCompatActivity() {
 
         val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
 
-        windowInsetsController?.apply {
+        windowInsetsController.apply {
             isAppearanceLightStatusBars = true
             isAppearanceLightNavigationBars = true
 

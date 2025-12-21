@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bitrealm.mathwizdomapp.R
 import com.bitrealm.mathwizdomapp.models.Activity
@@ -13,6 +14,7 @@ import com.google.android.material.card.MaterialCardView
 
 class ActivityAdapter(
     private val activities: List<Activity>,
+    private val completionStatus: Map<String, Boolean> = emptyMap(),
     private val onActivityClick: (Activity) -> Unit
 ) : RecyclerView.Adapter<ActivityAdapter.ActivityViewHolder>() {
 
@@ -32,10 +34,28 @@ class ActivityAdapter(
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ActivityViewHolder, position: Int) {
         val activity = activities[position]
+        val isCompleted = completionStatus[activity.id.toString()] ?: false
 
-        holder.tvActivityNumber.text = "ACTIVITY #${activity.activityNumber}"
+        // Show checkmark if activity is completed with score >= 3
+        holder.tvActivityNumber.text = if (isCompleted) {
+            "✓ ACTIVITY #${activity.activityNumber}"
+        } else {
+            "ACTIVITY #${activity.activityNumber}"
+        }
+
         holder.tvActivityName.text = activity.title
         holder.tvActivityType.text = getActivityTypeLabel(activity.type)
+
+        // Change card background color if completed - USE ContextCompat
+        if (isCompleted) {
+            holder.cardActivity.setCardBackgroundColor(
+                ContextCompat.getColor(holder.itemView.context, R.color.completed_activity_color)
+            )
+        } else {
+            holder.cardActivity.setCardBackgroundColor(
+                ContextCompat.getColor(holder.itemView.context, R.color.default_activity_color)
+            )
+        }
 
         holder.cardActivity.setOnClickListener {
             onActivityClick(activity)

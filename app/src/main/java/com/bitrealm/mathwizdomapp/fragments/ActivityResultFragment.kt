@@ -7,10 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.bitrealm.mathwizdomapp.R
+import com.bitrealm.mathwizdomapp.database.AppDatabase
+import com.bitrealm.mathwizdomapp.database.dao.LessonProgressDao
+import com.bitrealm.mathwizdomapp.database.entities.LessonProgress
 import com.bitrealm.mathwizdomapp.models.Activity
 import com.bitrealm.mathwizdomapp.utils.MusicManager
 import com.google.android.material.button.MaterialButton
+import kotlinx.coroutines.launch
 
 class ActivityResultFragment : Fragment() {
 
@@ -21,6 +26,7 @@ class ActivityResultFragment : Fragment() {
     private var userIdentifier: String = ""
     private var quarter: Int = 1
     private var lessonNumber: Int = 1
+    private lateinit var lessonProgressDao: LessonProgressDao
 
     companion object {
         private const val ARG_CORRECT = "correct"
@@ -90,6 +96,22 @@ class ActivityResultFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val database = AppDatabase.getDatabase(requireContext())
+        lessonProgressDao = database.lessonProgressDao()
+
+        // Save progress
+        lifecycleScope.launch {
+            val progress = LessonProgress(
+                userIdentifier = userIdentifier,
+                quarter = quarter,
+                lessonNumber = lessonNumber,
+                activityId = activity.id.toString(),
+                score = correctAnswers,
+                totalQuestions = totalQuestions
+            )
+            lessonProgressDao.insertProgress(progress)
+        }
 
         val tvScore = view.findViewById<TextView>(R.id.tvScore)
         val tvGradeMessage = view.findViewById<TextView>(R.id.tvGradeMessage)
