@@ -28,9 +28,10 @@ import com.bitrealm.mathwizdomapp.repository.UserRepository
 import com.bitrealm.mathwizdomapp.utils.MusicManager
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.launch
-import android.net.Uri
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bitrealm.mathwizdomapp.database.dao.LessonProgressDao
+import com.bitrealm.mathwizdomapp.utils.loadAvatarUri
 
 class ActivityActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -208,17 +209,8 @@ class ActivityActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
                         navHeaderUserName.text = it.fullName
 
-                        // Load avatar from URI
-                        if (!it.avatarUri.isNullOrEmpty()) {
-                            try {
-                                val uri = Uri.parse(it.avatarUri)
-                                navHeaderAvatar.setImageURI(uri)
-                            } catch (_: Exception) {
-                                navHeaderAvatar.setImageResource(R.drawable.ic_profile)
-                            }
-                        } else {
-                            navHeaderAvatar.setImageResource(R.drawable.ic_profile)
-                        }
+                        // Load avatar from URI - USE THE SAME METHOD AS DashboardActivity
+                        navHeaderAvatar.loadAvatarUri(it.avatarUri, R.drawable.ic_profile)
                     }
                 }
             } catch (e: Exception) {
@@ -239,6 +231,12 @@ class ActivityActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
             R.id.nav_profile -> {
                 val intent = Intent(this, DashboardActivity::class.java)
+                intent.putExtra("USER_IDENTIFIER", userIdentifier)
+                startActivity(intent)
+            }
+
+            R.id.nav_progress -> {
+                val intent = Intent(this, ProgressActivity::class.java)
                 intent.putExtra("USER_IDENTIFIER", userIdentifier)
                 startActivity(intent)
             }

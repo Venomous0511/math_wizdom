@@ -114,6 +114,12 @@ class ActivityDetailActivity : AppCompatActivity(), NavigationView.OnNavigationI
                 startActivity(intent)
             }
 
+            R.id.nav_progress -> {
+                val intent = Intent(this, ProgressActivity::class.java)
+                intent.putExtra("USER_IDENTIFIER", userIdentifier)
+                startActivity(intent)
+            }
+
             R.id.nav_logout -> {
                 showLogoutDialog()
                 return true

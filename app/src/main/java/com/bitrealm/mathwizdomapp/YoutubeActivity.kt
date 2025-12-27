@@ -26,6 +26,7 @@ import com.bitrealm.mathwizdomapp.database.AppDatabase
 import com.bitrealm.mathwizdomapp.dialogs.VolumeControlDialog
 import com.bitrealm.mathwizdomapp.repository.UserRepository
 import com.bitrealm.mathwizdomapp.utils.MusicManager
+import com.bitrealm.mathwizdomapp.utils.loadAvatarUri
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.launch
 
@@ -169,61 +170,82 @@ class YoutubeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
     private fun getQuarter1Links(lessonNumber: Int): List<YoutubeLink> {
         return when (lessonNumber) {
             1 -> listOf(
+                YoutubeLink("Similar and Dissimilar Fractions", "https://youtu.be/xqIeq5JaAdo?si=1lEjMA2PmkEnQqpy", "DEPED TV"),
                 YoutubeLink("Similar and Dissimilar Fractions", "https://www.youtube.com/watch?v=_46tgcv1drY", "Ms. Jessa's Tutorial"),
+                YoutubeLink("Add Simple and Mixed Fractions", "https://www.youtube.com/watch?v=uDd2BcuMgXI", "DEPED TV"),
                 YoutubeLink("Add Simple and Mixed Fractions", "https://www.youtube.com/watch?v=icrgiBxrrR0", "Sir Marion"),
+                YoutubeLink("Subtract Simple and Mixed Fractions", "https://youtu.be/05PqnV90vyM?si=uYVD8zqvuqefrFwU", "DEPED TV"),
                 YoutubeLink("Subtract Simple and Mixed Fractions", "https://www.youtube.com/watch?v=OTm3YwUCOME", "Sir Marion")
             )
             2 -> listOf(
+                YoutubeLink("Routine and Non-routine Problems", "https://youtu.be/RYtBXYRJFOY?si=BVY1mj__VHrHVL4x", "DEPED TV"),
                 YoutubeLink("Routine and Non-routine Problems", "https://www.youtube.com/watch?v=LAjcpEc3lBY", "MATHster Kids")
             )
             3 -> listOf(
+                YoutubeLink("Multiplies Simple Fractions and Mixed Fractions", "https://youtu.be/pQi8i5hv9pc?si=fKlvp45A52sa4fTH", "DEPED TV"),
                 YoutubeLink("Multiplies Simple Fractions", "https://www.youtube.com/watch?v=alstJ37BoZo", "Math with Mr. J"),
                 YoutubeLink("Cancellation Method", "https://www.youtube.com/watch?v=TtQUtySj9Ac", "MATH TEACHER GON"),
                 YoutubeLink("Multiplies Mixed Numbers", "https://www.youtube.com/watch?v=gMJBu8BXhgU", "Math with Mr. J")
             )
             4 -> listOf(
+                YoutubeLink("Problem Solving with Multiplication", "https://youtu.be/D-qhjxGEEfQ?si=jZd_2xFbAxf-cZEE", "DEPED TV"),
                 YoutubeLink("Problem Solving with Multiplication", "https://www.youtube.com/watch?v=wExX0QYwM8E", "Math is Fun")
             )
             5 -> listOf(
+                YoutubeLink("Dividing Simple Fractions and Mixed Fractions", "https://youtu.be/2WW8yHqVpT0?si=2pjrXk_62SbdAc-k", "DEPED TV"),
                 YoutubeLink("Dividing Simple Fractions", "https://www.youtube.com/watch?v=RAKwouL-lTc", "Math with Mr. J"),
                 YoutubeLink("Dividing Mixed Fractions", "https://www.youtube.com/watch?v=cARsEw-s8Fg", "Math with Mr. J")
             )
             6 -> listOf(
+                YoutubeLink("Problem Solving with Division", "https://youtu.be/7nzx37HgRdw?si=aPUEjTwCtHZty3Ih", "DEPED TV"),
                 YoutubeLink("Problem Solving with Division", "https://www.youtube.com/watch?v=9uCxZk7sDpY", "Math is Fun")
             )
             7 -> listOf(
+                YoutubeLink("Rounding Off Decimals", "https://youtu.be/Q7xI1_YUsRw?si=B35bA-U7ZJwwzEZV", "DEPED TV"),
+                YoutubeLink("Adding and Subtracting Decimals", "https://youtu.be/-3EcOEkm4IM?si=b2T7RUAvY1bO1yPJ", "DEPED TV"),
                 YoutubeLink("Rounding Off Decimals", "https://www.youtube.com/watch?v=P7ozJW8LSxw", "Math with Mr. J"),
                 YoutubeLink("Adding and Subtracting Decimals", "https://www.youtube.com/watch?v=PnwLv6khwk8", "Math with Mr. J")
             )
             8 -> listOf(
+                YoutubeLink("Problem Solving with Addition and Subtraction", "https://youtu.be/BvXaLe6h_bY?si=0kOBB2tQk-tPkEJH", "DEPED TV"),
                 YoutubeLink("Problem Solving with Decimals", "https://www.youtube.com/watch?v=xrdTnPlWcH8", "Mr. Math Deontoy")
             )
             9 -> listOf(
+                YoutubeLink("Multiplying Decimals", "https://youtu.be/MC7j2Gc_d0M?si=lc6zamLlDTRWaOiT", "DEPED TV"),
                 YoutubeLink("Multiplying Decimals", "https://www.youtube.com/watch?v=Dm028SSei88", "Math with Mr. J")
             )
             10 -> listOf(
+                YoutubeLink("Multiplying Decimals by Powers of 10", "https://youtu.be/MC7j2Gc_d0M?si=lc6zamLlDTRWaOiT", "DEPED TV"),
                 YoutubeLink("Multiplying by Powers of 10", "https://www.youtube.com/watch?v=v2qLlJ7KwHk", "Math with Mr. J")
             )
             11 -> listOf(
+                YoutubeLink("Word Problems with Multiplying Decimals", "https://youtu.be/o5Rw7YLPVYc?si=1xL4llWplIqSsziv", "DEPED TV"),
                 YoutubeLink("Word Problems with Decimals", "https://www.youtube.com/watch?v=NpCQ9IThSgk", "Teacher Frell")
             )
             12 -> listOf(
+                YoutubeLink("Multi-step Problem Solving", "https://youtu.be/ufIEG-GVb6M?si=MGAC4qk8wLpOmCfE", "DEPED TV"),
                 YoutubeLink("Multi-step Problem Solving", "https://www.youtube.com/watch?v=ZsRcZo-Km60", "Teacher Frell")
             )
             13 -> listOf(
+                YoutubeLink("Division of Whole and Decimal Numbers", "https://youtu.be/vdTr-crzz3s?si=Ym6sdWSbODGt2Byw", "DEPED TV"),
                 YoutubeLink("Division of Decimals", "https://www.youtube.com/watch?v=Val4TmjHXRY", "Math with Mr. J")
             )
             14 -> listOf(
+                YoutubeLink("Dividing Decimals by 10", "https://youtu.be/S5aSb7sZB1Y?si=Efmt4fwOwK2PuU9p", "DEPED TV"),
                 YoutubeLink("Dividing by Powers of 10", "https://www.youtube.com/watch?v=aa8R5tSHEng", "Let's Do Math")
             )
             15 -> listOf(
+                YoutubeLink("Rational and Irrational Numbers", "https://youtu.be/e1DMfwEuf-k?si=Wry-CtV_MLgqYp7F", "DEPED TV"),
+                YoutubeLink("Terminating and Non-terminating Decimals", "https://youtu.be/ko4jOGQDOFw?si=3AKtXNQmKDHvUAIK", "DEPED TV"),
                 YoutubeLink("Rational and Irrational Numbers", "https://www.youtube.com/watch?v=4IQZ83iUBjI", "Let's Do Math"),
                 YoutubeLink("Terminating and Non-terminating Decimals", "https://www.youtube.com/watch?v=Jf_-FfaMMZM", "Math with Mr. J")
             )
             16 -> listOf(
+                YoutubeLink("Problem Solving with Division of Decimals", "https://youtu.be/JwArItx-wrI?si=Zlb82nvVWQVhm7VS", "DEPED TV"),
                 YoutubeLink("Problem Solving with Division", "https://www.youtube.com/watch?v=_GeSlide", "SIR EFREN VILLAESTER")
             )
             17 -> listOf(
+                YoutubeLink("Problem Solving with Multiplication of Decimals", "https://youtu.be/o5Rw7YLPVYc?si=1y0yegOzO9Z22g5g", "DEPED TV"),
                 YoutubeLink("Problem Solving with All Operations", "https://www.youtube.com/watch?v=E8jD1W4SaBY&t=193s", "Teacher Frell")
             )
             else -> emptyList()
@@ -233,13 +255,16 @@ class YoutubeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
     private fun getQuarter2Links(lessonNumber: Int): List<YoutubeLink> {
         return when (lessonNumber) {
             1 -> listOf(
+                YoutubeLink("Relating Fraction and Ratio", "https://www.youtube.com/live/KSCVgaON3Mk?si=2UaWsHaASqf-38aw", "DEPED TV"),
                 YoutubeLink("Relating Fraction and Ratio", "https://www.youtube.com/watch?v=aAaVkrYJQVg", "Teacher Frell")
             )
             2 -> listOf(
+                YoutubeLink("Concept of Ratio and Proportion", "https://youtu.be/ZYgUqBqY0AM?si=j0E19Tjm1FHn-0r4", "DEPED TV"),
                 YoutubeLink("Proportion", "https://www.youtube.com/watch?v=wT8tGc-SwKk", "Math with Mr. J"),
                 YoutubeLink("Types of Proportion", "https://www.youtube.com/watch?v=fPQQsGL74CA", "Sheena Doria")
             )
             3 -> listOf(
+                YoutubeLink("Percentage, Rate and Base", "https://youtu.be/UkjZpJPVHHM?si=WdjVuIRDo9x2gN18", "DEPED TV"),
                 YoutubeLink("Percentage, Rate, and Base", "https://www.youtube.com/watch?v=aV8bgQ73L4w", "Math is Fun"),
                 YoutubeLink("Finding Percentage, Rate, and Base", "https://www.youtube.com/watch?v=WIkfkR15ElM", "Sheena Doria"),
                 YoutubeLink("Routine and Non-routine Problems", "https://www.youtube.com/watch?v=tDpJEpbdNw4", "Math is Fun")
@@ -252,24 +277,31 @@ class YoutubeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
                 YoutubeLink("Solving Simple Interest", "https://www.youtube.com/watch?v=AdF-8ydl0mk", "What's Up Dude")
             )
             5 -> listOf(
+                YoutubeLink("Exponent and Base", "https://www.youtube.com/watch?v=A8IBkgbnRYQ", "DEPED TV"),
                 YoutubeLink("Exponent and Base", "https://www.youtube.com/watch?v=O1QFagsKL58", "Math is Fun")
             )
             6 -> listOf(
+                YoutubeLink("GEMDAS", "https://www.youtube.com/watch?v=j5qJoUqsv1E", "DEPED TV"),
                 YoutubeLink("GEMDAS", "https://www.youtube.com/watch?v=HLhW00sZs1s", "Teacher Frell")
             )
             7 -> listOf(
+                YoutubeLink("Integers", "https://youtu.be/kGVrWOXwUeE?si=HBnE7S7QLKBASpPT", "DEPED TV"),
                 YoutubeLink("Integers", "https://www.youtube.com/watch?v=gKRCx0OCCqg", "Math is Fun")
             )
             8 -> listOf(
+                YoutubeLink("Number Line", "https://youtu.be/eYZsa37-OQ8?si=1QCfnecyGPU5g1Tq", "DEPED TV"),
                 YoutubeLink("Number Line", "https://www.youtube.com/watch?v=1ayVZUEoMH8", "Sheena Doria")
             )
             9 -> listOf(
+                YoutubeLink("Adding and Subtracting Integers using Algebra Tiles", "https://www.youtube.com/watch?v=WJnGgwVzhBQ", "DEPED TV"),
                 YoutubeLink("Adding and Subtracting Integers", "https://www.youtube.com/watch?v=Js9sVSFpyFE", "Mathispower4u")
             )
             10 -> listOf(
+                YoutubeLink("Basic Operations on Integers", "https://www.youtube.com/watch?v=qMXSYgTp3LY", "DEPED TV"),
                 YoutubeLink("Basic Operations on Integers", "https://www.youtube.com/watch?v=O6bRgxVRoZ4", "Math with Mr. J")
             )
             11 -> listOf(
+                YoutubeLink("Routine and Non-routine Problems with Integers", "https://youtu.be/NQUrX7iIf-M?si=uLXgg7BNwvMavIeE", "DEPED TV"),
                 YoutubeLink("Routine and Non-routine Problems", "https://www.youtube.com/watch?v=1S3Mzr3yUW8", "Math is Fun")
             )
             else -> emptyList()
@@ -279,9 +311,11 @@ class YoutubeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
     private fun getQuarter3Links(lessonNumber: Int): List<YoutubeLink> {
         return when (lessonNumber) {
             1 -> listOf(
+                YoutubeLink("Plane and Solid Figures", "https://www.youtube.com/watch?v=2xzwHrGONEc", "DEPED TV"),
                 YoutubeLink("Plane and Solid Figures", "https://www.youtube.com/watch?v=TWu15v8eJ4A", "Teacher Lee YT")
             )
             2 -> listOf(
+                YoutubeLink("Formulating Rules for Sequence", "https://www.youtube.com/watch?v=H6r1kEEqvYA", "DEPED TV"),
                 YoutubeLink("Formulating Rules for Sequence", "https://www.youtube.com/watch?v=JVXiNx3ZcSo", "MATH & ENGLISH TV")
             )
             3 -> listOf(
@@ -294,16 +328,21 @@ class YoutubeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
                 YoutubeLink("Four Basic Rules for Solving Equations", "https://www.youtube.com/watch?v=kWOTmyoaWJg", "The Organic Chemistry Tutor")
             )
             5 -> listOf(
+                YoutubeLink("Speed, Distance and Time", "https://www.youtube.com/watch?v=3flIGBGCoN8", "DEPED TV"),
                 YoutubeLink("Speed", "https://www.youtube.com/watch?v=dZ_oI7WbQTo", "Sheena Doria"),
                 YoutubeLink("Distance and Time", "https://www.youtube.com/watch?v=zAo2dyOChYc", "Sheena Doria")
             )
             6 -> listOf(
+                YoutubeLink("Area of Composite Figures", "https://www.youtube.com/watch?v=cmz59saqnbs", "DEPED TV"),
                 YoutubeLink("Area of Composite Figures", "https://www.youtube.com/watch?v=TxTJtKa14I4", "SIR EFREN VILLAESTER")
             )
             7 -> listOf(
+                YoutubeLink("Surface Area of Solid Figures", "https://www.youtube.com/watch?v=2tCZWBnmWH4", "DEPED TV"),
                 YoutubeLink("Surface Area of Solid Figures", "https://www.youtube.com/watch?v=hn_g0uSQQsQ", "MATH & ENGLISH TV")
             )
             8 -> listOf(
+                YoutubeLink("Problem Solving with Surface Area", "https://www.youtube.com/live/2tCZWBnmWH4?si=ZgdmSZn38plP5ciM", "DEPED TV"),
+                YoutubeLink("Finding Surface Area", "https://youtu.be/_5hqEOGKFKw?si=TNUfgCQgLSk-Rtxh", "DEPED TV"),
                 YoutubeLink("Problem Solving with Surface Area", "https://www.youtube.com/watch?v=YvHTeADh5Es", "Math with Ms Sun")
             )
             else -> emptyList()
@@ -313,33 +352,47 @@ class YoutubeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
     private fun getQuarter4Links(lessonNumber: Int): List<YoutubeLink> {
         return when (lessonNumber) {
             1 -> listOf(
+                YoutubeLink("Volume of Prisms and Pyramids", "https://www.youtube.com/live/fiagxfuK-Pg?si=YjcmzA9A11rdXsq4", "DEPED TV"),
+                YoutubeLink("Understanding Volume of 3D Shapes", "https://youtu.be/EYPKaPykRUs?si=u8TnZ_V93zusNxP_", "DEPED TV"),
                 YoutubeLink("Volume of Prisms and Pyramids", "https://www.youtube.com/watch?v=WY95RxDM9L0", "SIR EFREN VILLAESTER")
             )
             2 -> listOf(
+                YoutubeLink("Volume of Cylinders, Pyramids, Cones, and Spheres", "https://youtu.be/n9lb9GxLjuY?si=WAUHImxez7gnN9sh", "DEPED TV"),
+                YoutubeLink("Finding Volume of Solid Figures", "https://youtu.be/MH2QH952b34?si=70qgf5yxW5qWkhrd", "DEPED TV"),
                 YoutubeLink("Volume of Solid Figures", "https://www.youtube.com/watch?v=72iYB3XVJxM", "Math is Fun")
             )
             3 -> listOf(
+                YoutubeLink("Electric and Water Meter Readings", "https://www.youtube.com/live/aRx4yjKM-yM?si=TSKksL1gMMEn2Yjk", "DEPED TV"),
                 YoutubeLink("Electric Meter", "https://www.youtube.com/watch?v=hpUxdQbYMm4", "SEAMEO INNOTECH"),
                 YoutubeLink("Water Meter", "https://www.youtube.com/watch?v=gfdPzlybOV4", "Mike Jhared"),
                 YoutubeLink("Computing Meter Consumption", "https://www.youtube.com/watch?v=KcGwv3umjJ8", "SIR EFREN VILLAESTER")
             )
             4 -> listOf(
+                YoutubeLink("Constructing Pie Graph", "https://youtu.be/zHx4rl1_zdE?si=g3KDzrv0tQ05lTDu", "DEPED TV"),
+                YoutubeLink("Pie Graph Tutorial", "https://www.youtube.com/live/cHuKsLD6Ol0?si=yBUoJFTODQ9KXOjQ", "DEPED TV"),
                 YoutubeLink("Constructing Pie Graph", "https://www.youtube.com/watch?v=Y42vARgDr_s", "Rodil Raymundo")
             )
             5 -> listOf(
+                YoutubeLink("Problem Solving with Pie Graph", "https://www.youtube.com/live/Hgslu2tyoZY?si=fphSJkY7LASwMCkq", "DEPED TV"),
                 YoutubeLink("Problem Solving with Pie Graph", "https://www.youtube.com/watch?v=bZBeAsuuMZg&t=245s", "MATH & ENGLISH TV")
             )
             6 -> listOf(
+                YoutubeLink("Probability", "https://youtu.be/G5x2mEfIrb8?si=EgxRgzUnP1H7LM5-", "DEPED TV"),
                 YoutubeLink("Probability", "https://www.youtube.com/watch?v=WFInqAojy6A", "Val Live")
             )
             7 -> listOf(
+                YoutubeLink("Listing Outcomes and Tree Diagrams", "https://youtu.be/mgr_TsUqjg8?si=qqNodoyn2Zubftca", "DEPED TV"),
                 YoutubeLink("Listing Outcomes and Tree Diagrams", "https://www.youtube.com/watch?v=tpry4CAhoIw", "Teacher Jem Rymon")
             )
             8 -> listOf(
+                YoutubeLink("Simple Predictions of Events", "https://youtu.be/R2SyP9XTshE?si=3QusQk0hjiOPuN6-", "DEPED TV"),
+                YoutubeLink("Making Predictions", "https://youtu.be/Ay5pnC-0bVI?si=l5mozIqZ9ru25YIj", "DEPED TV"),
                 YoutubeLink("Simple Predictions of Events", "https://www.youtube.com/watch?v=wp5q-OUHf20", "Cynde The Thrifty")
             )
             9 -> listOf(
-                YoutubeLink("Experimental and Theoretical Probability", "https://www.youtube.com/watch?v=CkGtOAuSgGA", "KATHLEEN HERNANDEZ")
+                YoutubeLink("Experimental and Theoretical Probability", "https://youtu.be/xXCBI_vquGI?si=Tk2-SuvVcoLhogM7", "DEPED TV"),
+                YoutubeLink("Solving Probability Problems", "https://youtu.be/0pJB4_t3ewE?si=gg0XiJ2QD1sK-BhU", "DEPED TV"),
+                        YoutubeLink("Experimental and Theoretical Probability", "https://www.youtube.com/watch?v=CkGtOAuSgGA", "KATHLEEN HERNANDEZ")
             )
             else -> emptyList()
         }
@@ -358,16 +411,7 @@ class YoutubeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
                         navHeaderUserName.text = it.fullName
 
-                        if (!it.avatarUri.isNullOrEmpty()) {
-                            try {
-                                val uri = Uri.parse(it.avatarUri)
-                                navHeaderAvatar.setImageURI(uri)
-                            } catch (_: Exception) {
-                                navHeaderAvatar.setImageResource(R.drawable.ic_profile)
-                            }
-                        } else {
-                            navHeaderAvatar.setImageResource(R.drawable.ic_profile)
-                        }
+                        navHeaderAvatar.loadAvatarUri(it.avatarUri, R.drawable.ic_profile)
                     }
                 }
             } catch (e: Exception) {
@@ -385,11 +429,19 @@ class YoutubeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
                 startActivity(intent)
                 finish()
             }
+
             R.id.nav_profile -> {
                 val intent = Intent(this, DashboardActivity::class.java)
                 intent.putExtra("USER_IDENTIFIER", userIdentifier)
                 startActivity(intent)
             }
+
+            R.id.nav_progress -> {
+                val intent = Intent(this, ProgressActivity::class.java)
+                intent.putExtra("USER_IDENTIFIER", userIdentifier)
+                startActivity(intent)
+            }
+
             R.id.nav_logout -> {
                 showLogoutDialog()
                 return true

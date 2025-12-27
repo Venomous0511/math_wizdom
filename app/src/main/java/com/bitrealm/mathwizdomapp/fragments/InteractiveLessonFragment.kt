@@ -23,6 +23,7 @@ class InteractiveLessonFragment : Fragment() {
 
     private lateinit var lesson: InteractiveLesson
     private var currentSlideIndex = 0
+    private var isPracticeAnswered = false
 
     private lateinit var tvSlideTitle: TextView
     private lateinit var cardSlideContent: MaterialCardView
@@ -68,8 +69,13 @@ class InteractiveLessonFragment : Fragment() {
 
         // Array of your character drawables
         val characters = arrayOf(
-            R.drawable.girl_lesson,
-            R.drawable.boy_lesson,
+            R.drawable.girl_lesson_1,
+            R.drawable.girl_lesson_2,
+            R.drawable.girl_lesson_3,
+            R.drawable.boy_lesson_1,
+            R.drawable.boy_lesson_2,
+            R.drawable.boy_lesson_3,
+            R.drawable.boy_lesson_4,
         )
 
         // Pick random character
@@ -110,6 +116,17 @@ class InteractiveLessonFragment : Fragment() {
         }
 
         btnNext.setOnClickListener {
+            val currentSlide = lesson.slides[currentSlideIndex]
+            if (currentSlide is Slide.PracticeSlide && !isPracticeAnswered) {
+                // Show message that they need to answer first
+                android.widget.Toast.makeText(
+                    requireContext(),
+                    "Please answer the practice question before proceeding",
+                    android.widget.Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+
             if (currentSlideIndex < lesson.slides.size - 1) {
                 currentSlideIndex++
                 loadSlide(currentSlideIndex)
@@ -128,6 +145,10 @@ class InteractiveLessonFragment : Fragment() {
     private fun loadSlide(index: Int) {
         val slide = lesson.slides[index]
         slideContentContainer.removeAllViews()
+
+        if (slide is Slide.PracticeSlide) {
+            isPracticeAnswered = false
+        }
 
         when (slide) {
             is Slide.IntroSlide -> renderIntroSlide(slide)
@@ -206,8 +227,11 @@ class InteractiveLessonFragment : Fragment() {
         }
 
         // Add key points
+        val keyPointsHeader = view.findViewById<ViewGroup>(R.id.keyPointsHeader)
         val keyPointsContainer = view.findViewById<ViewGroup>(R.id.keyPointsContainer)
+
         if (slide.keyPoints != null && slide.keyPoints.isNotEmpty()) {
+            keyPointsHeader.visibility = View.VISIBLE
             keyPointsContainer.visibility = View.VISIBLE
             slide.keyPoints.forEach { point ->
                 val pointView = LayoutInflater.from(context).inflate(
@@ -219,6 +243,7 @@ class InteractiveLessonFragment : Fragment() {
                 keyPointsContainer.addView(pointView)
             }
         } else {
+            keyPointsHeader.visibility = View.GONE
             keyPointsContainer.visibility = View.GONE
         }
 
@@ -283,9 +308,11 @@ class InteractiveLessonFragment : Fragment() {
         if (isFullScreen) {
             btnFullScreen.visibility = View.GONE
             btnMinimize.visibility = View.VISIBLE
+            adjustLayoutForFullscreen(true)
         } else {
             btnFullScreen.visibility = View.VISIBLE
             btnMinimize.visibility = View.GONE
+            adjustLayoutForFullscreen(false)
         }
     }
 
@@ -334,6 +361,8 @@ class InteractiveLessonFragment : Fragment() {
 
             optionView.text = option
             optionView.setOnClickListener {
+                isPracticeAnswered = true
+
                 // Check answer
                 val isCorrect = index == slide.correctAnswer
 
@@ -447,6 +476,20 @@ class InteractiveLessonFragment : Fragment() {
     // Extension function for dp to px conversion
     private fun Int.dpToPx(): Int {
         return (this * resources.displayMetrics.density).toInt()
+    }
+
+    fun adjustLayoutForFullscreen(isFullscreen: Boolean) {
+        val params = cardSlideContent.layoutParams as androidx.constraintlayout.widget.ConstraintLayout.LayoutParams
+
+        if (isFullscreen) {
+            // Reduce margins in fullscreen
+            params.setMargins(12.dpToPx(), 5.dpToPx(), 12.dpToPx(), 2.dpToPx())
+        } else {
+            // Normal margins
+            params.setMargins(24.dpToPx(), 5.dpToPx(), 24.dpToPx(), 2.dpToPx())
+        }
+
+        cardSlideContent.layoutParams = params
     }
 
     @SuppressLint("SetTextI18n")

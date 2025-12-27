@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+
+    <!-- Background -->
+    <path
+        android:fillColor="#E0E0E0"
+        android:pathData="M0,0 L200,0 L200,200 L0,200 Z"/>
+
+    <!-- Image icon outline -->
+    <path
+        android:fillColor="#9E9E9E"
+        android:pathData="M50,60 L150,60 L150,140 L50,140 Z"/>
+
+    <!-- Mountain shape -->
+    <path
+        android:fillColor="#BDBDBD"
+        android:pathData="M60,120 L85,90 L110,120 Z"/>
+
+    <!-- Sun/Circle -->
+    <path
+        android:fillColor="#BDBDBD"
+        android:pathData="M130,80 a10,10 0 1,0 20,0 a10,10 0 1,0 -20,0"/>
+
+    <!-- Text "Guide Image" -->
+    <path
+        android:fillColor="#757575"
+        android:pathData="M70,160 L130,160 L130,165 L70,165 Z"/>
+
+</vector>

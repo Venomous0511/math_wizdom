@@ -28,6 +28,7 @@ import com.bitrealm.mathwizdomapp.database.dao.LessonProgressDao
 import com.bitrealm.mathwizdomapp.dialogs.VolumeControlDialog
 import com.bitrealm.mathwizdomapp.repository.UserRepository
 import com.bitrealm.mathwizdomapp.utils.MusicManager
+import com.bitrealm.mathwizdomapp.utils.loadAvatarUri
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.launch
 
@@ -315,16 +316,7 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
                         navHeaderUserName.text = it.fullName
 
                         // Load avatar from URI
-                        if (!it.avatarUri.isNullOrEmpty()) {
-                            try {
-                                val uri = Uri.parse(it.avatarUri)
-                                navHeaderAvatar.setImageURI(uri)
-                            } catch (_: Exception) {
-                                navHeaderAvatar.setImageResource(R.drawable.ic_profile)
-                            }
-                        } else {
-                            navHeaderAvatar.setImageResource(R.drawable.ic_profile)
-                        }
+                        navHeaderAvatar.loadAvatarUri(it.avatarUri, R.drawable.ic_profile)
                     }
                 }
             } catch (e: Exception) {
@@ -345,6 +337,12 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
 
             R.id.nav_profile -> {
                 val intent = Intent(this, DashboardActivity::class.java)
+                intent.putExtra("USER_IDENTIFIER", userIdentifier)
+                startActivity(intent)
+            }
+
+            R.id.nav_progress -> {
+                val intent = Intent(this, ProgressActivity::class.java)
                 intent.putExtra("USER_IDENTIFIER", userIdentifier)
                 startActivity(intent)
             }

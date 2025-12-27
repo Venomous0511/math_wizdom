@@ -18,6 +18,7 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.lifecycleScope
 import com.bitrealm.mathwizdomapp.database.AppDatabase
+import com.bitrealm.mathwizdomapp.database.dao.LessonProgressDao
 import com.bitrealm.mathwizdomapp.dialogs.VolumeControlDialog
 import com.bitrealm.mathwizdomapp.repository.UserRepository
 import com.bitrealm.mathwizdomapp.utils.MusicManager
@@ -25,6 +26,7 @@ import com.google.android.material.card.MaterialCardView
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.launch
 import android.net.Uri
+import com.bitrealm.mathwizdomapp.utils.loadAvatarUri
 
 class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -37,10 +39,24 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
     private lateinit var card3rdQuarter: MaterialCardView
     private lateinit var card4thQuarter: MaterialCardView
 
+    // REMOVED - These TextViews don't exist in your XML
+    // private lateinit var tvQuarter1Lock: TextView
+    // private lateinit var tvQuarter2Lock: TextView
+    // private lateinit var tvQuarter3Lock: TextView
+    // private lateinit var tvQuarter4Lock: TextView
+
     private lateinit var userRepository: UserRepository
+    private lateinit var lessonProgressDao: LessonProgressDao // ADD THIS
     private var userIdentifier: String = ""
     @Suppress("unused")
     private var isSpeakerEnabled = true
+
+    private val lastLessonPerQuarter = mapOf(
+        1 to 17,
+        2 to 11,
+        3 to 8,
+        4 to 9
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,8 +67,8 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
         // Initialize database and repository
         val database = AppDatabase.getDatabase(this)
         userRepository = UserRepository(database.userDao())
+        lessonProgressDao = database.lessonProgressDao() // ADD THIS
 
-        // Get user identifier from intent
         userIdentifier = intent.getStringExtra("USER_IDENTIFIER") ?: ""
 
         initViews()
@@ -60,6 +76,7 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
         setupListeners()
         setupBackPressHandler()
         loadUserData()
+        checkQuarterLocks()
     }
 
     private fun initViews() {
@@ -78,31 +95,99 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
     }
 
     private fun setupListeners() {
-        // Hamburger menu
         btnMenu.setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
         }
 
-        // Speaker toggle
         btnSpeaker.setOnClickListener {
             showVolumeDialog()
         }
 
-        // Quarter cards
-        card1stQuarter.setOnClickListener {
-            navigateToLessons(1)
-        }
+        // FIXED - Use the correct method
+        card1stQuarter.setOnClickListener { onQuarterSelected(1) }
+        card2ndQuarter.setOnClickListener { onQuarterSelected(2) }
+        card3rdQuarter.setOnClickListener { onQuarterSelected(3) }
+        card4thQuarter.setOnClickListener { onQuarterSelected(4) }
+    }
 
-        card2ndQuarter.setOnClickListener {
-            navigateToLessons(2)
-        }
+    private fun checkQuarterLocks() {
+        lifecycleScope.launch {
+            // Q1 is always unlocked
+            updateQuarterUI(1, true)
 
-        card3rdQuarter.setOnClickListener {
-            navigateToLessons(3)
-        }
+            // Check Q2 - requires Q1 last lesson completion
+            val q1Completed = isQuarterCompleted(1)
+            updateQuarterUI(2, q1Completed)
 
-        card4thQuarter.setOnClickListener {
-            navigateToLessons(4)
+            // Check Q3 - requires Q2 last lesson completion
+            val q2Completed = isQuarterCompleted(2)
+            updateQuarterUI(3, q2Completed)
+
+            // Check Q4 - requires Q3 last lesson completion
+            val q3Completed = isQuarterCompleted(3)
+            updateQuarterUI(4, q3Completed)
+        }
+    }
+
+    private suspend fun isQuarterCompleted(quarter: Int): Boolean {
+        val lastLesson = lastLessonPerQuarter[quarter] ?: return false
+        val completedCount = lessonProgressDao.getLastLessonCompletedActivitiesCount(
+            userIdentifier,
+            quarter,
+            lastLesson
+        )
+        return completedCount >= 2
+    }
+
+    private fun updateQuarterUI(quarter: Int, isUnlocked: Boolean) {
+        runOnUiThread {
+            val card = when (quarter) {
+                1 -> card1stQuarter
+                2 -> card2ndQuarter
+                3 -> card3rdQuarter
+                4 -> card4thQuarter
+                else -> return@runOnUiThread
+            }
+
+            // Since you don't have lock TextViews, just use alpha and enabled state
+            if (isUnlocked) {
+                card.isEnabled = true
+                card.alpha = 1.0f
+            } else {
+                card.isEnabled = false
+                card.alpha = 0.5f
+            }
+        }
+    }
+
+    private fun onQuarterSelected(quarter: Int) {
+        lifecycleScope.launch {
+            val isUnlocked = when (quarter) {
+                1 -> true
+                2 -> isQuarterCompleted(1)
+                3 -> isQuarterCompleted(2)
+                4 -> isQuarterCompleted(3)
+                else -> false
+            }
+
+            if (!isUnlocked) {
+                runOnUiThread {
+                    val previousQuarter = quarter - 1
+                    AlertDialog.Builder(this@QuarterSelectionActivity)
+                        .setTitle("Quarter Locked")
+                        .setMessage("Complete the last lesson of Quarter $previousQuarter to unlock Quarter $quarter.\n\nYou need to pass at least 2 activities in the last lesson.")
+                        .setPositiveButton("OK", null)
+                        .show()
+                }
+                return@launch
+            }
+
+            runOnUiThread {
+                val intent = Intent(this@QuarterSelectionActivity, LessonsListActivity::class.java)
+                intent.putExtra("USER_IDENTIFIER", userIdentifier)
+                intent.putExtra("QUARTER", quarter)
+                startActivity(intent)
+            }
         }
     }
 
@@ -118,7 +203,6 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
                 if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
                     drawerLayout.closeDrawer(GravityCompat.START)
                 } else {
-                    // Show exit confirmation
                     showExitDialog()
                 }
             }
@@ -138,17 +222,7 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
 
                         navHeaderUserName.text = it.fullName
 
-                        // Load avatar from URI
-                        if (!it.avatarUri.isNullOrEmpty()) {
-                            try {
-                                val uri = Uri.parse(it.avatarUri)
-                                navHeaderAvatar.setImageURI(uri)
-                            } catch (   _: Exception) {
-                                navHeaderAvatar.setImageResource(R.drawable.ic_profile)
-                            }
-                        } else {
-                            navHeaderAvatar.setImageResource(R.drawable.ic_profile)
-                        }
+                        navHeaderAvatar.loadAvatarUri(it.avatarUri, R.drawable.ic_profile)
                     }
                 }
             } catch (e: Exception) {
@@ -161,6 +235,7 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
         super.onResume()
         MusicManager.play()
         updateVolumeIcon()
+        checkQuarterLocks()
     }
 
     override fun onPause() {
@@ -178,29 +253,22 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
         )
     }
 
-    private fun navigateToLessons(quarter: Int) {
-        val intent = Intent(this, LessonsListActivity::class.java)
-        intent.putExtra("QUARTER", quarter)
-        intent.putExtra("USER_IDENTIFIER", userIdentifier)
-        startActivity(intent)
-    }
-
-    private fun navigateToProfile() {
-        val intent = Intent(this, DashboardActivity::class.java)
-        intent.putExtra("USER_IDENTIFIER", userIdentifier)
-        startActivity(intent)
-    }
-
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_home -> {
-                // Quarter Selection
                 Toast.makeText(this, "Already on Home", Toast.LENGTH_SHORT).show()
             }
 
             R.id.nav_profile -> {
-                // Navigate to Profile
-                navigateToProfile()
+                val intent = Intent(this, DashboardActivity::class.java)
+                intent.putExtra("USER_IDENTIFIER", userIdentifier)
+                startActivity(intent)
+            }
+
+            R.id.nav_progress -> {
+                val intent = Intent(this, ProgressActivity::class.java)
+                intent.putExtra("USER_IDENTIFIER", userIdentifier)
+                startActivity(intent)
             }
 
             R.id.nav_logout -> {
@@ -218,7 +286,7 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
             .setTitle("Exit")
             .setMessage("Do you want to exit the app?")
             .setPositiveButton("Yes") { dialog, _ ->
-                finishAffinity() // Close all activities and exit
+                finishAffinity()
                 dialog.dismiss()
             }
             .setNegativeButton("No") { dialog, _ ->
@@ -242,11 +310,9 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
     }
 
     private fun logout() {
-        // Clear any saved session data
         val prefs = getSharedPreferences("app_prefs", MODE_PRIVATE)
         prefs.edit { clear() }
 
-        // Navigate back to selection screen
         val intent = Intent(this, SelectionActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)

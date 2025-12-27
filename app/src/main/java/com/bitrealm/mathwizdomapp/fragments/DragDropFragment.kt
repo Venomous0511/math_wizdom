@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.ClipDescription
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.DragEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -52,6 +53,13 @@ class DragDropFragment : Fragment() {
         3 to R.drawable.dragon,
         4 to R.drawable.fox
     )
+
+    private var countDownTimer: CountDownTimer? = null
+    private var timeLeftInMillis: Long = 300000
+    private lateinit var tvTimer: TextView
+    private lateinit var cardTimer: MaterialCardView
+    private lateinit var ivTimerIcon: ImageView
+    private lateinit var tvDirections: TextView
 
     companion object {
         private const val ARG_ACTIVITY = "activity"
@@ -147,6 +155,9 @@ class DragDropFragment : Fragment() {
         setupUI()
         setupListeners()
         setupRecyclerViews()
+        startTimer()
+
+        tvDirections.text = ActivityInstructionsFragment.getDirectionText(quarter, lessonNumber, activity.activityNumber)
     }
 
     override fun onResume() {
@@ -169,12 +180,85 @@ class DragDropFragment : Fragment() {
         btnSubmit = view.findViewById(R.id.btnSubmit)
         ivAnimal = view.findViewById(R.id.ivAnimal)
 
+        tvTimer = view.findViewById(R.id.tvTimer)
+        cardTimer = view.findViewById(R.id.cardTimer)
+        ivTimerIcon = view.findViewById(R.id.ivTimerIcon)
+
         tvActivityTitle.text = "ACTIVITY #${activity.activityNumber}"
         ivAnimal.setImageResource(quarterAnimals[quarter] ?: R.drawable.cat)
+
+        tvDirections = view.findViewById(R.id.tvDirections)
     }
 
     private fun setupUI() {
         // Additional UI setup if needed
+    }
+
+    private fun startTimer() {
+        countDownTimer = object : CountDownTimer(timeLeftInMillis, 100) {
+            override fun onTick(millisUntilFinished: Long) {
+                timeLeftInMillis = millisUntilFinished
+                updateTimerUI()
+            }
+
+            override fun onFinish() {
+                onTimeUp()
+            }
+        }.start()
+    }
+
+    @SuppressLint("DefaultLocale")
+    private fun updateTimerUI() {
+        val seconds = (timeLeftInMillis / 1000).toInt()
+        val minutes = seconds / 60
+        val secs = seconds % 60
+
+        tvTimer.text = String.format("%02d:%02d", minutes, secs)
+
+        // Change color based on time remaining
+        when {
+            seconds <= 60 -> {
+                // Red - critical (last 60 seconds)
+                cardTimer.setCardBackgroundColor("#CCFF0000".toColorInt())
+                tvTimer.setTextColor("#FFFFFF".toColorInt())
+                ivTimerIcon.setColorFilter("#FFFFFF".toColorInt())
+
+                // Pulse animation
+                if (seconds % 2 == 0) {
+                    cardTimer.animate().scaleX(1.1f).scaleY(1.1f).setDuration(500).start()
+                } else {
+                    cardTimer.animate().scaleX(1.0f).scaleY(1.0f).setDuration(500).start()
+                }
+            }
+            seconds <= 120 -> {
+                // Orange - warning (last 2 minutes)
+                cardTimer.setCardBackgroundColor("#CCFF9800".toColorInt())
+                tvTimer.setTextColor("#FFFFFF".toColorInt())
+                ivTimerIcon.setColorFilter("#FFFFFF".toColorInt())
+            }
+            else -> {
+                // Green - normal (above 2 minutes)
+                cardTimer.setCardBackgroundColor("#CC4CAF50".toColorInt())
+                tvTimer.setTextColor("#FFFFFF".toColorInt())
+                ivTimerIcon.setColorFilter("#FFFFFF".toColorInt())
+            }
+        }
+    }
+
+    private fun onTimeUp() {
+        countDownTimer?.cancel()
+
+        Toast.makeText(requireContext(), "Time's up!", Toast.LENGTH_LONG).show()
+
+        // Auto-submit with current answers
+        AlertDialog.Builder(requireContext())
+            .setTitle("Time's Up!")
+            .setMessage("The time is up. Your current progress will be submitted.")
+            .setPositiveButton("OK") { _, _ ->
+                checkAnswers()
+            }
+            .setCancelable(false)
+            .show()
     }
 
     private fun setupListeners() {
@@ -250,12 +334,43 @@ class DragDropFragment : Fragment() {
     }
 
     private fun checkAnswers() {
+        countDownTimer?.cancel()
+
         if (userAnswers.size < question.columnA.size) {
-            Toast.makeText(
-                requireContext(),
-                "Please complete all problems before submitting",
-                Toast.LENGTH_SHORT
-            ).show()
+            val isFromTimeUp = timeLeftInMillis <= 0
+
+            if (isFromTimeUp) {
+                var correctCount = 0
+                var wrongCount = 0
+
+                // Check answered questions
+                question.correctMatches.forEach { (problemIndex, answerIndex) ->
+                    val correctAnswer = question.columnB[answerIndex]
+                    val userAnswer = userAnswers[problemIndex]
+
+                    if (userAnswer == correctAnswer) {
+                        correctCount++
+                    } else {
+                        wrongCount++
+                    }
+                }
+
+                wrongCount += (question.columnA.size - userAnswers.size)
+
+                showResults(correctCount, wrongCount)
+            } else {
+                // Manual submit - require all answers
+                Toast.makeText(
+                    requireContext(),
+                    "Please complete all problems before submitting",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+                // Restart timer if it was paused
+                if (timeLeftInMillis > 0) {
+                    startTimer()
+                }
+            }
             return
         }
 
@@ -275,6 +390,11 @@ class DragDropFragment : Fragment() {
         }
 
         showResults(correctCount, wrongCount)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        countDownTimer?.cancel()
     }
 
     private fun showResults(correct: Int, wrong: Int) {

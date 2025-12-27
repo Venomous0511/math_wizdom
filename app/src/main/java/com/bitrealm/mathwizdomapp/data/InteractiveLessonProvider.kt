@@ -100,13 +100,13 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Welcome!",
-                    content = "In this lesson, you will learn about Similar and Dissimilar Fractions.\n\nYou'll understand how to identify them by looking at their DENOMINATORS."
+                    content = "In this topic, you will learn about Similar and Dissimilar Fractions. You'll understand how to identify them by looking at their DENOMINATORS."
                 ),
 
                 Slide.ConceptSlide(
                     id = 2,
                     title = "What is a Fraction?",
-                    content = "Fractions play a big role in our daily lives. \n\nEverything we do is part of our tasks or goals for the day. \n\nWithout realizing it, you add up the parts of your day to see what you’ve completed.",
+                    content = "Fractions play a big role in our daily lives. Everything we do is part of our tasks or goals for the day. Without realizing it, you add up the parts of your day to see what you’ve completed.",
                     imageResourceId = R.drawable.fraction_pieces
                 ),
 
@@ -1418,7 +1418,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Good day!",
-                    content = "In this topic, you will learn to divide mixed fractions.\n\nWhen dividing a mixed number by another mixed number, there are important steps we have to follow!"
+                    content = "In this topic, you will learn to divide mixed fractions. When dividing a mixed number by another mixed number, there are important steps we have to follow!"
                 ),
 
                 Slide.ConceptSlide(
@@ -1566,7 +1566,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Heyyyy!!",
-                    content = "In this topic, you'll learn how to recognize keywords that indicate division and solve problems using the division operation.\n\nThese keywords are your clues to know when to divide!"
+                    content = "In this topic, you'll learn how to recognize keywords that indicate division and solve problems using the division operation. These keywords are your clues to know when to divide!"
                 ),
 
                 Slide.ConceptSlide(
@@ -1758,7 +1758,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Welcome Back!",
-                    content = "In this topic, you'll learn how to solve both routine and non-routine word problems involving division of fractions.\n\nLet's apply what we learned about division!"
+                    content = "In this topic, you'll learn how to solve both routine and non-routine word problems involving division of fractions. Let's apply what we learned about division!"
                 ),
 
                 Slide.ConceptSlide(
@@ -2494,7 +2494,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Hola!",
-                    content = "In this topic, you will learn how to multiply decimals.\n\nYou'll discover how to multiply decimals with up to 2 decimal places and understand where to place the decimal point in your answer!"
+                    content = "In this topic, you will learn how to multiply decimals. You'll discover how to multiply decimals with up to 2 decimal places and understand where to place the decimal point in your answer!"
                 ),
 
                 Slide.ConceptSlide(
@@ -2725,7 +2725,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Hello!!",
-                    content = "In this lesson, you will learn how to multiply decimals by powers of 10.\n\nYou'll discover a simple trick: just move the decimal point! No complex multiplication needed!"
+                    content = "In this lesson, you will learn how to multiply decimals by powers of 10. You'll discover a simple trick: just move the decimal point! No complex multiplication needed!"
                 ),
 
                 Slide.ConceptSlide(
@@ -2760,21 +2760,9 @@ object InteractiveLessonProvider {
                     problem = "A plane travels at the rate of 0.15 kilometers per second. How far does it travel in 10 seconds? 100 seconds? 1000 seconds?",
                     steps = listOf(
                         "Let's find out by multiplying:",
-                        "",
-                        "In 10 seconds:",
-                        "10 × 0.15 = 1.5 km",
-                        "Move decimal point 1 place RIGHT",
-                        "(10 has 1 zero)",
-                        "",
-                        "In 100 seconds:",
-                        "100 × 0.15 = 15 km",
-                        "Move decimal point 2 places RIGHT",
-                        "(100 has 2 zeros)",
-                        "",
-                        "In 1000 seconds:",
-                        "1000 × 0.15 = 150 km",
-                        "Move decimal point 3 places RIGHT",
-                        "(1000 has 3 zeros, add a zero at the end)"
+                        "In 10 seconds: \n 10 × 0.15 = 1.5 km \n Move decimal point 1 place RIGHT \n (10 has 1 zero)",
+                        "In 100 seconds: \n 100 × 0.15 = 15 km \n Move decimal point 2 places RIGHT \n (100 has 2 zeros)",
+                        "In 1000 seconds: \n 1000 × 0.15 = 150 km \n Move decimal point 3 places RIGHT \n (1000 has 3 zeros, add a zero at the end)"
                     ),
                     answer = "The plane travels 1.5 km (10 sec), 15 km (100 sec), 150 km (1000 sec)"
                 ),
@@ -2784,12 +2772,8 @@ object InteractiveLessonProvider {
                     title = "Multiplying by 10",
                     content = "When you multiply by 10, move the decimal point 1 place to the RIGHT:",
                     keyPoints = listOf(
-                        "10 has ONE zero",
-                        "Move decimal ONE place right",
-                        "Examples:",
-                        "0.15 × 10 = 1.5",
-                        "3.7 × 10 = 37",
-                        "0.08 × 10 = 0.8"
+                        "10 has ONE zero \n Move decimal ONE place right",
+                        "Examples: \n 0.15 × 10 = 1.5 \n 3.7 × 10 = 37 \n 0.08 × 10 = 0.8"
                     )
                 ),
 
@@ -2798,14 +2782,9 @@ object InteractiveLessonProvider {
                     title = "Example: Multiply by 10",
                     problem = "Multiply: 0.15 × 10",
                     steps = listOf(
-                        "Step 1: Count the zeros in 10",
-                        "10 has 1 zero",
-                        "",
-                        "Step 2: Move decimal point 1 place RIGHT",
-                        "0.15 → 01.5 → 1.5",
-                        "",
-                        "Step 3: Remove unnecessary zero",
-                        "01.5 becomes 1.5"
+                        "Step 1: Count the zeros in 10 \n 10 has 1 zero",
+                        "Step 2: Move decimal point 1 place RIGHT \n 0.15 → 01.5 → 1.5",
+                        "Step 3: Remove unnecessary zero \n 01.5 becomes 1.5"
                     ),
                     answer = "1.5"
                 ),
@@ -2815,12 +2794,8 @@ object InteractiveLessonProvider {
                     title = "Multiplying by 100",
                     content = "When you multiply by 100, move the decimal point 2 places to the RIGHT:",
                     keyPoints = listOf(
-                        "100 has TWO zeros",
-                        "Move decimal TWO places right",
-                        "Examples:",
-                        "0.15 × 100 = 15",
-                        "0.8 × 100 = 80",
-                        "1.23 × 100 = 123"
+                        "100 has TWO zeros \n Move decimal TWO places right",
+                        "Examples: \n 0.15 × 100 = 15 \n 0.8 × 100 = 80 \n 1.23 × 100 = 123"
                     )
                 ),
 
@@ -2829,14 +2804,9 @@ object InteractiveLessonProvider {
                     title = "Example: Multiply by 100",
                     problem = "Multiply: 0.15 × 100",
                     steps = listOf(
-                        "Step 1: Count the zeros in 100",
-                        "100 has 2 zeros",
-                        "",
-                        "Step 2: Move decimal point 2 places RIGHT",
-                        "0.15 → 015. → 15",
-                        "",
+                        "Step 1: Count the zeros in 100 \n 100 has 2 zeros",
+                        "Step 2: Move decimal point 2 places RIGHT \n 0.15 → 015. → 15",
                         "Step 3: The answer is a whole number!",
-                        "15"
                     ),
                     answer = "15"
                 ),
@@ -2846,13 +2816,8 @@ object InteractiveLessonProvider {
                     title = "Multiplying by 1000",
                     content = "When you multiply by 1000, move the decimal point 3 places to the RIGHT:",
                     keyPoints = listOf(
-                        "1000 has THREE zeros",
-                        "Move decimal THREE places right",
-                        "Add zeros if needed",
-                        "Examples:",
-                        "0.15 × 1000 = 150",
-                        "1.5 × 1000 = 1500",
-                        "0.007 × 1000 = 7"
+                        "1000 has THREE zeros \n Move decimal THREE places right \n Add zeros if needed",
+                        "Examples: \n 0.15 × 1000 = 150 \n 1.5 × 1000 = 1500 \n 0.007 × 1000 = 7"
                     )
                 ),
 
@@ -2861,14 +2826,9 @@ object InteractiveLessonProvider {
                     title = "Example: Multiply by 1000",
                     problem = "Multiply: 0.15 × 1000",
                     steps = listOf(
-                        "Step 1: Count the zeros in 1000",
-                        "1000 has 3 zeros",
-                        "",
-                        "Step 2: Move decimal point 3 places RIGHT",
-                        "0.15 → 0150. → 150",
-                        "",
-                        "Step 3: We needed to add a zero",
-                        "Because we only had 2 digits after the decimal"
+                        "Step 1: Count the zeros in 1000 \n 1000 has 3 zeros",
+                        "Step 2: Move decimal point 3 places RIGHT \n 0.15 → 0150. → 150",
+                        "Step 3: We needed to add a zero \n Because we only had 2 digits after the decimal"
                     ),
                     answer = "150"
                 ),
@@ -2899,16 +2859,9 @@ object InteractiveLessonProvider {
                     title = "Example: Using Positive Exponents",
                     problem = "Multiply using exponents:",
                     steps = listOf(
-                        "10¹ × 0.15 = ?",
-                        "Exponent is 1 → move decimal 1 place RIGHT",
-                        "0.15 → 1.5",
-                        "",
-                        "10² × 0.15 = ?",
-                        "Exponent is 2 → move decimal 2 places RIGHT",
-                        "0.15 → 15",
-                        "",
-                        "10³ × 0.15 = ?",
-                        "Exponent is 3 → move decimal 3 places RIGHT",
+                        "10¹ × 0.15 = ? \n Exponent is 1 → move decimal 1 place RIGHT",
+                        "0.15 → 1.5 \n 10² × 0.15 = ? \n Exponent is 2 → move decimal 2 places RIGHT",
+                        "0.15 → 15 \n 10³ × 0.15 = ? \n Exponent is 3 → move decimal 3 places RIGHT",
                         "0.15 → 150"
                     ),
                     answer = "1.5, 15, and 150"
@@ -2953,14 +2906,9 @@ object InteractiveLessonProvider {
                     title = "Example: Multiply by 0.1",
                     problem = "Multiply: 15 × 0.1",
                     steps = listOf(
-                        "Step 1: Count decimal places in 0.1",
-                        "0.1 has 1 decimal place",
-                        "",
-                        "Step 2: Move decimal point 1 place LEFT",
-                        "15. → 1.5",
-                        "",
-                        "Alternative: Use negative exponent",
-                        "15 × 10⁻¹ = 1.5",
+                        "Step 1: Count decimal places in 0.1 \n 0.1 has 1 decimal place",
+                        "Step 2: Move decimal point 1 place LEFT \n 15. → 1.5",
+                        "Alternative: Use negative exponent \n 15 × 10⁻¹ = 1.5",
                         "Negative 1 → move 1 place LEFT"
                     ),
                     answer = "1.5"
@@ -2971,14 +2919,9 @@ object InteractiveLessonProvider {
                     title = "Example: Multiply by 0.01",
                     problem = "Multiply: 15 × 0.01",
                     steps = listOf(
-                        "Step 1: Count decimal places in 0.01",
-                        "0.01 has 2 decimal places",
-                        "",
-                        "Step 2: Move decimal point 2 places LEFT",
-                        "15. → 0.15",
-                        "",
-                        "Alternative: Use negative exponent",
-                        "15 × 10⁻² = 0.15",
+                        "Step 1: Count decimal places in 0.01 \n 0.01 has 2 decimal places",
+                        "Step 2: Move decimal point 2 places LEFT \n 15. → 0.15",
+                        "Alternative: Use negative exponent \n 15 × 10⁻² = 0.15",
                         "Negative 2 → move 2 places LEFT"
                     ),
                     answer = "0.15"
@@ -2989,16 +2932,10 @@ object InteractiveLessonProvider {
                     title = "Example: Multiply by 0.001",
                     problem = "Multiply: 15 × 0.001",
                     steps = listOf(
-                        "Step 1: Count decimal places in 0.001",
-                        "0.001 has 3 decimal places",
-                        "",
-                        "Step 2: Move decimal point 3 places LEFT",
-                        "15. → 0.015",
-                        "",
-                        "Alternative: Use negative exponent",
-                        "15 × 10⁻³ = 0.015",
+                        "Step 1: Count decimal places in 0.001 \n 0.001 has 3 decimal places",
+                        "Step 2: Move decimal point 3 places LEFT \n 15. → 0.015",
+                        "Alternative: Use negative exponent \n 15 × 10⁻³ = 0.015",
                         "Negative 3 → move 3 places LEFT",
-                        "",
                         "Note: We added a zero in front!"
                     ),
                     answer = "0.015"
@@ -3017,15 +2954,8 @@ object InteractiveLessonProvider {
                     title = "Quick Reference Guide",
                     content = "Here's a handy summary of moving the decimal:",
                     keyPoints = listOf(
-                        "Positive Powers (RIGHT):",
-                        "× 10 or 10¹ → move 1 place →",
-                        "× 100 or 10² → move 2 places →",
-                        "× 1000 or 10³ → move 3 places →",
-                        "",
-                        "Negative Powers (LEFT):",
-                        "× 0.1 or 10⁻¹ → move 1 place ←",
-                        "× 0.01 or 10⁻² → move 2 places ←",
-                        "× 0.001 or 10⁻³ → move 3 places ←"
+                        "Positive Powers (RIGHT): \n 10 or 10¹ → move 1 place \n 100 or 10² → move 2 places \n 1000 or 10³ → move 3 places",
+                        "Negative Powers (LEFT): \n 0.1 or 10⁻¹ → move 1 place \n 0.01 or 10⁻² → move 2 places \n 0.001 or 10⁻³ → move 3 places"
                     )
                 ),
 
@@ -3034,17 +2964,10 @@ object InteractiveLessonProvider {
                     title = "Practice Problem 1",
                     problem = "A computer processes 0.75 gigabytes per second. How much does it process in 100 seconds?",
                     steps = listOf(
-                        "Step 1: Set up the problem",
-                        "0.75 × 100",
-                        "",
-                        "Step 2: Count zeros in 100",
-                        "100 has 2 zeros",
-                        "",
-                        "Step 3: Move decimal 2 places RIGHT",
-                        "0.75 → 75",
-                        "",
-                        "Step 4: Add the unit",
-                        "75 gigabytes"
+                        "Step 1: Set up the problem \n 0.75 × 100",
+                        "Step 2: Count zeros in 100 \n 100 has 2 zeros",
+                        "Step 3: Move decimal 2 places RIGHT \n 0.75 → 75",
+                        "Step 4: Add the unit \n 75 gigabytes"
                     ),
                     answer = "The computer processes 75 gigabytes"
                 ),
@@ -3054,17 +2977,10 @@ object InteractiveLessonProvider {
                     title = "Practice Problem 2",
                     problem = "A bacteria culture has 450 cells. After treatment, only 0.01 times the original amount remains. How many cells are left?",
                     steps = listOf(
-                        "Step 1: Set up the problem",
-                        "450 × 0.01",
-                        "",
-                        "Step 2: Count decimal places in 0.01",
-                        "0.01 has 2 decimal places",
-                        "",
-                        "Step 3: Move decimal 2 places LEFT",
-                        "450. → 4.50 → 4.5",
-                        "",
-                        "Step 4: Add the unit",
-                        "4.5 cells"
+                        "Step 1: Set up the problem \n 450 × 0.01",
+                        "Step 2: Count decimal places in 0.01 \n 0.01 has 2 decimal places",
+                        "Step 3: Move decimal 2 places LEFT \n 450. → 4.50 → 4.5",
+                        "Step 4: Add the unit \n 4.5 cells"
                     ),
                     answer = "4.5 cells remain"
                 ),
@@ -3189,21 +3105,10 @@ object InteractiveLessonProvider {
                     title = "Example 1: Shopping Problem",
                     problem = "A kilogram of mangoes costs ₱85.50. Maria wants to buy 2.5 kilograms. How much will she pay?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Given: ₱85.50 per kg, buying 2.5 kg",
-                        "Asked: Total cost?",
-                        "",
-                        "2. PLAN:",
-                        "Keyword: 'per' → Multiplication",
-                        "Number sentence: 85.50 × 2.5 = N",
-                        "",
-                        "3. SOLVE:",
-                        "Multiply: 8550 × 25 = 213750",
-                        "Count places: 85.50 (2) + 2.5 (1) = 3 places",
-                        "213750 → 213.750 = ₱213.75",
-                        "",
-                        "4. CHECK:",
-                        "Round: 86 × 3 ≈ 258, close to 213.75 ✓"
+                        "1. UNDERSTAND: \n Given: ₱85.50 per kg, buying 2.5 kg \n Asked: Total cost?",
+                        "2. PLAN: \n Keyword: 'per' → Multiplication \n Number sentence: 85.50 × 2.5 = N",
+                        "3. SOLVE: \n Multiply: 8550 × 25 = 213750 \n Count places: 85.50 (2) + 2.5 (1) = 3 places \n 213750 → 213.750 = ₱213.75",
+                        "4. CHECK: \n Round: 86 × 3 ≈ 258, close to 213.75 ✓"
                     ),
                     answer = "Maria will pay ₱213.75"
                 ),
@@ -3213,21 +3118,10 @@ object InteractiveLessonProvider {
                     title = "Example 2: Distance Problem",
                     problem = "A car travels at 62.5 kilometers per hour. How far will it travel in 3.2 hours?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Given: Speed 62.5 km/h, Time 3.2 hours",
-                        "Asked: Distance traveled?",
-                        "",
-                        "2. PLAN:",
-                        "Formula: Distance = Speed × Time",
-                        "Number sentence: 62.5 × 3.2 = N",
-                        "",
-                        "3. SOLVE:",
-                        "Multiply: 625 × 32 = 20000",
-                        "Count places: 62.5 (1) + 3.2 (1) = 2 places",
-                        "20000 → 200.00 = 200 km",
-                        "",
-                        "4. CHECK:",
-                        "Round: 63 × 3 = 189, close to 200 ✓"
+                        "1. UNDERSTAND: \n Given: Speed 62.5 km/h, Time 3.2 hours \n Asked: Distance traveled?",
+                        "2. PLAN: \n Formula: Distance = Speed × Time \n Number sentence: 62.5 × 3.2 = N",
+                        "3. SOLVE: \n Multiply: 625 × 32 = 20000 \n Count places: 62.5 (1) + 3.2 (1) = 2 places \n 20000 → 200.00 = 200 km",
+                        "4. CHECK: \n Round: 63 × 3 = 189, close to 200 ✓"
                     ),
                     answer = "The car will travel 200 kilometers"
                 ),
@@ -3245,21 +3139,10 @@ object InteractiveLessonProvider {
                     title = "Example 3: Area Problem",
                     problem = "A rectangular garden is 8.5 meters long and 4.2 meters wide. What is its area?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Given: Length 8.5 m, Width 4.2 m",
-                        "Asked: Area?",
-                        "",
-                        "2. PLAN:",
-                        "Formula: Area = Length × Width",
-                        "Number sentence: 8.5 × 4.2 = N",
-                        "",
-                        "3. SOLVE:",
-                        "Multiply: 85 × 42 = 3570",
-                        "Count places: 8.5 (1) + 4.2 (1) = 2 places",
-                        "3570 → 35.70 = 35.7 m²",
-                        "",
-                        "4. CHECK:",
-                        "Round: 9 × 4 = 36, close to 35.7 ✓"
+                        "1. UNDERSTAND: \n Given: Length 8.5 m, Width 4.2 m \n Asked: Area?",
+                        "2. PLAN: \n Formula: Area = Length × Width \n Number sentence: 8.5 × 4.2 = N",
+                        "3. SOLVE: \n Multiply: 85 × 42 = 3570 \n Count places: 8.5 (1) + 4.2 (1) = 2 places \n 3570 → 35.70 = 35.7 m²",
+                        "4. CHECK: \n Round: 9 × 4 = 36, close to 35.7 ✓"
                     ),
                     answer = "The garden's area is 35.7 square meters"
                 ),
@@ -3269,21 +3152,10 @@ object InteractiveLessonProvider {
                     title = "Example 4: Money and Rate",
                     problem = "John earns ₱125.50 per hour. He worked 6.5 hours today. How much did he earn?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Given: ₱125.50 per hour, 6.5 hours worked",
-                        "Asked: Total earnings?",
-                        "",
-                        "2. PLAN:",
-                        "Keyword: 'per' → Multiplication",
-                        "Number sentence: 125.50 × 6.5 = N",
-                        "",
-                        "3. SOLVE:",
-                        "Multiply: 12550 × 65 = 815750",
-                        "Count places: 125.50 (2) + 6.5 (1) = 3 places",
-                        "815750 → 815.750 = ₱815.75",
-                        "",
-                        "4. CHECK:",
-                        "Round: 126 × 7 = 882, close to 815.75 ✓"
+                        "1. UNDERSTAND: \n Given: ₱125.50 per hour, 6.5 hours worked \n Asked: Total earnings?",
+                        "2. PLAN: \n Keyword: 'per' → Multiplication \n Number sentence: 125.50 × 6.5 = N",
+                        "3. SOLVE: \n Multiply: 12550 × 65 = 815750 \n Count places: 125.50 (2) + 6.5 (1) = 3 places \n 815750 → 815.750 = ₱815.75",
+                        "4. CHECK: \n Round: 126 × 7 = 882, close to 815.75 ✓"
                     ),
                     answer = "John earned ₱815.75"
                 ),
@@ -3301,22 +3173,10 @@ object InteractiveLessonProvider {
                     title = "Example 5: Fraction × Decimal",
                     problem = "A recipe needs 2.4 cups of flour. You want to make ½ of the recipe. How much flour do you need?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Given: 2.4 cups needed, making ½",
-                        "Asked: Flour for half recipe?",
-                        "",
-                        "2. PLAN:",
-                        "Keyword: 'of' → Multiplication",
-                        "½ = 0.5",
-                        "Number sentence: 2.4 × 0.5 = N",
-                        "",
-                        "3. SOLVE:",
-                        "Multiply: 24 × 5 = 120",
-                        "Count places: 2.4 (1) + 0.5 (1) = 2 places",
-                        "120 → 1.20 = 1.2 cups",
-                        "",
-                        "4. CHECK:",
-                        "Half of 2.4 should be around 1.2 ✓"
+                        "1. UNDERSTAND: \n Given: 2.4 cups needed, making ½ \n Asked: Flour for half recipe?",
+                        "2. PLAN: \n Keyword: 'of' → Multiplication \n ½ = 0.5 \n Number sentence: 2.4 × 0.5 = N",
+                        "3. SOLVE: \n Multiply: 24 × 5 = 120 \n Count places: 2.4 (1) + 0.5 (1) = 2 places \n 120 → 1.20 = 1.2 cups",
+                        "4. CHECK: \n Half of 2.4 should be around 1.2 ✓"
                     ),
                     answer = "You need 1.2 cups of flour"
                 ),
@@ -3326,23 +3186,10 @@ object InteractiveLessonProvider {
                     title = "Example 6: Multi-Item Shopping",
                     problem = "Maria bought 1.5 kg of chicken at ₱180.00 per kg and 2.3 kg of fish at ₱250.00 per kg. How much did she spend in total?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Chicken: 1.5 kg at ₱180/kg",
-                        "Fish: 2.3 kg at ₱250/kg",
-                        "Asked: Total cost?",
-                        "",
-                        "2. PLAN:",
-                        "Find cost of each, then add",
-                        "Chicken: 180 × 1.5",
-                        "Fish: 250 × 2.3",
-                        "",
-                        "3. SOLVE:",
-                        "Chicken: 180 × 1.5 = 270.0 = ₱270",
-                        "Fish: 250 × 2.3 = 575.0 = ₱575",
-                        "Total: 270 + 575 = ₱845",
-                        "",
-                        "4. CHECK:",
-                        "Estimate: 180×2 + 250×2 = 860, close ✓"
+                        "1. UNDERSTAND: \n Chicken: 1.5 kg at ₱180/kg \n Fish: 2.3 kg at ₱250/kg \n Asked: Total cost?",
+                        "2. PLAN: \n Find cost of each, then add \n Chicken: 180 × 1.5 \n Fish: 250 × 2.3",
+                        "3. SOLVE: \n Chicken: 180 × 1.5 = 270.0 = ₱270 \n Fish: 250 × 2.3 = 575.0 = ₱575 \n Total: 270 + 575 = ₱845",
+                        "4. CHECK: \n Estimate: 180×2 + 250×2 = 860, close ✓"
                     ),
                     answer = "Maria spent ₱845.00 in total"
                 ),
@@ -3360,22 +3207,10 @@ object InteractiveLessonProvider {
                     title = "Example 7: Percentage as Decimal",
                     problem = "A shirt originally costs ₱450.00. It's on sale for 0.75 (75%) of the original price. What is the sale price?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Original: ₱450.00",
-                        "Sale: 0.75 of original (75%)",
-                        "Asked: Sale price?",
-                        "",
-                        "2. PLAN:",
-                        "Keyword: 'of' → Multiplication",
-                        "Number sentence: 450 × 0.75 = N",
-                        "",
-                        "3. SOLVE:",
-                        "Multiply: 450 × 75 = 33750",
-                        "Count places: 450 (0) + 0.75 (2) = 2 places",
-                        "33750 → 337.50 = ₱337.50",
-                        "",
-                        "4. CHECK:",
-                        "75% of 450 ≈ ¾ of 450 = 337.5 ✓"
+                        "1. UNDERSTAND: \n Original: ₱450.00 \n Sale: 0.75 of original (75%) \n Asked: Sale price?",
+                        "2. PLAN: \n Keyword: 'of' → Multiplication \n Number sentence: 450 × 0.75 = N",
+                        "3. SOLVE: \n Multiply: 450 × 75 = 33750 \n Count places: 450 (0) + 0.75 (2) = 2 places \n 33750 → 337.50 = ₱337.50",
+                        "4. CHECK: \n 75% of 450 ≈ ¾ of 450 = 337.5 ✓"
                     ),
                     answer = "The sale price is ₱337.50"
                 ),
@@ -3385,21 +3220,10 @@ object InteractiveLessonProvider {
                     title = "Example 8: Unit Conversion",
                     problem = "One meter equals 3.28 feet. A room is 4.5 meters long. How long is it in feet?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Given: 1 m = 3.28 ft, room is 4.5 m",
-                        "Asked: Length in feet?",
-                        "",
-                        "2. PLAN:",
-                        "Multiply meters by conversion factor",
-                        "Number sentence: 4.5 × 3.28 = N",
-                        "",
-                        "3. SOLVE:",
-                        "Multiply: 45 × 328 = 14760",
-                        "Count places: 4.5 (1) + 3.28 (2) = 3 places",
-                        "14760 → 14.760 = 14.76 feet",
-                        "",
-                        "4. CHECK:",
-                        "Round: 5 × 3 = 15, close to 14.76 ✓"
+                        "1. UNDERSTAND: \n Given: 1 m = 3.28 ft, room is 4.5 m \n Asked: Length in feet?",
+                        "2. PLAN: \n Multiply meters by conversion factor \n Number sentence: 4.5 × 3.28 = N",
+                        "3. SOLVE: \n Multiply: 45 × 328 = 14760 \n Count places: 4.5 (1) + 3.28 (2) = 3 places \n 14760 → 14.760 = 14.76 feet",
+                        "4. CHECK: \n Round: 5 × 3 = 15, close to 14.76 ✓"
                     ),
                     answer = "The room is 14.76 feet long"
                 ),
@@ -3417,23 +3241,10 @@ object InteractiveLessonProvider {
                     title = "Example 9: Problem with Extra Information",
                     problem = "A bakery sells cupcakes for ₱35.50 each and cookies for ₱12.00 each. Lisa bought 6 cupcakes. How much did she spend?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Cupcakes: ₱35.50 each",
-                        "Cookies: ₱12.00 each (not needed!)",
-                        "Lisa bought: 6 cupcakes",
-                        "Asked: How much spent?",
-                        "",
-                        "2. PLAN:",
-                        "Ignore cookie price - extra info",
-                        "Number sentence: 35.50 × 6 = N",
-                        "",
-                        "3. SOLVE:",
-                        "Multiply: 3550 × 6 = 21300",
-                        "Count places: 35.50 (2) + 6 (0) = 2 places",
-                        "21300 → 213.00 = ₱213",
-                        "",
-                        "4. CHECK:",
-                        "36 × 6 = 216, close to 213 ✓"
+                        "1. UNDERSTAND: \n Cupcakes: ₱35.50 each \n Cookies: ₱12.00 each (not needed!) \n Lisa bought: 6 cupcakes \n Asked: How much spent?",
+                        "2. PLAN: \n Ignore cookie price - extra info \n Number sentence: 35.50 × 6 = N",
+                        "3. SOLVE: \n Multiply: 3550 × 6 = 21300 \n Count places: 35.50 (2) + 6 (0) = 2 places \n 21300 → 213.00 = ₱213",
+                        "4. CHECK: \n 36 × 6 = 216, close to 213 ✓"
                     ),
                     answer = "Lisa spent ₱213.00"
                 ),
@@ -3443,25 +3254,10 @@ object InteractiveLessonProvider {
                     title = "Example 10: Comparing Costs",
                     problem = "Store A sells rice at ₱52.50 per kg. Store B sells it at ₱48.75 per kg. If you buy 8.5 kg, how much do you save by buying from Store B?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Store A: ₱52.50/kg",
-                        "Store B: ₱48.75/kg",
-                        "Buying: 8.5 kg",
-                        "Asked: Savings?",
-                        "",
-                        "2. PLAN:",
-                        "Find cost at each store, then subtract",
-                        "Store A: 52.50 × 8.5",
-                        "Store B: 48.75 × 8.5",
-                        "",
-                        "3. SOLVE:",
-                        "Store A: 52.50 × 8.5 = 446.25",
-                        "Store B: 48.75 × 8.5 = 414.375 = ₱414.38",
-                        "Savings: 446.25 - 414.38 = ₱31.87",
-                        "",
-                        "4. CHECK:",
-                        "Difference per kg: 52.50 - 48.75 = 3.75",
-                        "3.75 × 8.5 ≈ 32, close to 31.87 ✓"
+                        "1. UNDERSTAND: \n Store A: ₱52.50/kg \n Store B: ₱48.75/kg \n Buying: 8.5 kg \n Asked: Savings?",
+                        "2. PLAN: \n Find cost at each store, then subtract \n Store A: 52.50 × 8.5 \n Store B: 48.75 × 8.5",
+                        "3. SOLVE: \n Store A: 52.50 × 8.5 = 446.25 \n Store B: 48.75 × 8.5 = 414.375 = ₱414.38 \n Savings: 446.25 - 414.38 = ₱31.87",
+                        "4. CHECK: \n Difference per kg: 52.50 - 48.75 = 3.75 \n 3.75 × 8.5 ≈ 32, close to 31.87 ✓"
                     ),
                     answer = "You save ₱31.87 by buying from Store B"
                 ),
@@ -3558,7 +3354,6 @@ object InteractiveLessonProvider {
                         "Step 2: PLAN the Solution",
                         "Step 3: SOLVE the Problem",
                         "Step 4: CHECK your Answer",
-                        "",
                         "Let's explore each step in detail!"
                     )
                 ),
@@ -3597,18 +3392,9 @@ object InteractiveLessonProvider {
                     problem = "Maria has ₱500. She bought 3 notebooks at ₱35.50 each and 2 pens at ₱15.75 each. How much money does she have left?",
                     steps = listOf(
                         "Let's UNDERSTAND:",
-                        "",
-                        "GIVEN information:",
-                        "• Maria started with ₱500",
-                        "• Bought 3 notebooks at ₱35.50 each",
-                        "• Bought 2 pens at ₱15.75 each",
-                        "",
-                        "ASKED to find:",
-                        "• How much money is left?",
-                        "",
-                        "In my own words:",
-                        "Maria spent money on notebooks and pens.",
-                        "I need to find what remains from ₱500."
+                        "GIVEN information: \n • Maria started with ₱500 \n • Bought 3 notebooks at ₱35.50 each \n • Bought 2 pens at ₱15.75 each",
+                        "ASKED to find: \n • How much money is left?",
+                        "In my own words: \n Maria spent money on notebooks and pens. \n I need to find what remains from ₱500."
                     ),
                     answer = "We understand the problem clearly!"
                 ),
@@ -3636,7 +3422,6 @@ object InteractiveLessonProvider {
                         "Subtraction: difference, left, remaining, less than",
                         "Multiplication: product, times, of, per, each",
                         "Division: quotient, split, shared, per (for unit rates)",
-                        "",
                         "Multiple operations? Plan the order!"
                     )
                 ),
@@ -3647,18 +3432,8 @@ object InteractiveLessonProvider {
                     problem = "Maria has ₱500. She bought 3 notebooks at ₱35.50 each and 2 pens at ₱15.75 each. How much money does she have left?",
                     steps = listOf(
                         "Let's PLAN:",
-                        "",
-                        "Operations needed:",
-                        "• Multiplication (to find cost of notebooks)",
-                        "• Multiplication (to find cost of pens)",
-                        "• Addition (to find total spent)",
-                        "• Subtraction (to find money left)",
-                        "",
-                        "Number sentences:",
-                        "Cost of notebooks: 35.50 × 3",
-                        "Cost of pens: 15.75 × 2",
-                        "Total spent: Cost of notebooks + Cost of pens",
-                        "Money left: 500 - Total spent"
+                        "Operations needed: \n • Multiplication (to find cost of notebooks) \n • Multiplication (to find cost of pens) \n • Addition (to find total spent) \n • Subtraction (to find money left)",
+                        "Number sentences: \n Cost of notebooks: 35.50 × 3 \n Cost of pens: 15.75 × 2 \n Total spent: Cost of notebooks + Cost of pens \n Money left: 500 - Total spent"
                     ),
                     answer = "Our plan is ready - let's solve!"
                 ),
@@ -3683,22 +3458,10 @@ object InteractiveLessonProvider {
                     problem = "Maria has ₱500. She bought 3 notebooks at ₱35.50 each and 2 pens at ₱15.75 each. How much money does she have left?",
                     steps = listOf(
                         "Let's SOLVE:",
-                        "",
-                        "Step 1: Cost of notebooks",
-                        "35.50 × 3 = 106.50",
-                        "₱106.50 for notebooks",
-                        "",
-                        "Step 2: Cost of pens",
-                        "15.75 × 2 = 31.50",
-                        "₱31.50 for pens",
-                        "",
-                        "Step 3: Total spent",
-                        "106.50 + 31.50 = 138.00",
-                        "Total spent: ₱138.00",
-                        "",
-                        "Step 4: Money left",
-                        "500.00 - 138.00 = 362.00",
-                        "Money left: ₱362.00"
+                        "Step 1: Cost of notebooks \n 35.50 × 3 = 106.50 \n ₱106.50 for notebooks",
+                        "Step 2: Cost of pens \n 15.75 × 2 = 31.50 \n ₱31.50 for pens",
+                        "Step 3: Total spent \n 106.50 + 31.50 = 138.00 \n Total spent: ₱138.00",
+                        "Step 4: Money left \n 500.00 - 138.00 = 362.00 \n Money left: ₱362.00"
                     ),
                     answer = "Maria has ₱362.00 left"
                 ),
@@ -3736,22 +3499,10 @@ object InteractiveLessonProvider {
                     title = "Example: Checking Phase",
                     problem = "Maria has ₱500. She bought 3 notebooks at ₱35.50 each and 2 pens at ₱15.75 each. How much money does she have left?",
                     steps = listOf(
-                        "Let's CHECK:",
-                        "",
-                        "Our answer: ₱362.00",
-                        "",
-                        "Method 1 - Work backwards:",
-                        "362 + 138 = 500 ✓",
-                        "",
-                        "Method 2 - Estimate:",
-                        "Notebooks: 3 × 36 ≈ 108",
-                        "Pens: 2 × 16 ≈ 32",
-                        "Total: 108 + 32 = 140",
-                        "Left: 500 - 140 = 360 ✓",
-                        "Close to 362!",
-                        "",
-                        "Method 3 - Reasonableness:",
-                        "Spent less than half, so having ₱362 left makes sense ✓"
+                        "Let's CHECK: \n Our answer: ₱362.00",
+                        "Method 1 - Work backwards: \n 362 + 138 = 500",
+                        "Method 2 - Estimate: \n Notebooks: 3 × 36 ≈ 108 \n Pens: 2 × 16 ≈ 32 \n Total: 108 + 32 = 14 \n Left: 500 - 140 = 360 \n Close to 362!",
+                        "Method 3 - Reasonableness: \n Spent less than half, so having ₱362 left makes sense ✓"
                     ),
                     answer = "Our answer is verified and correct!"
                 ),
@@ -3769,23 +3520,10 @@ object InteractiveLessonProvider {
                     title = "Complete Example 2: All Steps",
                     problem = "A rectangular garden is 12.5 meters long and 8.4 meters wide. Fencing costs ₱85.50 per meter. How much will it cost to fence the entire garden?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Given: Length 12.5 m, Width 8.4 m, ₱85.50/m",
-                        "Asked: Total cost to fence?",
-                        "Note: Fencing goes around perimeter",
-                        "",
-                        "2. PLAN:",
-                        "Find perimeter: 2(L + W)",
-                        "Multiply perimeter by cost per meter",
-                        "",
-                        "3. SOLVE:",
-                        "Perimeter = 2(12.5 + 8.4)",
-                        "= 2(20.9) = 41.8 meters",
-                        "Cost = 41.8 × 85.50 = ₱3,573.90",
-                        "",
-                        "4. CHECK:",
-                        "Estimate: 2(13+8)×86 = 2(21)×86 = 42×86 ≈ 3,600",
-                        "Close to 3,573.90 ✓"
+                        "1. UNDERSTAND: \n Given: Length 12.5 m, Width 8.4 m, ₱85.50/m \n Asked: Total cost to fence? \n Note: Fencing goes around perimeter",
+                        "2. PLAN: \n Find perimeter: 2(L + W) \n Multiply perimeter by cost per meter",
+                        "3. SOLVE: \n Perimeter = 2(12.5 + 8.4) \n = 2(20.9) = 41.8 meters \n Cost = 41.8 × 85.50 = ₱3,573.90",
+                        "4. CHECK: \n Estimate: 2(13+8)×86 = 2(21)×86 = 42×86 ≈ 3,600 \n Close to 3,573.90"
                     ),
                     answer = "It will cost ₱3,573.90 to fence the garden"
                 ),
@@ -3795,25 +3533,10 @@ object InteractiveLessonProvider {
                     title = "Complete Example 3: Multi-Step Problem",
                     problem = "A store offers a 20% discount on a bag originally priced at ₱1,250. After the discount, a 12% sales tax is added. What is the final price?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Original: ₱1,250, 20% discount, then 12% tax",
-                        "Asked: Final price?",
-                        "",
-                        "2. PLAN:",
-                        "Step 1: Find discount amount (20% of 1,250)",
-                        "Step 2: Subtract discount from original",
-                        "Step 3: Find tax amount (12% of discounted price)",
-                        "Step 4: Add tax to discounted price",
-                        "",
-                        "3. SOLVE:",
-                        "Discount: 1,250 × 0.20 = 250",
-                        "After discount: 1,250 - 250 = 1,000",
-                        "Tax: 1,000 × 0.12 = 120",
-                        "Final: 1,000 + 120 = ₱1,120",
-                        "",
-                        "4. CHECK:",
-                        "Original discounted to 80%: 1,250×0.8=1,000 ✓",
-                        "Then 112% of 1,000: 1,000×1.12=1,120 ✓"
+                        "1. UNDERSTAND: \n Original: ₱1,250, 20% discount, then 12% tax \n Asked: Final price?",
+                        "2. PLAN: \n Step 1: Find discount amount (20% of 1,250) \n Step 2: Subtract discount from original \n Step 3: Find tax amount (12% of discounted price) \n Step 4: Add tax to discounted price",
+                        "3. SOLVE: \n Discount: 1,250 × 0.20 = 250 \n After discount: 1,250 - 250 = 1,000 \n Tax: 1,000 × 0.12 = 120 \n Final: 1,000 + 120 = ₱1,120",
+                        "4. CHECK: \n Original discounted to 80%: 1,250×0.8=1,000 \n Then 112% of 1,000: 1,000×1.12=1,120"
                     ),
                     answer = "The final price is ₱1,120.00"
                 ),
@@ -3864,23 +3587,10 @@ object InteractiveLessonProvider {
                     title = "Example: Extra Information Problem",
                     problem = "A bookstore has 150 books on the shelf. Each book costs ₱125.50. The store also has 75 magazines at ₱45 each. If you buy 4 books, how much do you pay?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "150 books (extra info - not needed)",
-                        "Each book: ₱125.50 (NEEDED)",
-                        "75 magazines at ₱45 (extra info - not asked)",
-                        "Buying: 4 books (NEEDED)",
-                        "Asked: Cost of 4 books?",
-                        "",
-                        "2. PLAN:",
-                        "Ignore: number of books on shelf, magazines",
-                        "Use: price per book and quantity bought",
-                        "125.50 × 4 = N",
-                        "",
-                        "3. SOLVE:",
-                        "125.50 × 4 = 502.00",
-                        "",
-                        "4. CHECK:",
-                        "125 × 4 = 500, close to 502 ✓"
+                        "1. UNDERSTAND: \n 150 books (extra info - not needed) \n Each book: ₱125.50 (NEEDED) \n 75 magazines at ₱45 (extra info - not asked) \n Buying: 4 books (NEEDED) \n Asked: Cost of 4 books?",
+                        "2. PLAN: \n Ignore: number of books on shelf, magazines \n Use: price per book and quantity bought \n 125.50 × 4 = N",
+                        "3. SOLVE: \n 125.50 × 4 = 502.00",
+                        "4. CHECK: \n 125 × 4 = 500, close to 502 ✓"
                     ),
                     answer = "You pay ₱502.00 for 4 books"
                 ),
@@ -3976,13 +3686,7 @@ object InteractiveLessonProvider {
                         "2. PLAN: Choose operations, write number sentence",
                         "3. SOLVE: Calculate step by step, show work",
                         "4. CHECK: Verify answer makes sense",
-                        "",
-                        "Additional Tips:",
-                        "• Look for keywords that suggest operations",
-                        "• Ignore extra information not needed",
-                        "• Draw diagrams when helpful",
-                        "• Estimate to check reasonableness",
-                        "• Practice makes perfect!"
+                        "Additional Tips: \n • Look for keywords that suggest operations \n • Ignore extra information not needed \n • Draw diagrams when helpful \n • Estimate to check reasonableness \n • Practice makes perfect!"
                     )
                 )
             )
@@ -4030,14 +3734,10 @@ object InteractiveLessonProvider {
                     title = "Example: 0.25 ÷ 0.5",
                     problem = "0.25 divided by 0.5",
                     steps = listOf(
-                        "Step 1: Make the divisor a whole number",
-                        "Multiply 0.5 by 10 → move decimal 1 place right",
+                        "Step 1: Make the divisor a whole number \n Multiply 0.5 by 10 → move decimal 1 place right",
                         "0.5 = 5",
-                        "",
-                        "Step 2: Move decimal in dividend the same way",
-                        "Multiply 0.25 by 10 → move decimal 1 place right",
+                        "Step 2: Move decimal in dividend the same way \n Multiply 0.25 by 10 → move decimal 1 place right",
                         "0.25 = 2.5",
-                        "",
                         "Take note: What we do with the divisor, we do the same with the dividend."
                     ),
                     answer = "Now we have: 2.5 ÷ 5"
@@ -4048,15 +3748,8 @@ object InteractiveLessonProvider {
                     title = "Example: 0.25 ÷ 0.5 (Continued)",
                     problem = "2.5 ÷ 5 = ?",
                     steps = listOf(
-                        "Step 3: Divide like whole numbers",
-                        "Put the decimal point of the quotient just above the decimal point of the dividend",
-                        "",
-                        "    0.5",
-                        "5 ) 2.5",
-                        "   -2.5",
-                        "    ———",
-                        "     0",
-                        "",
+                        "Step 3: Divide like whole numbers \n Put the decimal point of the quotient just above the decimal point of the dividend",
+                        "    0.5\n 5 ) 2.5\n    -2.5\n     ———\n      0",
                         "Answer: 0.5"
                     ),
                     answer = "0.5"
@@ -4077,14 +3770,9 @@ object InteractiveLessonProvider {
                     title = "Steps for Dividing Decimals",
                     content = "In dividing decimal/mixed decimal by decimals, follow these steps:",
                     keyPoints = listOf(
-                        "First: Change the divisor to a whole number by moving the decimal point to the rightmost place",
-                        "• Multiply by 10 if only one decimal place",
-                        "• Multiply by 100 if two decimal places",
-                        "",
+                        "First: Change the divisor to a whole number by moving the decimal point to the rightmost place \n • Multiply by 10 if only one decimal place \n • Multiply by 100 if two decimal places",
                         "Second: Move the decimal point in the dividend the same number of places",
-                        "",
                         "Third: Insert zeros to the dividend when needed",
-                        "",
                         "Remember: What we do with the divisor, we do the same to the dividend"
                     )
                 ),
@@ -4094,13 +3782,10 @@ object InteractiveLessonProvider {
                     title = "Example: 2.4 ÷ 0.3",
                     problem = "2.4 ÷ 0.3 = ?",
                     steps = listOf(
-                        "Step 1: Make the divisor a whole number",
-                        "Move the decimal one place to the right:",
+                        "Step 1: Make the divisor a whole number \n Move the decimal one place to the right:",
                         "0.3 → 3",
-                        "",
                         "Step 2: Move the decimal in the dividend the same number of places",
                         "2.4 → 24",
-                        "",
                         "Step 3: Divide like whole numbers",
                         "24 ÷ 3 = 8"
                     ),
@@ -4119,13 +3804,7 @@ object InteractiveLessonProvider {
                     id = 11,
                     title = "Summary",
                     keyPoints = listOf(
-                        "To divide decimals:",
-                        "1. Make the divisor a whole number by moving the decimal point",
-                        "2. Move the decimal in the dividend the same number of places",
-                        "3. Divide like whole numbers",
-                        "4. Place decimal point in quotient above the dividend's decimal point",
-                        "5. Check by multiplying the quotient by the divisor",
-                        "",
+                        "To divide decimals: \n 1. Make the divisor a whole number by moving the decimal point \n 2. Move the decimal in the dividend the same number of places \n 3. Divide like whole numbers \n 4. Place decimal point in quotient above the dividend's decimal point \n 5. Check by multiplying the quotient by the divisor",
                         "Key Rule: What you do to the divisor, you must do to the dividend!"
                     )
                 )
@@ -4142,7 +3821,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Bonjour!",
-                    content = "In this topic, you will learn how to divide decimals by 10 and more.\n\nYou will understand how to divide decimals with up to four decimal places by 0.1, 0.01, and 0.001, and decimals with up to two decimal places by 10, 100, and 1,000 in your head!"
+                    content = "In this topic, you will learn how to divide decimals by 10 and more. You will understand how to divide decimals with up to four decimal places by 0.1, 0.01, and 0.001, and decimals with up to two decimal places by 10, 100, and 1,000 in your head!"
                 ),
 
                 Slide.ConceptSlide(
@@ -4150,13 +3829,9 @@ object InteractiveLessonProvider {
                     title = "How to Divide Decimals by 10?",
                     content = "To divide a decimal by 10, move the decimal point one place to the LEFT. This makes the number ten times smaller.",
                     keyPoints = listOf(
-                        "Divide by 10 → Move decimal 1 place LEFT",
-                        "Divide by 100 → Move decimal 2 places LEFT",
-                        "Divide by 1,000 → Move decimal 3 places LEFT",
-                        "",
-                        "Example: 45.6 ÷ 10 = 4.56",
-                        "Example: 45.6 ÷ 100 = 0.456",
-                        "Example: 45.6 ÷ 1,000 = 0.0456"
+                        "Divide by 10 → Move decimal 1 place LEFT \n Example: 45.6 ÷ 10 = 4.56",
+                        "Divide by 100 → Move decimal 2 places LEFT \n Example: 45.6 ÷ 100 = 0.456",
+                        "Divide by 1,000 → Move decimal 3 places LEFT \n Example: 45.6 ÷ 1,000 = 0.0456"
                     )
                 ),
 
@@ -4165,11 +3840,10 @@ object InteractiveLessonProvider {
                     title = "Dividing by 0.1, 0.01, 0.001",
                     content = "Here's an interesting pattern: dividing by 0.1, 0.01, 0.001, and 0.0001 is the same as multiplying by 10, 100, 1,000, and 10,000!",
                     keyPoints = listOf(
-                        "÷ 0.1 = × 10 (move decimal 1 place RIGHT)",
-                        "÷ 0.01 = × 100 (move decimal 2 places RIGHT)",
-                        "÷ 0.001 = × 1,000 (move decimal 3 places RIGHT)",
-                        "÷ 0.0001 = × 10,000 (move decimal 4 places RIGHT)",
-                        "",
+                        "0.1 = 10 (move decimal 1 place RIGHT)",
+                        "0.01 = 100 (move decimal 2 places RIGHT)",
+                        "0.001 = 1,000 (move decimal 3 places RIGHT)",
+                        "0.0001 = 10,000 (move decimal 4 places RIGHT)",
                         "Let's see this with examples!"
                     )
                 ),
@@ -4180,16 +3854,8 @@ object InteractiveLessonProvider {
                     problem = "Let us divide 0.5 by 0.1",
                     steps = listOf(
                         "Division by 0.1 is the same as multiplying by 10",
-                        "",
-                        "Method 1: Move decimal 1 place to the RIGHT",
-                        "0.5 ÷ 0.1",
-                        "Move both decimals 1 place right:",
-                        "0.5 → 5 and 0.1 → 1",
-                        "Now divide: 5 ÷ 1 = 5",
-                        "",
-                        "Method 2: Think of it as multiplication",
-                        "0.5 ÷ 0.1 = 0.5 × 10 = 5",
-                        "",
+                        "Method 1: Move decimal 1 place to the RIGHT \n 0.5 ÷ 0.1 \n Move both decimals 1 place right: \n 0.5 → 5 and 0.1 → 1 \n Now divide: 5 ÷ 1 = 5",
+                        "Method 2: Think of it as multiplication \n 0.5 ÷ 0.1 = 0.5 × 10 = 5",
                         "Both methods give us the same answer!"
                     ),
                     answer = "5"
@@ -4201,16 +3867,8 @@ object InteractiveLessonProvider {
                     problem = "Let us divide 0.5 by 0.01",
                     steps = listOf(
                         "Division by 0.01 is the same as multiplying by 100",
-                        "",
-                        "Method 1: Move decimal 2 places to the RIGHT",
-                        "0.5 ÷ 0.01",
-                        "Move both decimals 2 places right:",
-                        "0.5 → 0.50 → 50 and 0.01 → 1",
-                        "Now divide: 50 ÷ 1 = 50",
-                        "",
-                        "Method 2: Think of it as multiplication",
-                        "0.5 ÷ 0.01 = 0.5 × 100 = 50",
-                        "",
+                        "Method 1: Move decimal 2 places to the RIGHT \n 0.5 ÷ 0.01 \n Move both decimals 2 places right: \n 0.5 → 0.50 → 50 and 0.01 → 1 \n Now divide: 50 ÷ 1 = 50",
+                        "Method 2: Think of it as multiplication \n 0.5 ÷ 0.01 = 0.5 × 100 = 50",
                         "Notice: We added a zero to move 2 places!"
                     ),
                     answer = "50"
@@ -4222,16 +3880,8 @@ object InteractiveLessonProvider {
                     problem = "Let us divide 0.5 by 0.001",
                     steps = listOf(
                         "Division by 0.001 is the same as multiplying by 1,000",
-                        "",
-                        "Method 1: Move decimal 3 places to the RIGHT",
-                        "0.5 ÷ 0.001",
-                        "Move both decimals 3 places right:",
-                        "0.5 → 0.500 → 500 and 0.001 → 1",
-                        "Now divide: 500 ÷ 1 = 500",
-                        "",
-                        "Method 2: Think of it as multiplication",
-                        "0.5 ÷ 0.001 = 0.5 × 1,000 = 500",
-                        "",
+                        "Method 1: Move decimal 3 places to the RIGHT \n 0.5 ÷ 0.001 \n Move both decimals 3 places right: \n 0.5 → 0.500 → 500 and 0.001 → 1 \n Now divide: 500 ÷ 1 = 500",
+                        "Method 2: Think of it as multiplication \n 0.5 ÷ 0.001 = 0.5 × 1,000 = 500",
                         "Notice: We added two zeros to move 3 places!"
                     ),
                     answer = "500"
@@ -4242,16 +3892,11 @@ object InteractiveLessonProvider {
                     title = "Mental Division by 10, 100, 1,000",
                     content = "How do we mentally divide decimals by 10, 100, or 1,000? To what direction do we move the decimal point?",
                     keyPoints = listOf(
-                        "When dividing by 10:",
-                        "→ Move the decimal 1 place to the LEFT",
+                        "When dividing by 10: \n → Move the decimal 1 place to the LEFT",
                         "Example: 45.6 ÷ 10 = 4.56",
-                        "",
-                        "When dividing by 100:",
-                        "→ Move the decimal 2 places to the LEFT",
+                        "When dividing by 100: \n → Move the decimal 2 places to the LEFT",
                         "Example: 45.6 ÷ 100 = 0.456",
-                        "",
-                        "When dividing by 1,000:",
-                        "→ Move the decimal 3 places to the LEFT",
+                        "When dividing by 1,000: \n → Move the decimal 3 places to the LEFT",
                         "Example: 45.6 ÷ 1,000 = 0.0456"
                     )
                 ),
@@ -4269,15 +3914,8 @@ object InteractiveLessonProvider {
                     title = "Quick Reference Guide",
                     content = "Here's a handy summary of decimal point movement:",
                     keyPoints = listOf(
-                        "Dividing by Powers of 10 (Move LEFT ←):",
-                        "÷ 10 → move 1 place left",
-                        "÷ 100 → move 2 places left",
-                        "÷ 1,000 → move 3 places left",
-                        "",
-                        "Dividing by Decimal Powers (Move RIGHT →):",
-                        "÷ 0.1 = × 10 → move 1 place right",
-                        "÷ 0.01 = × 100 → move 2 places right",
-                        "÷ 0.001 = × 1,000 → move 3 places right"
+                        "Dividing by Powers of 10 (Move LEFT ←): \n 10 → move 1 place left \n 100 → move 2 places left \n 1,000 → move 3 places left",
+                        "Dividing by Decimal Powers (Move RIGHT →): \n 0.1 = 10 → move 1 place right \n 0.01 = 100 → move 2 places right \n 0.001 = 1,000 → move 3 places right"
                     )
                 ),
 
@@ -4286,17 +3924,9 @@ object InteractiveLessonProvider {
                     title = "More Examples: Dividing by 10",
                     problem = "Practice with different numbers:",
                     steps = listOf(
-                        "Example 1: 8.6 ÷ 10",
-                        "Move decimal 1 place LEFT",
-                        "8.6 → 0.86",
-                        "",
-                        "Example 2: 123.45 ÷ 10",
-                        "Move decimal 1 place LEFT",
-                        "123.45 → 12.345",
-                        "",
-                        "Example 3: 7 ÷ 10",
-                        "Move decimal 1 place LEFT",
-                        "7.0 → 0.7"
+                        "Example 1: 8.6 ÷ 10 \n Move decimal 1 place LEFT \n 8.6 → 0.86",
+                        "Example 2: 123.45 ÷ 10 \n Move decimal 1 place LEFT \n 123.45 → 12.345",
+                        "Example 3: 7 ÷ 10 \n Move decimal 1 place LEFT \n 7.0 → 0.7"
                     ),
                     answer = "0.86, 12.345, and 0.7"
                 ),
@@ -4306,17 +3936,9 @@ object InteractiveLessonProvider {
                     title = "More Examples: Dividing by 100",
                     problem = "Practice with dividing by 100:",
                     steps = listOf(
-                        "Example 1: 8.6 ÷ 100",
-                        "Move decimal 2 places LEFT",
-                        "8.6 → 0.086",
-                        "",
-                        "Example 2: 123.45 ÷ 100",
-                        "Move decimal 2 places LEFT",
-                        "123.45 → 1.2345",
-                        "",
-                        "Example 3: 50 ÷ 100",
-                        "Move decimal 2 places LEFT",
-                        "50.0 → 0.50 = 0.5"
+                        "Example 1: 8.6 ÷ 100 \n Move decimal 2 places LEFT \n 8.6 → 0.086",
+                        "Example 2: 123.45 ÷ 100 \n Move decimal 2 places LEFT \n 123.45 → 1.2345",
+                        "Example 3: 50 ÷ 100 \n Move decimal 2 places LEFT \n 50.0 → 0.50 = 0.5"
                     ),
                     answer = "0.086, 1.2345, and 0.5"
                 ),
@@ -4326,19 +3948,10 @@ object InteractiveLessonProvider {
                     title = "More Examples: Dividing by 0.1",
                     problem = "Practice with dividing by 0.1:",
                     steps = listOf(
-                        "Remember: ÷ 0.1 = × 10",
-                        "",
-                        "Example 1: 3.5 ÷ 0.1",
-                        "Move decimal 1 place RIGHT",
-                        "3.5 → 35",
-                        "",
-                        "Example 2: 0.08 ÷ 0.1",
-                        "Move decimal 1 place RIGHT",
-                        "0.08 → 0.8",
-                        "",
-                        "Example 3: 12.34 ÷ 0.1",
-                        "Move decimal 1 place RIGHT",
-                        "12.34 → 123.4"
+                        "Remember: 0.1 = 10",
+                        "Example 1: 3.5 ÷ 0.1 \n Move decimal 1 place RIGHT \n 3.5 → 35",
+                        "Example 2: 0.08 ÷ 0.1 \n Move decimal 1 place RIGHT \n 0.08 → 0.8",
+                        "Example 3: 12.34 ÷ 0.1 \n Move decimal 1 place RIGHT \n 12.34 → 123.4"
                     ),
                     answer = "35, 0.8, and 123.4"
                 ),
@@ -4366,11 +3979,7 @@ object InteractiveLessonProvider {
                     keyPoints = listOf(
                         "Dividing by 10 makes numbers smaller → move LEFT",
                         "Dividing by 0.1 (which is 1/10) makes numbers bigger → move RIGHT",
-                        "",
-                        "Think about it:",
-                        "• 10 ÷ 10 = 1 (smaller)",
-                        "• 10 ÷ 0.1 = 100 (bigger)",
-                        "",
+                        "Think about it: \n • 10 ÷ 10 = 1 (smaller) \n • 10 ÷ 0.1 = 100 (bigger)",
                         "The pattern is consistent and makes mental math easy!"
                     )
                 ),
@@ -4392,11 +4001,7 @@ object InteractiveLessonProvider {
                         "10 has 1 zero → move 1 place",
                         "100 has 2 zeros → move 2 places",
                         "1,000 has 3 zeros → move 3 places",
-                        "",
-                        "Remember the direction:",
-                        "÷ by whole numbers (10, 100, 1000) → LEFT ←",
-                        "÷ by decimals (0.1, 0.01, 0.001) → RIGHT →",
-                        "",
+                        "Remember the direction: \n ÷ by whole numbers (10, 100, 1000) → LEFT ← \n ÷ by decimals (0.1, 0.01, 0.001) → RIGHT →",
                         "Add zeros if needed when moving decimal point!"
                     )
                 ),
@@ -4408,12 +4013,7 @@ object InteractiveLessonProvider {
                         "Dividing a decimal by 10 → move the decimal 1 place to the LEFT",
                         "Dividing by 100 → move the decimal 2 places to the LEFT",
                         "Dividing by 1,000 → move the decimal 3 places to the LEFT",
-                        "",
-                        "Dividing by 0.1, 0.01, or 0.001 is the same as multiplying by 10, 100, or 1,000:",
-                        "÷ 0.1 = × 10 → move decimal 1 place RIGHT",
-                        "÷ 0.01 = × 100 → move decimal 2 places RIGHT",
-                        "÷ 0.001 = × 1,000 → move decimal 3 places RIGHT",
-                        "",
+                        "Dividing by 0.1, 0.01, or 0.001 is the same as multiplying by 10, 100, or 1,000: \n ÷ 0.1 = × 10 → move decimal 1 place RIGHT \n ÷ 0.01 = × 100 → move decimal 2 places RIGHT \n ÷ 0.001 = × 1,000 → move decimal 3 places RIGHT",
                         "This method allows you to divide decimals mentally - no calculator needed!"
                     )
                 )
@@ -4430,7 +4030,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Welcome!",
-                    content = "In this topic, you will learn to identify rational and irrational numbers.\n\nYou will understand how to identify the difference between these types of numbers."
+                    content = "In this topic, you will learn to identify rational and irrational numbers. You will understand how to identify the difference between these types of numbers."
                 ),
 
                 Slide.ConceptSlide(
@@ -4441,13 +4041,7 @@ object InteractiveLessonProvider {
                         "Can be written as a fraction (a/b where b ≠ 0)",
                         "When written as a decimal, it either stops or repeats a pattern",
                         "Includes all integers (positive, negative, and zero)",
-                        "",
-                        "Examples:",
-                        "−3, −2, −1, 0, 1, 2",
-                        "1.111..., 2.5, 3.333...",
-                        "½ = 0.5",
-                        "⅓ = 0.333...",
-                        "¾ = 0.75"
+                        "Examples: \n −3, −2, −1, 0, 1, 2 \n 1.111..., 2.5, 3.333... \n ½ = 0.5 \n ⅓ = 0.333... \n ¾ = 0.75"
                     )
                 ),
 
@@ -4460,13 +4054,7 @@ object InteractiveLessonProvider {
                         "Cannot be expressed as a quotient of two integers",
                         "The decimal form does not terminate or repeat",
                         "Square roots of non-perfect squares are irrational",
-                        "",
-                        "Examples:",
-                        "√2 = 1.41421356...",
-                        "√3 = 1.73205080...",
-                        "√5 = 2.23606797...",
-                        "π (pi) = 3.14159265...",
-                        "e = 2.71828182..."
+                        "Examples: \n √2 = 1.41421356... \n √3 = 1.73205080... \n √5 = 2.23606797... \n π (pi) = 3.14159265... \n e = 2.71828182..."
                     )
                 ),
 
@@ -4475,15 +4063,8 @@ object InteractiveLessonProvider {
                     title = "Key Differences",
                     content = "How to tell them apart:",
                     keyPoints = listOf(
-                        "Rational Numbers:",
-                        "✓ Can be written as fractions",
-                        "✓ Decimals that end or repeat",
-                        "✓ Examples: 0.5, 0.333..., 2, −4",
-                        "",
-                        "Irrational Numbers:",
-                        "✗ Cannot be written as fractions",
-                        "✗ Decimals go on forever without pattern",
-                        "✗ Examples: √2, √3, π, √5"
+                        "Rational Numbers: \n Can be written as fractions \n Decimals that end or repeat \n Examples: 0.5, 0.333..., 2, −4",
+                        "Irrational Numbers: \n Cannot be written as fractions \n Decimals go on forever without pattern \n Examples: √2, √3, π, √5"
                     )
                 ),
 
@@ -4492,17 +4073,10 @@ object InteractiveLessonProvider {
                     title = "Example: Identifying Rational Numbers",
                     problem = "Which of these are rational numbers?",
                     steps = listOf(
-                        "Number 1: 5",
-                        "Can be written as ⁵⁄₁ → RATIONAL ✓",
-                        "",
-                        "Number 2: 0.75",
-                        "Decimal terminates → Can write as ¾ → RATIONAL ✓",
-                        "",
-                        "Number 3: 0.666...",
-                        "Repeats forever → Can write as ⅔ → RATIONAL ✓",
-                        "",
-                        "Number 4: −8",
-                        "Integer → Can write as −⁸⁄₁ → RATIONAL ✓"
+                        "Number 1: 5 \n Can be written as ⁵⁄₁ → RATIONAL",
+                        "Number 2: 0.75 \n Decimal terminates → Can write as ¾ → RATIONAL",
+                        "Number 3: 0.666... \n Repeats forever → Can write as ⅔ → RATIONAL",
+                        "Number 4: −8 \n Integer → Can write as −⁸⁄₁ → RATIONAL"
                     ),
                     answer = "All of these are rational numbers!"
                 ),
@@ -4512,19 +4086,10 @@ object InteractiveLessonProvider {
                     title = "Example: Identifying Irrational Numbers",
                     problem = "Which of these are irrational numbers?",
                     steps = listOf(
-                        "Number 1: √4",
-                        "√4 = 2 (perfect square) → RATIONAL",
-                        "",
-                        "Number 2: √7",
-                        "Not a perfect square → Goes on forever",
-                        "2.6457513... → IRRATIONAL ✓",
-                        "",
-                        "Number 3: π",
-                        "3.14159265... (never ends or repeats)",
-                        "→ IRRATIONAL ✓",
-                        "",
-                        "Number 4: √9",
-                        "√9 = 3 (perfect square) → RATIONAL"
+                        "Number 1: √4 \n √4 = 2 (perfect square) → RATIONAL",
+                        "Number 2: √7 \n Not a perfect square → Goes on forever \n 2.6457513... → IRRATIONAL",
+                        "Number 3: π \n 3.14159265... (never ends or repeats) \n → IRRATIONAL",
+                        "Number 4: √9 \n √9 = 3 (perfect square) → RATIONAL"
                     ),
                     answer = "√7 and π are irrational numbers"
                 ),
@@ -4558,16 +4123,8 @@ object InteractiveLessonProvider {
                     title = "Perfect Squares vs Non-Perfect Squares",
                     content = "This helps identify irrational numbers:",
                     keyPoints = listOf(
-                        "Perfect Squares (Rational):",
-                        "√1 = 1, √4 = 2, √9 = 3",
-                        "√16 = 4, √25 = 5, √36 = 6",
-                        "√49 = 7, √64 = 8, √81 = 9",
-                        "√100 = 10",
-                        "",
-                        "Non-Perfect Squares (Irrational):",
-                        "√2, √3, √5, √6, √7, √8",
-                        "√10, √11, √12, √13, √14, √15",
-                        "And so on..."
+                        "Perfect Squares (Rational): \n √1 = 1, √4 = 2, √9 = 3 \n √16 = 4, √25 = 5, √36 = 6 \n √49 = 7, √64 = 8, √81 = 9 \n √100 = 10",
+                        "Non-Perfect Squares (Irrational): \n √2, √3, √5, √6, √7, √8 \n √10, √11, √12, √13, √14, √15 \n And so on..."
                     )
                 ),
 
@@ -4583,18 +4140,8 @@ object InteractiveLessonProvider {
                     id = 12,
                     title = "Summary: Key Points to Remember",
                     keyPoints = listOf(
-                        "Rational Numbers:",
-                        "• Can be written as fractions (a/b)",
-                        "• Decimals that terminate or repeat",
-                        "• Include all integers and fractions",
-                        "• Examples: 5, 0.75, 0.333..., −2, ½",
-                        "",
-                        "Irrational Numbers:",
-                        "• Cannot be written as fractions",
-                        "• Decimals that never end and never repeat",
-                        "• Include square roots of non-perfect squares",
-                        "• Examples: √2, √3, √5, π, √10",
-                        "",
+                        "Rational Numbers: \n • Can be written as fractions (a/b) \n • Decimals that terminate or repeat \n • Include all integers and fractions \n • Examples: 5, 0.75, 0.333..., −2, ½",
+                        "Irrational Numbers: \n • Cannot be written as fractions \n • Decimals that never end and never repeat \n • Include square roots of non-perfect squares \n • Examples: √2, √3, √5, π, √10",
                         "Quick Test: If it's a square root, check if it's a perfect square!"
                     )
                 )
@@ -4611,7 +4158,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Welcome Back!",
-                    content = "In this topic, you will learn how to identify terminating decimals and repeating (non-terminating) decimals.\n\nYou will understand the difference between the two types."
+                    content = "In this topic, you will learn how to identify terminating decimals and repeating (non-terminating) decimals. You will understand the difference between the two types."
                 ),
 
                 Slide.ConceptSlide(
@@ -4624,12 +4171,7 @@ object InteractiveLessonProvider {
                         "Is a type of rational number",
                         "To check: Divide numerator by denominator",
                         "If there's no remainder, it terminates",
-                        "",
-                        "Examples:",
-                        "0.87 (2 decimal places)",
-                        "82.25 (2 decimal places)",
-                        "9.527 (3 decimal places)",
-                        "224.9803 (4 decimal places)"
+                        "Examples: \n 0.87 (2 decimal places) \n 82.25 (2 decimal places) \n 9.527 (3 decimal places) \n 224.9803 (4 decimal places)"
                     )
                 ),
 
@@ -4643,13 +4185,7 @@ object InteractiveLessonProvider {
                         "To check: Divide numerator by denominator",
                         "If the remainder repeats, the decimal repeats",
                         "Can also be written as a fraction",
-                        "",
-                        "Examples:",
-                        "0.333... (3 repeats)",
-                        "0.00111... (1 repeats)",
-                        "1.234234... (234 repeats)",
-                        "0.666... (6 repeats)",
-                        "2.181818... (18 repeats)"
+                        "Examples: \n 0.333... (3 repeats) \n 0.00111... (1 repeats) \n 1.234234... (234 repeats) \n 0.666... (6 repeats) \n 2.181818... (18 repeats)"
                     )
                 ),
 
@@ -4660,14 +4196,7 @@ object InteractiveLessonProvider {
                     keyPoints = listOf(
                         "Vinculum = horizontal line over repeating digits",
                         "Shows which digits repeat forever",
-                        "",
-                        "Examples with Vinculum:",
-                        "0.333... → 0.3̅ (3 repeats)",
-                        "0.666... → 0.6̅ (6 repeats)",
-                        "1.234234... → 1.2̅3̅4̅ (234 repeats)",
-                        "0.181818... → 0.1̅8̅ (18 repeats)",
-                        "2.7777... → 2.7̅ (7 repeats)",
-                        "",
+                        "Examples with Vinculum: \n 0.333... → 0.3̅ (3 repeats) \n 0.666... → 0.6̅ (6 repeats) \n 1.234234... → 1.2̅3̅4̅ (234 repeats) \n 0.181818... → 0.1̅8̅ (18 repeats) \n 2.7777... → 2.7̅ (7 repeats)",
                         "The line shows which part repeats!"
                     )
                 ),
@@ -4677,17 +4206,10 @@ object InteractiveLessonProvider {
                     title = "Example: Identifying Terminating Decimals",
                     problem = "Which of these are terminating decimals?",
                     steps = listOf(
-                        "Decimal 1: 0.5",
-                        "Has 1 digit, then stops → TERMINATING ✓",
-                        "",
-                        "Decimal 2: 3.75",
-                        "Has 2 digits, then stops → TERMINATING ✓",
-                        "",
-                        "Decimal 3: 12.125",
-                        "Has 3 digits, then stops → TERMINATING ✓",
-                        "",
-                        "Decimal 4: 0.875",
-                        "Has 3 digits, then stops → TERMINATING ✓"
+                        "Decimal 1: 0.5 \n Has 1 digit, then stops → TERMINATING",
+                        "Decimal 2: 3.75 \n Has 2 digits, then stops → TERMINATING",
+                        "Decimal 3: 12.125 \n Has 3 digits, then stops → TERMINATING",
+                        "Decimal 4: 0.875 \n Has 3 digits, then stops → TERMINATING"
                     ),
                     answer = "All of these are terminating decimals!"
                 ),
@@ -4697,21 +4219,10 @@ object InteractiveLessonProvider {
                     title = "Example: Identifying Repeating Decimals",
                     problem = "Which of these are repeating decimals?",
                     steps = listOf(
-                        "Decimal 1: 0.333...",
-                        "3 repeats forever → REPEATING ✓",
-                        "Can write as 0.3̅",
-                        "",
-                        "Decimal 2: 0.454545...",
-                        "45 repeats forever → REPEATING ✓",
-                        "Can write as 0.4̅5̅",
-                        "",
-                        "Decimal 3: 1.666...",
-                        "6 repeats forever → REPEATING ✓",
-                        "Can write as 1.6̅",
-                        "",
-                        "Decimal 4: 2.121212...",
-                        "12 repeats forever → REPEATING ✓",
-                        "Can write as 2.1̅2̅"
+                        "Decimal 1: 0.333... \n 3 repeats forever → REPEATING \n Can write as 0.3̅",
+                        "Decimal 2: 0.454545... \n 45 repeats forever → REPEATING \n Can write as 0.4̅5̅",
+                        "Decimal 3: 1.666... \n 6 repeats forever → REPEATING \n Can write as 1.6̅",
+                        "Decimal 4: 2.121212... \n 12 repeats forever → REPEATING \n Can write as 2.1̅2̅"
                     ),
                     answer = "All of these are repeating decimals!"
                 ),
@@ -4721,21 +4232,10 @@ object InteractiveLessonProvider {
                     title = "Example: Converting Fractions",
                     problem = "Let's see how fractions become decimals:",
                     steps = listOf(
-                        "Fraction 1: ½",
-                        "1 ÷ 2 = 0.5",
-                        "Stops after 1 digit → TERMINATING",
-                        "",
-                        "Fraction 2: ¼",
-                        "1 ÷ 4 = 0.25",
-                        "Stops after 2 digits → TERMINATING",
-                        "",
-                        "Fraction 3: ⅓",
-                        "1 ÷ 3 = 0.333...",
-                        "3 repeats forever → REPEATING (0.3̅)",
-                        "",
-                        "Fraction 4: ⅔",
-                        "2 ÷ 3 = 0.666...",
-                        "6 repeats forever → REPEATING (0.6̅)"
+                        "Fraction 1: ½ \n 1 ÷ 2 = 0.5 \n Stops after 1 digit → TERMINATING",
+                        "Fraction 2: ¼ \n 1 ÷ 4 = 0.25 \n Stops after 2 digits → TERMINATING",
+                        "Fraction 3: ⅓ \n 1 ÷ 3 = 0.333... \n 3 repeats forever → REPEATING (0.3̅)",
+                        "Fraction 4: ⅔ \n 2 ÷ 3 = 0.666... \n 6 repeats forever → REPEATING (0.6̅)"
                     ),
                     answer = "½ and ¼ are terminating; ⅓ and ⅔ are repeating"
                 ),
@@ -4769,15 +4269,9 @@ object InteractiveLessonProvider {
                     title = "How to Write Repeating Decimals",
                     content = "Different ways to show repeating decimals:",
                     keyPoints = listOf(
-                        "Method 1: Use three dots (ellipsis)",
-                        "0.333... , 1.454545...",
-                        "",
-                        "Method 2: Use vinculum (bar notation)",
-                        "0.3̅ , 1.4̅5̅",
-                        "",
-                        "Method 3: Write the pattern in parentheses",
-                        "0.(3) , 1.(45)",
-                        "",
+                        "Method 1: Use three dots (ellipsis) \n 0.333... , 1.454545...",
+                        "Method 2: Use vinculum (bar notation) \n 0.3̅ , 1.4̅5̅",
+                        "Method 3: Write the pattern in parentheses \n 0.(3) , 1.(45)",
                         "All three methods mean the same thing!",
                         "The vinculum is the most common notation."
                     )
@@ -4788,20 +4282,11 @@ object InteractiveLessonProvider {
                     title = "Example: More Fraction Conversions",
                     problem = "Convert these fractions and identify the type:",
                     steps = listOf(
-                        "⅛ = 1 ÷ 8 = 0.125",
-                        "→ TERMINATING",
-                        "",
-                        "⅕ = 1 ÷ 5 = 0.2",
-                        "→ TERMINATING",
-                        "",
-                        "⅑ = 1 ÷ 9 = 0.111...",
-                        "→ REPEATING (0.1̅)",
-                        "",
-                        "⅐ = 1 ÷ 7 = 0.142857142857...",
-                        "→ REPEATING (0.1̅4̅2̅8̅5̅7̅)",
-                        "",
-                        "³⁄₁₁ = 3 ÷ 11 = 0.272727...",
-                        "→ REPEATING (0.2̅7̅)"
+                        "⅛ = 1 ÷ 8 = 0.125 \n → TERMINATING",
+                        "⅕ = 1 ÷ 5 = 0.2 \n → TERMINATING",
+                        "⅑ = 1 ÷ 9 = 0.111... \n → REPEATING (0.1̅)",
+                        "⅐ = 1 ÷ 7 = 0.142857142857... \n → REPEATING (0.1̅4̅2̅8̅5̅7̅)",
+                        "³⁄₁₁ = 3 ÷ 11 = 0.272727... \n → REPEATING (0.2̅7̅)"
                     ),
                     answer = "⅛ and ⅕ terminate; ⅑, ⅐, and ³⁄₁₁ repeat"
                 ),
@@ -4819,17 +4304,8 @@ object InteractiveLessonProvider {
                     title = "Quick Identification Tips",
                     content = "How to quickly identify the type:",
                     keyPoints = listOf(
-                        "Terminating Decimals:",
-                        "✓ Count the digits - they're finite",
-                        "✓ No ... (ellipsis) or bar notation",
-                        "✓ Examples: 0.5, 2.75, 3.125",
-                        "",
-                        "Repeating Decimals:",
-                        "✓ Look for ... (ellipsis)",
-                        "✓ Look for bar (vinculum) over digits",
-                        "✓ Look for pattern that repeats",
-                        "✓ Examples: 0.333..., 0.3̅, 1.4̅5̅",
-                        "",
+                        "Terminating Decimals: \n Count the digits - they're finite \n No ... (ellipsis) or bar notation \n Examples: 0.5, 2.75, 3.125",
+                        "Repeating Decimals: \n Look for ... (ellipsis) \n Look for bar (vinculum) over digits \n Look for pattern that repeats \n Examples: 0.333..., 0.3̅, 1.4̅5̅",
                         "Both types are RATIONAL numbers!"
                     )
                 ),
@@ -4847,16 +4323,8 @@ object InteractiveLessonProvider {
                     title = "Real-World Connection",
                     content = "Where do we see these decimals?",
                     keyPoints = listOf(
-                        "Terminating Decimals:",
-                        "• Money: ₱25.50, ₱100.75",
-                        "• Measurements: 3.5 meters, 2.25 kg",
-                        "• Scores: 95.5%, 87.25 points",
-                        "",
-                        "Repeating Decimals:",
-                        "• Fractions: ⅓ cup, ⅔ of a pizza",
-                        "• Divisions: Sharing equally among 3 or 6 people",
-                        "• Ratios: Converting fractions to decimals",
-                        "",
+                        "Terminating Decimals: \n • Money: ₱25.50, ₱100.75 \n • Measurements: 3.5 meters, 2.25 kg \n • Scores: 95.5%, 87.25 points",
+                        "Repeating Decimals: \n • Fractions: ⅓ cup, ⅔ of a pizza \n • Divisions: Sharing equally among 3 or 6 people \n • Ratios: Converting fractions to decimals",
                         "Most real-world measurements use terminating decimals!"
                     )
                 ),
@@ -4865,21 +4333,9 @@ object InteractiveLessonProvider {
                     id = 17,
                     title = "Summary: Key Points to Remember",
                     keyPoints = listOf(
-                        "Terminating Decimals:",
-                        "• End after a certain number of digits",
-                        "• Can be written as a fraction",
-                        "• Examples: 0.87, 82.25, 9.527",
-                        "",
-                        "Repeating (Non-terminating) Decimals:",
-                        "• Go on forever with repeating pattern",
-                        "• Can also be written as a fraction",
-                        "• Examples: 0.333..., 0.3̅, 1.2̅3̅4̅",
-                        "",
-                        "Vinculum:",
-                        "• A line over digits showing repetition",
-                        "• 0.333... = 0.3̅",
-                        "• 0.454545... = 0.4̅5̅",
-                        "",
+                        "Terminating Decimals: \n • End after a certain number of digits \n • Can be written as a fraction \n • Examples: 0.87, 82.25, 9.527",
+                        "Repeating (Non-terminating) Decimals: \n • Go on forever with repeating pattern \n • Can also be written as a fraction \n • Examples: 0.333..., 0.3̅, 1.2̅3̅4̅",
+                        "Vinculum: \n • A line over digits showing repetition \n • 0.333... = 0.3̅ \n • 0.454545... = 0.4̅5̅",
                         "Both types are RATIONAL numbers!"
                     )
                 )
@@ -4904,17 +4360,8 @@ object InteractiveLessonProvider {
                     title = "Review: Types of Problems",
                     content = "Let's recall the difference between routine and non-routine problems:",
                     keyPoints = listOf(
-                        "Routine Problems:",
-                        "• Clear and straightforward",
-                        "• Direct keywords indicate operations",
-                        "• Usually one or two steps",
-                        "• Follow familiar patterns",
-                        "",
-                        "Non-routine Problems:",
-                        "• Require more analysis",
-                        "• May need multiple steps",
-                        "• Hidden operations or extra information",
-                        "• Need creative problem-solving"
+                        "Routine Problems: \n • Clear and straightforward \n • Direct keywords indicate operations \n • Usually one or two steps \n • Follow familiar patterns",
+                        "Non-routine Problems: \n • Require more analysis \n • May need multiple steps \n • Hidden operations or extra information \n • Need creative problem-solving"
                     )
                 ),
 
@@ -4923,14 +4370,13 @@ object InteractiveLessonProvider {
                     title = "Division Keywords",
                     content = "Look for these keywords that indicate division:",
                     keyPoints = listOf(
-                        "• Quotient of",
-                        "• Divided by / Split",
-                        "• Shared equally / Distribute",
-                        "• Each / Per (for unit rates)",
-                        "• Average (divide total by count)",
-                        "• How many groups?",
-                        "• How much per...?",
-                        "",
+                        "Quotient of",
+                        "Divided by / Split",
+                        "Shared equally / Distribute",
+                        "Each / Per (for unit rates)",
+                        "Average (divide total by count)",
+                        "How many groups?",
+                        "How much per...?",
                         "Money context: cost per item, sharing money, unit price"
                     )
                 ),
@@ -4940,20 +4386,11 @@ object InteractiveLessonProvider {
                     title = "Common Problem Types",
                     content = "Types of division problems you'll encounter:",
                     keyPoints = listOf(
-                        "Equal Sharing:",
-                        "• Divide money/items equally among people",
-                        "",
-                        "Finding Unit Rate:",
-                        "• Cost per kilogram, per meter, per hour",
-                        "",
-                        "Finding Quantity:",
-                        "• How many items can you buy?",
-                        "",
-                        "Comparison:",
-                        "• How many times more/less?",
-                        "",
-                        "Average:",
-                        "• Total divided by number of items"
+                        "Equal Sharing: \n Divide money/items equally among people",
+                        "Finding Unit Rate: \n Cost per kilogram, per meter, per hour",
+                        "Finding Quantity: \n How many items can you buy?",
+                        "Comparison: \n How many times more/less?",
+                        "Average: \n Total divided by number of items"
                     )
                 ),
 
@@ -4962,19 +4399,10 @@ object InteractiveLessonProvider {
                     title = "Routine Problem 1: Equal Sharing",
                     problem = "Four friends earned ₱1,250.00 from selling lemonade. They decided to split the money equally. How much will each friend receive?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Given: ₱1,250.00 total, 4 friends",
-                        "Asked: How much per friend?",
-                        "",
-                        "2. PLAN:",
-                        "Keyword: 'split equally' → Division",
-                        "Number sentence: 1,250 ÷ 4 = N",
-                        "",
-                        "3. SOLVE:",
-                        "1,250 ÷ 4 = 312.50",
-                        "",
-                        "4. CHECK:",
-                        "312.50 × 4 = 1,250 ✓",
+                        "1. UNDERSTAND: \n Given: ₱1,250.00 total, 4 friends \n Asked: How much per friend?",
+                        "2. PLAN: \n Keyword: 'split equally' → Division \n Number sentence: 1,250 ÷ 4 = N",
+                        "3. SOLVE: \n 1,250 ÷ 4 = 312.50",
+                        "4. CHECK: \n 312.50 × 4 = 1,250",
                         "Reasonable? Yes, about ₱300 each makes sense"
                     ),
                     answer = "Each friend receives ₱312.50"
@@ -4985,20 +4413,10 @@ object InteractiveLessonProvider {
                     title = "Routine Problem 2: Finding Unit Price",
                     problem = "A 2.5 kg bag of rice costs ₱137.50. What is the price per kilogram?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Given: ₱137.50 for 2.5 kg",
-                        "Asked: Price per kg?",
-                        "",
-                        "2. PLAN:",
-                        "Keyword: 'per' → Division",
-                        "Number sentence: 137.50 ÷ 2.5 = N",
-                        "",
-                        "3. SOLVE:",
-                        "137.50 ÷ 2.5",
-                        "Make divisor whole: 1,375 ÷ 25 = 55",
-                        "",
-                        "4. CHECK:",
-                        "55 × 2.5 = 137.50 ✓",
+                        "1. UNDERSTAND: \n Given: ₱137.50 for 2.5 kg \n Asked: Price per kg?",
+                        "2. PLAN: \n Keyword: 'per' → Division \n Number sentence: 137.50 ÷ 2.5 = N",
+                        "3. SOLVE: \n 137.50 ÷ 2.5 \n Make divisor whole: 1,375 ÷ 25 = 55",
+                        "4. CHECK: \n 55 × 2.5 = 137.50",
                         "Reasonable? Yes, ₱55/kg is reasonable"
                     ),
                     answer = "The price is ₱55.00 per kilogram"
@@ -5017,20 +4435,10 @@ object InteractiveLessonProvider {
                     title = "Routine Problem 3: Finding Quantity",
                     problem = "Maria has ₱450.00. If each notebook costs ₱22.50, how many notebooks can she buy?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Given: ₱450.00, notebooks cost ₱22.50 each",
-                        "Asked: How many notebooks?",
-                        "",
-                        "2. PLAN:",
-                        "Keyword: 'how many' → Division",
-                        "Number sentence: 450 ÷ 22.50 = N",
-                        "",
-                        "3. SOLVE:",
-                        "450 ÷ 22.50",
-                        "Make divisor whole: 45,000 ÷ 2,250 = 20",
-                        "",
-                        "4. CHECK:",
-                        "20 × 22.50 = 450 ✓",
+                        "1. UNDERSTAND: \n Given: ₱450.00, notebooks cost ₱22.50 each \n Asked: How many notebooks?",
+                        "2. PLAN: \n Keyword: 'how many' → Division \n Number sentence: 450 ÷ 22.50 = N",
+                        "3. SOLVE: \n 450 ÷ 22.50 \n Make divisor whole: 45,000 ÷ 2,250 = 20",
+                        "4. CHECK: \n 20 × 22.50 = 450",
                         "Reasonable? Yes, she can buy exactly 20 notebooks"
                     ),
                     answer = "Maria can buy 20 notebooks"
@@ -5041,20 +4449,10 @@ object InteractiveLessonProvider {
                     title = "Routine Problem 4: Average",
                     problem = "A student scored 88.5, 92.0, 85.5, and 90.0 on four tests. What is the average score?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Given: Four scores (88.5, 92.0, 85.5, 90.0)",
-                        "Asked: Average score?",
-                        "",
-                        "2. PLAN:",
-                        "Keyword: 'average' → Add all, then divide by count",
-                        "Number sentence: (88.5 + 92.0 + 85.5 + 90.0) ÷ 4 = N",
-                        "",
-                        "3. SOLVE:",
-                        "Sum: 88.5 + 92.0 + 85.5 + 90.0 = 356.0",
-                        "Average: 356.0 ÷ 4 = 89.0",
-                        "",
-                        "4. CHECK:",
-                        "89 × 4 = 356 ✓",
+                        "1. UNDERSTAND: \n Given: Four scores (88.5, 92.0, 85.5, 90.0) \n Asked: Average score?",
+                        "2. PLAN: \n Keyword: 'average' → Add all, then divide by count \n Number sentence: (88.5 + 92.0 + 85.5 + 90.0) ÷ 4 = N",
+                        "3. SOLVE: \n Sum: 88.5 + 92.0 + 85.5 + 90.0 = 356.0 \n Average: 356.0 ÷ 4 = 89.0",
+                        "4. CHECK: \n 89 × 4 = 356",
                         "Reasonable? Yes, close to all four scores"
                     ),
                     answer = "The average score is 89.0"
@@ -5073,12 +4471,11 @@ object InteractiveLessonProvider {
                     title = "Non-routine Problems",
                     content = "Non-routine problems require more thinking and may involve:",
                     keyPoints = listOf(
-                        "• Multiple operations (not just division)",
-                        "• Extra information to filter out",
-                        "• Hidden steps or indirect questions",
-                        "• Comparison or multi-step calculations",
-                        "• Real-world complexity",
-                        "",
+                        "Multiple operations (not just division)",
+                        "Extra information to filter out",
+                        "Hidden steps or indirect questions",
+                        "Comparison or multi-step calculations",
+                        "Real-world complexity",
                         "Strategy: Break complex problems into smaller steps!"
                     )
                 ),
@@ -5088,26 +4485,10 @@ object InteractiveLessonProvider {
                     title = "Non-routine Problem 1: Multi-step",
                     problem = "A store bought 25 kg of apples for ₱3,750.00. After selling 18 kg at ₱180.00 per kg, how much profit did they make per kg sold?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Bought: 25 kg for ₱3,750",
-                        "Sold: 18 kg at ₱180/kg",
-                        "Asked: Profit per kg sold?",
-                        "",
-                        "2. PLAN:",
-                        "Step 1: Find cost per kg bought",
-                        "Step 2: Find revenue from selling",
-                        "Step 3: Find profit",
-                        "Step 4: Find profit per kg",
-                        "",
-                        "3. SOLVE:",
-                        "Cost per kg: 3,750 ÷ 25 = ₱150",
-                        "Revenue: 18 × 180 = ₱3,240",
-                        "Cost of 18 kg: 18 × 150 = ₱2,700",
-                        "Profit: 3,240 - 2,700 = ₱540",
-                        "Profit per kg: 540 ÷ 18 = ₱30",
-                        "",
-                        "4. CHECK:",
-                        "Selling price - cost price = 180 - 150 = 30 ✓"
+                        "1. UNDERSTAND: \n Bought: 25 kg for ₱3,750 \n Sold: 18 kg at ₱180/kg \n Asked: Profit per kg sold?",
+                        "2. PLAN: \n Step 1: Find cost per kg bought \n Step 2: Find revenue from selling \n Step 3: Find profit \n Step 4: Find profit per kg",
+                        "3. SOLVE: \n Cost per kg: 3,750 ÷ 25 = ₱150 \n Revenue: 18 × 180 = ₱3,240 \n Cost of 18 kg: 18 × 150 = ₱2,700 \n Profit: 3,240 - 2,700 = ₱540 \n Profit per kg: 540 ÷ 18 = ₱30",
+                        "4. CHECK: \n Selling price - cost price = 180 - 150 = 30"
                     ),
                     answer = "Profit is ₱30.00 per kilogram sold"
                 ),
@@ -5117,23 +4498,10 @@ object InteractiveLessonProvider {
                     title = "Non-routine Problem 2: Comparison",
                     problem = "Store A sells 3.5 kg of sugar for ₱245.00. Store B sells 2.8 kg for ₱190.40. Which store has the better price per kilogram?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Store A: 3.5 kg for ₱245",
-                        "Store B: 2.8 kg for ₱190.40",
-                        "Asked: Which has better price/kg?",
-                        "",
-                        "2. PLAN:",
-                        "Find price per kg for each store, then compare",
-                        "",
-                        "3. SOLVE:",
-                        "Store A: 245 ÷ 3.5 = ₱70/kg",
-                        "Store B: 190.40 ÷ 2.8 = ₱68/kg",
-                        "Compare: ₱68 < ₱70",
-                        "",
-                        "4. CHECK:",
-                        "Store A: 70 × 3.5 = 245 ✓",
-                        "Store B: 68 × 2.8 = 190.40 ✓",
-                        "Store B is cheaper"
+                        "1. UNDERSTAND: \n Store A: 3.5 kg for ₱245 \n Store B: 2.8 kg for ₱190.40 \n Asked: Which has better price/kg?",
+                        "2. PLAN: \n Find price per kg for each store, then compare",
+                        "3. SOLVE: \n Store A: 245 ÷ 3.5 = ₱70/kg \n Store B: 190.40 ÷ 2.8 = ₱68/kg \n Compare: ₱68 < ₱70",
+                        "4. CHECK: \n Store A: 70 × 3.5 = 245 \n Store B: 68 × 2.8 = 190.40 \n Store B is cheaper"
                     ),
                     answer = "Store B has the better price at ₱68.00 per kg"
                 ),
@@ -5151,21 +4519,10 @@ object InteractiveLessonProvider {
                     title = "Non-routine Problem 3: Extra Information",
                     problem = "A baker made 150 cupcakes in 5 hours. He sold them for ₱25.00 each and earned ₱3,750.00. How many cupcakes did he make per hour?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Made: 150 cupcakes in 5 hours",
-                        "Price: ₱25 each (extra info!)",
-                        "Earned: ₱3,750 (extra info!)",
-                        "Asked: Cupcakes per hour?",
-                        "",
-                        "2. PLAN:",
-                        "Ignore price and earnings - not needed",
-                        "Number sentence: 150 ÷ 5 = N",
-                        "",
-                        "3. SOLVE:",
-                        "150 ÷ 5 = 30",
-                        "",
-                        "4. CHECK:",
-                        "30 × 5 = 150 ✓",
+                        "1. UNDERSTAND: \n Made: 150 cupcakes in 5 hours \n Price: ₱25 each (extra info!) \n Earned: ₱3,750 (extra info!) \n Asked: Cupcakes per hour?",
+                        "2. PLAN: \n Ignore price and earnings - not needed \n Number sentence: 150 ÷ 5 = N",
+                        "3. SOLVE: \n 150 ÷ 5 = 30",
+                        "4. CHECK: \n 30 × 5 = 150",
                         "Note: We verified earnings → 150 × 25 = 3,750 ✓"
                     ),
                     answer = "He made 30 cupcakes per hour"
@@ -5176,23 +4533,10 @@ object InteractiveLessonProvider {
                     title = "Non-routine Problem 4: Working Backwards",
                     problem = "After dividing her money equally among her 3 children, each child received ₱425.50. She had already spent ₱150.00 on groceries. How much money did she have originally?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Each child got: ₱425.50 (3 children)",
-                        "Spent before dividing: ₱150",
-                        "Asked: Original amount?",
-                        "",
-                        "2. PLAN:",
-                        "Work backwards:",
-                        "Step 1: Find total given to children",
-                        "Step 2: Add back what was spent",
-                        "",
-                        "3. SOLVE:",
-                        "Given to children: 425.50 × 3 = ₱1,276.50",
-                        "Original amount: 1,276.50 + 150 = ₱1,426.50",
-                        "",
-                        "4. CHECK:",
-                        "1,426.50 - 150 = 1,276.50",
-                        "1,276.50 ÷ 3 = 425.50 ✓"
+                        "1. UNDERSTAND: \n Each child got: ₱425.50 (3 children) \n Spent before dividing: ₱150 \n Asked: Original amount?",
+                        "2. PLAN: \n Work backwards: \n Step 1: Find total given to children \n Step 2: Add back what was spent",
+                        "3. SOLVE: \n Given to children: 425.50 × 3 = ₱1,276.50 \n Original amount: 1,276.50 + 150 = ₱1,426.50",
+                        "4. CHECK: \n 1,426.50 - 150 = 1,276.50 \n 1,276.50 ÷ 3 = 425.50"
                     ),
                     answer = "She had ₱1,426.50 originally"
                 ),
@@ -5210,25 +4554,10 @@ object InteractiveLessonProvider {
                     title = "Non-routine Problem 5: Real-World Application",
                     problem = "A family's monthly electricity bill is ₱4,567.80 for 318.5 kWh. They want to reduce consumption by 25%. If the rate per kWh stays the same, what will the new bill be?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Current: ₱4,567.80 for 318.5 kWh",
-                        "Reduce: 25% less consumption",
-                        "Asked: New bill?",
-                        "",
-                        "2. PLAN:",
-                        "Step 1: Find rate per kWh",
-                        "Step 2: Find 25% reduction in kWh",
-                        "Step 3: Calculate new consumption",
-                        "Step 4: Calculate new bill",
-                        "",
-                        "3. SOLVE:",
-                        "Rate: 4,567.80 ÷ 318.5 = ₱14.34/kWh",
-                        "25% of 318.5 = 318.5 × 0.25 = 79.625 kWh",
-                        "New consumption: 318.5 - 79.625 = 238.875 kWh",
-                        "New bill: 238.875 × 14.34 = ₱3,425.85",
-                        "",
-                        "4. CHECK:",
-                        "75% of original = 4,567.80 × 0.75 = ₱3,425.85 ✓"
+                        "1. UNDERSTAND: \n Current: ₱4,567.80 for 318.5 kWh \n Reduce: 25% less consumption \n Asked: New bill?",
+                        "2. PLAN: \n Step 1: Find rate per kWh \n Step 2: Find 25% reduction in kWh \n Step 3: Calculate new consumption \n Step 4: Calculate new bill",
+                        "3. SOLVE: \n Rate: 4,567.80 ÷ 318.5 = ₱14.34/kWh \n 25% of 318.5 = 318.5 × 0.25 = 79.625 kWh \n New consumption: 318.5 - 79.625 = 238.875 kWh \n New bill: 238.875 × 14.34 = ₱3,425.85",
+                        "4. CHECK: \n 75% of original = 4,567.80 × 0.75 = ₱3,425.85"
                     ),
                     answer = "The new bill will be ₱3,425.85"
                 ),
@@ -5238,15 +4567,15 @@ object InteractiveLessonProvider {
                     title = "Tips for Division Word Problems",
                     content = "Strategies for success:",
                     keyPoints = listOf(
-                        "✓ Identify division keywords carefully",
-                        "✓ Determine what's given and what's asked",
-                        "✓ Ignore extra information not needed",
-                        "✓ Break complex problems into smaller steps",
-                        "✓ Check units (pesos, kg, meters, liters)",
-                        "✓ Use multiplication to verify division",
-                        "✓ Estimate to check reasonableness",
-                        "✓ Draw diagrams if helpful",
-                        "✓ For money: always include two decimal places"
+                        "Identify division keywords carefully",
+                        "Determine what's given and what's asked",
+                        "Ignore extra information not needed",
+                        "Break complex problems into smaller steps",
+                        "Check units (pesos, kg, meters, liters)",
+                        "Use multiplication to verify division",
+                        "Estimate to check reasonableness",
+                        "Draw diagrams if helpful",
+                        "For money: always include two decimal places"
                     )
                 ),
 
@@ -5262,22 +4591,9 @@ object InteractiveLessonProvider {
                     id = 21,
                     title = "Summary",
                     keyPoints = listOf(
-                        "Routine Problems:",
-                        "• Clear division keywords (quotient, split, per, each)",
-                        "• Direct and straightforward",
-                        "• Usually one or two steps",
-                        "",
-                        "Non-routine Problems:",
-                        "• Require multiple operations",
-                        "• May have extra information to filter",
-                        "• Need careful analysis and planning",
-                        "",
-                        "Problem-Solving Keys:",
-                        "• Use the 4-step method (Understand, Plan, Solve, Check)",
-                        "• Look for division keywords",
-                        "• Break complex problems into smaller steps",
-                        "• Always verify your answer makes sense",
-                        "• For money, use two decimal places"
+                        "Routine Problems: \n • Clear division keywords (quotient, split, per, each) \n • Direct and straightforward \n • Usually one or two steps",
+                        "Non-routine Problems: \n • Require multiple operations \n • May have extra information to filter \n • Need careful analysis and planning",
+                        "Problem-Solving Keys: \n • Use the 4-step method (Understand, Plan, Solve, Check) \n • Look for division keywords \n • Break complex problems into smaller steps \n • Always verify your answer makes sense \n • For money, use two decimal places"
                     )
                 )
             )
@@ -5301,13 +4617,12 @@ object InteractiveLessonProvider {
                     title = "Why a Step-by-Step Approach?",
                     content = "Following a systematic procedure helps you:",
                     keyPoints = listOf(
-                        "✓ Organize your thinking",
-                        "✓ Avoid missing important information",
-                        "✓ Reduce careless errors",
-                        "✓ Build problem-solving confidence",
-                        "✓ Work efficiently",
-                        "✓ Check your work systematically",
-                        "",
+                        "Organize your thinking",
+                        "Avoid missing important information",
+                        "Reduce careless errors",
+                        "Build problem-solving confidence",
+                        "Work efficiently",
+                        "Check your work systematically",
                         "Let's learn the proven 4-step method!"
                     )
                 ),
@@ -5317,18 +4632,10 @@ object InteractiveLessonProvider {
                     title = "The 4-Step Problem-Solving Method",
                     content = "This method works for ANY word problem:",
                     keyPoints = listOf(
-                        "Step 1: UNDERSTAND the Problem",
-                        "→ Know what you're dealing with",
-                        "",
-                        "Step 2: PLAN the Solution",
-                        "→ Decide how to solve it",
-                        "",
-                        "Step 3: SOLVE the Problem",
-                        "→ Carry out your plan",
-                        "",
-                        "Step 4: CHECK your Answer",
-                        "→ Verify it's correct",
-                        "",
+                        "Step 1: UNDERSTAND the Problem \n → Know what you're dealing with",
+                        "Step 2: PLAN the Solution \n → Decide how to solve it",
+                        "Step 3: SOLVE the Problem \n → Carry out your plan",
+                        "Step 4: CHECK your Answer \n → Verify it's correct",
                         "Remember: UPSC (Understand, Plan, Solve, Check)"
                     )
                 ),
@@ -5338,15 +4645,7 @@ object InteractiveLessonProvider {
                     title = "Step 1: UNDERSTAND the Problem",
                     content = "Before solving, you must fully understand what the problem is asking:",
                     keyPoints = listOf(
-                        "Actions to take:",
-                        "• Read the problem carefully (at least twice!)",
-                        "• Identify what is GIVEN (facts, numbers)",
-                        "• Identify what is ASKED (the question)",
-                        "• Highlight or underline key information",
-                        "• Circle important numbers and their units",
-                        "• Cross out extra information not needed",
-                        "• Restate the problem in your own words",
-                        "",
+                        "Actions to take: \n • Read the problem carefully (at least twice!) \n • Identify what is GIVEN (facts, numbers) \n • Identify what is ASKED (the question) \n • Highlight or underline key information \n • Circle important numbers and their units \n • Cross out extra information not needed \n • Restate the problem in your own words",
                         "Ask: What do I know? What do I need to find?"
                     )
                 ),
@@ -5357,20 +4656,9 @@ object InteractiveLessonProvider {
                     problem = "A store bought 8 boxes of apples. Each box contains 24.5 kg and costs ₱1,225.00. The store sold all apples at ₱65.00 per kg. How much profit did the store make per box?",
                     steps = listOf(
                         "Let's UNDERSTAND:",
-                        "",
-                        "GIVEN information:",
-                        "• 8 boxes of apples",
-                        "• Each box: 24.5 kg",
-                        "• Cost per box: ₱1,225.00",
-                        "• Selling price: ₱65.00 per kg",
-                        "",
-                        "ASKED to find:",
-                        "• Profit per box?",
-                        "",
-                        "In my own words:",
-                        "The store bought apples in boxes and sold them by weight.",
-                        "I need to find how much profit they made on each box.",
-                        "",
+                        "GIVEN information: \n • 8 boxes of apples \n • Each box: 24.5 kg \n • Cost per box: ₱1,225.00 \n • Selling price: ₱65.00 per kg",
+                        "ASKED to find: \n • Profit per box?",
+                        "In my own words: \n The store bought apples in boxes and sold them by weight. \n I need to find how much profit they made on each box.",
                         "Units involved: boxes, kg, pesos"
                     ),
                     answer = "We understand the problem - ready to plan!"
@@ -5381,15 +4669,7 @@ object InteractiveLessonProvider {
                     title = "Step 2: PLAN the Solution",
                     content = "Decide HOW you will solve the problem:",
                     keyPoints = listOf(
-                        "Actions to take:",
-                        "• What operation(s) are needed?",
-                        "  (Addition, Subtraction, Multiplication, Division)",
-                        "• Look for operation keywords",
-                        "• Write number sentences or equations",
-                        "• Decide the order of operations",
-                        "• Identify if multiple steps are needed",
-                        "• Think about what makes sense",
-                        "",
+                        "Actions to take: \n • What operation(s) are needed? (Addition, Subtraction, Multiplication, Division) \n • Look for operation keywords \n • Write number sentences or equations \n • Decide the order of operations \n • Identify if multiple steps are needed \n • Think about what makes sense",
                         "Ask: What steps will lead me to the answer?"
                     )
                 ),
@@ -5400,13 +4680,9 @@ object InteractiveLessonProvider {
                     content = "Keywords help identify which operations to use:",
                     keyPoints = listOf(
                         "Addition: sum, total, combined, altogether, increase",
-                        "",
                         "Subtraction: difference, less, remaining, decrease, left",
-                        "",
                         "Multiplication: product, times, of, per (for totals)",
-                        "",
                         "Division: quotient, split, shared, per (for rates), average",
-                        "",
                         "Remember: Some problems need multiple operations!"
                     )
                 ),
@@ -5417,20 +4693,10 @@ object InteractiveLessonProvider {
                     problem = "A store bought 8 boxes of apples. Each box contains 24.5 kg and costs ₱1,225.00. The store sold all apples at ₱65.00 per kg. How much profit did the store make per box?",
                     steps = listOf(
                         "Let's PLAN:",
-                        "",
                         "To find profit per box, I need:",
-                        "",
-                        "Step 1: Find revenue per box",
-                        "→ Multiply: 24.5 kg × ₱65/kg",
-                        "",
-                        "Step 2: Find profit per box",
-                        "→ Subtract: Revenue - Cost",
-                        "→ Revenue per box - ₱1,225",
-                        "",
-                        "Number sentences:",
-                        "Revenue per box = 24.5 × 65",
-                        "Profit per box = Revenue - 1,225",
-                        "",
+                        "Step 1: Find revenue per box \n → Multiply: 24.5 kg × ₱65/kg",
+                        "Step 2: Find profit per box \n → Subtract: Revenue - Cost \n → Revenue per box - ₱1,225",
+                        "Number sentences: \n Revenue per box = 24.5 × 65 \n Profit per box = Revenue - 1,225",
                         "Operations needed: Multiplication, then Subtraction"
                     ),
                     answer = "Our plan is clear - let's solve!"
@@ -5441,15 +4707,7 @@ object InteractiveLessonProvider {
                     title = "Step 3: SOLVE the Problem",
                     content = "Now carry out your plan carefully:",
                     keyPoints = listOf(
-                        "Actions to take:",
-                        "• Follow your plan step by step",
-                        "• Show all your work clearly",
-                        "• Write down each calculation",
-                        "• Keep track of units throughout",
-                        "• Do one operation at a time",
-                        "• Label intermediate results",
-                        "• Be neat and organized",
-                        "",
+                        "Actions to take: \n • Follow your plan step by step \n • Show all your work clearly \n • Write down each calculation \n • Keep track of units throughout \n • Do one operation at a time \n • Label intermediate results \n • Be neat and organized",
                         "Ask: Am I following my plan correctly?"
                     )
                 ),
@@ -5460,16 +4718,8 @@ object InteractiveLessonProvider {
                     problem = "A store bought 8 boxes of apples. Each box contains 24.5 kg and costs ₱1,225.00. The store sold all apples at ₱65.00 per kg. How much profit did the store make per box?",
                     steps = listOf(
                         "Let's SOLVE following our plan:",
-                        "",
-                        "Step 1: Find revenue per box",
-                        "Revenue = 24.5 kg × ₱65/kg",
-                        "Revenue = ₱1,592.50 per box",
-                        "",
-                        "Step 2: Find profit per box",
-                        "Profit = Revenue - Cost",
-                        "Profit = ₱1,592.50 - ₱1,225.00",
-                        "Profit = ₱367.50 per box",
-                        "",
+                        "Step 1: Find revenue per box \n Revenue = 24.5 kg × ₱65/kg \n Revenue = ₱1,592.50 per box",
+                        "Step 2: Find profit per box \n Profit = Revenue - Cost \n Profit = ₱1,592.50 - ₱1,225.00 \n Profit = ₱367.50 per box",
                         "Final Answer: The store made ₱367.50 profit per box"
                     ),
                     answer = "₱367.50 profit per box"
@@ -5480,16 +4730,7 @@ object InteractiveLessonProvider {
                     title = "Step 4: CHECK your Answer",
                     content = "Always verify your solution is correct:",
                     keyPoints = listOf(
-                        "Actions to take:",
-                        "• Does your answer make sense?",
-                        "• Is it reasonable for the context?",
-                        "• Work backwards to verify",
-                        "• Use inverse operations",
-                        "• Estimate to check reasonableness",
-                        "• Did you answer what was asked?",
-                        "• Are units correct?",
-                        "• Check your calculations",
-                        "",
+                        "Actions to take: \n • Does your answer make sense? \n • Is it reasonable for the context? \n • Work backwards to verify \n • Use inverse operations \n • Estimate to check reasonableness \n • Did you answer what was asked? \n • Are units correct? \n • Check your calculations",
                         "Ask: Is this answer logical and correct?"
                     )
                 ),
@@ -5500,21 +4741,10 @@ object InteractiveLessonProvider {
                     problem = "A store bought 8 boxes of apples. Each box contains 24.5 kg and costs ₱1,225.00. The store sold all apples at ₱65.00 per kg. How much profit did the store make per box?",
                     steps = listOf(
                         "Let's CHECK our answer: ₱367.50",
-                        "",
-                        "Method 1 - Work backwards:",
-                        "Cost + Profit = Revenue",
-                        "1,225 + 367.50 = 1,592.50 ✓",
-                        "",
-                        "Method 2 - Verify revenue:",
-                        "24.5 × 65 = 1,592.50 ✓",
-                        "",
-                        "Method 3 - Reasonableness:",
-                        "Selling price (₱65) > Cost per kg (1,225÷24.5 = ₱50)",
-                        "Profit makes sense: ₱15/kg × 24.5kg = ₱367.50 ✓",
-                        "",
-                        "Method 4 - Question check:",
-                        "Asked for profit per box? Yes, answered correctly ✓",
-                        "",
+                        "Method 1 - Work backwards: \n Cost + Profit = Revenue \n 1,225 + 367.50 = 1,592.50",
+                        "Method 2 - Verify revenue: \n 24.5 × 65 = 1,592.50",
+                        "Method 3 - Reasonableness: \n Selling price (₱65) > Cost per kg (1,225÷24.5 = ₱50) \n Profit makes sense: ₱15/kg × 24.5kg = ₱367.50",
+                        "Method 4 - Question check: \n Asked for profit per box? Yes, answered correctly",
                         "All checks pass - answer is correct!"
                     ),
                     answer = "Verified: ₱367.50 is correct!"
@@ -5525,20 +4755,11 @@ object InteractiveLessonProvider {
                     title = "Verification Methods",
                     content = "Different ways to check your answer:",
                     keyPoints = listOf(
-                        "1. Work Backwards:",
-                        "   Use inverse operations to get back to given values",
-                        "",
-                        "2. Estimate:",
-                        "   Round numbers and see if answer is close",
-                        "",
-                        "3. Alternative Method:",
-                        "   Solve using a different approach",
-                        "",
-                        "4. Reasonableness:",
-                        "   Does the answer make sense in real life?",
-                        "",
-                        "5. Unit Check:",
-                        "   Are the units correct for what was asked?"
+                        "1. Work Backwards: \n Use inverse operations to get back to given values",
+                        "2. Estimate: \n Round numbers and see if answer is close",
+                        "3. Alternative Method: \n Solve using a different approach",
+                        "4. Reasonableness: \n Does the answer make sense in real life?",
+                        "5. Unit Check: \n Are the units correct for what was asked?"
                     )
                 ),
 
@@ -5555,23 +4776,10 @@ object InteractiveLessonProvider {
                     title = "Complete Example 2: All 4 Steps",
                     problem = "A family of 5 people dined at a restaurant. The bill came to ₱2,847.50 including a 12% service charge. What was the original bill before the service charge? How much is the cost per person based on the original bill?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Given: Total ₱2,847.50 (includes 12% charge), 5 people",
-                        "Asked: Original bill? Cost per person?",
-                        "",
-                        "2. PLAN:",
-                        "Total = Original + 12% of Original",
-                        "Total = Original × 1.12",
-                        "So: Original = Total ÷ 1.12",
-                        "Then: Per person = Original ÷ 5",
-                        "",
-                        "3. SOLVE:",
-                        "Original = 2,847.50 ÷ 1.12 = ₱2,542.41",
-                        "Per person = 2,542.41 ÷ 5 = ₱508.48",
-                        "",
-                        "4. CHECK:",
-                        "2,542.41 × 1.12 = 2,847.50 ✓",
-                        "508.48 × 5 = 2,542.40 ≈ 2,542.41 ✓"
+                        "1. UNDERSTAND: \n Given: Total ₱2,847.50 (includes 12% charge), 5 people \n Asked: Original bill? Cost per person?",
+                        "2. PLAN: \n Total = Original + 12% of Original \n Total = Original × 1.12 \n So: Original = Total ÷ 1.12 \n Then: Per person = Original ÷ 5",
+                        "3. SOLVE: \n Original = 2,847.50 ÷ 1.12 = ₱2,542.41 \n Per person = 2,542.41 ÷ 5 = ₱508.48",
+                        "4. CHECK: \n 2,542.41 × 1.12 = 2,847.50 \n 508.48 × 5 = 2,542.40 ≈ 2,542.41"
                     ),
                     answer = "Original bill: ₱2,542.41; Per person: ₱508.48"
                 ),
@@ -5581,26 +4789,10 @@ object InteractiveLessonProvider {
                     title = "Complete Example 3: Multi-Step Problem",
                     problem = "A farmer harvested 245.5 kg of mangoes and 186.8 kg of guavas. He sold the mangoes at ₱85.00 per kg and guavas at ₱65.00 per kg. After selling all fruits, he spent ₱5,240.00 on fertilizer. How much money does he have left?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Harvested: 245.5 kg mangoes, 186.8 kg guavas",
-                        "Prices: ₱85/kg mangoes, ₱65/kg guavas",
-                        "Spent: ₱5,240 on fertilizer",
-                        "Asked: Money left?",
-                        "",
-                        "2. PLAN:",
-                        "Step 1: Revenue from mangoes",
-                        "Step 2: Revenue from guavas",
-                        "Step 3: Total revenue",
-                        "Step 4: Subtract expenses",
-                        "",
-                        "3. SOLVE:",
-                        "Mangoes: 245.5 × 85 = ₱20,867.50",
-                        "Guavas: 186.8 × 65 = ₱12,142.00",
-                        "Total revenue: 20,867.50 + 12,142.00 = ₱33,009.50",
-                        "Money left: 33,009.50 - 5,240.00 = ₱27,769.50",
-                        "",
-                        "4. CHECK:",
-                        "27,769.50 + 5,240 = 33,009.50 ✓"
+                        "1. UNDERSTAND: \n Harvested: 245.5 kg mangoes, 186.8 kg guavas \n Prices: ₱85/kg mangoes, ₱65/kg guavas \n Spent: ₱5,240 on fertilizer \n Asked: Money left?",
+                        "2. PLAN: \n Step 1: Revenue from mangoes \n Step 2: Revenue from guavas \n Step 3: Total revenue \n Step 4: Subtract expenses",
+                        "3. SOLVE: \n Mangoes: 245.5 × 85 = ₱20,867.50 \n Guavas: 186.8 × 65 = ₱12,142.00 \n Total revenue: 20,867.50 + 12,142.00 = ₱33,009.50 \n Money left: 33,009.50 - 5,240.00 = ₱27,769.50",
+                        "4. CHECK: \n 27,769.50 + 5,240 = 33,009.50"
                     ),
                     answer = "The farmer has ₱27,769.50 left"
                 ),
@@ -5625,10 +4817,9 @@ object InteractiveLessonProvider {
                         "❌ Forgetting to check work",
                         "❌ Ignoring units",
                         "❌ Careless calculation errors",
-                        "",
-                        "✓ Follow all 4 steps systematically",
-                        "✓ Take your time to understand",
-                        "✓ Always check your answer"
+                        "Follow all 4 steps systematically",
+                        "Take your time to understand",
+                        "Always check your answer"
                     )
                 ),
 
@@ -5637,18 +4828,10 @@ object InteractiveLessonProvider {
                     title = "Tips for Each Step",
                     content = "Maximize your success:",
                     keyPoints = listOf(
-                        "UNDERSTAND:",
-                        "• Read twice, highlight key info, circle numbers",
-                        "",
-                        "PLAN:",
-                        "• Write clear number sentences, identify operations",
-                        "",
-                        "SOLVE:",
-                        "• Show all work, be neat, check each calculation",
-                        "",
-                        "CHECK:",
-                        "• Use multiple verification methods",
-                        "",
+                        "UNDERSTAND: \n • Read twice, highlight key info, circle numbers",
+                        "PLAN: \n • Write clear number sentences, identify operations",
+                        "SOLVE: \n • Show all work, be neat, check each calculation",
+                        "CHECK: \n • Use multiple verification methods",
                         "Overall: Stay organized and patient!"
                     )
                 ),
@@ -5666,14 +4849,13 @@ object InteractiveLessonProvider {
                     title = "Problem-Solving Mindset",
                     content = "Develop these habits for success:",
                     keyPoints = listOf(
-                        "✓ Be patient - don't rush",
-                        "✓ Stay organized - write neatly",
-                        "✓ Be thorough - check each step",
-                        "✓ Think logically - does it make sense?",
-                        "✓ Practice regularly - build confidence",
-                        "✓ Learn from mistakes - they teach you",
-                        "✓ Ask for help when stuck",
-                        "",
+                        "Be patient - don't rush",
+                        "Stay organized - write neatly",
+                        "Be thorough - check each step",
+                        "Think logically - does it make sense?",
+                        "Practice regularly - build confidence",
+                        "Learn from mistakes - they teach you",
+                        "Ask for help when stuck",
                         "Remember: Every expert was once a beginner!",
                         "Problem-solving is a skill that improves with practice."
                     )
@@ -5701,22 +4883,10 @@ object InteractiveLessonProvider {
                     id = 22,
                     title = "Summary: The 4-Step Method",
                     keyPoints = listOf(
-                        "Step 1 - UNDERSTAND:",
-                        "• Read carefully, identify given/asked",
-                        "• Highlight key info, circle numbers and units",
-                        "",
-                        "Step 2 - PLAN:",
-                        "• Choose operations, write number sentences",
-                        "• Decide order of steps needed",
-                        "",
-                        "Step 3 - SOLVE:",
-                        "• Follow plan step-by-step",
-                        "• Show all work clearly, track units",
-                        "",
-                        "Step 4 - CHECK:",
-                        "• Verify answer makes sense",
-                        "• Work backwards, estimate, check calculations",
-                        "",
+                        "Step 1 - UNDERSTAND: \n • Read carefully, identify given/asked \n • Highlight key info, circle numbers and units",
+                        "Step 2 - PLAN: \n • Choose operations, write number sentences \n • Decide order of steps needed",
+                        "Step 3 - SOLVE: \n • Follow plan step-by-step \n • Show all work clearly, track units",
+                        "Step 4 - CHECK: \n • Verify answer makes sense \n • Work backwards, estimate, check calculations",
                         "Master these steps and you'll solve ANY problem!"
                     )
                 )
@@ -5745,7 +4915,6 @@ object InteractiveLessonProvider {
                         "Subtraction (−): finding difference, change",
                         "Multiplication (×): repeated addition, rates",
                         "Division (÷): splitting equally, unit rates",
-                        "",
                         "Key skill: Knowing WHEN to use each operation",
                         "Order matters: Follow PEMDAS/GEMDAS rules"
                     )
@@ -5762,7 +4931,6 @@ object InteractiveLessonProvider {
                         "D - Division (left to right)",
                         "A - Addition (left to right)",
                         "S - Subtraction (left to right)",
-                        "",
                         "Remember: MD and AS are done together, left to right"
                     )
                 ),
@@ -5775,11 +4943,7 @@ object InteractiveLessonProvider {
                         "Keywords guide you to operations",
                         "Steps are straightforward",
                         "Usually 2-3 operations needed",
-                        "",
-                        "Example patterns:",
-                        "• Buy multiple items, find total, get change",
-                        "• Calculate earnings, subtract expenses, split profit",
-                        "• Find area, multiply by cost, add extras"
+                        "Example patterns: \n • Buy multiple items, find total, get change \n • Calculate earnings, subtract expenses, split profit \n • Find area, multiply by cost, add extras"
                     )
                 ),
 
@@ -5788,26 +4952,10 @@ object InteractiveLessonProvider {
                     title = "Routine Problem 1: Shopping with Change",
                     problem = "Maria bought 3 notebooks at ₱45.50 each and 5 pens at ₱12.75 each. She paid with a ₱500 bill. How much change did she receive?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Notebooks: 3 × ₱45.50",
-                        "Pens: 5 × ₱12.75",
-                        "Paid: ₱500",
-                        "Asked: Change?",
-                        "",
-                        "2. PLAN:",
-                        "Step 1: Cost of notebooks (multiply)",
-                        "Step 2: Cost of pens (multiply)",
-                        "Step 3: Total cost (add)",
-                        "Step 4: Change (subtract)",
-                        "",
-                        "3. SOLVE:",
-                        "Notebooks: 3 × 45.50 = ₱136.50",
-                        "Pens: 5 × 12.75 = ₱63.75",
-                        "Total: 136.50 + 63.75 = ₱200.25",
-                        "Change: 500 − 200.25 = ₱299.75",
-                        "",
-                        "4. CHECK:",
-                        "200.25 + 299.75 = 500 ✓"
+                        "1. UNDERSTAND: \n Notebooks: 3 × ₱45.50 \n Pens: 5 × ₱12.75 \n Paid: ₱500 \n Asked: Change?",
+                        "2. PLAN: \n Step 1: Cost of notebooks (multiply) \n Step 2: Cost of pens (multiply) \n Step 3: Total cost (add) \n Step 4: Change (subtract)",
+                        "3. SOLVE: \n Notebooks: 3 × 45.50 = ₱136.50 \n Pens: 5 × 12.75 = ₱63.75 \n Total: 136.50 + 63.75 = ₱200.25 \n Change: 500 − 200.25 = ₱299.75",
+                        "4. CHECK: \n 200.25 + 299.75 = 500"
                     ),
                     answer = "Maria received ₱299.75 in change"
                 ),
@@ -5817,27 +4965,10 @@ object InteractiveLessonProvider {
                     title = "Routine Problem 2: Business Profit",
                     problem = "A vendor bought 8 kg of fish at ₱180 per kg. He sold 6 kg at ₱245 per kg and the rest at ₱220 per kg. How much profit did he make?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Bought: 8 kg at ₱180/kg",
-                        "Sold: 6 kg at ₱245/kg, 2 kg at ₱220/kg",
-                        "Asked: Total profit?",
-                        "",
-                        "2. PLAN:",
-                        "Total cost = 8 × 180",
-                        "Revenue from 6 kg = 6 × 245",
-                        "Revenue from 2 kg = 2 × 220",
-                        "Total revenue = sum of revenues",
-                        "Profit = revenue − cost",
-                        "",
-                        "3. SOLVE:",
-                        "Cost: 8 × 180 = ₱1,440",
-                        "Revenue 1: 6 × 245 = ₱1,470",
-                        "Revenue 2: 2 × 220 = ₱440",
-                        "Total revenue: 1,470 + 440 = ₱1,910",
-                        "Profit: 1,910 − 1,440 = ₱470",
-                        "",
-                        "4. CHECK:",
-                        "1,440 + 470 = 1,910 ✓"
+                        "1. UNDERSTAND: \n Bought: 8 kg at ₱180/kg \n Sold: 6 kg at ₱245/kg, 2 kg at ₱220/kg \n Asked: Total profit?",
+                        "2. PLAN: \n Total cost = 8 × 180 \n Revenue from 6 kg = 6 × 245 \n Revenue from 2 kg = 2 × 220 \n Total revenue = sum of revenues \n Profit = revenue − cost",
+                        "3. SOLVE: \n Cost: 8 × 180 = ₱1,440 \n Revenue 1: 6 × 245 = ₱1,470 \n Revenue 2: 2 × 220 = ₱440 \n Total revenue: 1,470 + 440 = ₱1,910 \n Profit: 1,910 − 1,440 = ₱470",
+                        "4. CHECK: \n 1,440 + 470 = 1,910"
                     ),
                     answer = "The vendor made ₱470 profit"
                 ),
@@ -5859,12 +4990,7 @@ object InteractiveLessonProvider {
                         "Might have extra or hidden information",
                         "Requires analysis and strategy",
                         "May need 3-5 or more steps",
-                        "",
-                        "Strategies:",
-                        "• Draw diagrams or tables",
-                        "• Work backwards from the answer",
-                        "• Break into smaller sub-problems",
-                        "• Look for patterns or relationships"
+                        "Strategies: \n • Draw diagrams or tables \n • Work backwards from the answer \n • Break into smaller sub-problems \n • Look for patterns or relationships"
                     )
                 ),
 
@@ -5873,24 +4999,10 @@ object InteractiveLessonProvider {
                     title = "Non-Routine Problem 1: Working Backwards",
                     problem = "After buying groceries, Sofia had ₱287.50 left. She had spent ₱425 on groceries and ₱156.50 on transportation before that. How much money did she have at the start?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Ended with: ₱287.50",
-                        "Spent on groceries: ₱425",
-                        "Spent on transport: ₱156.50",
-                        "Asked: Starting amount?",
-                        "",
-                        "2. PLAN:",
-                        "Work backwards - add back what was spent",
-                        "Start = End + Groceries + Transport",
-                        "",
-                        "3. SOLVE:",
-                        "After groceries: 287.50 + 425 = ₱712.50",
-                        "Original amount: 712.50 + 156.50 = ₱869",
-                        "",
-                        "4. CHECK:",
-                        "Forward check:",
-                        "869 − 156.50 = 712.50 (after transport)",
-                        "712.50 − 425 = 287.50 (final) ✓"
+                        "1. UNDERSTAND: \n Ended with: ₱287.50 \n Spent on groceries: ₱425 \n Spent on transport: ₱156.50 \n Asked: Starting amount?",
+                        "2. PLAN: \n Work backwards - add back what was spent \n Start = End + Groceries + Transport",
+                        "3. SOLVE: \n After groceries: 287.50 + 425 = ₱712.50 \n Original amount: 712.50 + 156.50 = ₱869",
+                        "4. CHECK: \n Forward check: \n 869 − 156.50 = 712.50 (after transport) \n 712.50 − 425 = 287.50 (final)"
                     ),
                     answer = "Sofia started with ₱869.00"
                 ),
@@ -5900,30 +5012,11 @@ object InteractiveLessonProvider {
                     title = "Non-Routine Problem 2: Comparison and Decision",
                     problem = "Store A sells 2.5 kg bags of sugar for ₱137.50. Store B sells 3.2 kg bags for ₱169.60. Which store offers better value, and how much would you save per kg when buying 10 kg?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Store A: ₱137.50 for 2.5 kg",
-                        "Store B: ₱169.60 for 3.2 kg",
-                        "Asked: Better value? Savings on 10 kg?",
-                        "",
-                        "2. PLAN:",
-                        "Find price/kg for each",
-                        "Compare prices",
-                        "Calculate cost for 10 kg each",
-                        "Find difference",
-                        "",
-                        "3. SOLVE:",
-                        "Store A: 137.50 ÷ 2.5 = ₱55/kg",
-                        "Store B: 169.60 ÷ 3.2 = ₱53/kg",
-                        "Store B is cheaper!",
-                        "",
-                        "For 10 kg:",
-                        "Store A: 10 × 55 = ₱550",
-                        "Store B: 10 × 53 = ₱530",
-                        "Savings: 550 − 530 = ₱20",
-                        "",
-                        "4. CHECK:",
-                        "Difference per kg: 55 − 53 = ₱2",
-                        "2 × 10 kg = ₱20 savings ✓"
+                        "1. UNDERSTAND: \n Store A: ₱137.50 for 2.5 kg \n Store B: ₱169.60 for 3.2 kg \n Asked: Better value? Savings on 10 kg?",
+                        "2. PLAN: \n Find price/kg for each \n Compare prices \n Calculate cost for 10 kg each \n Find difference",
+                        "3. SOLVE: \n Store A: 137.50 ÷ 2.5 = ₱55/kg \n Store B: 169.60 ÷ 3.2 = ₱53/kg \n Store B is cheaper!",
+                        "For 10 kg: \n Store A: 10 × 55 = ₱550 \n Store B: 10 × 53 = ₱530 \n Savings: 550 − 530 = ₱20",
+                        "4. CHECK: \n Difference per kg: 55 − 53 = ₱2 \n 2 × 10 kg = ₱20 savings"
                     ),
                     answer = "Store B offers better value. Save ₱20 on 10 kg"
                 ),
@@ -5942,19 +5035,9 @@ object InteractiveLessonProvider {
                     keyPoints = listOf(
                         "Multi-operation problems combine all four operations",
                         "Follow GEMDAS for order of operations",
-                        "",
-                        "Routine problems:",
-                        "• Clear operation keywords",
-                        "• Straightforward steps",
-                        "",
-                        "Non-routine problems:",
-                        "• Require analysis and creative thinking",
-                        "• May need working backwards or comparisons",
-                        "",
-                        "Always:",
-                        "• Use the 4-step method (UPSC)",
-                        "• Show all work clearly",
-                        "• Check your answer makes sense"
+                        "Routine problems: \n • Clear operation keywords \n • Straightforward steps",
+                        "Non-routine problems: \n • Require analysis and creative thinking \n • May need working backwards or comparisons",
+                        "Always: \n • Use the 4-step method (UPSC) \n • Show all work clearly \n • Check your answer makes sense"
                     )
                 )
             )
@@ -5970,7 +5053,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Welcome!",
-                    content = "In this topic, you'll learn how to CREATE your own word problems!\n\nCreating problems helps you understand math deeply and think like a mathematician."
+                    content = "In this topic, you'll learn how to CREATE your own word problems! Creating problems helps you understand math deeply and think like a mathematician."
                 ),
 
                 Slide.ConceptSlide(
@@ -5978,13 +5061,12 @@ object InteractiveLessonProvider {
                     title = "Why Create Problems?",
                     content = "Creating your own word problems helps you:",
                     keyPoints = listOf(
-                        "✓ Understand math concepts more deeply",
-                        "✓ See connections to real life",
-                        "✓ Think creatively about mathematics",
-                        "✓ Recognize problem patterns",
-                        "✓ Become a better problem solver",
-                        "✓ Make math more interesting and fun",
-                        "",
+                        "Understand math concepts more deeply",
+                        "See connections to real life",
+                        "Think creatively about mathematics",
+                        "Recognize problem patterns",
+                        "Become a better problem solver",
+                        "Make math more interesting and fun",
                         "When you can create a problem, you truly understand it!"
                     )
                 ),
@@ -5994,20 +5076,11 @@ object InteractiveLessonProvider {
                     title = "Steps to Create a Word Problem",
                     content = "Follow these steps to create good word problems:",
                     keyPoints = listOf(
-                        "Step 1: Choose the operation(s)",
-                        "• What math concept do you want to practice?",
-                        "",
-                        "Step 2: Pick a real-world context",
-                        "• Shopping, cooking, sports, travel, etc.",
-                        "",
-                        "Step 3: Create the situation",
-                        "• Write a story that uses your chosen operations",
-                        "",
-                        "Step 4: Write clear information",
-                        "• Include all needed numbers and units",
-                        "",
-                        "Step 5: Ask a clear question",
-                        "• What should be found or calculated?"
+                        "Step 1: Choose the operation(s) \n • What math concept do you want to practice?",
+                        "Step 2: Pick a real-world context \n • Shopping, cooking, sports, travel, etc.",
+                        "Step 3: Create the situation \n • Write a story that uses your chosen operations",
+                        "Step 4: Write clear information \n • Include all needed numbers and units",
+                        "Step 5: Ask a clear question \n • What should be found or calculated?"
                     )
                 ),
 
@@ -6016,23 +5089,12 @@ object InteractiveLessonProvider {
                     title = "Example: Creating an Addition Problem",
                     problem = "Let's create a problem step by step:",
                     steps = listOf(
-                        "Step 1: Choose operation",
-                        "→ Addition with decimals and money",
-                        "",
-                        "Step 2: Pick context",
-                        "→ Shopping at a bookstore",
-                        "",
-                        "Step 3: Create situation",
-                        "→ A student buying school supplies",
-                        "",
-                        "Step 4: Add numbers",
-                        "→ Notebook ₱35.50, pen ₱12.75, eraser ₱8.25",
-                        "",
-                        "Step 5: Ask question",
-                        "→ What is the total cost?",
-                        "",
-                        "FINAL PROBLEM:",
-                        "Maria bought a notebook for ₱35.50, a pen for ₱12.75, and an eraser for ₱8.25. What is the total cost of her purchases?"
+                        "Step 1: Choose operation \n → Addition with decimals and money",
+                        "Step 2: Pick context \n → Shopping at a bookstore",
+                        "Step 3: Create situation \n → A student buying school supplies",
+                        "Step 4: Add numbers \n → Notebook ₱35.50, pen ₱12.75, eraser ₱8.25",
+                        "Step 5: Ask question \n → What is the total cost?",
+                        "FINAL PROBLEM: \n Maria bought a notebook for ₱35.50, a pen for ₱12.75, and an eraser for ₱8.25. What is the total cost of her purchases?"
                     ),
                     answer = "Total cost: ₱35.50 + ₱12.75 + ₱8.25 = ₱56.50"
                 ),
@@ -6042,24 +5104,12 @@ object InteractiveLessonProvider {
                     title = "Example: Creating a Multi-Step Problem",
                     problem = "Now let's create a more complex problem:",
                     steps = listOf(
-                        "Step 1: Choose operations",
-                        "→ Multiplication and subtraction (change problem)",
-                        "",
-                        "Step 2: Pick context",
-                        "→ Buying snacks at a canteen",
-                        "",
-                        "Step 3: Create situation",
-                        "→ Student buys multiple items, pays with bill",
-                        "",
-                        "Step 4: Add numbers",
-                        "→ 3 sandwiches at ₱42.50 each",
-                        "→ Pays with ₱200 bill",
-                        "",
-                        "Step 5: Ask question",
-                        "→ How much change?",
-                        "",
-                        "FINAL PROBLEM:",
-                        "Juan bought 3 sandwiches at ₱42.50 each. He paid with a ₱200 bill. How much change will he receive?"
+                        "Step 1: Choose operations \n → Multiplication and subtraction (change problem)",
+                        "Step 2: Pick context \n → Buying snacks at a canteen",
+                        "Step 3: Create situation \n → Student buys multiple items, pays with bill",
+                        "Step 4: Add numbers \n → 3 sandwiches at ₱42.50 each \n → Pays with ₱200 bill",
+                        "Step 5: Ask question \n → How much change?",
+                        "FINAL PROBLEM: \n Juan bought 3 sandwiches at ₱42.50 each. He paid with a ₱200 bill. How much change will he receive?"
                     ),
                     answer = "Cost: 3 × ₱42.50 = ₱127.50. Change: ₱200 − ₱127.50 = ₱72.50"
                 ),
@@ -6069,21 +5119,11 @@ object InteractiveLessonProvider {
                     title = "Tips for Good Problem Creation",
                     content = "Make your problems interesting and solvable:",
                     keyPoints = listOf(
-                        "✓ Use realistic numbers",
-                        "• ₱45.50 for a notebook (realistic)",
-                        "• ₱1,234.56 for a notebook (unrealistic)",
-                        "",
-                        "✓ Include appropriate units",
-                        "• Pesos, kilograms, meters, hours, etc.",
-                        "",
-                        "✓ Make the context relatable",
-                        "• Use familiar situations",
-                        "",
-                        "✓ Provide all necessary information",
-                        "• Don't leave out important numbers",
-                        "",
-                        "✓ Ask one clear question",
-                        "• Don't confuse with multiple questions"
+                        "Use realistic numbers \n • ₱45.50 for a notebook (realistic) \n • ₱1,234.56 for a notebook (unrealistic)",
+                        "Include appropriate units \n • Pesos, kilograms, meters, hours, etc.",
+                        "Make the context relatable \n • Use familiar situations",
+                        "Provide all necessary information \n • Don't leave out important numbers",
+                        "Ask one clear question \n Don't confuse with multiple questions"
                     )
                 ),
 
@@ -6105,23 +5145,12 @@ object InteractiveLessonProvider {
                     title = "Problem Contexts to Use",
                     content = "Great real-world contexts for word problems:",
                     keyPoints = listOf(
-                        "Money/Shopping:",
-                        "• Buying items, getting change, comparing prices",
-                        "",
-                        "Cooking/Recipes:",
-                        "• Measuring ingredients, scaling recipes",
-                        "",
-                        "Travel/Distance:",
-                        "• Calculating distances, speeds, time",
-                        "",
-                        "Measurement:",
-                        "• Length, weight, capacity problems",
-                        "",
-                        "Sports/Games:",
-                        "• Scores, statistics, timing",
-                        "",
-                        "School:",
-                        "• Grades, supplies, schedules"
+                        "Money/Shopping: \n Buying items, getting change, comparing prices",
+                        "Cooking/Recipes: \n Measuring ingredients, scaling recipes",
+                        "Travel/Distance: \n Calculating distances, speeds, time",
+                        "Measurement: \n Length, weight, capacity problems",
+                        "Sports/Games: \n Scores, statistics, timing",
+                        "School: \n Grades, supplies, schedules"
                     )
                 ),
 
@@ -6130,24 +5159,10 @@ object InteractiveLessonProvider {
                     title = "Your Turn: Guided Creation",
                     problem = "Let's create a problem about buying fruit:",
                     steps = listOf(
-                        "Framework provided:",
-                        "• Operation: Multiplication and addition",
-                        "• Context: Fruit market",
-                        "• Situation: Buying different fruits",
-                        "",
-                        "You fill in:",
-                        "1. Choose fruits (e.g., mangoes, bananas)",
-                        "2. Add quantities (e.g., 2.5 kg, 3 kg)",
-                        "3. Add prices (e.g., ₱85/kg, ₱50/kg)",
-                        "4. Ask: What is the total cost?",
-                        "",
-                        "Example result:",
-                        "Ana bought 2.5 kg of mangoes at ₱85 per kg and 3 kg of bananas at ₱50 per kg. What is the total amount she paid?",
-                        "",
-                        "Solution:",
-                        "Mangoes: 2.5 × 85 = ₱212.50",
-                        "Bananas: 3 × 50 = ₱150",
-                        "Total: ₱212.50 + ₱150 = ₱362.50"
+                        "Framework provided: \n • Operation: Multiplication and addition \n • Context: Fruit market \n • Situation: Buying different fruits",
+                        "You fill in: \n 1. Choose fruits (e.g., mangoes, bananas) \n 2. Add quantities (e.g., 2.5 kg, 3 kg) \n 3. Add prices (e.g., ₱85/kg, ₱50/kg) \n 4. Ask: What is the total cost?",
+                        "Example result: \n Ana bought 2.5 kg of mangoes at ₱85 per kg and 3 kg of bananas at ₱50 per kg. What is the total amount she paid?",
+                        "Solution: \n Mangoes: 2.5 × 85 = ₱212.50 \n Bananas: 3 × 50 = ₱150 \n Total: ₱212.50 + ₱150 = ₱362.50"
                     ),
                     answer = "Total: ₱362.50"
                 ),
@@ -6157,20 +5172,8 @@ object InteractiveLessonProvider {
                     title = "Summary",
                     keyPoints = listOf(
                         "Creating problems helps you understand math deeply",
-                        "",
-                        "5 Steps to Create:",
-                        "1. Choose operation(s)",
-                        "2. Pick real-world context",
-                        "3. Create the situation",
-                        "4. Add clear numbers and units",
-                        "5. Ask a clear question",
-                        "",
-                        "Tips:",
-                        "• Use realistic numbers",
-                        "• Make context relatable",
-                        "• Include all needed information",
-                        "• Test solve your own problem!",
-                        "",
+                        "5 Steps to Create: \n 1. Choose operation(s) \n 2. Pick real-world context \n 3. Create the situation \n 4. Add clear numbers and units \n 5. Ask a clear question",
+                        "Tips: \n • Use realistic numbers \n • Make context relatable \n • Include all needed information \n • Test solve your own problem!",
                         "Practice by creating problems for classmates to solve!"
                     )
                 )
@@ -6187,7 +5190,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Welcome!",
-                    content = "In this topic, you'll master solving multi-step problems that require using two or more arithmetic operations.\n\nThese problems are more complex but follow predictable patterns!"
+                    content = "In this topic, you'll master solving multi-step problems that require using two or more arithmetic operations. These problems are more complex but follow predictable patterns!"
                 ),
 
                 Slide.ConceptSlide(
@@ -6195,15 +5198,8 @@ object InteractiveLessonProvider {
                     title = "What are Multi-Step Problems?",
                     content = "Multi-step problems require more than one operation to solve:",
                     keyPoints = listOf(
-                        "Characteristics:",
-                        "• Need 2 or more operations",
-                        "• Must be solved in specific order",
-                        "• Each step builds on the previous one",
-                        "• Intermediate answers lead to final answer",
-                        "",
-                        "Example:",
-                        "Buy items (multiply), find total (add), calculate change (subtract)",
-                        "",
+                        "Characteristics: \n • Need 2 or more operations \n • Must be solved in specific order \n • Each step builds on the previous one \n • Intermediate answers lead to final answer",
+                        "Example: \n Buy items (multiply), find total (add), calculate change (subtract)",
                         "Key: Break complex problems into simple steps!"
                     )
                 ),
@@ -6213,24 +5209,10 @@ object InteractiveLessonProvider {
                     title = "Common Multi-Step Patterns",
                     content = "Recognize these common patterns:",
                     keyPoints = listOf(
-                        "Pattern 1: Buy Multiple Items + Change",
-                        "• Multiply quantities by prices",
-                        "• Add all costs",
-                        "• Subtract from payment",
-                        "",
-                        "Pattern 2: Cost + Profit/Loss",
-                        "• Calculate total cost",
-                        "• Calculate total revenue",
-                        "• Subtract to find profit or loss",
-                        "",
-                        "Pattern 3: Unit Rate + Total Cost",
-                        "• Divide to find rate per unit",
-                        "• Multiply by different quantity",
-                        "",
-                        "Pattern 4: Sharing After Expenses",
-                        "• Calculate total expenses",
-                        "• Subtract from total",
-                        "• Divide among people"
+                        "Pattern 1: Buy Multiple Items + Change \n • Multiply quantities by prices \n • Add all costs \n • Subtract from payment",
+                        "Pattern 2: Cost + Profit/Loss \n • Calculate total cost \n • Calculate total revenue \n • Subtract to find profit or loss",
+                        "Pattern 3: Unit Rate + Total Cost \n • Divide to find rate per unit \n • Multiply by different quantity",
+                        "Pattern 4: Sharing After Expenses \n • Calculate total expenses \n • Subtract from total \n • Divide among people"
                     )
                 ),
 
@@ -6239,27 +5221,10 @@ object InteractiveLessonProvider {
                     title = "Pattern 1: Shopping with Change",
                     problem = "Lisa bought 4 notebooks at ₱32.50 each, 3 pens at ₱15.75 each, and 2 folders at ₱28.00 each. She paid with three ₱100 bills. How much change did she receive?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Items: 4 notebooks (₱32.50), 3 pens (₱15.75), 2 folders (₱28)",
-                        "Paid: 3 × ₱100 = ₱300",
-                        "Asked: Change?",
-                        "",
-                        "2. PLAN (identify steps):",
-                        "Step A: Cost of notebooks (multiply)",
-                        "Step B: Cost of pens (multiply)",
-                        "Step C: Cost of folders (multiply)",
-                        "Step D: Total cost (add A + B + C)",
-                        "Step E: Change (subtract D from payment)",
-                        "",
-                        "3. SOLVE:",
-                        "A. Notebooks: 4 × 32.50 = ₱130.00",
-                        "B. Pens: 3 × 15.75 = ₱47.25",
-                        "C. Folders: 2 × 28.00 = ₱56.00",
-                        "D. Total: 130 + 47.25 + 56 = ₱233.25",
-                        "E. Change: 300 − 233.25 = ₱66.75",
-                        "",
-                        "4. CHECK:",
-                        "233.25 + 66.75 = 300 ✓"
+                        "1. UNDERSTAND: \n Items: 4 notebooks (₱32.50), 3 pens (₱15.75), 2 folders (₱28) \n Paid: 3 × ₱100 = ₱300 \n Asked: Change?",
+                        "2. PLAN (identify steps): \n Step A: Cost of notebooks (multiply) \n Step B: Cost of pens (multiply) \n Step C: Cost of folders (multiply) \n Step D: Total cost (add A + B + C) \n Step E: Change (subtract D from payment)",
+                        "3. SOLVE: \n A. Notebooks: 4 × 32.50 = ₱130.00 \n B. Pens: 3 × 15.75 = ₱47.25 \n C. Folders: 2 × 28.00 = ₱56.00 \n D. Total: 130 + 47.25 + 56 = ₱233.25 \n E. Change: 300 − 233.25 = ₱66.75",
+                        "4. CHECK: \n 233.25 + 66.75 = 300"
                     ),
                     answer = "Lisa received ₱66.75 in change"
                 ),
@@ -6269,27 +5234,10 @@ object InteractiveLessonProvider {
                     title = "Pattern 2: Business Profit Calculation",
                     problem = "A street vendor bought 15 kg of mangoes at ₱65 per kg. He sold 10 kg at ₱95 per kg and the remaining 5 kg at ₱80 per kg. How much profit did he make?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Bought: 15 kg at ₱65/kg",
-                        "Sold: 10 kg at ₱95/kg, 5 kg at ₱80/kg",
-                        "Asked: Profit?",
-                        "",
-                        "2. PLAN:",
-                        "Step A: Total cost (15 × 65)",
-                        "Step B: Revenue from 10 kg (10 × 95)",
-                        "Step C: Revenue from 5 kg (5 × 80)",
-                        "Step D: Total revenue (B + C)",
-                        "Step E: Profit (D − A)",
-                        "",
-                        "3. SOLVE:",
-                        "A. Cost: 15 × 65 = ₱975",
-                        "B. Revenue 1: 10 × 95 = ₱950",
-                        "C. Revenue 2: 5 × 80 = ₱400",
-                        "D. Total revenue: 950 + 400 = ₱1,350",
-                        "E. Profit: 1,350 − 975 = ₱375",
-                        "",
-                        "4. CHECK:",
-                        "975 + 375 = 1,350 ✓"
+                        "1. UNDERSTAND: \n Bought: 15 kg at ₱65/kg \n Sold: 10 kg at ₱95/kg, 5 kg at ₱80/kg \n Asked: Profit?",
+                        "2. PLAN: \n Step A: Total cost (15 × 65) \n Step B: Revenue from 10 kg (10 × 95) \n Step C: Revenue from 5 kg (5 × 80) \n Step D: Total revenue (B + C) \n Step E: Profit (D − A)",
+                        "3. SOLVE: \n A. Cost: 15 × 65 = ₱975 \n B. Revenue 1: 10 × 95 = ₱950 \n C. Revenue 2: 5 × 80 = ₱400 \n D. Total revenue: 950 + 400 = ₱1,350 \n E. Profit: 1,350 − 975 = ₱375",
+                        "4. CHECK: \n 975 + 375 = 1,350"
                     ),
                     answer = "The vendor made ₱375 profit"
                 ),
@@ -6307,24 +5255,11 @@ object InteractiveLessonProvider {
                     title = "Pattern 3: Unit Rate Application",
                     problem = "A car traveled 315 km using 22.5 liters of gasoline. At this rate, how much gasoline is needed to travel 525 km?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Given: 315 km used 22.5 L",
-                        "Asked: Liters needed for 525 km?",
-                        "",
-                        "2. PLAN:",
-                        "Step A: Find km per liter (rate)",
-                        "Step B: Find liters for 525 km",
-                        "",
-                        "3. SOLVE:",
-                        "A. Rate: 315 ÷ 22.5 = 14 km/L",
-                        "B. Liters needed: 525 ÷ 14 = 37.5 L",
-                        "",
-                        "Alternative method:",
-                        "A. Liters per km: 22.5 ÷ 315 = 0.071428... L/km",
-                        "B. For 525 km: 525 × (22.5 ÷ 315) = 37.5 L",
-                        "",
-                        "4. CHECK:",
-                        "37.5 × 14 = 525 km ✓"
+                        "1. UNDERSTAND: \n Given: 315 km used 22.5 L \n Asked: Liters needed for 525 km?",
+                        "2. PLAN: \n Step A: Find km per liter (rate) \n Step B: Find liters for 525 km",
+                        "3. SOLVE: \n A. Rate: 315 ÷ 22.5 = 14 km/L \n B. Liters needed: 525 ÷ 14 = 37.5 L",
+                        "Alternative method: \n A. Liters per km: 22.5 ÷ 315 = 0.071428... L/km \n B. For 525 km: 525 × (22.5 ÷ 315) = 37.5 L",
+                        "4. CHECK: \n 37.5 × 14 = 525 km"
                     ),
                     answer = "37.5 liters are needed"
                 ),
@@ -6334,25 +5269,10 @@ object InteractiveLessonProvider {
                     title = "Pattern 4: Sharing After Expenses",
                     problem = "Four friends earned ₱3,840 from a garage sale. They spent ₱560 on supplies and ₱280 on snacks. They plan to split the remaining money equally. How much will each friend receive?",
                     steps = listOf(
-                        "1. UNDERSTAND:",
-                        "Earned: ₱3,840",
-                        "Spent: ₱560 (supplies) + ₱280 (snacks)",
-                        "Split among: 4 friends",
-                        "Asked: Amount per friend?",
-                        "",
-                        "2. PLAN:",
-                        "Step A: Total expenses (560 + 280)",
-                        "Step B: Remaining money (3,840 − A)",
-                        "Step C: Amount per person (B ÷ 4)",
-                        "",
-                        "3. SOLVE:",
-                        "A. Total expenses: 560 + 280 = ₱840",
-                        "B. Remaining: 3,840 − 840 = ₱3,000",
-                        "C. Per person: 3,000 ÷ 4 = ₱750",
-                        "",
-                        "4. CHECK:",
-                        "750 × 4 = 3,000",
-                        "3,000 + 840 = 3,840 ✓"
+                        "1. UNDERSTAND: \n Earned: ₱3,840 \n Spent: ₱560 (supplies) + ₱280 (snacks) \n Split among: 4 friends \n Asked: Amount per friend?",
+                        "2. PLAN: \n Step A: Total expenses (560 + 280) \n Step B: Remaining money (3,840 − A) \n Step C: Amount per person (B ÷ 4)",
+                        "3. SOLVE: \n A. Total expenses: 560 + 280 = ₱840 \n B. Remaining: 3,840 − 840 = ₱3,000 \n C. Per person: 3,000 ÷ 4 = ₱750",
+                        "4. CHECK: \n 750 × 4 = 3,000 \n 3,000 + 840 = 3,840"
                     ),
                     answer = "Each friend receives ₱750"
                 ),
@@ -6370,23 +5290,12 @@ object InteractiveLessonProvider {
                     title = "Strategy: Breaking Down Problems",
                     content = "How to approach multi-step problems:",
                     keyPoints = listOf(
-                        "1. Read completely first",
-                        "• Don't start calculating immediately",
-                        "",
-                        "2. Identify ALL operations needed",
-                        "• List them in order",
-                        "",
-                        "3. Label each step (A, B, C...)",
-                        "• This keeps you organized",
-                        "",
-                        "4. Solve one step at a time",
-                        "• Complete each before moving to next",
-                        "",
-                        "5. Use intermediate answers",
-                        "• Each answer feeds into next step",
-                        "",
-                        "6. Check at the end",
-                        "• Work backwards to verify"
+                        "1. Read completely first \n • Don't start calculating immediately",
+                        "2. Identify ALL operations needed \n • List them in order",
+                        "3. Label each step (A, B, C...) \n • This keeps you organized",
+                        "4. Solve one step at a time \n • Complete each before moving to next",
+                        "5. Use intermediate answers \n • Each answer feeds into next step",
+                        "6. Check at the end \n • Work backwards to verify"
                     )
                 ),
 
@@ -6395,19 +5304,8 @@ object InteractiveLessonProvider {
                     title = "Summary",
                     keyPoints = listOf(
                         "Multi-step problems need 2+ operations in sequence",
-                        "",
-                        "Common patterns:",
-                        "• Shopping + Change (multiply, add, subtract)",
-                        "• Profit/Loss (cost, revenue, difference)",
-                        "• Unit rates (divide, multiply)",
-                        "• Sharing after expenses (add, subtract, divide)",
-                        "",
-                        "Success strategies:",
-                        "• Break into labeled steps (A, B, C...)",
-                        "• Solve one step at a time",
-                        "• Use each answer in next step",
-                        "• Check by working backwards",
-                        "",
+                        "Common patterns: \n • Shopping + Change (multiply, add, subtract) \n • Profit/Loss (cost, revenue, difference) \n • Unit rates (divide, multiply) \n • Sharing after expenses (add, subtract, divide)",
+                        "Success strategies: \n • Break into labeled steps (A, B, C...) \n • Solve one step at a time \n • Use each answer in next step \n • Check by working backwards",
                         "Practice recognizing patterns to solve faster!"
                     )
                 )
@@ -6425,7 +5323,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Hi!!",
-                    content = "In this topic, you will learn how to write ratios, relate them to fractions, and tell when a ratio is a rate.\n\nRatios help us compare quantities in everyday life!"
+                    content = "In this topic, you will learn how to write ratios, relate them to fractions, and tell when a ratio is a rate. Ratios help us compare quantities in everyday life!"
                 ),
 
                 Slide.ConceptSlide(
@@ -6445,12 +5343,9 @@ object InteractiveLessonProvider {
                     title = "Three Ways to Write a Ratio",
                     content = "Every ratio can be expressed in three different forms:",
                     keyPoints = listOf(
-                        "1. Word form: '1 is to 2'",
-                        "   Example: 'three is to five'",
-                        "2. Colon form: 1:2",
-                        "   Example: 3:5",
-                        "3. Fraction form: ¹⁄₂",
-                        "   Example: ³⁄₅",
+                        "1. Word form: '1 is to 2' \n Example: 'three is to five'",
+                        "2. Colon form: 1:2 \n Example: 3:5",
+                        "3. Fraction form: ¹⁄₂ \n Example: ³⁄₅",
                         "All three forms mean the same thing!"
                     )
                 ),
@@ -6535,9 +5430,7 @@ object InteractiveLessonProvider {
                         "Cats: 8",
                         "Total animals: 14 + 8 = 22",
                         "Part-to-whole ratios work like fractions!",
-                        "Example:",
-                        "Cats to total animals = ⁸⁄₂₂",
-                        "This is both a ratio AND a fraction"
+                        "Example: \n Cats to total animals = ⁸⁄₂₂ \n This is both a ratio AND a fraction"
                     )
                 ),
 
@@ -6546,17 +5439,10 @@ object InteractiveLessonProvider {
                     title = "Example 3: Part-to-Whole Comparison",
                     problem = "Compare cats to the total number of animals",
                     steps = listOf(
-                        "Step 1: Find the total Dogs: 14 and Cats: 8",
-                        "Total: 14 + 8 = 22 animals",
-                        "Step 2: Write the ratio",
-                        "Cats to total animals:",
-                        "Word form: 8 is to 22",
-                        "Colon form: 8:22",
-                        "Fraction form: ⁸⁄₂₂",
+                        "Step 1: Find the total Dogs: 14 and Cats: 8 \n Total: 14 + 8 = 22 animals",
+                        "Step 2: Write the ratio \n Cats to total animals: \n Word form: 8 is to 22 \n Colon form: 8:22 \n Fraction form: ⁸⁄₂₂",
                         "Step 3: Simplify",
-                        "Both divisible by 2",
-                        "8 ÷ 2 = 4",
-                        "22 ÷ 2 = 11",
+                        "Both divisible by 2 \n 8 ÷ 2 = 4 \n 22 ÷ 2 = 11",
                         "Simplified: 4:11 or ⁴⁄₁₁"
                     ),
                     answer = "Cats to total = 8:22 or ⁴⁄₁₁ (simplified)"
@@ -6569,13 +5455,8 @@ object InteractiveLessonProvider {
                     steps = listOf(
                         "Total animals: 22",
                         "Dogs: 14",
-                        "Ratio of total to dogs:",
-                        "Word form: 22 is to 14",
-                        "Colon form: 22:14",
-                        "Fraction form: ²²⁄₁₄",
-                        "Simplify (divide by 2):",
-                        "22 ÷ 2 = 11",
-                        "14 ÷ 2 = 7",
+                        "Ratio of total to dogs: \n Word form: 22 is to 14 \n Colon form: 22:14 \n Fraction form: ²²⁄₁₄",
+                        "Simplify (divide by 2): \n 22 ÷ 2 = 11 \n 14 ÷ 2 = 7",
                         "Simplified: 11:7 or ¹¹⁄₇"
                     ),
                     answer = "Total to dogs = 22:14 or ¹¹⁄₇ (simplified)"
@@ -6588,9 +5469,7 @@ object InteractiveLessonProvider {
                     keyPoints = listOf(
                         "For fractions, we say: 'two-thirds' (²⁄₃)",
                         "For ratios in fraction form, we say: 'two is to three' (²⁄₃)",
-                        "Examples:",
-                        "³⁄₅ → 'three is to five' (not 'three-fifths')",
-                        "⁷⁄₄ → 'seven is to four' (not 'seven-fourths')",
+                        "Examples: \n ³⁄₅ → 'three is to five' (not 'three-fifths') \n ⁷⁄₄ → 'seven is to four' (not 'seven-fourths')",
                         "Use 'is to' language for ratios!"
                     )
                 ),
@@ -6638,15 +5517,9 @@ object InteractiveLessonProvider {
                     keyPoints = listOf(
                         "Find the Greatest Common Factor (GCF)",
                         "Divide both numbers by the GCF",
-                        "Example: Simplify 22:14",
-                        "GCF of 22 and 14 is 2",
-                        "22 ÷ 2 = 11",
-                        "14 ÷ 2 = 7",
+                        "Example: Simplify 22:14 \n GCF of 22 and 14 is 2 \n 22 ÷ 2 = 11 \n 14 ÷ 2 = 7",
                         "Simplified: 11:7",
-                        "Example: Simplify 18:12",
-                        "GCF of 18 and 12 is 6",
-                        "18 ÷ 6 = 3",
-                        "12 ÷ 6 = 2",
+                        "Example: Simplify 18:12 \n GCF of 18 and 12 is 6 \n 18 ÷ 6 = 3 \n 12 ÷ 6 = 2",
                         "Simplified: 3:2"
                     )
                 ),
@@ -6666,11 +5539,7 @@ object InteractiveLessonProvider {
                     keyPoints = listOf(
                         "Regular ratio: same units (dogs to cats)",
                         "Rate: different units (kilometers to hours)",
-                        "Common rates in daily life:",
-                        "• Speed: 60 kilometers per hour",
-                        "• Price: ₱50 per kilogram",
-                        "• Wage: ₱500 per day",
-                        "• Heart rate: 72 beats per minute",
+                        "Common rates in daily life: \n • Speed: 60 kilometers per hour \n • Price: ₱50 per kilogram \n • Wage: ₱500 per day \n • Heart rate: 72 beats per minute",
                         "The word 'per' often indicates a rate"
                     )
                 ),
@@ -6706,14 +5575,8 @@ object InteractiveLessonProvider {
                     title = "Ratio vs Rate: Quick Check",
                     content = "How to tell them apart:",
                     keyPoints = listOf(
-                        "RATIO:",
-                        "Compares same units",
-                        "Examples: dogs:cats, boys:girls, red:blue",
-                        "No 'per' needed",
-                        "RATE:",
-                        "Compares different units",
-                        "Examples: km per hour, ₱ per kg, words per minute",
-                        "Often uses 'per'",
+                        "RATIO: \n Compares same units \n Examples: dogs:cats, boys:girls, red:blue \n No 'per' needed",
+                        "RATE: \n Compares different units \n Examples: km per hour, ₱ per kg, words per minute \n Often uses 'per'",
                         "Ask yourself: Are the units the same or different?"
                     )
                 ),
@@ -6722,19 +5585,14 @@ object InteractiveLessonProvider {
                     id = 21,
                     title = "Summary",
                     keyPoints = listOf(
-                        "A ratio compares two quantities in three forms:",
-                        "Word form: 'a is to b'",
-                        "Colon form: a:b",
-                        "Fraction form: ᵃ⁄ᵦ",
+                        "A ratio compares two quantities in three forms: \n Word form: 'a is to b' \n Colon form: a:b \n Fraction form: ᵃ⁄ᵦ",
                         "Order matters in ratios!",
                         "Dogs to cats ≠ Cats to dogs",
                         "Ratios should be simplified to lowest terms",
                         "Divide by the GCF",
                         "Part-to-whole ratios are like fractions",
-                        "Example: 8 cats out of 22 animals = ⁸⁄₂₂",
-                        "A rate compares different units",
-                        "Examples: km/hour, ₱/kg, beats/minute",
-                        "Look for the word 'per'"
+                        "Example: 8 cats out of 22 animals = ⁸⁄₂₂ \n A rate compares different units",
+                        "Examples: km/hour, ₱/kg, beats/minute \n Look for the word 'per'"
                     )
                 )
             )
@@ -6750,7 +5608,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Good day!",
-                    content = "In this topic, you will learn about the concept of Proportion.\n\nYou will be able to explain and understand ratios and proportions, and how they relate to each other."
+                    content = "In this topic, you will learn about the concept of Proportion. You will be able to explain and understand ratios and proportions, and how they relate to each other."
                 ),
 
                 Slide.ConceptSlide(
@@ -6761,12 +5619,9 @@ object InteractiveLessonProvider {
                         "Compares two fractions or ratios",
                         "States that they have the same value",
                         "Written as: a/b = c/d or a:b = c:d",
-                        "Example:",
-                        "²⁄₄ = ⁴⁄₈",
+                        "Example: \n ²⁄₄ = ⁴⁄₈",
                         "Both equal ½ when simplified",
-                        "Real-world example:",
-                        "If 2 apples cost ₱10, then 4 apples cost ₱20",
-                        "This creates the proportion: ²⁄₁₀ = ⁴⁄₂₀"
+                        "Real-world example: \n If 2 apples cost ₱10, then 4 apples cost ₱20 \n This creates the proportion: ²⁄₁₀ = ⁴⁄₂₀"
                     )
                 ),
 
@@ -6780,8 +5635,7 @@ object InteractiveLessonProvider {
                         "They are the first and last terms",
                         "Example: ²⁄₃ = ⁴⁄₆",
                         "Extremes: 2 and 6",
-                        "In cross-multiplication:",
-                        "Product of extremes = a × d",
+                        "In cross-multiplication: \n Product of extremes = a × d",
                         "Example: 2 × 6 = 12"
                     )
                 ),
@@ -6796,8 +5650,7 @@ object InteractiveLessonProvider {
                         "They are the middle two terms",
                         "Example: ²⁄₃ = ⁴⁄₆",
                         "Means: 3 and 4",
-                        "In cross-multiplication:",
-                        "Product of means = b × c",
+                        "In cross-multiplication: \n Product of means = b × c",
                         "Example: 3 × 4 = 12",
                         "Key rule: In a true proportion,",
                         "Product of extremes = Product of means"
@@ -6809,20 +5662,11 @@ object InteractiveLessonProvider {
                     title = "Example: Verifying a Proportion",
                     problem = "Is ²⁄₃ = ⁴⁄₆ a true proportion?",
                     steps = listOf(
-                        "Step 1: Identify extremes and means",
-                        "Extremes: 2 and 6",
-                        "Means: 3 and 4",
-                        "Step 2: Cross-multiply",
-                        "Product of extremes: 2 × 6",
-                        "Product of means: 3 × 4",
-                        "Step 3: Calculate both products",
-                        "Extremes: 2 × 6 = 12",
-                        "Means: 3 × 4 = 12",
-                        "Step 4: Compare",
-                        "12 = 12 ✓",
-                        "Conclusion:",
-                        "Since the products are equal,",
-                        "²⁄₃ = ⁴⁄₆ is a TRUE proportion"
+                        "Step 1: Identify extremes and means \n Extremes: 2 and 6 \n Means: 3 and 4",
+                        "Step 2: Cross-multiply \n Product of extremes: 2 × 6 \n Product of means: 3 × 4",
+                        "Step 3: Calculate both products \n Extremes: 2 × 6 = 12 \n Means: 3 × 4 = 12",
+                        "Step 4: Compare \n 12 = 12",
+                        "Conclusion: \n Since the products are equal, \n ²⁄₃ = ⁴⁄₆ is a TRUE proportion"
                     ),
                     answer = "Yes, it is a true proportion because 12 = 12"
                 ),
@@ -6832,19 +5676,11 @@ object InteractiveLessonProvider {
                     title = "Example 2: Another Proportion Check",
                     problem = "Verify if ³⁄₅ = ⁶⁄₁₀ is a proportion",
                     steps = listOf(
-                        "Step 1: Identify parts",
-                        "Extremes: 3 and 10",
-                        "Means: 5 and 6",
-                        "Step 2: Cross-multiply",
-                        "Extremes: 3 × 10",
-                        "Means: 5 × 6",
-                        "Step 3: Calculate",
-                        "3 × 10 = 30",
-                        "5 × 6 = 30",
-                        "Step 4: Verify",
-                        "30 = 30 ✓",
-                        "Therefore:",
-                        "³⁄₅ = ⁶⁄₁₀ is a TRUE proportion"
+                        "Step 1: Identify parts \n Extremes: 3 and 10 \n Means: 5 and 6",
+                        "Step 2: Cross-multiply \n Extremes: 3 × 10 \n Means: 5 × 6",
+                        "Step 3: Calculate \n 3 × 10 = 30 \n 5 × 6 = 30",
+                        "Step 4: Verify \n 30 = 30",
+                        "Therefore: \n ³⁄₅ = ⁶⁄₁₀ is a TRUE proportion"
                     ),
                     answer = "Yes, 30 = 30, so it's a true proportion"
                 ),
@@ -6876,13 +5712,10 @@ object InteractiveLessonProvider {
                     content = "Understanding the logic behind cross-multiplication:",
                     keyPoints = listOf(
                         "When we have: a/b = c/d",
-                        "We can multiply both sides by bd:",
-                        "(a/b) × bd = (c/d) × bd",
-                        "This simplifies to:",
-                        "a × d = c × b",
+                        "We can multiply both sides by bd: \n (a/b) × bd = (c/d) × bd",
+                        "This simplifies to: \n a × d = c × b",
                         "Or: Product of extremes = Product of means",
-                        "This is why cross-multiplication",
-                        "is a reliable method to check proportions!"
+                        "This is why cross-multiplication is a reliable method to check proportions!"
                     )
                 ),
 
@@ -6891,20 +5724,11 @@ object InteractiveLessonProvider {
                     title = "Example 3: Real-World Proportion",
                     problem = "If 3 mangoes cost ₱45, do 5 mangoes cost ₱75?",
                     steps = listOf(
-                        "Step 1: Set up the proportion",
-                        "³⁄₄₅ = ⁵⁄₇₅",
-                        "(mangoes/pesos = mangoes/pesos)",
-                        "Step 2: Cross-multiply",
-                        "Extremes: 3 × 75",
-                        "Means: 45 × 5",
-                        "Step 3: Calculate",
-                        "3 × 75 = 225",
-                        "45 × 5 = 225",
-                        "Step 4: Compare",
-                        "225 = 225 ✓",
-                        "Conclusion:",
-                        "Yes, the pricing is proportional!",
-                        "5 mangoes should cost ₱75"
+                        "Step 1: Set up the proportion \n ³⁄₄₅ = ⁵⁄₇₅ \n (mangoes/pesos = mangoes/pesos)",
+                        "Step 2: Cross-multiply \n Extremes: 3 × 75 \n Means: 45 × 5",
+                        "Step 3: Calculate \n 3 × 75 = 225 \n 45 × 5 = 225",
+                        "Step 4: Compare \n 225 = 225 ✓",
+                        "Conclusion: \n Yes, the pricing is proportional! \n 5 mangoes should cost ₱75"
                     ),
                     answer = "Yes, the proportion is true"
                 ),
@@ -6924,13 +5748,9 @@ object InteractiveLessonProvider {
                     keyPoints = listOf(
                         "If we know three values, we can find the fourth",
                         "Example: ²⁄₃ = x/12",
-                        "Cross-multiply:",
-                        "2 × 12 = 3 × x",
-                        "24 = 3x",
-                        "x = 24 ÷ 3",
-                        "x = 8",
+                        "Cross-multiply: \n 2 × 12 = 3 × x \n 24 = 3x \n x = 24 ÷ 3 \n x = 8",
                         "Check: ²⁄₃ = ⁸⁄₁₂",
-                        "Both equal ⅔ when simplified ✓"
+                        "Both equal ⅔ when simplified"
                     )
                 ),
 
@@ -6938,23 +5758,11 @@ object InteractiveLessonProvider {
                     id = 13,
                     title = "Summary",
                     keyPoints = listOf(
-                        "Proportion:",
-                        "• An equation showing two ratios are equal",
-                        "• Written as: a/b = c/d",
-                        "Extremes:",
-                        "• The outer numbers (a and d)",
-                        "• Product: a × d",
-                        "Means:",
-                        "• The inner numbers (b and c)",
-                        "• Product: b × c",
-                        "Testing Proportions:",
-                        "• Cross-multiply: extremes vs means",
-                        "• If products are equal → true proportion",
-                        "• If products differ → not a proportion",
-                        "Applications:",
-                        "• Solving real-world problems",
-                        "• Finding missing values",
-                        "• Comparing rates and prices"
+                        "Proportion: \n • An equation showing two ratios are equal \n • Written as: a/b = c/d",
+                        "Extremes: \n • The outer numbers (a and d) \n • Product: a × d",
+                        "Means: \n • The inner numbers (b and c) \n • Product: b × c",
+                        "Testing Proportions: \n • Cross-multiply: extremes vs means \n • If products are equal → true proportion \n • If products differ → not a proportion",
+                        "Applications: \n • Solving real-world problems \n • Finding missing values \n • Comparing rates and prices"
                     )
                 )
             )
@@ -6970,7 +5778,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Hello!",
-                    content = "In this topic, you will learn about the three types of proportion.\n\nThere are three types: Direct Proportion, Inverse Proportion, and Partitive Proportion."
+                    content = "In this topic, you will learn about the three types of proportion. There are three types: Direct Proportion, Inverse Proportion, and Partitive Proportion."
                 ),
 
                 Slide.ConceptSlide(
@@ -6984,9 +5792,7 @@ object InteractiveLessonProvider {
                         "Formula: y = kx (where k is constant)",
                         "Or written as: y/x = k (constant ratio)",
                         "Symbol: y ∝ x (y is proportional to x)",
-                        "Real-life example:",
-                        "More apples bought → Higher total cost",
-                        "More hours worked → Higher earnings"
+                        "Real-life example: \n More apples bought → Higher total cost \n More hours worked → Higher earnings"
                     )
                 ),
 
@@ -6997,18 +5803,10 @@ object InteractiveLessonProvider {
                     steps = listOf(
                         "This is DIRECT proportion because:",
                         "More notebooks → Higher cost",
-                        "Step 1: Set up the proportion",
-                        "⁵⁄₁₂₅ = ⁸⁄ₓ",
-                        "(notebooks/pesos = notebooks/pesos)",
-                        "Step 2: Cross-multiply",
-                        "5 × x = 125 × 8",
-                        "5x = 1,000",
-                        "Step 3: Solve for x",
-                        "x = 1,000 ÷ 5",
-                        "x = 200",
-                        "Step 4: Check",
-                        "⁵⁄₁₂₅ = ⅕ = 0.04",
-                        "⁸⁄₂₀₀ = ¹⁄₂₅ = 0.04 ✓"
+                        "Step 1: Set up the proportion\n ⁵⁄₁₂₅ = ⁸⁄ₓ\n (notebooks/pesos = notebooks/pesos)",
+                        "Step 2: Cross-multiply \n 5 × x = 125 × 8 \n 5x = 1,000",
+                        "Step 3: Solve for x \n x = 1,000 ÷ 5 \n x = 200",
+                        "Step 4: Check \n ⁵⁄₁₂₅ = ⅕ = 0.04 \n ⁸⁄₂₀₀ = ¹⁄₂₅ = 0.04"
                     ),
                     answer = "8 notebooks cost ₱200"
                 ),
@@ -7019,15 +5817,8 @@ object InteractiveLessonProvider {
                     content = "How to recognize direct proportion:",
                     keyPoints = listOf(
                         "Ask: Do both go up together? Or down together?",
-                        "Examples of direct proportion:",
-                        "• Distance traveled ∝ Time (at constant speed)",
-                        "• Cost ∝ Quantity bought",
-                        "• Wages ∝ Hours worked",
-                        "• Ingredients ∝ Number of servings",
-                        "Graph characteristics:",
-                        "• Straight line through origin (0,0)",
-                        "• Positive slope",
-                        "• Constant ratio y/x"
+                        "Examples of direct proportion: \n • Distance traveled ∝ Time (at constant speed) \n • Cost ∝ Quantity bought \n • Wages ∝ Hours worked \n • Ingredients ∝ Number of servings",
+                        "Graph characteristics: \n • Straight line through origin (0,0) \n • Positive slope \n • Constant ratio y/x"
                     )
                 ),
 
@@ -7050,10 +5841,7 @@ object InteractiveLessonProvider {
                         "Formula: xy = k (constant product)",
                         "Or: y = k/x",
                         "Symbol: y ∝ 1/x (y is inversely proportional to x)",
-                        "Real-life example:",
-                        "More workers → Less time needed",
-                        "Faster speed → Less travel time",
-                        "More people sharing → Less per person"
+                        "Real-life example: \n More workers → Less time needed \n Faster speed → Less travel time \n More people sharing → Less per person"
                     )
                 ),
 
@@ -7062,20 +5850,11 @@ object InteractiveLessonProvider {
                     title = "Example: Inverse Proportion",
                     problem = "If 6 workers can finish a job in 8 days, how long will it take 4 workers?",
                     steps = listOf(
-                        "This is INVERSE proportion because:",
-                        "Fewer workers → More time needed",
-                        "",
-                        "Step 1: Use the formula xy = k",
-                        "6 workers × 8 days = 48 (constant)",
-                        "Step 2: Apply to new situation",
-                        "4 workers × x days = 48",
-                        "Step 3: Solve for x",
-                        "4x = 48",
-                        "x = 48 ÷ 4",
-                        "x = 12",
-                        "Step 4: Check",
-                        "6 × 8 = 48",
-                        "4 × 12 = 48 ✓",
+                        "This is INVERSE proportion because: \n Fewer workers → More time needed",
+                        "Step 1: Use the formula xy = k \n 6 workers × 8 days = 48 (constant)",
+                        "Step 2: Apply to new situation \n 4 workers × x days = 48",
+                        "Step 3: Solve for x \n 4x = 48 \n x = 48 ÷ 4 \n x = 12",
+                        "Step 4: Check \n 6 × 8 = 48 \n 4 × 12 = 48",
                         "Products are equal!"
                     ),
                     answer = "4 workers will take 12 days"
@@ -7087,14 +5866,8 @@ object InteractiveLessonProvider {
                     content = "How to recognize inverse proportion:",
                     keyPoints = listOf(
                         "Ask: When one goes up, does the other go down?",
-                        "Examples of inverse proportion:",
-                        "• Speed ∝ 1/Time (for same distance)",
-                        "• Workers ∝ 1/Time (for same job)",
-                        "• People sharing ∝ 1/Share per person",
-                        "• Pipe diameter ∝ 1/Fill time",
-                        "Key rule:",
-                        "Product of both quantities = constant",
-                        "x₁ × y₁ = x₂ × y₂"
+                        "Examples of inverse proportion: \n • Speed ∝ 1/Time (for same distance) \n • Workers ∝ 1/Time (for same job) \n • People sharing ∝ 1/Share per person \n • Pipe diameter ∝ 1/Fill time",
+                        "Key rule: \n Product of both quantities = constant \n x₁ × y₁ = x₂ × y₂"
                     )
                 ),
 
@@ -7111,15 +5884,9 @@ object InteractiveLessonProvider {
                     title = "Direct vs Inverse: Quick Check",
                     content = "How to quickly identify which type:",
                     keyPoints = listOf(
-                        "DIRECT Proportion:",
-                        "↑ ... ↑ (both increase)",
-                        "↓ ... ↓ (both decrease)",
-                        "Same direction",
+                        "DIRECT Proportion: \n ↑ ... ↑ (both increase) \n ↓ ... ↓ (both decrease) \n Same direction",
                         "Formula: y/x = k",
-                        "INVERSE Proportion:",
-                        "↑ ... ↓ (one up, one down)",
-                        "↓ ... ↑ (one down, one up)",
-                        "Opposite directions",
+                        "INVERSE Proportion: \n ↑ ... ↓ (one up, one down) \n ↓ ... ↑ (one down, one up) \n Opposite directions",
                         "Formula: x × y = k",
                         "Quick test: If doubling one value",
                         "doubles the other → DIRECT",
@@ -7134,16 +5901,8 @@ object InteractiveLessonProvider {
                     keyPoints = listOf(
                         "Used for fair sharing or distribution",
                         "Divides a total according to a ratio",
-                        "Example:",
-                        "Divide ₱600 in ratio 2:3:5",
-                        "Steps:",
-                        "1. Add ratio parts: 2 + 3 + 5 = 10",
-                        "2. Divide total by sum: ₱600 ÷ 10 = ₱60",
-                        "3. Multiply each ratio part:",
-                        "   • First: 2 × 60 = ₱120",
-                        "   • Second: 3 × 60 = ₱180",
-                        "   • Third: 5 × 60 = ₱300",
-                        "4. Check: 120 + 180 + 300 = 600 ✓"
+                        "Example: \n Divide ₱600 in ratio 2:3:5",
+                        "Steps: \n 1. Add ratio parts: 2 + 3 + 5 = 10 \n 2. Divide total by sum: ₱600 ÷ 10 = ₱60 \n 3. Multiply each ratio part: \n • First: 2 × 60 = ₱120 \n • Second: 3 × 60 = ₱180 \n • Third: 5 × 60 = ₱300 \n 4. Check: 120 + 180 + 300 = 600"
                     )
                 ),
 
@@ -7152,20 +5911,11 @@ object InteractiveLessonProvider {
                     title = "Example: Partitive Proportion",
                     problem = "Three friends earned ₱1,200. They agreed to split it in the ratio 3:4:5. How much does each receive?",
                     steps = listOf(
-                        "Given:",
-                        "Total: ₱1,200",
-                        "Ratio: 3:4:5",
-                        "Step 1: Add ratio parts",
-                        "3 + 4 + 5 = 12",
-                        "Step 2: Find value of 1 part",
-                        "₱1,200 ÷ 12 = ₱100 per part",
-                        "Step 3: Calculate each share",
-                        "First friend: 3 × 100 = ₱300",
-                        "Second friend: 4 × 100 = ₱400",
-                        "Third friend: 5 × 100 = ₱500",
-                        "",
-                        "Step 4: Verify",
-                        "₱300 + ₱400 + ₱500 = ₱1,200 ✓"
+                        "Given: \n Total: ₱1,200 \n Ratio: 3:4:5",
+                        "Step 1: Add ratio parts \n 3 + 4 + 5 = 12",
+                        "Step 2: Find value of 1 part \n ₱1,200 ÷ 12 = ₱100 per part",
+                        "Step 3: Calculate each share \n First friend: 3 × 100 = ₱300 \n Second friend: 4 × 100 = ₱400 \n Third friend: 5 × 100 = ₱500",
+                        "Step 4: Verify \n ₱300 + ₱400 + ₱500 = ₱1,200"
                     ),
                     answer = "₱300, ₱400, and ₱500 respectively"
                 ),
@@ -7183,19 +5933,11 @@ object InteractiveLessonProvider {
                     title = "Real-World Partitive Example",
                     problem = "A 360-meter fence is divided among three neighbors in ratio 4:5:6. What length does each get?",
                     steps = listOf(
-                        "Given:",
-                        "Total length: 360 meters",
-                        "Ratio: 4:5:6",
-                        "Step 1: Sum of ratio",
-                        "4 + 5 + 6 = 15 parts",
-                        "Step 2: Value per part",
-                        "360 ÷ 15 = 24 meters",
-                        "Step 3: Each share",
-                        "First neighbor: 4 × 24 = 96 m",
-                        "Second neighbor: 5 × 24 = 120 m",
-                        "Third neighbor: 6 × 24 = 144 m",
-                        "Step 4: Check",
-                        "96 + 120 + 144 = 360 m ✓"
+                        "Given: \n Total length: 360 meters \n Ratio: 4:5:6",
+                        "Step 1: Sum of ratio \n 4 + 5 + 6 = 15 parts",
+                        "Step 2: Value per part \n 360 ÷ 15 = 24 meters",
+                        "Step 3: Each share \n First neighbor: 4 × 24 = 96 m \n Second neighbor: 5 × 24 = 120 m \n Third neighbor: 6 × 24 = 144 m",
+                        "Step 4: Check \n 96 + 120 + 144 = 360 m"
                     ),
                     answer = "96 m, 120 m, and 144 m"
                 ),
@@ -7221,18 +5963,9 @@ object InteractiveLessonProvider {
                     title = "Comparing All Three Types",
                     content = "Quick reference guide:",
                     keyPoints = listOf(
-                        "DIRECT Proportion:",
-                        "• Same direction (↑↑ or ↓↓)",
-                        "• y/x = constant",
-                        "• Example: More items → Higher cost",
-                        "INVERSE Proportion:",
-                        "• Opposite directions (↑↓ or ↓↑)",
-                        "• x × y = constant",
-                        "• Example: More workers → Less time",
-                        "PARTITIVE Proportion:",
-                        "• Dividing by ratio",
-                        "• Sum of parts, distribute by ratio",
-                        "• Example: Sharing money 2:3:5"
+                        "DIRECT Proportion: \n • Same direction (↑↑ or ↓↓) \n • y/x = constant \n • Example: More items → Higher cost",
+                        "INVERSE Proportion: \n • Opposite directions (↑↓ or ↓↑) \n • x × y = constant \n • Example: More workers → Less time",
+                        "PARTITIVE Proportion: \n • Dividing by ratio \n • Sum of parts, distribute by ratio \n • Example: Sharing money 2:3:5"
                     )
                 ),
 
@@ -7240,22 +5973,10 @@ object InteractiveLessonProvider {
                     id = 18,
                     title = "Summary",
                     keyPoints = listOf(
-                        "Direct Proportion:",
-                        "• Quantities change together (same direction)",
-                        "• When one increases/decreases, so does the other",
-                        "• Formula: y/x = k or y = kx",
-                        "Inverse Proportion:",
-                        "• Quantities change oppositely",
-                        "• One increases while the other decreases",
-                        "• Formula: xy = k or y = k/x",
-                        "Partitive Proportion:",
-                        "• Dividing a whole by a ratio",
-                        "• Steps: Add parts → Find unit value → Multiply",
-                        "• Used for fair sharing/distribution",
-                        "Remember:",
-                        "Direct = Same direction",
-                        "Inverse = Opposite direction",
-                        "Partitive = Division by ratio"
+                        "Direct Proportion: \n • Quantities change together (same direction) \n • When one increases/decreases, so does the other \n • Formula: y/x = k or y = kx",
+                        "Inverse Proportion: \n • Quantities change oppositely \n • One increases while the other decreases \n • Formula: xy = k or y = k/x",
+                        "Partitive Proportion: \n • Dividing a whole by a ratio \n • Steps: Add parts → Find unit value → Multiply \n • Used for fair sharing/distribution",
+                        "Remember: \n Direct = Same direction \n Inverse = Opposite direction \n Partitive = Division by ratio"
                     )
                 )
             )
@@ -7271,7 +5992,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Heyyy!!",
-                    content = "In this topic, you will learn to understand percent as a ratio to 100.\n\nYou'll also learn to identify the percentage, rate, and base in a given problem."
+                    content = "In this topic, you will learn to understand percent as a ratio to 100. You'll also learn to identify the percentage, rate, and base in a given problem."
                 ),
 
                 Slide.ConceptSlide(
@@ -7282,10 +6003,7 @@ object InteractiveLessonProvider {
                         "Can be written as a fraction with 100 as denominator",
                         "The symbol '%' represents percent",
                         "Called the 'percent sign'",
-                        "Examples:",
-                        "50% = ⁵⁰⁄₁₀₀ = ½",
-                        "25% = ²⁵⁄₁₀₀ = ¼",
-                        "75% = ⁷⁵⁄₁₀₀ = ¾",
+                        "Examples: \n 50% = ⁵⁰⁄₁₀₀ = ½ \n 25% = ²⁵⁄₁₀₀ = ¼ \n 75% = ⁷⁵⁄₁₀₀ = ¾",
                         "The word 'percent' means 'per hundred'"
                     )
                 ),
@@ -7298,10 +6016,7 @@ object InteractiveLessonProvider {
                         "Usually has a percent sign (%) with it",
                         "Or the word 'percent' after it",
                         "Tells what portion of the base we're talking about",
-                        "Examples of rates:",
-                        "• 20% (twenty percent)",
-                        "• 50% (fifty percent)",
-                        "• 75% (seventy-five percent)",
+                        "Examples of rates: \n • 20% (twenty percent) \n • 50% (fifty percent) \n • 75% (seventy-five percent)",
                         "The rate answers: 'What percent?'"
                     )
                 ),
@@ -7314,11 +6029,7 @@ object InteractiveLessonProvider {
                         "Represents the total or whole amount",
                         "The '100%' in a situation",
                         "The complete quantity we start with",
-                        "Examples:",
-                        "• Total money you have",
-                        "• Total students in class",
-                        "• Original price of an item",
-                        "• Full capacity of a container",
+                        "Examples: \n • Total money you have \n • Total students in class \n • Original price of an item \n • Full capacity of a container",
                         "The base answers: 'Percent of what?'"
                     )
                 ),
@@ -7329,10 +6040,7 @@ object InteractiveLessonProvider {
                     content = "Let's analyze a simple problem to see how these three concepts work together:",
                     keyPoints = listOf(
                         "In the next slide, we'll look at a real situation",
-                        "Pay attention to how we identify:",
-                        "• The percentage (P)",
-                        "• The rate (R)",
-                        "• The base (B)",
+                        "Pay attention to how we identify: \n • The percentage (P) \n • The rate (R) \n • The base (B)",
                         "Understanding these will help you solve",
                         "all percentage problems easily!"
                     )
@@ -7345,11 +6053,7 @@ object InteractiveLessonProvider {
                     steps = listOf(
                         "Let's write this as a statement:",
                         "50% of ₱100.00 is ₱50.00",
-                        "This simple statement contains all three parts:",
-                        "• The percentage (the part)",
-                        "• The rate (the percent)",
-                        "• The base (the whole)",
-                        "",
+                        "This simple statement contains all three parts: \n • The percentage (the part) \n • The rate (the percent) \n • The base (the whole)",
                         "Let's identify each one in the next slide..."
                     ),
                     answer = "50% of ₱100.00 is ₱50.00"
@@ -7361,18 +6065,9 @@ object InteractiveLessonProvider {
                     content = "In the statement: 50% of ₱100.00 is ₱50.00",
                     keyPoints = listOf(
                         "Let P = Percentage, R = Rate, B = Base",
-                        "₱50.00 = Percentage (P)",
-                        "• The amount or number that represents the part",
-                        "• The result or answer",
-                        "• What Jimmy actually spent",
-                        "50% = Rate (R)",
-                        "• The number compared to 100",
-                        "• Has the percent sign (%) with it",
-                        "• Tells us 'how much per hundred'",
-                        "₱100.00 = Base (B)",
-                        "• Represents the total amount or the whole",
-                        "• Jimmy's complete allowance",
-                        "• The starting amount (100%)"
+                        "₱50.00 = Percentage (P) \n • The amount or number that represents the part \n • The result or answer \n • What Jimmy actually spent",
+                        "50% = Rate (R) \n • The number compared to 100 \n • Has the percent sign (%) with it \n • Tells us 'how much per hundred'",
+                        "₱100.00 = Base (B) \n • Represents the total amount or the whole \n • Jimmy's complete allowance \n • The starting amount (100%)"
                     )
                 ),
 
@@ -7381,18 +6076,9 @@ object InteractiveLessonProvider {
                     title = "Quick Identification Tips",
                     content = "How to quickly spot each part in a problem:",
                     keyPoints = listOf(
-                        "RATE (R):",
-                        "Look for the % sign",
-                        "Or the word 'percent'",
-                        "Asks: 'What percent?'",
-                        "BASE (B):",
-                        "The total or whole amount",
-                        "Usually follows 'of'",
-                        "Asks: 'Percent of what?'",
-                        "PERCENTAGE (P):",
-                        "The part or result",
-                        "Usually follows 'is'",
-                        "Asks: 'What is the amount?'",
+                        "RATE (R): \n Look for the % sign \n Or the word 'percent' \n Asks: 'What percent?'",
+                        "BASE (B): \n The total or whole amount \n Usually follows 'of' \n Asks: 'Percent of what?'",
+                        "PERCENTAGE (P): \n The part or result \n Usually follows 'is' \n Asks: 'What is the amount?'",
                         "Pattern: [Rate] of [Base] is [Percentage]"
                     )
                 ),
@@ -7426,15 +6112,8 @@ object InteractiveLessonProvider {
                     title = "Remember the Pattern",
                     content = "Most percentage problems follow this pattern:",
                     keyPoints = listOf(
-                        "Statement form:",
-                        "[RATE] of [BASE] is [PERCENTAGE]",
-                        "Examples:",
-                        "• 25% of 80 is 20",
-                        "  Rate: 25%  |  Base: 80  |  Percentage: 20",
-                        "• 50% of ₱200 is ₱100",
-                        "  Rate: 50%  |  Base: ₱200  |  Percentage: ₱100",
-                        "• 10% of 150 students is 15 students",
-                        "  Rate: 10%  |  Base: 150  |  Percentage: 15",
+                        "Statement form: \n [RATE] of [BASE] is [PERCENTAGE]",
+                        "Examples: \n • 25% of 80 is 20 \n   Rate: 25%  |  Base: 80  |  Percentage: 20 \n • 50% of ₱200 is ₱100 \n   Rate: 50%  |  Base: ₱200  |  Percentage: ₱100 \n • 10% of 150 students is 15 students \n   Rate: 10%  |  Base: 150  |  Percentage: 15",
                         "Once you recognize this pattern,",
                         "identifying P, R, and B becomes easy!"
                     )
@@ -7444,21 +6123,12 @@ object InteractiveLessonProvider {
                     id = 13,
                     title = "Summary",
                     keyPoints = listOf(
-                        "Percent:",
-                        "• A ratio that compares a number to 100",
-                        "• Uses the symbol %",
-                        "Rate (R):",
-                        "• The percent itself (has % sign)",
-                        "• Answers: 'What percent?'",
-                        "Base (B):",
-                        "• The total or whole amount",
-                        "• Answers: 'Percent of what?'",
-                        "Percentage (P):",
-                        "• The part or result",
-                        "• Answers: 'What is the amount?'",
+                        "Percent: \n • A ratio that compares a number to 100 \n • Uses the symbol %",
+                        "Rate (R): \n • The percent itself (has % sign) \n • Answers: 'What percent?'",
+                        "Base (B): \n • The total or whole amount \n • Answers: 'Percent of what?'",
+                        "Percentage (P): \n • The part or result \n • Answers: 'What is the amount?'",
                         "Pattern: [Rate] of [Base] is [Percentage]",
-                        "Remember: The rate has %, the base is the total,",
-                        "and the percentage is the part."
+                        "Remember: The rate has %, the base is the total, and the percentage is the part."
                     )
                 )
             )
@@ -7474,14 +6144,14 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Hi!!",
-                    content = "In this topic, you will learn how to use Techan's Triangle to find percentage, rate, or base in problems.\n\nThis is a powerful tool that makes solving percentage problems easy!"
+                    content = "In this topic, you will learn how to use Techan's Triangle to find percentage, rate, or base in problems. This is a powerful tool that makes solving percentage problems easy!"
                 ),
 
                 Slide.ConceptSlide(
                     id = 2,
                     title = "What is Techan's Triangle?",
                     content = "Techan's Triangle is a helpful visual tool that shows the relationship between Percentage (P), Rate (R), and Base (B).",
-                    imageResourceId = R.drawable.techans_triangle, // You'll need this image
+                    imageResourceId = R.drawable.techans_triangle,
                     keyPoints = listOf(
                         "A memory aid for percentage formulas",
                         "Shows how P, R, and B relate to each other",
@@ -7545,7 +6215,7 @@ object InteractiveLessonProvider {
                         "When you cover B: \n • P is above R \n • This means: DIVIDE",
                         "Formula: B = P ÷ R (Base = Percentage ÷ Rate)",
                         "You use this when you know: \n • The percentage (part) \n • The rate (percent) \n • And need to find: the base (total)",
-                        "Example: 8 is 20% of what number? \n\n P = 8, R = 20%, find B \n B = 8 ÷ 20%"
+                        "Example: 8 is 20% of what number? \n P = 8, R = 20%, find B \n B = 8 ÷ 20%"
                     )
                 ),
 
@@ -7574,14 +6244,12 @@ object InteractiveLessonProvider {
                     id = 10,
                     title = "Finding Rate (R)",
                     content = "To find the rate, cover R in the triangle:",
-                    imageResourceId = R.drawable.techans_triangle_cover_r, // You'll need this image
+                    imageResourceId = R.drawable.techans_triangle_cover_r,
                     keyPoints = listOf(
                         "When you cover R: \n • P is above B \n • This means: DIVIDE",
                         "Formula: R = P ÷ B (Rate = Percentage ÷ Base)",
                         "You use this when you know: \n • The percentage (part) \n • The base (total) \n • And need to find: the rate (percent)",
-                        "Example: 15 is what percent of 60?",
-                        "P = 15, B = 60, find R",
-                        "R = 15 ÷ 60"
+                        "Example: 15 is what percent of 60? \n P = 15, B = 60, find R \n R = 15 ÷ 60"
                     )
                 ),
 
@@ -7655,7 +6323,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Good day!",
-                    content = "In this topic, you will learn to solve both routine and non-routine problems involving percentage, rate, and base.\n\nYou'll apply everything you've learned to real-world situations!"
+                    content = "In this topic, you will learn to solve both routine and non-routine problems involving percentage, rate, and base. You'll apply everything you've learned to real-world situations!"
                 ),
 
                 Slide.ConceptSlide(
@@ -7663,18 +6331,10 @@ object InteractiveLessonProvider {
                     title = "Problem-Solving Steps Review",
                     content = "Remember the 4-step method for solving word problems:",
                     keyPoints = listOf(
-                        "1. UNDERSTAND",
-                        "• What is asked?",
-                        "• What are the given facts?",
-                        "2. PLAN",
-                        "• What operation(s) to use?",
-                        "• Write the number sentence",
-                        "3. SOLVE",
-                        "• Carry out your plan",
-                        "• Show all work",
-                        "4. CHECK",
-                        "• Verify your answer makes sense",
-                        "• Work backwards if possible"
+                        "1. UNDERSTAND \n • What is asked? \n • What are the given facts?",
+                        "2. PLAN \n • What operation(s) to use? \n • Write the number sentence",
+                        "3. SOLVE \n • Carry out your plan \n • Show all work",
+                        "4. CHECK \n • Verify your answer makes sense \n • Work backwards if possible"
                     )
                 ),
 
@@ -7684,12 +6344,8 @@ object InteractiveLessonProvider {
                     problem = "There were 200 participants attending the Mathematics Seminar workshop. 40% of these were men and the rest were women. How many women participated in the Mathematics Seminar workshop?",
                     steps = listOf(
                         "1. UNDERSTAND:",
-                        "What is asked?",
-                        "• Number of women participants",
-                        "What are the given facts?",
-                        "• 200 total participants",
-                        "• 40% were men",
-                        "• The rest were women",
+                        "What is asked? \n • Number of women participants",
+                        "What are the given facts? \n • 200 total participants \n • 40% were men \n • The rest were women",
                         "Let's move to the PLAN step..."
                     ),
                     answer = "We understand the problem"
@@ -7699,19 +6355,12 @@ object InteractiveLessonProvider {
                     id = 4,
                     title = "Step 2: PLAN",
                     problem = "There were 200 participants attending the Mathematics Seminar workshop. 40% of these were men and the rest were women. How many women participated?",
-                    imageResourceId = R.drawable.percentage_diagram, // You'll need this image showing the plan
+                    imageResourceId = R.drawable.percentage_diagram,
                     steps = listOf(
                         "2. PLAN:",
-                        "What operation to use?",
-                        "• Subtraction and Multiplication",
-                        "Number sentence:",
-                        "• If 40% were men, then:",
-                        "  100% − 40% = 60% were women",
-                        "• So we need to find:",
-                        "  60% of 200 = ?",
-                        "Formula to use:",
-                        "P = R × B",
-                        "P = 60% × 200",
+                        "What operation to use? \n • Subtraction and Multiplication",
+                        "Number sentence: \n • If 40% were men, then: \n   100% − 40% = 60% were women \n • So we need to find: \n   60% of 200 = ?",
+                        "Formula to use: \n P = R × B \n P = 60% × 200",
                         "Now let's SOLVE..."
                     ),
                     answer = "Plan: Find 60% of 200"
@@ -7723,14 +6372,8 @@ object InteractiveLessonProvider {
                     problem = "Find the number of women participants",
                     steps = listOf(
                         "3. SOLVE:",
-                        "Using the formula P = R × B:",
-                        "P = 60% × 200",
-                        "P = 0.60 × 200  (convert 60% to decimal)",
-                        "P = 120",
-                        "Answer:",
-                        "There were 120 women participants",
-                        "in the seminar workshop.",
-                        "Now let's CHECK our answer..."
+                        "Using the formula P = R × B: \n P = 60% × 200 \n P = 0.60 × 200  (convert 60% to decimal) \n P = 120",
+                        "Answer: \n There were 120 women participants \n in the seminar workshop. \n Now let's CHECK our answer..."
                     ),
                     answer = "120 women participants"
                 ),
@@ -7742,14 +6385,10 @@ object InteractiveLessonProvider {
                     steps = listOf(
                         "4. CHECK:",
                         "Method: Verify the totals add up",
-                        "Men participants:",
-                        "40% × 200 = 0.40 × 200 = 80 men",
-                        "Women participants:",
-                        "60% × 200 = 0.60 × 200 = 120 women",
-                        "Total check:",
-                        "80 + 120 = 200 ✓",
-                        "Percent check:",
-                        "40% + 60% = 100% ✓",
+                        "Men participants: \n 40% × 200 = 0.40 × 200 = 80 men",
+                        "Women participants: \n 60% × 200 = 0.60 × 200 = 120 women",
+                        "Total check: \n 80 + 120 = 200",
+                        "Percent check:\n 40% + 60% = 100%",
                         "Our answer is correct!"
                     ),
                     answer = "Verified: 120 women is correct"
@@ -7768,18 +6407,9 @@ object InteractiveLessonProvider {
                     title = "Types of Percentage Problems",
                     content = "Common problem types you'll encounter:",
                     keyPoints = listOf(
-                        "Type 1: Finding the Part (Percentage)",
-                        "• Given: rate and base",
-                        "• Find: percentage",
-                        "• Example: What is 25% of 80?",
-                        "Type 2: Finding the Whole (Base)",
-                        "• Given: rate and percentage",
-                        "• Find: base",
-                        "• Example: 15 is 30% of what number?",
-                        "Type 3: Finding the Percent (Rate)",
-                        "• Given: percentage and base",
-                        "• Find: rate",
-                        "• Example: 20 is what percent of 80?",
+                        "Type 1: Finding the Part (Percentage) \n • Given: rate and base \n • Find: percentage \n • Example: What is 25% of 80?",
+                        "Type 2: Finding the Whole (Base) \n • Given: rate and percentage \n • Find: base \n • Example: 15 is 30% of what number?",
+                        "Type 3: Finding the Percent (Rate) \n • Given: percentage and base \n • Find: rate \n • Example: 20 is what percent of 80?",
                         "Identify which type to choose the right formula!"
                     )
                 ),
@@ -7789,17 +6419,9 @@ object InteractiveLessonProvider {
                     title = "Non-Routine Problem Example",
                     problem = "A shirt originally costs ₱800. During a sale, it's marked down by 25%. After the sale, the store increases the sale price by 10%. What is the final price?",
                     steps = listOf(
-                        "This is NON-ROUTINE because:",
-                        "• Multiple steps needed",
-                        "• Two percentage calculations",
-                        "1. UNDERSTAND:",
-                        "• Original: ₱800",
-                        "• First: 25% discount",
-                        "• Then: 10% increase on sale price",
-                        "• Find: final price",
-                        "2. PLAN:",
-                        "Step A: Find sale price (decrease)",
-                        "Step B: Find final price (increase)",
+                        "This is NON-ROUTINE because: \n • Multiple steps needed \n • Two percentage calculations",
+                        "1. UNDERSTAND: \n • Original: ₱800 \n • First: 25% discount \n • Then: 10% increase on sale price \n • Find: final price",
+                        "2. PLAN: \n Step A: Find sale price (decrease) \n Step B: Find final price (increase)",
                         "Let's solve..."
                     ),
                     answer = "Multi-step problem"
@@ -7811,18 +6433,9 @@ object InteractiveLessonProvider {
                     problem = "Continue solving the shirt price problem",
                     steps = listOf(
                         "3. SOLVE:",
-                        "Step A: Find sale price after 25% off",
-                        "Discount = 25% × ₱800",
-                        "Discount = 0.25 × 800 = ₱200",
-                        "Sale price = 800 − 200 = ₱600",
-                        "Step B: Find final price after 10% increase",
-                        "Increase = 10% × ₱600",
-                        "Increase = 0.10 × 600 = ₱60",
-                        "Final price = 600 + 60 = ₱660",
-                        "4. CHECK:",
-                        "Original: ₱800",
-                        "After 25% off: ₱600 (75% of 800) ✓",
-                        "After 10% up: ₱660 (110% of 600) ✓"
+                        "Step A: Find sale price after 25% off \n Discount = 25% × ₱800 \n Discount = 0.25 × 800 = ₱200 \n Sale price = 800 − 200 = ₱600",
+                        "Step B: Find final price after 10% increase \n Increase = 10% × ₱600 \n Increase = 0.10 × 600 = ₱60 \n Final price = 600 + 60 = ₱660",
+                        "4. CHECK: \n Original: ₱800 \n After 25% off: ₱600 (75% of 800) \n After 10% up: ₱660 (110% of 600)"
                     ),
                     answer = "Final price: ₱660"
                 ),
@@ -7840,18 +6453,10 @@ object InteractiveLessonProvider {
                     title = "Common Mistakes to Avoid",
                     content = "Watch out for these errors:",
                     keyPoints = listOf(
-                        "Forgetting to convert % to decimal",
-                        "• 50% ≠ 50, it equals 0.50",
-                        "Using wrong formula",
-                        "• Check what you're finding: P, R, or B?",
-                        "Not reading 'the rest' carefully",
-                        "• 'The rest' = 100% minus given percent",
-                        "Rushing without a plan",
-                        "• Always use the 4 steps!",
-                        "✓ Convert percentages properly",
-                        "✓ Use Techan's Triangle",
-                        "✓ Show all your work",
-                        "✓ Always check your answer"
+                        "Forgetting to convert % to decimal \n 50% ≠ 50, it equals 0.50",
+                        "Using wrong formula \n Check what you're finding: P, R, or B?",
+                        "Not reading 'the rest' carefully \n 'The rest' = 100% minus given percent",
+                        "Rushing without a plan \n Always use the 4 steps! \n Convert percentages properly \n Use Techan's Triangle \n Show all your work \n Always check your answer"
                     )
                 ),
 
@@ -7859,21 +6464,11 @@ object InteractiveLessonProvider {
                     id = 13,
                     title = "Summary",
                     keyPoints = listOf(
-                        "Solving percentage problems:",
-                        "• Use the 4-step method (UPSC)",
-                        "• Identify P, R, and B from the problem",
-                        "• Choose the right formula using Techan's Triangle",
-                        "Finding Percentage (P):",
-                        "• Multiply rate by base (P = R × B)",
-                        "Finding Base (B):",
-                        "• Divide percentage by rate (B = P ÷ R)",
-                        "Finding Rate (R):",
-                        "• Divide percentage by base (R = P ÷ B)",
-                        "Remember:",
-                        "• Convert percent to decimal when multiplying/dividing",
-                        "• 'The rest' means 100% minus the given percent",
-                        "• Always check your answer makes sense",
-                        "• Multi-step problems need careful planning"
+                        "Solving percentage problems: \n Use the 4-step method (UPSC) \n Identify P, R, and B from the problem \n Choose the right formula using Techan's Triangle",
+                        "Finding Percentage (P): \n Multiply rate by base (P = R × B)",
+                        "Finding Base (B): \n Divide percentage by rate (B = P ÷ R)",
+                        "Finding Rate (R): \n Divide percentage by base (R = P ÷ B)",
+                        "Remember: \n Convert percent to decimal when multiplying/dividing \n 'The rest' means 100% minus the given percent \n Always check your answer makes sense \n Multi-step problems need careful planning"
                     )
                 )
             )
@@ -7889,7 +6484,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Hola!",
-                    content = "In this topic you will learn about percentages, including discounts, original prices, discount rates and sale prices.\n\nRead and analyze them carefully, as they will assist you throughout this topic."
+                    content = "In this topic you will learn about percentages, including discounts, original prices, discount rates and sale prices. Read and analyze them carefully, as they will assist you throughout this topic."
                 ),
 
                 Slide.ConceptSlide(
@@ -7933,18 +6528,9 @@ object InteractiveLessonProvider {
                     title = "Example: Calculating Discount",
                     problem = "If a ₱500 shirt has a 20% discount, what is the discount amount?",
                     steps = listOf(
-                        "Given:",
-                        "Original Price = ₱500",
-                        "Discount Rate = 20%",
-                        "",
-                        "Using the formula:",
-                        "Discount = Original Price × Discount Rate ÷ 100",
-                        "Discount = 500 × 20 ÷ 100",
-                        "Discount = 10,000 ÷ 100",
-                        "Discount = ₱100",
-                        "",
-                        "Alternative method:",
-                        "Discount = 500 × 0.20 = ₱100"
+                        "Given: \n Original Price = ₱500 \n Discount Rate = 20%",
+                        "Using the formula: \n Discount = Original Price × Discount Rate ÷ 100 \n Discount = 500 × 20 ÷ 100 \n Discount = 10,000 ÷ 100 \n Discount = ₱100",
+                        "Alternative method: \n Discount = 500 × 0.20 = ₱100"
                     ),
                     answer = "The discount is ₱100"
                 ),
@@ -7991,13 +6577,8 @@ object InteractiveLessonProvider {
                     title = "Complete Example",
                     problem = "A shirt originally costs ₱500 and has a ₱100 discount. What is the sale price?",
                     steps = listOf(
-                        "Given:",
-                        "Original Price = ₱500",
-                        "Discount = ₱100",
-                        "Using the formula:",
-                        "Sale Price = Original Price − Discount",
-                        "Sale Price = 500 − 100",
-                        "Sale Price = ₱400",
+                        "Given: \n Original Price = ₱500 \n Discount = ₱100",
+                        "Using the formula: \n Sale Price = Original Price − Discount \n Sale Price = 500 − 100 \n Sale Price = ₱400",
                         "This is the amount you actually pay when buying the shirt on sale."
                     ),
                     answer = "Sale Price = ₱400"
@@ -8016,14 +6597,12 @@ object InteractiveLessonProvider {
                     title = "Example: Working Backwards",
                     problem = "A pair of shoes is on sale for ₱640 after a ₱160 discount. What was the original price?",
                     steps = listOf(
-                        "Given:",
-                        "Sale Price = ₱640",
-                        "Discount = ₱160",
+                        "Given: \n Sale Price = ₱640 \n Discount = ₱160",
                         "We know: Original Price − Discount = Sale Price",
                         "So: Original Price = Sale Price + Discount",
                         "Original Price = 640 + 160",
                         "Original Price = ₱800",
-                        "Check: ₱800 − ₱160 = ₱640 ✓"
+                        "Check: ₱800 − ₱160 = ₱640"
                     ),
                     answer = "Original Price = ₱800"
                 ),
@@ -8053,19 +6632,10 @@ object InteractiveLessonProvider {
                     id = 14,
                     title = "Summary",
                     keyPoints = listOf(
-                        "Original Price:",
-                        "• The initial price before any discount",
-                        "• Also called regular or marked price",
-                        "Discount:",
-                        "• Amount subtracted from original price",
-                        "• Usually a percentage of original price",
-                        "Discount Rate:",
-                        "• Percentage of reduction",
-                        "• Expressed with % symbol",
-                        "Sale Price:",
-                        "• Final price after discount",
-                        "• Amount buyer actually pays",
-                        "• Formula: Original Price − Discount",
+                        "Original Price: \n • The initial price before any discount \n • Also called regular or marked price",
+                        "Discount: \n • Amount subtracted from original price \n • Usually a percentage of original price",
+                        "Discount Rate: \n • Percentage of reduction \n • Expressed with % symbol",
+                        "Sale Price: \n • Final price after discount \n • Amount buyer actually pays \n • Formula: Original Price − Discount",
                         "Key: Discount and Sale Price depend on Original Price!"
                     )
                 )
@@ -8082,7 +6652,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Welcome!",
-                    content = "In this topic you will learn to solve markup price.\n\nUnderstand how sellers add profit to items they sell!"
+                    content = "In this topic you will learn to solve markup price. Understand how sellers add profit to items they sell!"
                 ),
 
                 Slide.ConceptSlide(
@@ -8115,8 +6685,7 @@ object InteractiveLessonProvider {
                     content = "To find the markup rate (percentage):",
                     keyPoints = listOf(
                         "Markup Rate (MR) = (Markup ÷ Cost) × 100%",
-                        "Or written as:",
-                        "MR = (M ÷ C) × 100%",
+                        "Or written as: \n R = (M ÷ C) × 100%",
                         "This tells you what percent profit you're making"
                     )
                 ),
@@ -8126,14 +6695,8 @@ object InteractiveLessonProvider {
                     title = "Example: Finding Markup Rate",
                     problem = "A store buys a phone for ₱10,000 and adds ₱2,000 markup. What is the markup rate?",
                     steps = listOf(
-                        "Given:",
-                        "Cost (C) = ₱10,000",
-                        "Markup (M) = ₱2,000",
-                        "Using the formula:",
-                        "MR = (M ÷ C) × 100%",
-                        "MR = (2,000 ÷ 10,000) × 100%",
-                        "MR = 0.20 × 100%",
-                        "MR = 20%",
+                        "Given: \n Cost (C) = ₱10,000 \n Markup (M) = ₱2,000",
+                        "Using the formula: \n MR = (M ÷ C) × 100% \n MR = (2,000 ÷ 10,000) × 100% \n MR = 0.20 × 100% \n MR = 20%",
                         "The store is adding a 20% markup"
                     ),
                     answer = "Markup Rate = 20%"
@@ -8146,10 +6709,7 @@ object InteractiveLessonProvider {
                     keyPoints = listOf(
                         "Selling Price (SP) = Cost (C) + Markup (M)",
                         "Or: SP = C + M",
-                        "Example:",
-                        "Cost: ₱10,000",
-                        "Markup: ₱2,000",
-                        "Selling Price: ₱10,000 + ₱2,000 = ₱12,000"
+                        "Example: \n Cost: ₱10,000 \n Markup: ₱2,000 \n Selling Price: ₱10,000 + ₱2,000 = ₱12,000"
                     )
                 ),
 
@@ -8158,18 +6718,10 @@ object InteractiveLessonProvider {
                     title = "Complete Example",
                     problem = "A laptop costs ₱25,000. A store adds a 30% markup. What is the selling price?",
                     steps = listOf(
-                        "Given:",
-                        "Cost (C) = ₱25,000",
-                        "Markup Rate (MR) = 30%",
+                        "Given: \n Cost (C) = ₱25,000 \n Markup Rate (MR) = 30%",
                         "Step 1: Find the markup amount",
-                        "Markup = Cost × Markup Rate",
-                        "M = 25,000 × 30%",
-                        "M = 25,000 × 0.30",
-                        "M = ₱7,500",
-                        "Step 2: Find selling price",
-                        "SP = C + M",
-                        "SP = 25,000 + 7,500",
-                        "SP = ₱32,500"
+                        "Markup = Cost × Markup Rate \n M = 25,000 × 30% \n M = 25,000 × 0.30 \n M = ₱7,500",
+                        "Step 2: Find selling price \n SP = C + M \n SP = 25,000 + 7,500 \n SP = ₱32,500"
                     ),
                     answer = "Selling Price = ₱32,500"
                 ),
@@ -8197,8 +6749,7 @@ object InteractiveLessonProvider {
                     keyPoints = listOf(
                         "If you know selling price and markup rate:",
                         "Cost = Selling Price ÷ (1 + Markup Rate)",
-                        "Example:",
-                        "Selling Price = ₱150, Markup = 25%",
+                        "Example: \n Selling Price = ₱150, Markup = 25%",
                         "Cost = 150 ÷ (1 + 0.25)",
                         "Cost = 150 ÷ 1.25 = ₱120"
                     )
@@ -8208,18 +6759,9 @@ object InteractiveLessonProvider {
                     id = 11,
                     title = "Summary",
                     keyPoints = listOf(
-                        "Key Terms:",
-                        "• Markup (M) - increase in price",
-                        "• Markup Rate (MR) - percentage added",
-                        "• Cost (C) - original/buying price",
-                        "• Selling Price (SP) - final price to customer",
-                        "Key Formulas:",
-                        "• Markup Rate = (Markup ÷ Cost) × 100%",
-                        "• Selling Price = Cost + Markup",
-                        "• Markup = Cost × Markup Rate",
-                        "Remember:",
-                        "Markup is how businesses make profit!",
-                        "The markup and selling price are based on cost"
+                        "Key Terms: \n • Markup (M) - increase in price \n • Markup Rate (MR) - percentage added \n • Cost (C) - original/buying price \n • Selling Price (SP) - final price to customer",
+                        "Key Formulas: \n • Markup Rate = (Markup ÷ Cost) × 100% \n • Selling Price = Cost + Markup \n • Markup = Cost × Markup Rate",
+                        "Remember: \n Markup is how businesses make profit! \n The markup and selling price are based on cost"
                     )
                 )
             )
@@ -8235,7 +6777,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Hello!",
-                    content = "In this lesson you will learn to solve commission.\n\nUnderstand how salespeople earn money from their sales!"
+                    content = "In this lesson you will learn to solve commission. Understand how salespeople earn money from their sales!"
                 ),
 
                 Slide.ConceptSlide(
@@ -8255,14 +6797,10 @@ object InteractiveLessonProvider {
                     title = "Key Terms",
                     content = "Review these important terms:",
                     keyPoints = listOf(
-                        "Commission (C):",
-                        "• The money earned for selling",
-                        "Total Sales (TS):",
-                        "• Total amount of sales made",
-                        "Commission Rate (CR):",
-                        "• Percentage from total sales",
-                        "Sale Proceeds (SP):",
-                        "• Amount remaining after commission deducted"
+                        "Commission (C): \n • The money earned for selling",
+                        "Total Sales (TS): \n • Total amount of sales made",
+                        "Commission Rate (CR): \n • Percentage from total sales",
+                        "Sale Proceeds (SP): \n • Amount remaining after commission deducted"
                     )
                 ),
 
@@ -8272,12 +6810,8 @@ object InteractiveLessonProvider {
                     content = "To calculate commission earned:",
                     keyPoints = listOf(
                         "Commission = Total Sales × Commission Rate ÷ 100",
-                        "Or using decimal:",
-                        "Commission = Total Sales × (Rate as decimal)",
-                        "Example:",
-                        "Total Sales = ₱10,000",
-                        "Rate = 5%",
-                        "Commission = 10,000 × 0.05 = ₱500"
+                        "Or using decimal: \n Commission = Total Sales × (Rate as decimal)",
+                        "Example: \n Total Sales = ₱10,000 \n Rate = 5% \n Commission = 10,000 × 0.05 = ₱500"
                     )
                 ),
 
@@ -8289,13 +6823,8 @@ object InteractiveLessonProvider {
                         "Given:",
                         "Total Sales (TS) = ₱50,000",
                         "Commission Rate (CR) = 6%",
-                        "Using the formula:",
-                        "Commission = Total Sales × Commission Rate ÷ 100",
-                        "Commission = 50,000 × 6 ÷ 100",
-                        "Commission = 300,000 ÷ 100",
-                        "Commission = ₱3,000",
-                        "Alternative:",
-                        "Commission = 50,000 × 0.06 = ₱3,000"
+                        "Using the formula: \n Commission = Total Sales × Commission Rate ÷ 100 \n Commission = 50,000 × 6 ÷ 100 \n Commission = 300,000 ÷ 100 \n Commission = ₱3,000",
+                        "Alternative: \n Commission = 50,000 × 0.06 = ₱3,000"
                     ),
                     answer = "Commission earned = ₱3,000"
                 ),
@@ -8307,10 +6836,7 @@ object InteractiveLessonProvider {
                     keyPoints = listOf(
                         "Sale Proceeds = Total Sales − Commission",
                         "This is the amount the company keeps",
-                        "Example:",
-                        "Total Sales = ₱50,000",
-                        "Commission = ₱3,000",
-                        "Sale Proceeds = 50,000 − 3,000 = ₱47,000"
+                        "Example: \n Total Sales = ₱50,000 \n Commission = ₱3,000 \n Sale Proceeds = 50,000 − 3,000 = ₱47,000"
                     )
                 ),
 
@@ -8319,17 +6845,9 @@ object InteractiveLessonProvider {
                     title = "Complete Example",
                     problem = "A real estate agent sold a house for ₱3,000,000 with a 3% commission. How much did the agent earn, and how much goes to the seller?",
                     steps = listOf(
-                        "Given:",
-                        "Total Sales = ₱3,000,000",
-                        "Commission Rate = 3%",
-                        "Step 1: Find commission",
-                        "Commission = 3,000,000 × 3%",
-                        "Commission = 3,000,000 × 0.03",
-                        "Commission = ₱90,000",
-                        "Step 2: Find sale proceeds",
-                        "Sale Proceeds = Total Sales − Commission",
-                        "Sale Proceeds = 3,000,000 − 90,000",
-                        "Sale Proceeds = ₱2,910,000"
+                        "Given: \n Total Sales = ₱3,000,000 \n Commission Rate = 3%",
+                        "Step 1: Find commission \n Commission = 3,000,000 × 3% \n Commission = 3,000,000 × 0.03 \n Commission = ₱90,000",
+                        "Step 2: Find sale proceeds \n Sale Proceeds = Total Sales − Commission \n Sale Proceeds = 3,000,000 − 90,000 \n Sale Proceeds = ₱2,910,000"
                     ),
                     answer = "Agent earns ₱90,000; Seller gets ₱2,910,000"
                 ),
@@ -8342,10 +6860,7 @@ object InteractiveLessonProvider {
                         "Total Sales = Commission ÷ Commission Rate × 100",
                         "Or:",
                         "Total Sales = Commission ÷ (Rate as decimal)",
-                        "Example:",
-                        "Commission = ₱2,000",
-                        "Rate = 5%",
-                        "Total Sales = 2,000 ÷ 0.05 = ₱40,000"
+                        "Example: \n Commission = ₱2,000 \n Rate = 5% \n Total Sales = 2,000 ÷ 0.05 = ₱40,000"
                     )
                 ),
 
@@ -8369,17 +6884,9 @@ object InteractiveLessonProvider {
                     id = 11,
                     title = "Summary",
                     keyPoints = listOf(
-                        "Key Terms:",
-                        "• Commission (C) - money earned from selling",
-                        "• Total Sales (TS) - total amount sold",
-                        "• Commission Rate (CR) - percentage earned",
-                        "• Sale Proceeds (SP) - amount after commission",
-                        "Key Formulas:",
-                        "• Commission = Total Sales × Rate ÷ 100",
-                        "• Sale Proceeds = Total Sales − Commission",
-                        "• Total Sales = Commission ÷ Rate × 100",
-                        "Remember:",
-                        "Commission and sale proceeds are based on total sales!"
+                        "Key Terms: \n • Commission (C) - money earned from selling \n • Total Sales (TS) - total amount sold \n • Commission Rate (CR) - percentage earned \n • Sale Proceeds (SP) - amount after commission",
+                        "Key Formulas: \n • Commission = Total Sales × Rate ÷ 100 \n • Sale Proceeds = Total Sales − Commission \n • Total Sales = Commission ÷ Rate × 100",
+                        "Remember: \n Commission and sale proceeds are based on total sales!"
                     )
                 )
             )
@@ -8395,7 +6902,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Welcome!",
-                    content = "In this topic you will learn to solve sales tax.\n\nUnderstand what VAT or Sales Tax means on your receipts!"
+                    content = "In this topic you will learn to solve sales tax. Understand what VAT or Sales Tax means on your receipts!"
                 ),
 
                 Slide.ConceptSlide(
@@ -8417,12 +6924,8 @@ object InteractiveLessonProvider {
                     content = "To calculate the tax amount:",
                     keyPoints = listOf(
                         "Sales Tax = Total Amount of Products × Rate of Sales Tax ÷ 100",
-                        "Or using decimal:",
-                        "Sales Tax = Total Amount × (Rate as decimal)",
-                        "Example:",
-                        "Items cost ₱1,000",
-                        "Tax rate = 12%",
-                        "Sales Tax = 1,000 × 0.12 = ₱120"
+                        "Or using decimal: \n Sales Tax = Total Amount × (Rate as decimal)",
+                        "Example: \n Items cost ₱1,000 \n Tax rate = 12% \n Sales Tax = 1,000 × 0.12 = ₱120"
                     )
                 ),
 
@@ -8431,16 +6934,9 @@ object InteractiveLessonProvider {
                     title = "Example: Finding Sales Tax",
                     problem = "You bought groceries worth ₱850. If the sales tax rate is 12%, how much tax do you pay?",
                     steps = listOf(
-                        "Given:",
-                        "Total Amount = ₱850",
-                        "Sales Tax Rate = 12%",
-                        "Using the formula:",
-                        "Sales Tax = Total Amount × Rate ÷ 100",
-                        "Sales Tax = 850 × 12 ÷ 100",
-                        "Sales Tax = 10,200 ÷ 100",
-                        "Sales Tax = ₱102",
-                        "Alternative:",
-                        "Sales Tax = 850 × 0.12 = ₱102"
+                        "Given: \n Total Amount = ₱850 \n Sales Tax Rate = 12%",
+                        "Using the formula: \n Sales Tax = Total Amount × Rate ÷ 100 \n Sales Tax = 850 × 12 ÷ 100 \n Sales Tax = 10,200 ÷ 100 \n Sales Tax = ₱102",
+                        "Alternative: \n Sales Tax = 850 × 0.12 = ₱102"
                     ),
                     answer = "Sales Tax = ₱102"
                 ),
@@ -8452,10 +6948,7 @@ object InteractiveLessonProvider {
                     keyPoints = listOf(
                         "Total Amount to be Paid = Total Amount of Products + Sales Tax",
                         "This is what appears on your receipt",
-                        "Example:",
-                        "Products = ₱850",
-                        "Sales Tax = ₱102",
-                        "Total to Pay = 850 + 102 = ₱952"
+                        "Example: \n Products = ₱850 \n Sales Tax = ₱102 \n Total to Pay = 850 + 102 = ₱952"
                     )
                 ),
 
@@ -8464,17 +6957,9 @@ object InteractiveLessonProvider {
                     title = "Complete Example",
                     problem = "A laptop costs ₱25,000. With 12% sales tax, what is the total amount you need to pay?",
                     steps = listOf(
-                        "Given:",
-                        "Product Price = ₱25,000",
-                        "Sales Tax Rate = 12%",
-                        "Step 1: Calculate sales tax",
-                        "Sales Tax = 25,000 × 12%",
-                        "Sales Tax = 25,000 × 0.12",
-                        "Sales Tax = ₱3,000",
-                        "Step 2: Calculate total amount",
-                        "Total = Product Price + Sales Tax",
-                        "Total = 25,000 + 3,000",
-                        "Total = ₱28,000"
+                        "Given: \n Product Price = ₱25,000 \n Sales Tax Rate = 12%",
+                        "Step 1: Calculate sales tax \n Sales Tax = 25,000 × 12% \n Sales Tax = 25,000 × 0.12 \n Sales Tax = ₱3,000",
+                        "Step 2: Calculate total amount \n Total = Product Price + Sales Tax \n Total = 25,000 + 3,000 \n Total = ₱28,000"
                     ),
                     answer = "Total amount to pay = ₱28,000"
                 ),
@@ -8500,12 +6985,9 @@ object InteractiveLessonProvider {
                     title = "Quick Method",
                     content = "Shortcut to find total with tax:",
                     keyPoints = listOf(
-                        "Instead of two steps, use one:",
-                        "Total = Price × (1 + Tax Rate)",
-                        "Example with 12% tax:",
-                        "Total = Price × 1.12",
-                        "For ₱25,000:",
-                        "Total = 25,000 × 1.12 = ₱28,000",
+                        "Instead of two steps, use one: \n Total = Price × (1 + Tax Rate)",
+                        "Example with 12% tax: \n Total = Price × 1.12",
+                        "For ₱25,000: \n Total = 25,000 × 1.12 = ₱28,000",
                         "This combines both steps!"
                     )
                 ),
@@ -8514,19 +6996,9 @@ object InteractiveLessonProvider {
                     id = 10,
                     title = "Summary: Key Points in Solving Sales Tax",
                     keyPoints = listOf(
-                        "Sales Tax:",
-                        "• Extra charge added to purchases",
-                        "• Goes to government",
-                        "• Usually a fixed percentage",
-                        "Formulas:",
-                        "• Sales Tax = Price × Rate ÷ 100",
-                        "• Total to Pay = Price + Sales Tax",
-                        "• Quick: Total = Price × (1 + Rate)",
-                        "Key Steps:",
-                        "1. Convert percentage to decimal",
-                        "2. Multiply to find tax amount",
-                        "3. Add tax to original price",
-                        "4. Check: Total should be higher than original!"
+                        "Sales Tax: \n • Extra charge added to purchases \n • Goes to government \n • Usually a fixed percentage",
+                        "Formulas: \n • Sales Tax = Price × Rate ÷ 100 \n • Total to Pay = Price + Sales Tax \n • Quick: Total = Price × (1 + Rate)",
+                        "Key Steps: \n 1. Convert percentage to decimal \n 2. Multiply to find tax amount \n 3. Add tax to original price \n 4. Check: Total should be higher than original!"
                     )
                 )
             )
@@ -8542,7 +7014,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Welcome!",
-                    content = "In this topic you will learn to solve Simple Interest and Principal.\n\nUnderstand how banks pay you for saving money!"
+                    content = "In this topic you will learn to solve Simple Interest and Principal. Understand how banks pay you for saving money!"
                 ),
 
                 Slide.ConceptSlide(
@@ -8562,16 +7034,11 @@ object InteractiveLessonProvider {
                     title = "Key Terms",
                     content = "Review these important terms:",
                     keyPoints = listOf(
-                        "Interest (I):",
-                        "• Money earned from savings/loans",
-                        "Principal (P):",
-                        "• Initial amount deposited/borrowed",
-                        "Rate of Interest (R):",
-                        "• Percentage added to principal",
-                        "Time (T):",
-                        "• Duration (usually in years)",
-                        "Amount Due (AD):",
-                        "• Total to pay/receive = Principal + Interest"
+                        "Interest (I): \n • Money earned from savings/loans",
+                        "Principal (P): \n • Initial amount deposited/borrowed",
+                        "Rate of Interest (R): \n • Percentage added to principal",
+                        "Time (T): \n • Duration (usually in years)",
+                        "Amount Due (AD): \n • Total to pay/receive = Principal + Interest"
                     )
                 ),
 
@@ -8580,16 +7047,9 @@ object InteractiveLessonProvider {
                     title = "Formula for Simple Interest",
                     content = "To calculate interest earned or paid:",
                     keyPoints = listOf(
-                        "Simple Interest = Principal × Rate × Time",
-                        "Or: I = P × R × T",
-                        "Where:",
-                        "• I = Interest",
-                        "• P = Principal",
-                        "• R = Rate (as decimal)",
-                        "• T = Time (in years)",
-                        "Example:",
-                        "P = ₱10,000, R = 5% per year, T = 2 years",
-                        "I = 10,000 × 0.05 × 2 = ₱1,000"
+                        "Simple Interest = Principal × Rate × Time \n Or: I = P × R × T",
+                        "Where: \n • I = Interest \n • P = Principal \n • R = Rate (as decimal) \n • T = Time (in years)",
+                        "Example: \n P = ₱10,000, R = 5% per year, T = 2 years \n I = 10,000 × 0.05 × 2 = ₱1,000"
                     )
                 ),
 
@@ -8598,15 +7058,8 @@ object InteractiveLessonProvider {
                     title = "Example: Finding Simple Interest",
                     problem = "You deposit ₱5,000 in a bank with 4% annual interest for 3 years. How much interest will you earn?",
                     steps = listOf(
-                        "Given:",
-                        "Principal (P) = ₱5,000",
-                        "Rate (R) = 4% = 0.04",
-                        "Time (T) = 3 years",
-                        "Using the formula:",
-                        "Simple Interest = P × R × T",
-                        "I = 5,000 × 0.04 × 3",
-                        "I = 5,000 × 0.12",
-                        "I = ₱600",
+                        "Given: \n Principal (P) = ₱5,000 \n Rate (R) = 4% = 0.04 \n Time (T) = 3 years",
+                        "Using the formula: \n Simple Interest = P × R × T \n I = 5,000 × 0.04 × 3 \n I = 5,000 × 0.12 \n I = ₱600",
                         "You will earn ₱600 in interest after 3 years"
                     ),
                     answer = "Interest = ₱600"
@@ -8617,13 +7070,9 @@ object InteractiveLessonProvider {
                     title = "Formula for Principal",
                     content = "If you know the interest, rate, and time:",
                     keyPoints = listOf(
-                        "Principal = Interest ÷ (Rate × Time)",
-                        "Or: P = I ÷ (R × T)",
+                        "Principal = Interest ÷ (Rate × Time) \n Or: P = I ÷ (R × T)",
                         "This tells you how much was initially deposited",
-                        "Example:",
-                        "I = ₱600, R = 4%, T = 3 years",
-                        "P = 600 ÷ (0.04 × 3)",
-                        "P = 600 ÷ 0.12 = ₱5,000"
+                        "Example: \n I = ₱600, R = 4%, T = 3 years \n P = 600 ÷ (0.04 × 3) \n P = 600 ÷ 0.12 = ₱5,000"
                     )
                 ),
 
@@ -8632,16 +7081,8 @@ object InteractiveLessonProvider {
                     title = "Example: Finding Principal",
                     problem = "Someone earned ₱2,400 interest at 6% per year for 4 years. What was the principal amount?",
                     steps = listOf(
-                        "Given:",
-                        "Interest (I) = ₱2,400",
-                        "Rate (R) = 6% = 0.06",
-                        "Time (T) = 4 years",
-                        "Using the formula:",
-                        "Principal = Interest ÷ (Rate × Time)",
-                        "P = I ÷ (R × T)",
-                        "P = 2,400 ÷ (0.06 × 4)",
-                        "P = 2,400 ÷ 0.24",
-                        "P = ₱10,000",
+                        "Given: \n Interest (I) = ₱2,400 \n Rate (R) = 6% = 0.06 \n Time (T) = 4 years",
+                        "Using the formula: \n Principal = Interest ÷ (Rate × Time) \n P = I ÷ (R × T) \n P = 2,400 ÷ (0.06 × 4) \n P = 2,400 ÷ 0.24 \n P = ₱10,000",
                         "The principal amount was ₱10,000"
                     ),
                     answer = "Principal = ₱10,000"
@@ -8652,13 +7093,9 @@ object InteractiveLessonProvider {
                     title = "Finding Amount Due",
                     content = "Total amount after adding interest:",
                     keyPoints = listOf(
-                        "Amount Due = Principal + Interest",
-                        "Or: AD = P + I",
-                        "This is the total you receive (savings)",
-                        "Or total you pay (loan)",
-                        "Example:",
-                        "Principal = ₱5,000",
-                        "Interest = ₱600",
+                        "Amount Due = Principal + Interest \n Or: AD = P + I",
+                        "This is the total you receive (savings) \n Or total you pay (loan)",
+                        "Example: \n Principal = ₱5,000 \n Interest = ₱600",
                         "Amount Due = 5,000 + 600 = ₱5,600"
                     )
                 ),
@@ -8668,19 +7105,9 @@ object InteractiveLessonProvider {
                     title = "Complete Example",
                     problem = "Maria borrowed ₱20,000 at 8% simple interest per year for 2 years. How much will she pay back in total?",
                     steps = listOf(
-                        "Given:",
-                        "Principal = ₱20,000",
-                        "Rate = 8% = 0.08",
-                        "Time = 2 years",
-                        "Step 1: Find interest",
-                        "I = P × R × T",
-                        "I = 20,000 × 0.08 × 2",
-                        "I = 20,000 × 0.16",
-                        "I = ₱3,200",
-                        "Step 2: Find amount due",
-                        "AD = P + I",
-                        "AD = 20,000 + 3,200",
-                        "AD = ₱23,200"
+                        "Given: \n Principal = ₱20,000 \n Rate = 8% = 0.08 \n Time = 2 years",
+                        "Step 1: Find interest \n I = P × R × T \n I = 20,000 × 0.08 × 2 \n I = 20,000 × 0.16 \n I = ₱3,200",
+                        "Step 2: Find amount due \n AD = P + I \n AD = 20,000 + 3,200 \n AD = ₱23,200"
                     ),
                     answer = "Maria will pay back ₱23,200"
                 ),
@@ -8706,10 +7133,8 @@ object InteractiveLessonProvider {
                     title = "Other Formulas",
                     content = "Additional formulas you might need:",
                     keyPoints = listOf(
-                        "Finding Rate:",
-                        "R = I ÷ (P × T)",
-                        "Finding Time:",
-                        "T = I ÷ (P × R)",
+                        "Finding Rate: \n R = I ÷ (P × T)",
+                        "Finding Time: \n T = I ÷ (P × R)",
                         "These help when you need to find",
                         "the interest rate or time period",
                         "All formulas come from: I = P × R × T"
@@ -8720,20 +7145,9 @@ object InteractiveLessonProvider {
                     id = 13,
                     title = "Summary",
                     keyPoints = listOf(
-                        "Key Terms:",
-                        "• Interest (I) - money earned/paid",
-                        "• Principal (P) - initial amount",
-                        "• Rate (R) - percentage (as decimal)",
-                        "• Time (T) - duration in years",
-                        "• Amount Due (AD) - principal + interest",
-                        "Key Formulas:",
-                        "• Simple Interest = P × R × T",
-                        "• Principal = I ÷ (R × T)",
-                        "• Amount Due = P + I",
-                        "Remember:",
-                        "• Convert percentage to decimal (5% = 0.05)",
-                        "• Time must be in years",
-                        "• Simple interest is calculated only on principal"
+                        "Key Terms: \n • Interest (I) - money earned/paid \n • Principal (P) - initial amount \n • Rate (R) - percentage (as decimal) \n • Time (T) - duration in years \n • Amount Due (AD) - principal + interest",
+                        "Key Formulas: \n • Simple Interest = P × R × T \n • Principal = I ÷ (R × T) \n • Amount Due = P + I",
+                        "Remember: \n • Convert percentage to decimal (5% = 0.05) \n • Time must be in years \n • Simple interest is calculated only on principal"
                     )
                 )
             )
@@ -8901,11 +7315,9 @@ object InteractiveLessonProvider {
                         "Step 1: Check GEMDAS order",
                         "No grouping symbols or exponents",
                         "Next is Multiplication",
-                        "Step 2: Do multiplication first",
-                        "1 × 5 = 5",
+                        "Step 2: Do multiplication first \n 1 × 5 = 5",
                         "Expression becomes: 4 + 5",
-                        "Step 3: Now do addition",
-                        "4 + 5 = 9",
+                        "Step 3: Now do addition \n 4 + 5 = 9",
                         "Final answer: 9"
                     ),
                     answer = "9"
@@ -8916,18 +7328,10 @@ object InteractiveLessonProvider {
                     title = "Complex Example with All Operations",
                     problem = "Solve: 4² + 4(4 − 2) − 2",
                     steps = listOf(
-                        "Step 1: Parentheses first (Grouping)",
-                        "4² + 4(4 − 2) − 2",
-                        "4² + 4(2) − 2",
-                        "Step 2: Exponents",
-                        "4² = 16",
-                        "16 + 4(2) − 2",
-                        "Step 3: Multiplication",
-                        "4(2) = 8",
-                        "16 + 8 − 2",
-                        "Step 4: Addition and Subtraction (left to right)",
-                        "16 + 8 = 24",
-                        "24 − 2 = 22"
+                        "Step 1: Parentheses first (Grouping) \n 4² + 4(4 − 2) − 2 \n 4² + 4(2) − 2",
+                        "Step 2: Exponents \n 4² = 16 \n 16 + 4(2) − 2",
+                        "Step 3: Multiplication \n 4(2) = 8 \n 16 + 8 − 2",
+                        "Step 4: Addition and Subtraction (left to right) \n 16 + 8 = 24 \n 24 − 2 = 22"
                     ),
                     answer = "22"
                 ),
@@ -9075,11 +7479,7 @@ object InteractiveLessonProvider {
                     title = "Examples of Opposite Numbers",
                     problem = "Adding opposites always equals zero:",
                     steps = listOf(
-                        "−1 + 1 = 0",
-                        "−3 + 3 = 0",
-                        "−5 + 5 = 0",
-                        "10 + (−10) = 0",
-                        "−100 + 100 = 0",
+                        "−1 + 1 = 0 \n −3 + 3 = 0 \n −5 + 5 = 0 \n 10 + (−10) = 0 \n −100 + 100 = 0",
                         "The result will ALWAYS be 0"
                     ),
                     answer = "Opposite numbers sum to 0"
@@ -9113,10 +7513,7 @@ object InteractiveLessonProvider {
                     id = 13,
                     title = "Summary",
                     keyPoints = listOf(
-                        "Integers are whole numbers:",
-                        "• Positive whole numbers (1, 2, 3...)",
-                        "• Negative whole numbers (−1, −2, −3...)",
-                        "• Zero (0)",
+                        "Integers are whole numbers: \n • Positive whole numbers (1, 2, 3...) \n • Negative whole numbers (−1, −2, −3...) \n • Zero (0)",
                         "Integers do NOT include fractions or decimals",
                         "Each integer has an opposite on the number line",
                         "Opposites are the same distance from zero",
@@ -9137,7 +7534,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Good day!",
-                    content = "In this topic you will learn about Number Line.\n\nYou will understand how to compare and arrange integers on the number line."
+                    content = "In this topic you will learn about Number Line. You will understand how to compare and arrange integers on the number line."
                 ),
 
                 Slide.ConceptSlide(
@@ -9208,11 +7605,10 @@ object InteractiveLessonProvider {
                     id = 8,
                     title = "Summary",
                     keyPoints = listOf(
-                        "Key points to remember in Number Line:",
-                        "• A number line is a straight line where numbers are arranged at equal spaces, and it can extend infinitely in both directions.",
-                        "• Moving from zero to the right, the numbers increase in value. The farther right you go, the larger the numbers become.",
-                        "• In the opposite direction, moving from zero to the left, the numbers decrease in value. The farther left you go, the smaller the numbers become.",
-                        "• Positive integers are greater than zero, while negative integers are less than zero."
+                        "A number line is a straight line where numbers are arranged at equal spaces, and it can extend infinitely in both directions.",
+                        "Moving from zero to the right, the numbers increase in value. The farther right you go, the larger the numbers become.",
+                        "In the opposite direction, moving from zero to the left, the numbers decrease in value. The farther left you go, the smaller the numbers become.",
+                        "Positive integers are greater than zero, while negative integers are less than zero."
                     )
                 )
             )
@@ -9251,8 +7647,7 @@ object InteractiveLessonProvider {
                     imageResourceId = R.drawable.adding_algebra_tiles_1,
                     steps = listOf(
                         "Blue tiles represent positive integers",
-                        "3 blue tiles + 6 blue tiles",
-                        "= 9 blue tiles",
+                        "3 blue tiles + 6 blue tiles = 9 blue tiles",
                         "Therefore: 3 + 6 = 9"
                     ),
                     answer = "9"
@@ -9265,8 +7660,7 @@ object InteractiveLessonProvider {
                     imageResourceId = R.drawable.adding_algebra_tiles_2,
                     steps = listOf(
                         "Red tiles represent negative integers",
-                        "2 red tiles + 6 red tiles",
-                        "= 8 red tiles",
+                        "2 red tiles + 6 red tiles = 8 red tiles",
                         "Therefore: −2 + (−6) = −8"
                     ),
                     answer = "−8"
@@ -9321,13 +7715,9 @@ object InteractiveLessonProvider {
                     problem = "Example 2: −4 − (−8) = ?",
                     imageResourceId = R.drawable.subtracting_algebra_tiles_2,
                     steps = listOf(
-                        "Step 1: Negative multiply by negative is positive",
-                        "−4 − (−8) → −4 + 8",
-                        "Step 2: Rewrite the expression",
-                        "Then, −4 + 8",
-                        "Step 3: Using algebra tiles:",
-                        "4 red tiles + 8 blue tiles",
-                        "Cancel 4 pairs of red and blue",
+                        "Step 1: Negative multiply by negative is positive \n −4 − (−8) → −4 + 8",
+                        "Step 2: Rewrite the expression \n Then, −4 + 8",
+                        "Step 3: Using algebra tiles: \n 4 red tiles + 8 blue tiles \n Cancel 4 pairs of red and blue",
                         "4 blue tiles remain"
                     ),
                     answer = "4"
@@ -9346,16 +7736,10 @@ object InteractiveLessonProvider {
                     id = 10,
                     title = "Summary",
                     keyPoints = listOf(
-                        "Key points to remember:",
-                        "Adding Integers:",
-                        "Same signs: Add the numbers and keep the sign.",
+                        "Adding Integers: \n Same signs: Add the numbers and keep the sign.",
                         "Different signs: Subtract the smaller number from the larger number and keep the sign of the bigger number (in absolute value).",
                         "Zero pairs: A positive and a negative value cancel each other out.",
-                        "Subtracting Integers:",
-                        "Subtraction becomes addition to the opposite.",
-                        "Rewrite the expression before solving.",
-                        "Then follow the rules of integer addition.",
-                        "Removing a positive decreases the value; removing a negative increases the value."
+                        "Subtracting Integers: \n Subtraction becomes addition to the opposite. \n Rewrite the expression before solving. \n Then follow the rules of integer addition. \n Removing a positive decreases the value; removing a negative increases the value."
                     )
                 )
             )
@@ -9371,7 +7755,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Heyyy!!",
-                    content = "In this lesson, you will learn how to add, subtract, multiply, and divide integers.\n\nYou'll understand the rules for positive and negative signs, and use a number line to solve integer problems correctly."
+                    content = "In this lesson, you will learn how to add, subtract, multiply, and divide integers. You'll understand the rules for positive and negative signs, and use a number line to solve integer problems correctly."
                 ),
 
                 Slide.ConceptSlide(
@@ -9432,12 +7816,9 @@ object InteractiveLessonProvider {
                     content = "Examples using the number line:",
                     imageResourceId = R.drawable.number_line_lesson_10_1,
                     keyPoints = listOf(
-                        "1. 3 + 5 = 8",
-                        "   The arrow starts with a positive 3; since the operation is addition, the direction of the arrow is counting 5 units to the right.",
-                        "2. −5 + 8 = 3",
-                        "   The arrow starts with −5 counting 8 units to the right.",
-                        "3. −7 + 3 = −4",
-                        "   The arrow starts with −7, counting 3 units to the right."
+                        "1. 3 + 5 = 8 \n The arrow starts with a positive 3; since the operation is addition, the direction of the arrow is counting 5 units to the right.",
+                        "2. −5 + 8 = 3 \n The arrow starts with −5 counting 8 units to the right.",
+                        "3. −7 + 3 = −4 \n The arrow starts with −7, counting 3 units to the right."
                     )
                 ),
 
@@ -9446,12 +7827,8 @@ object InteractiveLessonProvider {
                     title = "Key Points for Addition",
                     content = "Rules for adding integers:",
                     keyPoints = listOf(
-                        "Same Signs:",
-                        " Add and keep the sign.",
-                        " Example: −5 + (−3) = −8",
-                        "Different Signs:",
-                        " Subtract and keep the sign of the bigger number.",
-                        " Example: −3 + 4 = 1"
+                        "Same Signs: \n Add and keep the sign. \n Example: −5 + (−3) = −8",
+                        "Different Signs: \n Subtract and keep the sign of the bigger number. \n Example: −3 + 4 = 1"
                     )
                 ),
 
@@ -9461,14 +7838,10 @@ object InteractiveLessonProvider {
                     content = "Examples using the number line:",
                     imageResourceId = R.drawable.number_line_lesson_10_2,
                     keyPoints = listOf(
-                        "1. 7 − 2 = 5",
-                        "   The arrow starts with a positive 7; since the operation is subtraction, the direction of the arrow is counting 2 units to the left.",
-                        "2. 3 − 8 = −5",
-                        "   The arrow starts with positive 3 counting 8 units to the left.",
-                        "3. −2 − 7 = −9",
-                        "   The arrow starts with negative 2, counting 7 units to the left.",
-                        "4. −4 − (−5), simplify it: −4 + 5 = 1",
-                        "   Since the signs are both negative; as we mentioned earlier, negative multiplied by negative, the product is positive."
+                        "1. 7 − 2 = 5 \n The arrow starts with a positive 7; since the operation is subtraction, the direction of the arrow is counting 2 units to the left.",
+                        "2. 3 − 8 = −5 \n The arrow starts with positive 3 counting 8 units to the left.",
+                        "3. −2 − 7 = −9 \n The arrow starts with negative 2, counting 7 units to the left.",
+                        "4. −4 − (−5), simplify it: −4 + 5 = 1 \n Since the signs are both negative; as we mentioned earlier, negative multiplied by negative, the product is positive."
                     )
                 ),
 
@@ -9507,17 +7880,9 @@ object InteractiveLessonProvider {
                     id = 14,
                     title = "Summary",
                     keyPoints = listOf(
-                        "Multiplication and division of integers follow sign rules:",
-                        " Same signs give a positive answer",
-                        " Different signs give a negative answer",
-                        "Adding integers follow sign rules:",
-                        " Same signs: add and keep the sign",
-                        " Different signs: subtract and keep the sign of the bigger number",
-                        "Subtracting integers:",
-                        " Keep the first number",
-                        " Change subtraction to addition",
-                        " Use the opposite of the second number",
-                        " Then follow the addition rules"
+                        "Multiplication and division of integers follow sign rules: \n Same signs give a positive answer \n Different signs give a negative answer",
+                        "Adding integers follow sign rules: \n Same signs: add and keep the sign \n Different signs: subtract and keep the sign of the bigger number",
+                        "Subtracting integers: \n Keep the first number \n Change subtraction to addition \n Use the opposite of the second number \n Then follow the addition rules"
                     )
                 )
             )
@@ -9533,7 +7898,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Heyyy!",
-                    content = "In this lesson, you will learn how to solve both routine and non-routine problems involving the basic operations of integers.\n\nYou'll use the appropriate strategies and tools!"
+                    content = "In this lesson, you will learn how to solve both routine and non-routine problems involving the basic operations of integers. You'll use the appropriate strategies and tools!"
                 ),
 
                 Slide.ExampleSlide(
@@ -9541,22 +7906,10 @@ object InteractiveLessonProvider {
                     title = "Example Word Problem: Addition",
                     problem = "Sarah had a bank balance of −₱400 because she overspent last month. This month, she deposited ₱1,000 into her account. What is her new balance?",
                     steps = listOf(
-                        "1. UNDERSTAND",
-                        "   a. Given facts: starting balance = −₱400; deposit = ₱1,000",
-                        "   b. Asked: the new (current) bank balance after the deposit",
-                        "2. PLAN",
-                        "   a. Operation: Addition",
-                        "   b. Number sentence: −400 + 1,000 = N",
-                        "3. SOLVE",
-                        "   Compute 1,000 + (−400). Think of it as 1,000 − 400.",
-                        "   1,000",
-                        "   − 400",
-                        "   ———",
-                        "     600",
-                        "   So the new balance is ₱600.",
-                        "4. CHECK",
-                        "   600 − 1,000 = −400 ✓",
-                        "   She deposits, which means she adds some money to her bank account."
+                        "1. UNDERSTAND \n a. Given facts: starting balance = −₱400; deposit = ₱1,000 \n b. Asked: the new (current) bank balance after the deposit",
+                        "2. PLAN \n a. Operation: Addition \n b. Number sentence: −400 + 1,000 = N",
+                        "3. SOLVE \n Compute 1,000 + (−400). Think of it as 1,000 − 400.\n    1,000\n    − 400\n    ———\n      600\n    So the new balance is ₱600.",
+                        "4. CHECK\n    600 − 1,000 = −400\n    She deposits, which means she adds some money to her bank account."
                     ),
                     answer = "New balance: ₱600"
                 ),
@@ -9566,21 +7919,10 @@ object InteractiveLessonProvider {
                     title = "Example 2: Subtraction",
                     problem = "Miko had 80 apples in her basket. She gave 10 apples to her friend. How many apples does she have left?",
                     steps = listOf(
-                        "1. UNDERSTAND",
-                        "   a. What are the given facts: 80 apples; given away = 10 apples",
-                        "   b. Asked: apples remaining",
-                        "2. PLAN",
-                        "   a. Operation: Subtraction",
-                        "   b. Number sentence: 80 − 10 = N",
-                        "3. SOLVE",
-                        "   80",
-                        "   −10",
-                        "   ———",
-                        "   70",
-                        "   Miko has 70 apples left.",
-                        "4. CHECK",
-                        "   70 + 10 = 80 ✓ → returns the original amount.",
-                        "   Because she gave 10 apples to her friend, she now has 70 apples."
+                        "1. UNDERSTAND \n a. What are the given facts: 80 apples; given away = 10 apples \n b. Asked: apples remaining",
+                        "2. PLAN \n a. Operation: Subtraction \n b. Number sentence: 80 − 10 = N",
+                        "3. SOLVE\n    80\n    −10\n    ———\n    70\n    Miko has 70 apples left.",
+                        "4. CHECK \n 70 + 10 = 80 → returns the original amount. \n Because she gave 10 apples to her friend, she now has 70 apples."
                     ),
                     answer = "70 apples left"
                 ),
@@ -9590,21 +7932,10 @@ object InteractiveLessonProvider {
                     title = "Example 3: Multiplication",
                     problem = "A farmer has 9 baskets, and each basket holds 8 apples. How many apples does the farmer have in total?",
                     steps = listOf(
-                        "1. UNDERSTAND",
-                        "   a. Given facts: baskets = 9; apples per basket = 8",
-                        "   b. Asked: total number of apples",
-                        "2. PLAN",
-                        "   a. Operation: Multiplication",
-                        "   b. Number sentence: 9 × 8 = N",
-                        "3. SOLVE",
-                        "   9",
-                        "   × 8",
-                        "   ———",
-                        "   72",
-                        "   So total = 72 apples.",
-                        "4. CHECK",
-                        "   72 ÷ 9 = 8 ✓",
-                        "   Every basket has 8 apples in it."
+                        "1. UNDERSTAND \n a. Given facts: baskets = 9; apples per basket = 8 \n b. Asked: total number of apples",
+                        "2. PLAN \n a. Operation: Multiplication \n b. Number sentence: 9 × 8 = N",
+                        "3. SOLVE\n    9\n    × 8\n    ———\n    72\n    So total = 72 apples.",
+                        "4. CHECK \n 72 ÷ 9 = 8 \n Every basket has 8 apples in it."
                     ),
                     answer = "72 apples total"
                 ),
@@ -9614,18 +7945,10 @@ object InteractiveLessonProvider {
                     title = "Example 4: Division",
                     problem = "A teacher has 48 pencils and wants to distribute them equally among 6 students. How many pencils will each student receive?",
                     steps = listOf(
-                        "1. UNDERSTAND",
-                        "   a. Given facts: total pencils = 48; students = 6",
-                        "   b. Asked: pencils per student (equal share)",
-                        "2. PLAN",
-                        "   a. Operation: Division",
-                        "   b. Number sentence: 48 ÷ 6 = N",
-                        "3. SOLVE",
-                        "   48 ÷ 6 = 8",
-                        "   Each student receives 8 pencils.",
-                        "4. CHECK",
-                        "   8 × 6 = 48 ✓",
-                        "   In 8, all 6 students have equally divided pencils."
+                        "1. UNDERSTAND \n a. Given facts: total pencils = 48; students = 6 \n b. Asked: pencils per student (equal share)",
+                        "2. PLAN \n a. Operation: Division \n b. Number sentence: 48 ÷ 6 = N",
+                        "3. SOLVE \n 48 ÷ 6 = 8 \n Each student receives 8 pencils.",
+                        "4. CHECK \n 8 × 6 = 48  \n In 8, all 6 students have equally divided pencils."
                     ),
                     answer = "8 pencils per student"
                 ),
@@ -9666,16 +7989,8 @@ object InteractiveLessonProvider {
                     id = 10,
                     title = "Summary",
                     keyPoints = listOf(
-                        "Use the 4-step method to solve integer problems:",
-                        " UNDERSTAND - What's given and what's asked?",
-                        " PLAN - What operation and number sentence?",
-                        " SOLVE - Carry out the plan",
-                        " CHECK - Verify your answer",
-                        "Operations with integers:",
-                        " Addition: combining values",
-                        " Subtraction: finding difference or what's left",
-                        " Multiplication: repeated addition",
-                        " Division: equal sharing or grouping",
+                        "Use the 4-step method to solve integer problems: \n UNDERSTAND - What's given and what's asked? \n PLAN - What operation and number sentence? \n SOLVE - Carry out the plan \n CHECK - Verify your answer",
+                        "Operations with integers: \n Addition: combining values \n Subtraction: finding difference or what's left \n Multiplication: repeated addition \n Division: equal sharing or grouping",
                         "Always check if your answer makes sense!"
                     )
                 )
@@ -9693,7 +8008,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Hello!!",
-                    content = "In this topic you will learn about plane and solid figures and their features.\n\nYou'll understand the difference between 2D and 3D shapes!"
+                    content = "In this topic you will learn about plane and solid figures and their features. You'll understand the difference between 2D and 3D shapes!"
                 ),
 
                 Slide.ConceptSlide(
@@ -9702,12 +8017,7 @@ object InteractiveLessonProvider {
                     content = "A girl was asked to clean her room and found some items.",
                     imageResourceId = R.drawable.room_objects,
                     keyPoints = listOf(
-                        "The girl found:",
-                        " A bed",
-                        " A toy traffic cone",
-                        " Dice",
-                        " A soccer ball",
-                        " A coin bank"
+                        "The girl found: \n A bed \n A toy traffic cone \n Dice \n A soccer ball \n A coin bank"
                     )
                 ),
 
@@ -9722,7 +8032,6 @@ object InteractiveLessonProvider {
                         "Soccer ball → shaped like a circle",
                         "Coin bank → has 2 circles for its bases",
                         "Dice → represented by a square",
-                        "",
                         "The pictures above are examples of real solid figures."
                     )
                 ),
@@ -9743,10 +8052,7 @@ object InteractiveLessonProvider {
                     title = "Let us differentiate between plane figures and solid figures",
                     content = "Understanding the key differences:",
                     keyPoints = listOf(
-                        "We'll explore:",
-                        " What are plane figures?",
-                        " What are solid figures?",
-                        " How they differ from each other"
+                        "We'll explore: \n What are plane figures? \n What are solid figures? \n How they differ from each other"
                     )
                 ),
 
@@ -9755,10 +8061,10 @@ object InteractiveLessonProvider {
                     title = "Plane Figures",
                     content = "Characteristics of plane figures:",
                     keyPoints = listOf(
-                        " Two-dimensional shape",
-                        " Flat",
-                        " Has length and width",
-                        " No thickness or depth",
+                        "Two-dimensional shape",
+                        "Flat",
+                        "Has length and width",
+                        "No thickness or depth",
                         "Examples: rectangle, square, circle, triangle"
                     )
                 ),
@@ -9769,10 +8075,7 @@ object InteractiveLessonProvider {
                     content = "The pictures show flat shapes. These shapes don't have thickness and are called two-dimensional shapes, or plane figures, because they only have length and width.",
                     imageResourceId = R.drawable.plane_figures_examples,
                     keyPoints = listOf(
-                        "Can be made up of:",
-                        " Straight lines",
-                        " Curved lines",
-                        " A combination of both",
+                        "Can be made up of: \n Straight lines \n Curved lines \n A combination of both",
                         "All are flat - no depth!"
                     )
                 ),
@@ -9782,10 +8085,10 @@ object InteractiveLessonProvider {
                     title = "Solid Figures",
                     content = "Characteristics of solid figures:",
                     keyPoints = listOf(
-                        " Three-dimensional shape",
-                        " Has thickness and depth",
-                        " Has length, width AND height",
-                        " Takes up space",
+                        "Three-dimensional shape",
+                        "Has thickness and depth",
+                        "Has length, width AND height",
+                        "Takes up space",
                         "Examples: cube, sphere, cone, cylinder"
                     )
                 ),
@@ -9796,10 +8099,7 @@ object InteractiveLessonProvider {
                     content = "The pictures show shapes that don't lie flat on a plane. These are called space figures, or solids.",
                     imageResourceId = R.drawable.solid_figures_examples,
                     keyPoints = listOf(
-                        "Solids have three dimensions:",
-                        " Length",
-                        " Width",
-                        " Height (or thickness)",
+                        "Solids have three dimensions: \n Length \n Width \n Height (or thickness)",
                         "The flat surfaces of a solid are called FACES",
                         "These faces are usually polygons"
                     )
@@ -9889,7 +8189,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Bonjour!",
-                    content = "In this topic you will learn about additional concepts in algebra.\n\nWe'll develop strategies for finding the nth term of a sequence by using various methods, such as identifying patterns, making educated guesses, and working backward. Additionally, we'll focus on distinguishing between expressions and equations."
+                    content = "In this topic you will learn about additional concepts in algebra. We'll develop strategies for finding the nth term of a sequence by using various methods, such as identifying patterns, making educated guesses, and working backward. Additionally, we'll focus on distinguishing between expressions and equations."
                 ),
 
                 Slide.ConceptSlide(
@@ -9897,13 +8197,8 @@ object InteractiveLessonProvider {
                     title = "What is Formulating Rules for Sequence?",
                     content = "Formulating rules for a sequence means finding a pattern and writing a rule (or formula) that tells how to get any term in the sequence.",
                     keyPoints = listOf(
-                        "What it means:",
-                        " Find the pattern in a sequence",
-                        " Write a rule or formula",
-                        " The rule shows how numbers change",
-                        " Helps you find next terms without listing everything",
-                        "Example:",
-                        "Sequence: 2, 4, 6, 8, ...",
+                        "What it means: \n Find the pattern in a sequence \n Write a rule or formula \n The rule shows how numbers change \n Helps you find next terms without listing everything",
+                        "Example: \n Sequence: 2, 4, 6, 8, ...",
                         "Rule: add 2 to each term"
                     )
                 ),
@@ -9914,12 +8209,8 @@ object InteractiveLessonProvider {
                     imageResourceId = R.drawable.calendar_sequence,
                     content = "The numbers 4, 8, 12, 16, 20, 24, and 28 form a sequence.",
                     keyPoints = listOf(
-                        "What is a number sequence?",
-                        " A list of numbers arranged in order",
-                        " Each term follows a specific rule or pattern",
-                        " Each individual number is called a TERM",
-                        "In this sequence: 4, 8, 12, 16, 20, 24, 28",
-                        " Each term increases by 4"
+                        "What is a number sequence? \n A list of numbers arranged in order \n Each term follows a specific rule or pattern \n Each individual number is called a TERM",
+                        "In this sequence: 4, 8, 12, 16, 20, 24, 28 \n Each term increases by 4"
                     )
                 ),
 
@@ -9929,12 +8220,8 @@ object InteractiveLessonProvider {
                     content = "If we look at any two consecutive terms among the circled numbers on the calendar, the difference between them is 4.",
                     imageResourceId = R.drawable.calendar_sequence,
                     keyPoints = listOf(
-                        "Observation:",
-                        " The difference between consecutive terms is 4",
-                        " By adding 4 to any term, we get the next number",
-                        "Therefore:",
-                        "The rule for the sequence 4, 8, 12, 16, 20, 24",
-                        "is to add 4 to the preceding term",
+                        "Observation: \n The difference between consecutive terms is 4 \n By adding 4 to any term, we get the next number",
+                        "Therefore: \n The rule for the sequence 4, 8, 12, 16, 20, 24 \n is to add 4 to the preceding term",
                         "Rule: n + 4"
                     )
                 ),
@@ -9952,12 +8239,8 @@ object InteractiveLessonProvider {
                     content = "Sequence: 2, 5, 8, 11, ...",
                     imageResourceId = R.drawable.sequence_table_2,
                     keyPoints = listOf(
-                        "Working backwards:",
-                        " Subtract 3 from a term to get the previous term",
-                        " This reveals the pattern",
-                        "Looking forward:",
-                        " Each term increases by 3",
-                        " Common difference = 3",
+                        "Working backwards: \n Subtract 3 from a term to get the previous term \n This reveals the pattern",
+                        "Looking forward: \n Each term increases by 3 \n Common difference = 3",
                         "Try to find a way to generate each term",
                         "such that the sequence has a common difference of 3"
                     )
@@ -9970,16 +8253,9 @@ object InteractiveLessonProvider {
                     imageResourceId = R.drawable.guess_check_table,
                     steps = listOf(
                         "Let n represent a counting number.",
-                        "Testing different rules:",
-                        " When n = 1: term = 2",
-                        " When n = 2: term = 5",
-                        " When n = 3: term = 8",
-                        " When n = 4: term = 11",
-                        "Pattern found:",
-                        " Multiply n by 3, then subtract 1",
-                        " 3 × n − 1 or 3n − 1",
-                        "So the nth term for the sequence 2, 5, 8, 11, ...",
-                        "is 3n − 1",
+                        "Testing different rules: \n When n = 1: term = 2 \n When n = 2: term = 5 \n When n = 3: term = 8 \n When n = 4: term = 11",
+                        "Pattern found: \n Multiply n by 3, then subtract 1 \n 3 × n − 1 or 3n − 1",
+                        "So the nth term for the sequence 2, 5, 8, 11, ... \n is 3n − 1",
                         "The rule 3n − 1 is an EXPRESSION",
                         "While 3n − 1 = 4 is an EQUATION"
                     ),
@@ -9992,14 +8268,8 @@ object InteractiveLessonProvider {
                     content = "Expressions vs Equations:",
                     imageResourceId = R.drawable.expression_equation_table,
                     keyPoints = listOf(
-                        "First column: Examples of EXPRESSIONS",
-                        " 3n − 1",
-                        " 2x + 5",
-                        " 4n",
-                        "Second column: Examples of EQUATIONS",
-                        " 3n − 1 = 4",
-                        " 2x + 5 = 13",
-                        " 4n = 20",
+                        "First column: Examples of EXPRESSIONS \n 3n − 1 \n 2x + 5 \n 4n",
+                        "Second column: Examples of EQUATIONS \n 3n − 1 = 4 \n 2x + 5 = 13 \n 4n = 20",
                         "Key difference: Expression: no equals sign",
                         "Equation: has an equals sign"
                     )
@@ -10040,7 +8310,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Welcome!",
-                    content = "In this topic you will learn about translating real-life word expressions and equations into letters and vice versa.\n\nTo understand and solve a math problem, we need to change word phrases into math symbols to create mathematical phrases."
+                    content = "In this topic you will learn about translating real-life word expressions and equations into letters and vice versa. To understand and solve a math problem, we need to change word phrases into math symbols to create mathematical phrases."
                 ),
 
                 Slide.ConceptSlide(
@@ -10050,10 +8320,7 @@ object InteractiveLessonProvider {
                     keyPoints = listOf(
                         "Does not have an equal sign",
                         "If it has an equal sign, it becomes an equation",
-                        "Examples:",
-                        "• 5 + 3",
-                        "• 2x + 7",
-                        "• 3(a − 2) + 4",
+                        "Examples: \n 5 + 3 \n 2x + 7 \n 3(a − 2) + 4",
                         "Can be simplified but not 'solved' for a value",
                         "unless part of an equation"
                     )
@@ -10065,14 +8332,8 @@ object InteractiveLessonProvider {
                     content = "A mathematical equation is a statement that shows two expressions are equal, using an equal sign (=).",
                     keyPoints = listOf(
                         "Contains numbers, variables, and operations can be solved to find the value of the unknown variable",
-                        "Examples:",
-                        " 5 + x = 12",
-                        " 2a − 7 = 9",
-                        " 3y + 4 = 10",
-                        "Key differences from expressions:",
-                        " Has an equal sign",
-                        " Can be solved to find unknown value",
-                        " Represents a balance between two sides"
+                        "Examples: \n 5 + x = 12 \n 2a − 7 = 9 \n 3y + 4 = 10",
+                        "Key differences from expressions: \n Has an equal sign \n Can be solved to find unknown value \n Represents a balance between two sides"
                     )
                 ),
 
@@ -10081,12 +8342,8 @@ object InteractiveLessonProvider {
                     title = "Key Difference",
                     content = "Math word problems cannot be solved unless you translate them into symbols.",
                     keyPoints = listOf(
-                        "Expression: NO equal sign",
-                        " Example: 5 + 3",
-                        " Cannot be 'solved'",
-                        "Equation: HAS equal sign",
-                        " Example: 5 + x = 12",
-                        " Can be solved",
+                        "Expression: NO equal sign \n Example: 5 + 3 \n Cannot be 'solved'",
+                        "Equation: HAS equal sign \n Example: 5 + x = 12 \n Can be solved",
                         "Remember: All equations contain expressions, but not all expressions are equations!"
                     )
                 ),
@@ -10096,15 +8353,10 @@ object InteractiveLessonProvider {
                     title = "Example Problem 1: Transportation Fare",
                     problem = "Imagine a fare for the first 2 km is ₱8.00 and an additional ₱1.00 for every kilometer. Mercy will go to Cavite City from Noveleta Cavite, and the distance from Noveleta Cavite to Cavite City is 6 km. How much does she need to pay?",
                     steps = listOf(
-                        "Understanding the problem:",
-                        " First 2 km = ₱8.00 (fixed)",
-                        " Additional distance = 6 − 2 = 4 km",
-                        " Each additional km = ₱1.00",
+                        "Understanding the problem: \n First 2 km = ₱8.00 (fixed) \n Additional distance = 6 − 2 = 4 km \n Each additional km = ₱1.00",
                         "Let y = the fixed amount of ₱1.00 per km",
-                        "Expression for remaining distance:",
-                        "4y + 8",
-                        "This means:",
-                        "4 km × ₱1.00 + ₱8.00"
+                        "Expression for remaining distance: \n 4y + 8",
+                        "This means: \n 4 km × ₱1.00 + ₱8.00"
                     ),
                     answer = "Expression: 4y + 8"
                 ),
@@ -10115,15 +8367,9 @@ object InteractiveLessonProvider {
                     problem = "Example problem 1: Imagine a fare for the first 2 km is Php 8.00 and an additional Php 1.00 for every kilometer. Mercy will go to Cavite City from Noveleta Cavite, and the distance from Noveleta Cavite to Cavite City is 6 km. How much does she need to pay?",
                     imageResourceId = R.drawable.distance_example,
                     steps = listOf(
-                        "Substitute y = 1:",
-                        "4y + 8",
-                        "= 4(1) + 8",
-                        "= 4 + 8",
-                        "= 12",
+                        "Substitute y = 1: \n 4y + 8 \n = 4(1) + 8 \n = 4 + 8 \n = 12",
                         "Wait! The base fare is ₱8, not ₱15!",
-                        "Let's recalculate:",
-                        "Actually, if first 2 km = ₱15 (as stated in original):",
-                        "4(1) + 15 = 19",
+                        "Let's recalculate: \n Actually, if first 2 km = ₱15 (as stated in original): 4(1) + 15 = 19",
                         "Therefore, Mercy needs to pay ₱19.00"
                     ),
                     answer = "Total fare: ₱19.00"
@@ -10135,11 +8381,9 @@ object InteractiveLessonProvider {
                     problem = "Silvia and her family donated canned goods and cup noodles to a certain city affected by a typhoon. They donated a total of 300 items. If the number of canned goods is twice the number of cup noodles, how many canned goods did they donate?",
                     steps = listOf(
                         "Let x = number of cup noodles",
-                        "Then 2x = number of canned goods",
-                        "(because canned goods is twice the cup noodles)",
+                        "Then 2x = number of canned goods (because canned goods is twice the cup noodles)",
                         "Total = 300",
-                        "Setting up the equation:",
-                        "x + 2x = 300",
+                        "Setting up the equation: x + 2x = 300",
                         "This is an EQUATION because it has an equal sign"
                     ),
                     answer = "Equation: x + 2x = 300"
@@ -10150,11 +8394,8 @@ object InteractiveLessonProvider {
                     title = "Solving Example 2",
                     problem = "Solve: x + 2x = 300",
                     steps = listOf(
-                        "Combine like terms:",
-                        "x + 2x = 300",
-                        "3x = 300",
-                        "Divide both sides by 3:",
-                        "300 ÷ 3 = 100",
+                        "Combine like terms: \n x + 2x = 300 \n 3x = 300",
+                        "Divide both sides by 3: 300 ÷ 3 = 100",
                         "So x = 100 (cup noodles)",
                         "Canned goods = 2x = 2(100) = 200",
                         "Check: 100 + 200 = 300"
@@ -10182,17 +8423,8 @@ object InteractiveLessonProvider {
                     id = 11,
                     title = "Summary: Key Points to Remember",
                     keyPoints = listOf(
-                        "Expression:",
-                        " A combination of numbers, variables, and operations",
-                        " Does NOT have an equal sign",
-                        " Represents a value but cannot be 'solved'",
-                        " Examples: 5 + x, 2(a − 3) + 7",
-                        "Equation:",
-                        " Shows that two expressions are equal",
-                        " Uses an equal sign (=)",
-                        " Can be solved to find the value of unknown variable",
-                        " Represents a balance between two sides",
-                        " Examples: 5 + x = 12, 2a − 7 = 9",
+                        "Expression: \n A combination of numbers, variables, and operations \n Does NOT have an equal sign \n Represents a value but cannot be 'solved' \n Examples: 5 + x, 2(a − 3) + 7",
+                        "Equation: \n Shows that two expressions are equal \n Uses an equal sign (=) \n Can be solved to find the value of unknown variable \n Represents a balance between two sides \n Examples: 5 + x = 12, 2a − 7 = 9",
                         "Remember: Translate word problems into symbols to solve them!"
                     )
                 )
@@ -10209,7 +8441,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Hola!",
-                    content = "In this topic you will learn to translate word phrases into algebraic expressions.\n\nLet's start to have a better understanding of this topic."
+                    content = "In this topic you will learn to translate word phrases into algebraic expressions. Let's start to have a better understanding of this topic."
                 ),
 
                 Slide.ConceptSlide(
@@ -10220,11 +8452,7 @@ object InteractiveLessonProvider {
                         "Changes words into math symbols",
                         "Uses numbers, variables, and operations",
                         "Helps solve problems mathematically",
-                        "Examples:",
-                        " 'The sum of a number and 7' → x + 7",
-                        " '3 less than a number' → x − 3",
-                        " 'Twice a number' → 2x",
-                        " 'The product of a number and 5' → 5x"
+                        "Examples: \n 'The sum of a number and 7' → x + 7 \n '3 less than a number' → x − 3 \n 'Twice a number' → 2x \n 'The product of a number and 5' → 5x"
                     )
                 ),
 
@@ -10245,16 +8473,9 @@ object InteractiveLessonProvider {
                     title = "What is an Algebraic Expression?",
                     content = "An algebraic expression is a math phrase made up of letters, numbers, and operation symbols.",
                     keyPoints = listOf(
-                        "Contains:",
-                        " Letters (variables)",
-                        " Numbers (constants)",
-                        " Operation symbols (+, −, ×, ÷)",
-                        "Examples:",
-                        " x + 5",
-                        " 3n − 2",
-                        " ½y + 7",
-                        "To translate word phrases:",
-                        "Know which words match specific symbols or operations"
+                        "Contains: \n Letters (variables) \n Numbers (constants) \n Operation symbols (+, −, ×, ÷)",
+                        "Examples: \n x + 5 \n 3n − 2 \n ½y + 7",
+                        "To translate word phrases: \n Know which words match specific symbols or operations"
                     )
                 ),
 
@@ -10264,16 +8485,14 @@ object InteractiveLessonProvider {
                     imageResourceId = R.drawable.mathematical_operations,
                     content = "Words that indicate ADDITION:",
                     keyPoints = listOf(
-                        " Sum",
-                        " Plus",
-                        " Add",
-                        " More than",
-                        " Increased by",
-                        " Total",
+                        "Sum",
+                        "Plus",
+                        "Add",
+                        "More than",
+                        "Increased by",
+                        "Total",
                         "Symbol: +",
-                        "Example:",
-                        "'The sum of x and 5' → x + 5",
-                        "'3 more than a number' → n + 3"
+                        "Example: \n 'The sum of x and 5' → x + 5 \n '3 more than a number' → n + 3"
                     )
                 ),
 
@@ -10283,16 +8502,14 @@ object InteractiveLessonProvider {
                     imageResourceId = R.drawable.mathematical_operations,
                     content = "Words that indicate SUBTRACTION:",
                     keyPoints = listOf(
-                        " Difference",
-                        " Minus",
-                        " Subtract",
-                        " Less than",
-                        " Decreased by",
-                        " Fewer than",
+                        "Difference",
+                        "Minus",
+                        "Subtract",
+                        "Less than",
+                        "Decreased by",
+                        "Fewer than",
                         "Symbol: −",
-                        "Example:",
-                        "'5 less than a number' → x − 5",
-                        "'The difference of n and 3' → n − 3"
+                        "Example: \n '5 less than a number' → x − 5 \n 'The difference of n and 3' → n − 3"
                     )
                 ),
 
@@ -10302,17 +8519,14 @@ object InteractiveLessonProvider {
                     imageResourceId = R.drawable.mathematical_operations,
                     content = "Words that indicate MULTIPLICATION:",
                     keyPoints = listOf(
-                        " Product",
-                        " Times",
-                        " Multiply",
-                        " Twice/Double",
-                        " Of (with fractions)",
-                        " Each",
+                        "Product",
+                        "Times",
+                        "Multiply",
+                        "Twice/Double",
+                        "Of (with fractions)",
+                        "Each",
                         "Symbol: × or just write next to variable",
-                        "Example:",
-                        "'The product of 4 and x' → 4x",
-                        "'Twice a number' → 2n",
-                        "'½ of y' → ½y"
+                        "Example: \n 'The product of 4 and x' → 4x \n 'Twice a number' → 2n \n '½ of y' → ½y"
                     )
                 ),
 
@@ -10322,15 +8536,13 @@ object InteractiveLessonProvider {
                     imageResourceId = R.drawable.mathematical_operations,
                     content = "Words that indicate DIVISION:",
                     keyPoints = listOf(
-                        " Quotient",
-                        " Divided by",
-                        " Ratio",
-                        " Per",
-                        " Split",
+                        "Quotient",
+                        "Divided by",
+                        "Ratio",
+                        "Per",
+                        "Split",
                         "Symbol: ÷ or /",
-                        "Example:",
-                        "'The quotient of x and 3' → x ÷ 3 or x/3",
-                        "'A number divided by 5' → n ÷ 5 or n/5"
+                        "Example: \n 'The quotient of x and 3' → x ÷ 3 or x/3 \n 'A number divided by 5' → n ÷ 5 or n/5"
                     )
                 ),
 
@@ -10340,21 +8552,10 @@ object InteractiveLessonProvider {
                     imageResourceId = R.drawable.word_phrases,
                     content = "Study how different word phrases translate to algebraic expressions:",
                     keyPoints = listOf(
-                        "Addition examples:",
-                        "• 'x more than 7' → 7 + x",
-                        "• 'Sum of 3 and y' → 3 + y",
-                        "",
-                        "Subtraction examples:",
-                        "• '4 less than n' → n − 4",
-                        "• 'Difference of m and 2' → m − 2",
-                        "",
-                        "Multiplication examples:",
-                        "• 'Product of 5 and x' → 5x",
-                        "• 'Triple of n' → 3n",
-                        "",
-                        "Division examples:",
-                        "• 'Quotient of y and 4' → y ÷ 4",
-                        "• 'x divided by 2' → x ÷ 2"
+                        "Addition examples: \n • 'x more than 7' → 7 + x \n • 'Sum of 3 and y' → 3 + y",
+                        "Subtraction examples: \n • '4 less than n' → n − 4 \n • 'Difference of m and 2' → m − 2",
+                        "Multiplication examples: \n • 'Product of 5 and x' → 5x \n • 'Triple of n' → 3n",
+                        "Division examples: \n • 'Quotient of y and 4' → y ÷ 4 \n • 'x divided by 2' → x ÷ 2"
                     )
                 ),
 
@@ -10365,14 +8566,9 @@ object InteractiveLessonProvider {
                     problem = "Translate: '8 more than twice a number'",
                     steps = listOf(
                         "Let x = the number",
-                        "Break down the phrase:",
-                        " 'twice a number' → 2x",
-                        " '8 more than' → + 8",
-                        "Combine:",
-                        "'8 more than twice a number'",
-                        "= 2x + 8",
-                        "Or you can write it as:",
-                        "= 8 + 2x",
+                        "Break down the phrase: \n 'twice a number' → 2x \n '8 more than' → + 8",
+                        "Combine: \n '8 more than twice a number' \n = 2x + 8",
+                        "Or you can write it as: \n = 8 + 2x",
                         "(Both are correct!)"
                     ),
                     answer = "8 + 2x or 2x + 8"
@@ -10406,22 +8602,9 @@ object InteractiveLessonProvider {
                     id = 14,
                     title = "Summary: Key Points to Remember",
                     keyPoints = listOf(
-                        "Steps to translate:",
-                        " Identify the unknown number and represent it with a variable (x, y, n)",
-                        " Look for keywords in the phrase",
-                        " Translate words into mathematical expression",
-                        " Check by reading it aloud to match original phrase",
-                        "Operation Keywords:",
-                        " Sum → +",
-                        " Difference / less than → −",
-                        " Product / times / twice → ×",
-                        " Quotient / divided by → ÷",
-                        "",
-                        "Examples:",
-                        " 'The sum of a number and 7' → x + 7",
-                        " '3 less than a number' → x − 3",
-                        " 'Twice a number' → 2x",
-                        " 'The product of a number and 5' → 5x"
+                        "Steps to translate: \n Identify the unknown number and represent it with a variable (x, y, n) \n Look for keywords in the phrase \n Translate words into mathematical expression \n Check by reading it aloud to match original phrase",
+                        "Operation Keywords: \n Sum → + \n Difference / less than → − \n Product / times / twice → × \n Quotient / divided by → ÷",
+                        "Examples: \n 'The sum of a number and 7' → x + 7 \n '3 less than a number' → x − 3 \n 'Twice a number' → 2x \n 'The product of a number and 5' → 5x"
                     )
                 )
             )
@@ -10449,10 +8632,7 @@ object InteractiveLessonProvider {
                         "Can have different values",
                         "Used in expressions, equations, and formulas",
                         "Stands for unknown or changing quantities",
-                        "Examples:",
-                        " x in x + 5",
-                        " y in 2y − 3",
-                        " n in 3n + 7"
+                        "Examples: \n x in x + 5 \n y in 2y − 3 \n n in 3n + 7"
                     )
                 ),
 
@@ -10465,9 +8645,7 @@ object InteractiveLessonProvider {
                         "It can represent different numbers",
                         "Helps us write general rules",
                         "Essential for algebra",
-                        "Example:",
-                        "If x = 3, then x + 5 = 8",
-                        "If x = 10, then x + 5 = 15",
+                        "Example: \n If x = 3, then x + 5 = 8 \n If x = 10, then x + 5 = 15",
                         "The variable x can be any number!"
                     )
                 ),
@@ -10481,10 +8659,7 @@ object InteractiveLessonProvider {
                         "Does not vary",
                         "Always has the same value",
                         "Unlike variables, constants stay the same",
-                        "Examples:",
-                        " 7 in x + 7",
-                        " −3 in 2y − 3",
-                        " 5 in 3n + 5"
+                        "Examples: \n 7 in x + 7 \n −3 in 2y − 3 \n 5 in 3n + 5"
                     )
                 ),
 
@@ -10496,10 +8671,7 @@ object InteractiveLessonProvider {
                         "Fixed values",
                         "Don't depend on variables",
                         "Stay the same no matter what",
-                        "Example:",
-                        "In x + 7:",
-                        " x is the variable (can change)",
-                        " 7 is the constant (always 7)",
+                        "Example: \n In x + 7: \n x is the variable (can change) \n 7 is the constant (always 7)",
                         "Even if x = 1, 5, or 100,",
                         "the constant 7 remains 7"
                     )
@@ -10512,13 +8684,8 @@ object InteractiveLessonProvider {
                     keyPoints = listOf(
                         "Terms are separated by + or − signs",
                         "Not necessary to write + at beginning of a term",
-                        "The number next to a variable is called:",
-                        "the NUMERICAL COEFFICIENT",
-                        "Examples of terms:",
-                        " 5 (constant term)",
-                        " x (variable term)",
-                        " 3x (coefficient × variable)",
-                        " −2y (negative coefficient × variable)"
+                        "The number next to a variable is called: the NUMERICAL COEFFICIENT",
+                        "Examples of terms: \n 5 (constant term) \n x (variable term) \n 3x (coefficient × variable) \n −2y (negative coefficient × variable)"
                     )
                 ),
 
@@ -10529,15 +8696,10 @@ object InteractiveLessonProvider {
                     imageResourceId = R.drawable.expression_example,
                     keyPoints = listOf(
                         "In the expression: 25p + 1",
-                        "p = Variable",
-                        " Represents the unknown value",
-                        "25 = Numerical Coefficient",
-                        " The number next to p",
-                        "1 = Constant",
-                        " Has a definite, fixed value",
-                        "Terms:",
-                        " This expression has TWO terms: 25p and 1",
-                        " Separated by the + sign"
+                        "p = Variable \n Represents the unknown value",
+                        "25 = Numerical Coefficient \n The number next to p",
+                        "1 = Constant \n Has a definite, fixed value",
+                        "Terms: \n This expression has TWO terms: 25p and 1 \n Separated by the + sign"
                     )
                 ),
 
@@ -10546,15 +8708,8 @@ object InteractiveLessonProvider {
                     title = "Example 1: Identifying Parts",
                     problem = "Analyze: 'Six times a number increased by 8'",
                     steps = listOf(
-                        "First, translate to expression:",
-                        "'Six times a number' → 6w",
-                        "'increased by 8' → + 8",
-                        "Expression: 6w + 8",
-                        "Now identify parts:",
-                        " w is the VARIABLE",
-                        " 6 is the NUMERICAL COEFFICIENT of w",
-                        " 8 is the CONSTANT",
-                        " It has TWO TERMS: 6w and 8"
+                        "First, translate to expression: \n 'Six times a number' → 6w \n 'increased by 8' → + 8 \n Expression: 6w + 8",
+                        "Now identify parts: \n w is the VARIABLE \n 6 is the NUMERICAL COEFFICIENT of w \n 8 is the CONSTANT \n It has TWO TERMS: 6w and 8"
                     ),
                     answer = "Variable: w, Coefficient: 6, Constant: 8, Terms: 2"
                 ),
@@ -10587,20 +8742,9 @@ object InteractiveLessonProvider {
                     id = 12,
                     title = "Summary: Key Points to Remember",
                     keyPoints = listOf(
-                        "Variable:",
-                        " A symbol (usually a letter) representing a changing value",
-                        " Used in expressions, equations, and formulas",
-                        " Allows us to generalize patterns",
-                        " Examples: x in x + 5, y in 2y − 3",
-                        "Constant:",
-                        " A fixed number that does not change",
-                        " Examples: 7 in x + 7, −3 in 2y − 3",
-                        " Remains unchanged while variables vary",
-                        "Term:",
-                        " A number, variable, or product/division of numbers and variables",
-                        " Terms are separated by + or − signs",
-                        " Numerical coefficient: number next to a variable",
-                        " Not necessary to write + at beginning of term"
+                        "Variable: \n A symbol (usually a letter) representing a changing value \n Used in expressions, equations, and formulas \n Allows us to generalize patterns \n Examples: x in x + 5, y in 2y − 3",
+                        "Constant: \n A fixed number that does not change \n Examples: 7 in x + 7, −3 in 2y − 3 \n Remains unchanged while variables vary",
+                        "Term: \n A number, variable, or product/division of numbers and variables \n Terms are separated by + or − signs \n Numerical coefficient: number next to a variable \n Not necessary to write + at beginning of term"
                     )
                 )
             )
@@ -10624,13 +8768,8 @@ object InteractiveLessonProvider {
                     title = "Let's Review",
                     content = "What is an algebraic equation? What is an algebraic expression?",
                     keyPoints = listOf(
-                        "Algebraic Equation:",
-                        " A mathematical sentence with an equal sign (=)",
-                        " Shows that two expressions are equal",
-                        "Algebraic Expression:",
-                        " A mathematical phrase",
-                        " Uses variables, numerals, and operation symbols",
-                        " No equal sign"
+                        "Algebraic Equation: \n A mathematical sentence with an equal sign (=) \n Shows that two expressions are equal",
+                        "Algebraic Expression: \n A mathematical phrase \n Uses variables, numerals, and operation symbols \n No equal sign"
                     )
                 ),
 
@@ -10639,12 +8778,7 @@ object InteractiveLessonProvider {
                     title = "Example of Algebraic Equation",
                     content = "3x + 5 = 20",
                     keyPoints = listOf(
-                        "This is an equation because:",
-                        " It has an equal sign (=)",
-                        " It shows two expressions are equal",
-                        " Left side: 3x + 5",
-                        " Right side: 20",
-                        " Can be solved to find x"
+                        "This is an equation because: \n It has an equal sign (=) \n It shows two expressions are equal \n Left side: 3x + 5 \n Right side: 20 \n Can be solved to find x"
                     )
                 ),
 
@@ -10653,12 +8787,7 @@ object InteractiveLessonProvider {
                     title = "Example of Algebraic Expression",
                     content = "3x + 5",
                     keyPoints = listOf(
-                        "This is an expression because:",
-                        " No equal sign",
-                        " Contains variables (x)",
-                        " Contains numerals (3, 5)",
-                        " Contains operation symbols (+)",
-                        " Cannot be 'solved' by itself"
+                        "This is an expression because: \n No equal sign \n Contains variables (x) \n Contains numerals (3, 5) \n Contains operation symbols (+) \n Cannot be 'solved' by itself"
                     )
                 ),
 
@@ -10683,13 +8812,8 @@ object InteractiveLessonProvider {
                     title = "Real-World Example",
                     content = "Let's take a look at this situation:",
                     keyPoints = listOf(
-                        "Elil buys:",
-                        " 3 rolls of tissues for ₱30.00 each",
-                        " 2 wipes for ₱45.00 each",
-                        " He gives the cashier a ₱500.00 bill",
-                        "Tasks:",
-                        " Write an expression for the total cost",
-                        " Write an equation for the change he receives"
+                        "Elil buys: \n 3 rolls of tissues for ₱30.00 each \n 2 wipes for ₱45.00 each \n He gives the cashier a ₱500.00 bill",
+                        "Tasks: \n Write an expression for the total cost \n Write an equation for the change he receives"
                     )
                 ),
 
@@ -10703,10 +8827,7 @@ object InteractiveLessonProvider {
                         "Let d = price of each wipe = ₱45.00",
                         "Let t = amount of change",
                         "Now translate the phrases:",
-                        "Total cost:",
-                        " 3 rolls of tissues = 3s",
-                        " 2 wipes = 2d",
-                        " Total = 3s + 2d",
+                        "Total cost: \n 3 rolls of tissues = 3s \n 2 wipes = 2d \n Total = 3s + 2d",
                         "This is an EXPRESSION (no = sign)"
                     ),
                     answer = "Expression: 3s + 2d"
@@ -10719,16 +8840,9 @@ object InteractiveLessonProvider {
                     steps = listOf(
                         "Algebraic expression: 3s + 2d",
                         "This represents the total cost.",
-                        "Substitute values:",
-                        "3s + 2d",
-                        "= 3(30) + 2(45)",
-                        "= 90 + 90",
-                        "= 180",
+                        "Substitute values: \n 3s + 2d \n = 3(30) + 2(45) \n = 90 + 90 \n = 180",
                         "Total cost is ₱180",
-                        "For change, we need an equation:",
-                        "500 − (3s + 2d) = t",
-                        "500 − 180 = t",
-                        "320 = t",
+                        "For change, we need an equation: \n 500 − (3s + 2d) = t \n 500 − 180 = t \n 320 = t",
                         "Change is ₱320"
                     ),
                     answer = "Total: ₱180, Change: ₱320"
@@ -10746,19 +8860,10 @@ object InteractiveLessonProvider {
                     id = 11,
                     title = "Summary",
                     keyPoints = listOf(
-                        "Algebraic Expression:",
-                        " A phrase with variables, numbers, and operations",
-                        " NO equal sign",
-                        " Examples: 5 + x, 2(a − 3) + 7",
-                        "Algebraic Equation:",
-                        " A sentence showing two expressions are equal",
-                        " HAS an equal sign",
-                        " Examples: 5 + x = 12, 2a − 7 = 9",
-                        "Key Difference:",
-                        "The presence of an EQUAL SIGN (=)",
-                        "Real-world applications:",
-                        " Expressions show costs or quantities",
-                        " Equations help solve for unknowns"
+                        "Algebraic Expression: \n A phrase with variables, numbers, and operations \n NO equal sign \n Examples: 5 + x, 2(a − 3) + 7",
+                        "Algebraic Equation: \n A sentence showing two expressions are equal \n HAS an equal sign \n Examples: 5 + x = 12, 2a − 7 = 9",
+                        "Key Difference: The presence of an EQUAL SIGN (=)",
+                        "Real-world applications: \n Expressions show costs or quantities \n Equations help solve for unknowns"
                     )
                 )
             )
@@ -10796,11 +8901,8 @@ object InteractiveLessonProvider {
                     keyPoints = listOf(
                         "What you do to one side,",
                         "you must do to the other!",
-                        "Example:",
-                        "m − 9 = 12",
-                        "Add 9 to both sides:",
-                        "m − 9 + 9 = 12 + 9",
-                        "m = 21",
+                        "Example: \n m − 9 = 12",
+                        "Add 9 to both sides: \n m − 9 + 9 = 12 + 9 \n m = 21",
                         "Why? Because −9 + 9 = 0"
                     )
                 ),
@@ -10811,11 +8913,8 @@ object InteractiveLessonProvider {
                     content = "If the same quantity is subtracted from both sides of an equation, the resulting equation is equivalent to the original equation.",
                     keyPoints = listOf(
                         "Subtract the same amount from both sides",
-                        "Example:",
-                        "g + 10 = 11",
-                        "Subtract 10 from both sides:",
-                        "g + 10 − 10 = 11 − 10",
-                        "g = 1",
+                        "Example: g + 10 = 11",
+                        "Subtract 10 from both sides: \n g + 10 − 10 = 11 − 10 \n g = 1",
                         "Why? Because 10 − 10 = 0"
                     )
                 ),
@@ -10828,11 +8927,8 @@ object InteractiveLessonProvider {
                     keyPoints = listOf(
                         "Multiply both sides by the same number",
                         "(Must be nonzero!)",
-                        "Example:",
-                        "x/2 = 12",
-                        "Multiply both sides by 2:",
-                        "2 × (x/2) = 2 × 12",
-                        "x = 24",
+                        "Example: x/2 = 12",
+                        "Multiply both sides by 2: \n 2 × (x/2) = 2 × 12 \n x = 24",
                         "Used when variable is divided"
                     )
                 ),
@@ -10844,11 +8940,8 @@ object InteractiveLessonProvider {
                     keyPoints = listOf(
                         "Divide both sides by the same number",
                         "(Must be nonzero!)",
-                        "Example:",
-                        "6n = 30",
-                        "Divide both sides by 6:",
-                        "6n/6 = 30/6",
-                        "n = 5",
+                        "Example: 6n = 30",
+                        "Divide both sides by 6: \n 6n/6 = 30/6 \n n = 5",
                         "Used when variable is multiplied"
                     )
                 ),
@@ -10859,11 +8952,8 @@ object InteractiveLessonProvider {
                     problem = "I am 9 years older than twice the age of my younger brother. If I were 49 years old, how old is my younger brother?",
                     steps = listOf(
                         "Let y = younger brother's age",
-                        "Translate the sentence:",
-                        "'9 years older than twice the age'",
-                        "= 9 + 2y",
-                        "Equation:",
-                        "9 + 2y = 49",
+                        "Translate the sentence: '9 years older than twice the age' \n = 9 + 2y",
+                        "Equation: 9 + 2y = 49",
                         "Now let's solve..."
                     ),
                     answer = "Equation: 9 + 2y = 49"
@@ -10874,16 +8964,9 @@ object InteractiveLessonProvider {
                     title = "Solving the Problem",
                     problem = "Solve: 9 + 2y = 49",
                     steps = listOf(
-                        "Step 1: Subtract 9 from both sides",
-                        "(Subtraction Property of Equality)",
-                        "−9 + 9 + 2y = 49 − 9",
-                        "2y = 40",
-                        "Step 2: Divide both sides by 2",
-                        "(Division Property of Equality)",
-                        "2y/2 = 40/2",
-                        "y = 20",
-                        "Check:",
-                        "9 + 2(20) = 9 + 40 = 49 ✓"
+                        "Step 1: Subtract 9 from both sides \n (Subtraction Property of Equality) \n −9 + 9 + 2y = 49 − 9 \n 2y = 40",
+                        "Step 2: Divide both sides by 2 \n (Division Property of Equality) \n 2y/2 = 40/2 \n y = 20",
+                        "Check: 9 + 2(20) = 9 + 40 = 49"
                     ),
                     answer = "Younger brother is 20 years old"
                 ),
@@ -10930,18 +9013,11 @@ object InteractiveLessonProvider {
                     title = "Summary",
                     keyPoints = listOf(
                         "Four Basic Rules for Solving Equations:",
-                        "Addition Property:",
-                        " Add same amount to both sides",
-                        "Subtraction Property:",
-                        " Subtract same amount from both sides",
-                        "Multiplication Property:",
-                        " Multiply both sides by same nonzero number",
-                        "Division Property:",
-                        " Divide both sides by same nonzero number",
-                        "Key Principle:",
-                        "Whatever you do to one side,",
-                        "you MUST do to the other side!",
-                        "This keeps the equation balanced."
+                        "Addition Property: \n Add same amount to both sides",
+                        "Subtraction Property: \n Subtract same amount from both sides",
+                        "Multiplication Property: \n Multiply both sides by same nonzero number",
+                        "Division Property: \n Divide both sides by same nonzero number",
+                        "Key Principle: \n Whatever you do to one side, \n you MUST do to the other side! \n This keeps the equation balanced."
                     )
                 )
             )
@@ -10990,12 +9066,8 @@ object InteractiveLessonProvider {
                     title = "Formula for Average Speed",
                     content = "The formula to calculate average speed:",
                     keyPoints = listOf(
-                        "Average speed = Distance traveled ÷ Time taken",
-                        "Or: Speed = Distance/Time",
-                        "Example:",
-                        "Distance = 200 miles",
-                        "Time = 4 hours",
-                        "Speed = 200 ÷ 4 = 50 miles per hour"
+                        "Average speed = Distance traveled ÷ Time taken Or: Speed = Distance/Time",
+                        "Example: \n Distance = 200 miles \n Time = 4 hours \n Speed = 200 ÷ 4 = 50 miles per hour"
                     )
                 ),
 
@@ -11004,13 +9076,8 @@ object InteractiveLessonProvider {
                     title = "Example: Calculating Average Speed",
                     problem = "Determine the average speed of a jeep that travels 200 miles in 4 hours.",
                     steps = listOf(
-                        "Given:",
-                        "Distance = 200 miles",
-                        "Time = 4 hours",
-                        "Using the formula:",
-                        "Average speed = Distance ÷ Time",
-                        "Average speed = 200 miles ÷ 4 hours",
-                        "Average speed = 50 miles per hour",
+                        "Given: \n Distance = 200 miles \n Time = 4 hours",
+                        "Using the formula: \n Average speed = Distance ÷ Time \n Average speed = 200 miles ÷ 4 hours \n Average speed = 50 miles per hour",
                         "Answer: 50 mph"
                     ),
                     answer = "50 miles per hour (mph)"
@@ -11084,14 +9151,8 @@ object InteractiveLessonProvider {
                     keyPoints = listOf(
                         "Speed tells how fast an object moves",
                         "Average speed = Distance ÷ Time",
-                        "Common units:",
-                        " mph (miles per hour)",
-                        " km/h (kilometers per hour)",
-                        " m/s (meters per second)",
-                        "Key points:",
-                        " Fast objects = high speed, long distance in short time",
-                        " Slow objects = low speed, shorter distance in same time",
-                        " Stationary objects = speed of zero",
+                        "Common units: \n mph (miles per hour) \n km/h (kilometers per hour) \n m/s (meters per second)",
+                        "Key points: \n Fast objects = high speed, long distance in short time \n Slow objects = low speed, shorter distance in same time \n Stationary objects = speed of zero",
                         "Always check your units match!"
                     )
                 )
@@ -11169,12 +9230,9 @@ object InteractiveLessonProvider {
                     title = "Understanding the Formulas",
                     content = "Let's analyze the relationship:",
                     keyPoints = listOf(
-                        "If you need SPEED:",
-                        " Use: Speed = Distance ÷ Time",
-                        "If you need DISTANCE:",
-                        " Use: Distance = Speed × Time",
-                        "If you need TIME:",
-                        " Use: Time = Distance ÷ Speed",
+                        "If you need SPEED: Use: Speed = Distance ÷ Time",
+                        "If you need DISTANCE: Use: Distance = Speed × Time",
+                        "If you need TIME: Use: Time = Distance ÷ Speed",
                         "Tip: Draw a triangle with D on top, S and T on bottom!"
                     )
                 ),
@@ -11184,10 +9242,7 @@ object InteractiveLessonProvider {
                     title = "Example 1: Finding Time",
                     problem = "Drake drives at an average speed of 50 mph on a journey of 400 miles. How long does the journey take?",
                     steps = listOf(
-                        "Given:",
-                        "Speed = 50 miles per hour",
-                        "Distance = 400 miles",
-                        "Find: Time",
+                        "Given: \n Speed = 50 miles per hour \n Distance = 400 miles \n Find: Time",
                         "Formula: Time = Distance ÷ Speed",
                         "Time = 400 miles ÷ 50 mph",
                         "Time = 8 hours",
@@ -11201,10 +9256,7 @@ object InteractiveLessonProvider {
                     title = "Example 2: Finding Distance",
                     problem = "Jane cycles at an average speed of 10 mph. If she cycles for 4½ hours, how far does she travel?",
                     steps = listOf(
-                        "Given:",
-                        "Speed = 10 mph",
-                        "Time = 4½ hours = 4.5 hours",
-                        "Find: Distance",
+                        "Given: \n Speed = 10 mph \n Time = 4½ hours = 4.5 hours \n Find: Distance",
                         "Formula: Distance = Speed × Time",
                         "Distance = 10 × 4.5",
                         "Distance = 45 miles",
@@ -11233,10 +9285,7 @@ object InteractiveLessonProvider {
                     title = "Example 3 Continued: Finding Total Time",
                     problem = "Part (b): Calculate total time for complete 351 km journey at 54 km/h",
                     steps = listOf(
-                        "Given:",
-                        "Total distance = 351 km",
-                        "Speed = 54 km/h (from part a)",
-                        "Find: Total time",
+                        "Given: \n Total distance = 351 km \n Speed = 54 km/h (from part a) \n Find: Total time",
                         "Formula: Time = Distance ÷ Speed",
                         "Time = 351 ÷ 54",
                         "Time = 6.5 hours",
@@ -11288,25 +9337,16 @@ object InteractiveLessonProvider {
                     id = 15,
                     title = "Summary",
                     keyPoints = listOf(
-                        "Key Definitions:",
-                        " Distance = how far (m, km, miles)",
-                        " Time = how long (s, min, hours)",
-                        " Speed = how fast (m/s, km/h, mph)",
-                        "Three Formulas:",
-                        " Speed = Distance ÷ Time",
-                        " Distance = Speed × Time",
-                        " Time = Distance ÷ Speed",
-                        "Problem-Solving Tips:",
-                        " Identify given information",
-                        " Identify what's being asked",
-                        " Choose correct formula",
-                        " Always include units in your answer"
+                        "Key Definitions: \n Distance = how far (m, km, miles) \n Time = how long (s, min, hours) \n Speed = how fast (m/s, km/h, mph)",
+                        "Three Formulas: \n Speed = Distance ÷ Time \n Distance = Speed × Time \n Time = Distance ÷ Speed",
+                        "Problem-Solving Tips: \n Identify given information \n Identify what's being asked \n Choose correct formula \n Always include units in your answer"
                     )
                 )
             )
         )
     }
 
+    // TODO: REMOVE THE WHITES SPACES AND INDENTION
     // LESSON 6 - SUBTOPIC 1: Strategies for solving the area of composite figures
     private fun getQuarter3Lesson6Subtopic1(): InteractiveLesson {
         return InteractiveLesson(
@@ -11316,7 +9356,7 @@ object InteractiveLessonProvider {
                 Slide.IntroSlide(
                     id = 1,
                     title = "Welcome!",
-                    content = "In this topic, you will learn how to apply the concept of finding the area of composite figures in real-life situations.\n\nBy the end, you'll be able to clearly visualize different composite shapes and solve problems related to their areas."
+                    content = "In this topic, you will learn how to apply the concept of finding the area of composite figures in real-life situations. By the end, you'll be able to clearly visualize different composite shapes and solve problems related to their areas."
                 ),
 
                 Slide.ConceptSlide(
