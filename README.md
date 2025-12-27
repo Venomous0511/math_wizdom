@@ -1,5 +1,6 @@
-<div style="text-align: center;">
-# 🧙‍♂️ Math Wizdom
+<div align="center">
+
+# 🧙‍♂️ Math Wizdom 
 
 [![Version](https://img.shields.io/badge/version-0.9--beta-orange)](https://github.com/Venomous0511/math_wizdom/releases)
 [![Status](https://img.shields.io/badge/status-beta-yellow)](https://github.com/Venomous0511/math_wizdom)
@@ -216,7 +217,7 @@ Have questions or want to get in touch?
 
 ---
 
-<div style="text-align: center;">
+<div align="center">
 
 **Made with ❤️ for math learners everywhere**
 
