@@ -52,6 +52,7 @@ class RoutineProblemFragment : Fragment() {
     private lateinit var ivAnimal: ImageView
     private lateinit var topBar: View
     private lateinit var cardVideo: MaterialCardView
+    private lateinit var tvDirections: TextView
 
     private var player: ExoPlayer? = null
     private var isFullscreen = false
@@ -126,6 +127,8 @@ class RoutineProblemFragment : Fragment() {
         setupListeners()
         initializePlayer()
 
+        tvDirections.text = ActivityInstructionsFragment.getDirectionText(quarter, lessonNumber, activity.activityNumber)
+
         // Pause music when video fragment loads
         MusicManager.pauseForVideo()
     }
@@ -144,6 +147,8 @@ class RoutineProblemFragment : Fragment() {
 
         tvActivityTitle.text = "ACTIVITY #${activity.activityNumber}"
         ivAnimal.setImageResource(quarterAnimals[quarter] ?: R.drawable.cat)
+
+        tvDirections = view.findViewById(R.id.tvDirections)
 
         playerView.useController = false
         playerView.setOnTouchListener { _, _ -> true }

@@ -11,6 +11,11 @@
         android:title="@string/profile" />
 
     <item
+        android:id="@+id/nav_progress"
+        android:icon="@drawable/ic_progress"
+        android:title="@string/progress" />
+
+    <item
         android:id="@+id/nav_logout"
         android:icon="@drawable/ic_logout"
         android:title="@string/logout" />

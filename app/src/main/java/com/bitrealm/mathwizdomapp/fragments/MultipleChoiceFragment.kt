@@ -3,6 +3,7 @@ package com.bitrealm.mathwizdomapp.fragments
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AlertDialog
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.os.Handler
 import android.os.Looper
 import android.text.Html
@@ -19,7 +20,9 @@ import com.bitrealm.mathwizdomapp.models.Question
 import com.google.android.material.button.MaterialButton
 import androidx.core.graphics.toColorInt
 import android.widget.LinearLayout
+import android.widget.Toast
 import com.bitrealm.mathwizdomapp.utils.MusicManager
+import com.google.android.material.card.MaterialCardView
 
 class MultipleChoiceFragment : Fragment() {
 
@@ -42,6 +45,7 @@ class MultipleChoiceFragment : Fragment() {
     private lateinit var layoutAnswers: LinearLayout
     private lateinit var ivAnimal: ImageView
     private lateinit var ivGroupImage: ImageView
+    private lateinit var tvDirections: TextView
 
     private val answerButtons = mutableListOf<MaterialButton>()
 
@@ -51,6 +55,12 @@ class MultipleChoiceFragment : Fragment() {
         3 to R.drawable.dragon,
         4 to R.drawable.fox
     )
+
+    private var countDownTimer: CountDownTimer? = null
+    private var timeLeftInMillis: Long = 60000
+    private lateinit var tvTimer: TextView
+    private lateinit var cardTimer: MaterialCardView
+    private lateinit var ivTimerIcon: ImageView
 
     companion object {
         private const val ARG_ACTIVITY = "activity"
@@ -136,7 +146,15 @@ class MultipleChoiceFragment : Fragment() {
 
         initViews(view)
         setupListeners()
+
+        tvDirections.text = ActivityInstructionsFragment.getDirectionText(quarter, lessonNumber, activity.activityNumber)
+
         loadQuestion()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        countDownTimer?.cancel()
     }
 
     @SuppressLint("SetTextI18n")
@@ -150,8 +168,14 @@ class MultipleChoiceFragment : Fragment() {
         ivAnimal = view.findViewById(R.id.ivAnimal)
         ivGroupImage = view.findViewById(R.id.ivGroupImage)
 
+        tvTimer = view.findViewById(R.id.tvTimer)
+        cardTimer = view.findViewById(R.id.cardTimer)
+        ivTimerIcon = view.findViewById(R.id.ivTimerIcon)
+
         tvActivityTitle.text = "ACTIVITY #${activity.activityNumber}"
         ivAnimal.setImageResource(quarterAnimals[quarter] ?: R.drawable.cat)
+
+        tvDirections = view.findViewById(R.id.tvDirections)
     }
 
     private fun setupListeners() {
@@ -201,6 +225,9 @@ class MultipleChoiceFragment : Fragment() {
         // Update UI
         tvProgress.text = "${currentQuestionIndex + 1} / ${questions.size}"
         tvQuestion.text = Html.fromHtml(question.text, Html.FROM_HTML_MODE_LEGACY)
+
+        // Start timer
+        startTimer()
 
         // Handle GROUP images (shared across multiple questions)
         val ivGroupImage = view?.findViewById<ImageView>(R.id.ivGroupImage)
@@ -267,6 +294,86 @@ class MultipleChoiceFragment : Fragment() {
 
         // Animate question card
         animateQuestionCard()
+    }
+
+    private fun startTimer() {
+        countDownTimer?.cancel()
+        timeLeftInMillis = 60000
+
+        countDownTimer = object : CountDownTimer(timeLeftInMillis, 100) {
+            override fun onTick(millisUntilFinished: Long) {
+                timeLeftInMillis = millisUntilFinished
+                updateTimerUI()
+            }
+
+            override fun onFinish() {
+                if (!isAnswered) {
+                    onTimeUp()
+                }
+            }
+        }.start()
+    }
+
+    @SuppressLint("DefaultLocale")
+    private fun updateTimerUI() {
+        val seconds = (timeLeftInMillis / 1000).toInt()
+        val minutes = seconds / 60
+        val secs = seconds % 60
+
+        tvTimer.text = String.format("%02d:%02d", minutes, secs)
+
+        // Change color based on time remaining
+        when {
+            seconds <= 10 -> {
+                // Red - critical
+                cardTimer.setCardBackgroundColor("#CCFF0000".toColorInt())
+                tvTimer.setTextColor("#FFFFFF".toColorInt())
+                ivTimerIcon.setColorFilter("#FFFFFF".toColorInt())
+
+                // Pulse animation
+                if (seconds % 2 == 0) {
+                    cardTimer.animate().scaleX(1.1f).scaleY(1.1f).setDuration(500).start()
+                } else {
+                    cardTimer.animate().scaleX(1.0f).scaleY(1.0f).setDuration(500).start()
+                }
+            }
+            seconds <= 30 -> {
+                // Orange - warning
+                cardTimer.setCardBackgroundColor("#CCFF9800".toColorInt())
+                tvTimer.setTextColor("#FFFFFF".toColorInt())
+                ivTimerIcon.setColorFilter("#FFFFFF".toColorInt())
+            }
+            else -> {
+                // Green - normal
+                cardTimer.setCardBackgroundColor("#CC4CAF50".toColorInt())
+                tvTimer.setTextColor("#FFFFFF".toColorInt())
+                ivTimerIcon.setColorFilter("#FFFFFF".toColorInt())
+            }
+        }
+    }
+
+    private fun onTimeUp() {
+        isAnswered = true
+        wrongAnswers++
+
+        // Show all buttons as wrong (red) except correct answer
+        val question = questions[currentQuestionIndex]
+        answerButtons.forEachIndexed { index, button ->
+            if (index == question.correctAnswer) {
+                button.setBackgroundColor("#4CAF50".toColorInt())
+            } else {
+                button.setBackgroundColor("#F44336".toColorInt())
+            }
+            button.isEnabled = false
+        }
+
+        Toast.makeText(requireContext(), "Time's up!", Toast.LENGTH_SHORT).show()
+
+        // Move to next question
+        Handler(Looper.getMainLooper()).postDelayed({
+            currentQuestionIndex++
+            loadQuestion()
+        }, 2000)
     }
 
     private fun createHorizontalLayout(question: Question.MultipleChoice) {
@@ -354,6 +461,7 @@ class MultipleChoiceFragment : Fragment() {
     }
 
     private fun checkAnswer(selectedAnswer: Int) {
+        countDownTimer?.cancel()
         isAnswered = true
         val question = questions[currentQuestionIndex]
         val isCorrect = selectedAnswer == question.correctAnswer

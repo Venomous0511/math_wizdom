@@ -2,6 +2,7 @@ package com.bitrealm.mathwizdomapp.fragments
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,7 +29,8 @@ data class Line(
     val endX: Float,
     val endY: Float,
     val columnAIndex: Int,
-    val columnBIndex: Int
+    val columnBIndex: Int,
+    val color: Int
 )
 
 class WireMatchingFragment : Fragment() {
@@ -48,6 +50,7 @@ class WireMatchingFragment : Fragment() {
     private lateinit var btnClear: MaterialButton
     private lateinit var ivAnimal: ImageView
     private lateinit var drawingCanvas: DrawingCanvasView
+    private lateinit var tvDirections: TextView
 
     private lateinit var columnAAdapter: ColumnAdapter
     private lateinit var columnBAdapter: ColumnAdapter
@@ -63,6 +66,12 @@ class WireMatchingFragment : Fragment() {
         3 to R.drawable.dragon,
         4 to R.drawable.fox
     )
+
+    private var countDownTimer: CountDownTimer? = null
+    private var timeLeftInMillis: Long = 300000
+    private lateinit var tvTimer: TextView
+    private lateinit var cardTimer: MaterialCardView
+    private lateinit var ivTimerIcon: ImageView
 
     companion object {
         private const val ARG_ACTIVITY = "activity"
@@ -162,6 +171,9 @@ class WireMatchingFragment : Fragment() {
         initViews(view)
         setupListeners()
         setupRecyclerViews()
+        startTimer()
+
+        tvDirections.text = ActivityInstructionsFragment.getDirectionText(quarter, lessonNumber, activity.activityNumber)
     }
 
     @SuppressLint("SetTextI18n")
@@ -176,8 +188,84 @@ class WireMatchingFragment : Fragment() {
         ivAnimal = view.findViewById(R.id.ivAnimal)
         drawingCanvas = view.findViewById(R.id.drawingCanvas)
 
+        tvTimer = view.findViewById(R.id.tvTimer)
+        cardTimer = view.findViewById(R.id.cardTimer)
+        ivTimerIcon = view.findViewById(R.id.ivTimerIcon)
+
         tvActivityTitle.text = "ACTIVITY #${activity.activityNumber}"
         ivAnimal.setImageResource(quarterAnimals[quarter] ?: R.drawable.cat)
+
+        tvDirections = view.findViewById(R.id.tvDirections)
+    }
+
+    private fun startTimer() {
+        countDownTimer = object : CountDownTimer(timeLeftInMillis, 100) {
+            override fun onTick(millisUntilFinished: Long) {
+                timeLeftInMillis = millisUntilFinished
+                updateTimerUI()
+            }
+
+            override fun onFinish() {
+                onTimeUp()
+            }
+        }.start()
+    }
+
+    @SuppressLint("DefaultLocale")
+    private fun updateTimerUI() {
+        val seconds = (timeLeftInMillis / 1000).toInt()
+        val minutes = seconds / 60
+        val secs = seconds % 60
+
+        tvTimer.text = String.format("%02d:%02d", minutes, secs)
+
+        // Change color based on time remaining
+        when {
+            seconds <= 60 -> {
+                // Red - critical (last minute)
+                cardTimer.setCardBackgroundColor("#CCFF0000".toColorInt())
+                tvTimer.setTextColor("#FFFFFF".toColorInt())
+                ivTimerIcon.setColorFilter("#FFFFFF".toColorInt())
+
+                // Pulse animation
+                if (seconds % 2 == 0) {
+                    cardTimer.animate().scaleX(1.1f).scaleY(1.1f).setDuration(500).start()
+                } else {
+                    cardTimer.animate().scaleX(1.0f).scaleY(1.0f).setDuration(500).start()
+                }
+            }
+            seconds <= 120 -> {
+                // Orange - warning (last 2 minutes)
+                cardTimer.setCardBackgroundColor("#CCFF9800".toColorInt())
+                tvTimer.setTextColor("#FFFFFF".toColorInt())
+                ivTimerIcon.setColorFilter("#FFFFFF".toColorInt())
+            }
+            else -> {
+                // Green - normal
+                cardTimer.setCardBackgroundColor("#CC4CAF50".toColorInt())
+                tvTimer.setTextColor("#FFFFFF".toColorInt())
+                ivTimerIcon.setColorFilter("#FFFFFF".toColorInt())
+            }
+        }
+    }
+
+    private fun onTimeUp() {
+        Toast.makeText(requireContext(), "Time's up!", Toast.LENGTH_LONG).show()
+
+        // Auto-submit with current answers
+        AlertDialog.Builder(requireContext())
+            .setTitle("Time's Up!")
+            .setMessage("The time is up. Your current progress will be submitted.")
+            .setPositiveButton("OK") { _, _ ->
+                checkAnswers()
+            }
+            .setCancelable(false)
+            .show()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        countDownTimer?.cancel()
     }
 
     private fun setupListeners() {
@@ -219,7 +307,8 @@ class WireMatchingFragment : Fragment() {
             isColumnA = true,
             onItemClick = { index ->
                 handleColumnAClick(index)
-            }
+            },
+            getColor = { index -> getColorForIndex(index) }
         )
         rvColumnA.layoutManager = LinearLayoutManager(requireContext())
         rvColumnA.adapter = columnAAdapter
@@ -229,7 +318,8 @@ class WireMatchingFragment : Fragment() {
             isColumnA = false,
             onItemClick = { index ->
                 handleColumnBClick(index)
-            }
+            },
+            getColor = { index -> getColorForIndex(index) }
         )
         rvColumnB.layoutManager = LinearLayoutManager(requireContext())
         rvColumnB.adapter = columnBAdapter
@@ -243,6 +333,23 @@ class WireMatchingFragment : Fragment() {
             selectedColumnAIndex = index
             columnAAdapter.setSelectedIndex(index)
         }
+    }
+
+    private val wireColors = listOf(
+        "#FF9800".toColorInt(),  // Orange
+        "#4CAF50".toColorInt(),  // Green
+        "#2196F3".toColorInt(),  // Blue
+        "#E91E63".toColorInt(),  // Pink
+        "#9C27B0".toColorInt(),  // Purple
+        "#00BCD4".toColorInt(),  // Cyan
+        "#FFEB3B".toColorInt(),  // Yellow
+        "#F44336".toColorInt(),  // Red
+        "#3F51B5".toColorInt(),  // Indigo
+        "#8BC34A".toColorInt()   // Light Green
+    )
+
+    private fun getColorForIndex(index: Int): Int {
+        return wireColors[index % wireColors.size]
     }
 
     private fun handleColumnBClick(index: Int) {
@@ -278,7 +385,17 @@ class WireMatchingFragment : Fragment() {
                 val endX = (columnBLocation[0] - canvasLocation[0]).toFloat()
                 val endY = (columnBLocation[1] - canvasLocation[1] + columnBView.height / 2).toFloat()
 
-                lines.add(Line(startX, startY, endX, endY, columnAIndex, index))
+                lines.add(
+                    Line(
+                        startX,
+                        startY,
+                        endX,
+                        endY,
+                        columnAIndex,
+                        index,
+                        getColorForIndex(columnAIndex)
+                    )
+                )
                 userMatches[columnAIndex] = index
             }
         }
@@ -297,12 +414,39 @@ class WireMatchingFragment : Fragment() {
     }
 
     private fun checkAnswers() {
+        countDownTimer?.cancel()
+
         if (userMatches.size < question.columnA.size) {
-            Toast.makeText(
-                requireContext(),
-                "Please complete all matchings before submitting",
-                Toast.LENGTH_SHORT
-            ).show()
+            val isFromTimeUp = timeLeftInMillis <= 0
+
+            if (isFromTimeUp) {
+                var correctCount = 0
+                var wrongCount = 0
+
+                question.correctMatches.forEach { (problemIndex, answerIndex) ->
+                    val userAnswer = userMatches[problemIndex]
+                    if (userAnswer == answerIndex) {
+                        correctCount++
+                    } else if (userAnswer != null) {
+                        wrongCount++
+                    } else {
+                        wrongCount++
+                    }
+                }
+
+                showResults(correctCount, wrongCount)
+            } else {
+                // Manual submit - require all answers
+                Toast.makeText(
+                    requireContext(),
+                    "Please complete all matchings before submitting",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+                if (timeLeftInMillis > 0) {
+                    startTimer()
+                }
+            }
             return
         }
 
@@ -340,7 +484,8 @@ class WireMatchingFragment : Fragment() {
     inner class ColumnAdapter(
         private val items: List<String>,
         @Suppress("unused") private val isColumnA: Boolean,
-        private val onItemClick: (Int) -> Unit
+        private val onItemClick: (Int) -> Unit,
+        private val getColor: (Int) -> Int
     ) : RecyclerView.Adapter<ColumnAdapter.ViewHolder>() {
 
         private var selectedIndex: Int? = null
@@ -368,7 +513,7 @@ class WireMatchingFragment : Fragment() {
 
             holder.card.setCardBackgroundColor(
                 if (position == selectedIndex) {
-                    "#FF9800".toColorInt()
+                    getColor(position)
                 } else {
                     "#424242".toColorInt()
                 }

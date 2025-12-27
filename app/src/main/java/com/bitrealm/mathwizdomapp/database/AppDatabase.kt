@@ -12,7 +12,7 @@ import com.bitrealm.mathwizdomapp.database.entities.User
 
 @Database(
     entities = [User::class, LessonProgress::class],
-    version = 2, // CHANGE version to 2
+    version = 2,
     exportSchema = false
 )
 @TypeConverters(Converters::class)

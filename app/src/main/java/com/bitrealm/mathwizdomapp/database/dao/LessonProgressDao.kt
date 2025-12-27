@@ -13,4 +13,15 @@ interface LessonProgressDao {
 
     @Query("SELECT COUNT(DISTINCT activityId) FROM lesson_progress WHERE userIdentifier = :userId AND quarter = :quarter AND lessonNumber = :lesson AND score >= 3")
     suspend fun getCompletedActivitiesCount(userId: String, quarter: Int, lesson: Int): Int
+
+    @Query("SELECT COUNT(DISTINCT activityId) FROM lesson_progress WHERE userIdentifier = :userId AND quarter = :quarter AND lessonNumber = :lastLesson AND score >= 3")
+    suspend fun getLastLessonCompletedActivitiesCount(userId: String, quarter: Int, lastLesson: Int): Int
+
+    @Query("SELECT DISTINCT quarter, lessonNumber FROM lesson_progress WHERE userIdentifier = :userId AND score >= 3 ORDER BY quarter, lessonNumber")
+    suspend fun getUnlockedLessons(userId: String): List<UnlockedLesson>
+
+    data class UnlockedLesson(
+        val quarter: Int,
+        val lessonNumber: Int
+    )
 }

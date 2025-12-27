@@ -31,8 +31,7 @@ import com.bitrealm.mathwizdomapp.models.InteractiveLesson
 import com.bitrealm.mathwizdomapp.models.Subtopic
 import com.bitrealm.mathwizdomapp.repository.UserRepository
 import com.bitrealm.mathwizdomapp.utils.MusicManager
-import com.github.barteksc.pdfviewer.PDFView
-import com.github.barteksc.pdfviewer.util.FitPolicy
+import com.bitrealm.mathwizdomapp.utils.loadAvatarUri
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.launch
@@ -43,14 +42,11 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
     private lateinit var navigationView: NavigationView
     private lateinit var btnBack: ImageButton
     private lateinit var btnSpeaker: ImageButton
-    private lateinit var btnPdfFullScreen: ImageButton
-    private lateinit var btnPdfMinimize: ImageButton
     private lateinit var tvTopicTitle: TextView
     private lateinit var tvObjective: TextView
     private lateinit var cardObjective: MaterialCardView
     private lateinit var rvSubtopics: RecyclerView
-    private lateinit var pdfView: PDFView
-    private lateinit var pdfContainer: View
+    private lateinit var lessonContainer: View
     private lateinit var guideline: View
     private lateinit var topBar: View
     private lateinit var mainContent: ConstraintLayout
@@ -64,8 +60,6 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
     // Store original constraints
     private val originalConstraints = ConstraintSet()
-    private var currentPdfFileName: String = ""
-    private var successfulPdfPath: String? = null
 
     override fun onResume() {
         super.onResume()
@@ -75,17 +69,6 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
     override fun onPause() {
         super.onPause()
         MusicManager.pause()
-    }
-
-    @Suppress("unused")
-    private fun updateVolumeIcon() {
-        btnSpeaker.setImageResource(
-            if (MusicManager.isMuted()) {
-                R.drawable.ic_volume_off
-            } else {
-                R.drawable.ic_volume_up
-            }
-        )
     }
 
     fun enterFragmentFullScreen() {
@@ -377,14 +360,11 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         navigationView = findViewById(R.id.navigationView)
         btnBack = findViewById(R.id.btnBack)
         btnSpeaker = findViewById(R.id.btnSpeaker)
-        btnPdfFullScreen = findViewById(R.id.btnPdfFullScreen)
-        btnPdfMinimize = findViewById(R.id.btnPdfMinimize)
         tvTopicTitle = findViewById(R.id.tvTopicTitle)
         tvObjective = findViewById(R.id.tvObjective)
         cardObjective = findViewById(R.id.cardObjective)
         rvSubtopics = findViewById(R.id.rvSubtopics)
-        pdfView = findViewById(R.id.pdfView)
-        pdfContainer = findViewById(R.id.pdfContainer)
+        lessonContainer = findViewById(R.id.lessonContainer)
         guideline = findViewById(R.id.guideline)
         topBar = findViewById(R.id.topBar)
         mainContent = findViewById(R.id.main)
@@ -396,9 +376,6 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
         // Set objective text based on lesson
         tvObjective.text = getObjectiveText()
-
-        // Set initial full screen button states
-        updateFullScreenButtons()
     }
 
     private fun getObjectiveText(): String {
@@ -476,14 +453,6 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         btnSpeaker.setOnClickListener {
             showVolumeDialog()
         }
-
-        btnPdfFullScreen.setOnClickListener {
-            enterFullScreen()
-        }
-
-        btnPdfMinimize.setOnClickListener {
-            exitFullScreen()
-        }
     }
 
     private fun showVolumeDialog() {
@@ -522,8 +491,8 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
                 // Show interactive lesson
                 loadInteractiveLesson(subtopic.interactiveLesson)
             } else {
-                // Fallback to PDF
-                loadPDF(subtopic.pdfFileName)
+                // Show message that lesson is not available yet
+                Toast.makeText(this, "Interactive lesson not available yet", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -534,127 +503,17 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
             val firstSubtopic = updatedSubtopics[0]
             if (firstSubtopic.interactiveLesson != null) {
                 loadInteractiveLesson(firstSubtopic.interactiveLesson)
-            } else {
-                loadPDF(firstSubtopic.pdfFileName)
             }
         }
     }
 
     private fun loadInteractiveLesson(lesson: InteractiveLesson) {
-        // Hide PDF view
-        pdfView.visibility = View.GONE
-
-        // Show interactive lesson fragment IN pdfContainer (not lessonContainer)
+        // Show interactive lesson fragment in lessonContainer
         val fragment = InteractiveLessonFragment.newInstance(lesson)
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.pdfContainer, fragment)
+            .replace(R.id.lessonContainer, fragment)
             .commit()
-    }
-
-    private fun loadPDF(fileName: String?) {
-        try {
-            if (fileName != null) {
-                currentPdfFileName = fileName
-            }
-
-            // If we already found a working path, use it directly
-            if (successfulPdfPath != null) {
-                loadPdfFromPath(successfulPdfPath!!, false)
-                return
-            }
-
-            // Construct the correct path based on quarter and lesson
-            val pdfPath = "quarter_$quarter/lesson_$lessonNumber/$fileName"
-
-            loadPdfFromPath(pdfPath, true)
-
-        } catch (e: Exception) {
-            println("Exception loading PDF: ${e.message}")
-            e.printStackTrace()
-            runOnUiThread {
-                Toast.makeText(this, "Error loading content: ${e.message}", Toast.LENGTH_LONG)
-                    .show()
-            }
-        }
-    }
-
-    private fun loadPdfFromPath(path: String, tryFallback: Boolean) {
-        pdfView.fromAsset(path)
-            .defaultPage(0)
-            .swipeHorizontal(true)
-            .pageSnap(true)
-            .autoSpacing(true)
-            .pageFling(true)
-            .enableSwipe(true)
-//            .scrollHandle(DefaultScrollHandle(this))
-            .spacing(0)
-            .pageFitPolicy(FitPolicy.BOTH)
-            .fitEachPage(true)
-            .nightMode(false)
-            .onError { error ->
-                if (tryFallback) {
-                    runOnUiThread {
-                        tryFallbackPaths(currentPdfFileName)
-                    }
-                }
-            }
-            .onLoad { nbPages ->
-                // Cache the successful path for future loads
-                successfulPdfPath = path
-                runOnUiThread {
-                    // Reset zoom to fit the page properly
-                    pdfView.resetZoomWithAnimation()
-                }
-            }
-            .load()
-    }
-
-    private fun tryFallbackPaths(fileName: String) {
-        val fallbackPaths = listOf(
-            "quarter$quarter/lesson$lessonNumber/$fileName",
-            "q$quarter/l$lessonNumber/$fileName",
-            "pdfs/quarter_$quarter/lesson_$lessonNumber/$fileName",
-            fileName
-        )
-
-        var pathIndex = 0
-
-        fun tryNextPath() {
-            if (pathIndex >= fallbackPaths.size) {
-                Toast.makeText(this, "Content file not found: $fileName", Toast.LENGTH_LONG).show()
-                return
-            }
-
-            val path = fallbackPaths[pathIndex]
-
-            pdfView.fromAsset(path)
-                .defaultPage(0)
-                .swipeHorizontal(true)
-                .pageSnap(true)
-                .autoSpacing(true)
-                .pageFling(true)
-                .enableSwipe(true)
-//                .scrollHandle(DefaultScrollHandle(this))
-                .spacing(0)
-                .pageFitPolicy(FitPolicy.BOTH)
-                .fitEachPage(true)
-                .nightMode(false)
-                .onError {
-                    pathIndex++
-                    tryNextPath()
-                }
-                .onLoad { nbPages ->
-                    // Cache the successful path
-                    successfulPdfPath = path
-                    runOnUiThread {
-                        pdfView.resetZoomWithAnimation()
-                    }
-                }
-                .load()
-        }
-
-        tryNextPath()
     }
 
     @SuppressLint("UseKtx")
@@ -671,16 +530,7 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
                         navHeaderUserName.text = it.fullName
 
                         // Load avatar from URI
-                        if (!it.avatarUri.isNullOrEmpty()) {
-                            try {
-                                val uri = Uri.parse(it.avatarUri)
-                                navHeaderAvatar.setImageURI(uri)
-                            } catch (_: Exception) {
-                                navHeaderAvatar.setImageResource(R.drawable.ic_profile)
-                            }
-                        } else {
-                            navHeaderAvatar.setImageResource(R.drawable.ic_profile)
-                        }
+                        navHeaderAvatar.loadAvatarUri(it.avatarUri, R.drawable.ic_profile)
                     }
                 }
             } catch (e: Exception) {
@@ -699,44 +549,44 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         rvSubtopics.visibility = View.GONE
         guideline.visibility = View.GONE
 
-        // Make PDF container full screen using ConstraintSet
+        // Make lesson container full screen using ConstraintSet
         val constraintSet = ConstraintSet()
         constraintSet.clone(mainContent)
 
-        // Clear all constraints from PDF container
-        constraintSet.clear(pdfContainer.id)
+        // Clear all constraints from lesson container
+        constraintSet.clear(lessonContainer.id)
 
-        // Set PDF container to match parent
+        // Set lesson container to match parent
         constraintSet.connect(
-            pdfContainer.id,
+            lessonContainer.id,
             ConstraintSet.START,
             ConstraintSet.PARENT_ID,
             ConstraintSet.START
         )
         constraintSet.connect(
-            pdfContainer.id,
+            lessonContainer.id,
             ConstraintSet.END,
             ConstraintSet.PARENT_ID,
             ConstraintSet.END
         )
         constraintSet.connect(
-            pdfContainer.id,
+            lessonContainer.id,
             ConstraintSet.TOP,
             ConstraintSet.PARENT_ID,
             ConstraintSet.TOP
         )
         constraintSet.connect(
-            pdfContainer.id,
+            lessonContainer.id,
             ConstraintSet.BOTTOM,
             ConstraintSet.PARENT_ID,
             ConstraintSet.BOTTOM
         )
 
         // Remove margins
-        constraintSet.setMargin(pdfContainer.id, ConstraintSet.START, 0)
-        constraintSet.setMargin(pdfContainer.id, ConstraintSet.END, 0)
-        constraintSet.setMargin(pdfContainer.id, ConstraintSet.TOP, 0)
-        constraintSet.setMargin(pdfContainer.id, ConstraintSet.BOTTOM, 0)
+        constraintSet.setMargin(lessonContainer.id, ConstraintSet.START, 0)
+        constraintSet.setMargin(lessonContainer.id, ConstraintSet.END, 0)
+        constraintSet.setMargin(lessonContainer.id, ConstraintSet.TOP, 0)
+        constraintSet.setMargin(lessonContainer.id, ConstraintSet.BOTTOM, 0)
 
         // Apply the constraints
         constraintSet.applyTo(mainContent)
@@ -760,28 +610,13 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         // Restore original constraints using the saved ConstraintSet
         originalConstraints.applyTo(mainContent)
 
-        // Reload the current PDF to ensure it's displayed correctly
-        if (currentPdfFileName.isNotEmpty()) {
-            pdfView.postDelayed({
-                loadPDF(currentPdfFileName)
-            }, 100)
-        }
-
         setupImmersiveMode()
 
         Toast.makeText(this, getString(R.string.normal_mode), Toast.LENGTH_SHORT).show()
     }
 
     private fun updateFullScreenButtons() {
-        if (isFullScreen) {
-            btnPdfFullScreen.visibility = View.GONE
-            btnPdfMinimize.visibility = View.VISIBLE
-        } else {
-            btnPdfFullScreen.visibility = View.VISIBLE
-            btnPdfMinimize.visibility = View.GONE
-        }
-
-        val fragment = supportFragmentManager.findFragmentById(R.id.pdfContainer) as? InteractiveLessonFragment
+        val fragment = supportFragmentManager.findFragmentById(R.id.lessonContainer) as? InteractiveLessonFragment
         fragment?.updateFullScreenButtons(isFullScreen)
     }
 
@@ -797,6 +632,12 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
             R.id.nav_profile -> {
                 val intent = Intent(this, DashboardActivity::class.java)
+                intent.putExtra("USER_IDENTIFIER", userIdentifier)
+                startActivity(intent)
+            }
+
+            R.id.nav_progress -> {
+                val intent = Intent(this, ProgressActivity::class.java)
                 intent.putExtra("USER_IDENTIFIER", userIdentifier)
                 startActivity(intent)
             }

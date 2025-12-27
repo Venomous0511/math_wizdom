@@ -2,14 +2,13 @@ package com.bitrealm.mathwizdomapp
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.content.res.Resources
 import android.os.Bundle
 import android.text.InputFilter
-import android.text.Spanned
 import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -39,15 +38,12 @@ class RegistrationActivity : AppCompatActivity() {
     private lateinit var tilFullName: TextInputLayout
     private lateinit var etFullName: TextInputEditText
     private lateinit var tvGenderLabel: TextView
-    private lateinit var cardMale: MaterialCardView
-    private lateinit var cardFemale: MaterialCardView
     private lateinit var rbMale: RadioButton
     private lateinit var rbFemale: RadioButton
-    private lateinit var tvMale: TextView
-    private lateinit var tvFemale: TextView
     private lateinit var tvError: TextView
     private lateinit var btnRegister: Button
     private lateinit var progressBar: ProgressBar
+    private lateinit var rgGender: RadioGroup
 
     private lateinit var userRepository: UserRepository
     private var userRole: UserRole = UserRole.STUDENT
@@ -81,7 +77,6 @@ class RegistrationActivity : AppCompatActivity() {
         setupToolbar()
         setupUI()
         setupListeners()
-        forceWhiteTextForGenderCards()
 
         // Check account limit on create
         checkAccountLimit()
@@ -99,18 +94,16 @@ class RegistrationActivity : AppCompatActivity() {
 
     private fun initViews() {
         toolbar = findViewById(R.id.toolbar)
-        tvRoleEmoji = findViewById(R.id.tvRoleEmoji)
         tvNewUser = findViewById(R.id.tvNewUser)
         tvIdentifier = findViewById(R.id.tvIdentifier)
         tilFullName = findViewById(R.id.tilFullName)
         etFullName = findViewById(R.id.etFullName)
         tvGenderLabel = findViewById(R.id.tvGenderLabel)
-        cardMale = findViewById(R.id.cardMale)
-        cardFemale = findViewById(R.id.cardFemale)
+        rgGender = findViewById(R.id.rgGender)
         rbMale = findViewById(R.id.rbMale)
         rbFemale = findViewById(R.id.rbFemale)
-        tvMale = findViewById(R.id.tvMale)
-        tvFemale = findViewById(R.id.tvFemale)
+        rbMale = findViewById(R.id.rbMale)
+        rbFemale = findViewById(R.id.rbFemale)
         tvError = findViewById(R.id.tvError)
         btnRegister = findViewById(R.id.btnRegister)
         progressBar = findViewById(R.id.progressBar)
@@ -130,18 +123,14 @@ class RegistrationActivity : AppCompatActivity() {
     private fun setupUI() {
         if (userRole == UserRole.STUDENT) {
             toolbar.title = getString(R.string.student_registration)
-            tvRoleEmoji.text = "👨‍🎓"
         } else {
             toolbar.title = getString(R.string.teacher_registration)
-            tvRoleEmoji.text = "👨‍🏫"
         }
 
         tvIdentifier.text = identifier
 
         // Set character limit for full name
         setupCharacterLimit()
-
-        // REMOVED: Identifier hint text setting
     }
 
     private fun setupCharacterLimit() {
@@ -175,12 +164,14 @@ class RegistrationActivity : AppCompatActivity() {
             }
         }
 
-        cardMale.setOnClickListener {
-            selectGender(Gender.MALE)
-        }
-
-        cardFemale.setOnClickListener {
-            selectGender(Gender.FEMALE)
+        rgGender.setOnCheckedChangeListener { _, checkedId ->
+            selectedGender = when (checkedId) {
+                R.id.rbMale -> Gender.MALE
+                R.id.rbFemale -> Gender.FEMALE
+                else -> null
+            }
+            validateForm()
+            tvError.visibility = View.GONE
         }
 
         btnRegister.setOnClickListener {
@@ -198,76 +189,6 @@ class RegistrationActivity : AppCompatActivity() {
                 }
             }
             true
-        }
-    }
-
-    private fun selectGender(gender: Gender) {
-        selectedGender = gender
-        updateGenderSelection()
-        validateForm()
-        tvError.visibility = View.GONE
-    }
-
-    @SuppressLint("PrivateResource")
-    private fun updateGenderSelection() {
-        when (selectedGender) {
-            Gender.MALE -> {
-                rbMale.isChecked = true
-                rbFemale.isChecked = false
-                cardMale.strokeColor = ContextCompat.getColor(this, android.R.color.holo_blue_dark)
-                cardMale.setCardBackgroundColor(ContextCompat.getColor(this, com.google.android.material.R.color.m3_sys_color_light_primary_container))
-                cardFemale.strokeColor = ContextCompat.getColor(this, com.google.android.material.R.color.m3_sys_color_light_outline)
-                cardFemale.setCardBackgroundColor(ContextCompat.getColor(this, com.google.android.material.R.color.m3_sys_color_light_surface))
-            }
-            Gender.FEMALE -> {
-                rbMale.isChecked = false
-                rbFemale.isChecked = true
-                cardFemale.strokeColor = ContextCompat.getColor(this, android.R.color.holo_blue_dark)
-                cardFemale.setCardBackgroundColor(ContextCompat.getColor(this, com.google.android.material.R.color.m3_sys_color_light_primary_container))
-                cardMale.strokeColor = ContextCompat.getColor(this, com.google.android.material.R.color.m3_sys_color_light_outline)
-                cardMale.setCardBackgroundColor(ContextCompat.getColor(this, com.google.android.material.R.color.m3_sys_color_light_surface))
-            }
-            null -> {
-                rbMale.isChecked = false
-                rbFemale.isChecked = false
-                cardMale.strokeColor = ContextCompat.getColor(this, com.google.android.material.R.color.m3_sys_color_light_outline)
-                cardMale.setCardBackgroundColor(ContextCompat.getColor(this, com.google.android.material.R.color.m3_sys_color_light_surface))
-                cardFemale.strokeColor = ContextCompat.getColor(this, com.google.android.material.R.color.m3_sys_color_light_outline)
-                cardFemale.setCardBackgroundColor(ContextCompat.getColor(this, com.google.android.material.R.color.m3_sys_color_light_surface))
-            }
-        }
-
-        // Always force white text regardless of selection state
-        forceWhiteTextForGenderCards()
-    }
-
-    private fun forceWhiteTextForGenderCards() {
-        // If any gender is selected, make both text labels and radio buttons black
-        // Otherwise, keep them white
-        if (selectedGender != null) {
-            // Text labels to black
-            tvMale.setTextColor(ContextCompat.getColor(this, android.R.color.black))
-            tvFemale.setTextColor(ContextCompat.getColor(this, android.R.color.black))
-
-            // Radio buttons to black
-            rbMale.buttonTintList = android.content.res.ColorStateList.valueOf(
-                ContextCompat.getColor(this, android.R.color.black)
-            )
-            rbFemale.buttonTintList = android.content.res.ColorStateList.valueOf(
-                ContextCompat.getColor(this, android.R.color.black)
-            )
-        } else {
-            // Text labels to white
-            tvMale.setTextColor(ContextCompat.getColor(this, android.R.color.white))
-            tvFemale.setTextColor(ContextCompat.getColor(this, android.R.color.white))
-
-            // Radio buttons to white
-            rbMale.buttonTintList = android.content.res.ColorStateList.valueOf(
-                ContextCompat.getColor(this, android.R.color.white)
-            )
-            rbFemale.buttonTintList = android.content.res.ColorStateList.valueOf(
-                ContextCompat.getColor(this, android.R.color.white)
-            )
         }
     }
 
@@ -350,10 +271,9 @@ class RegistrationActivity : AppCompatActivity() {
                     showError(getString(R.string.max_accounts_reached, MAX_ACCOUNTS, userRole.name.lowercase()))
                     btnRegister.isEnabled = false
                     etFullName.isEnabled = false
-                    cardMale.isClickable = false
-                    cardFemale.isClickable = false
+                    rgGender.isEnabled = false
                 }
-            } catch (e: Exception) {
+            } catch (_: Exception) {
                 // Handle error silently
             }
         }
@@ -371,8 +291,7 @@ class RegistrationActivity : AppCompatActivity() {
         isLoading = loading
         validateForm()
         etFullName.isEnabled = !loading
-        cardMale.isClickable = !loading
-        cardFemale.isClickable = !loading
+        rgGender.isEnabled = !loading
 
         if (loading) {
             btnRegister.text = ""
@@ -394,7 +313,7 @@ class RegistrationActivity : AppCompatActivity() {
 
         val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
 
-        windowInsetsController?.apply {
+        windowInsetsController.apply {
             isAppearanceLightStatusBars = true
             isAppearanceLightNavigationBars = true
 

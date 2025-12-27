@@ -14,9 +14,10 @@ class DrawingCanvasView @JvmOverloads constructor(
 ) : View(context, attrs, defStyleAttr) {
 
     private val paint = Paint().apply {
-        color = "#FF9800".toColorInt()
         strokeWidth = 8f
         isAntiAlias = true
+        style = Paint.Style.STROKE
+        strokeCap = Paint.Cap.ROUND
     }
 
     private var lines = listOf<Line>()
@@ -29,6 +30,7 @@ class DrawingCanvasView @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         lines.forEach { line ->
+            paint.color = line.color
             canvas.drawLine(line.startX, line.startY, line.endX, line.endY, paint)
         }
     }

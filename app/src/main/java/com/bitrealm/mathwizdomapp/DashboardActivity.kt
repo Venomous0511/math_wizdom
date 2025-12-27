@@ -25,6 +25,7 @@ import com.bitrealm.mathwizdomapp.database.entities.User
 import com.bitrealm.mathwizdomapp.dialogs.VolumeControlDialog
 import com.bitrealm.mathwizdomapp.repository.UserRepository
 import com.bitrealm.mathwizdomapp.utils.MusicManager
+import com.bitrealm.mathwizdomapp.utils.loadAvatarUri
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.launch
@@ -60,8 +61,20 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                         uri,
                         Intent.FLAG_GRANT_READ_URI_PERMISSION
                     )
+
+                    val persistedUris = contentResolver.persistedUriPermissions
+                    val hasPermission = persistedUris.any { it.uri == uri && it.isReadPermission }
+
+                    if (hasPermission) {
+                        selectedAvatarUri = uri
+                        ivAvatar.setImageURI(uri)
+                        updateUserAvatar(uri.toString())
+                    } else {
+                        Toast.makeText(this, "Failed to get permission for image", Toast.LENGTH_SHORT).show()
+                    }
                 } catch (e: Exception) {
                     println("Could not take persistable permission: ${e.message}")
+                    Toast.makeText(this, "Error setting avatar: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
 
                 selectedAvatarUri = uri
@@ -215,18 +228,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                     tvGender.text = user.gender.name.lowercase().replaceFirstChar { it.uppercase() }
 
                     // Load avatar if exists
-                    user.avatarUri?.let { uriString ->
-                        try {
-                            val uri = uriString.toUri()
-                            ivAvatar.setImageURI(uri)
-                            println("Avatar loaded successfully: $uriString")
-                        } catch (e: Exception) {
-                            println("Error loading avatar: ${e.message}")
-                            ivAvatar.setImageResource(R.drawable.ic_avatar_placeholder)
-                        }
-                    } ?: run {
-                        ivAvatar.setImageResource(R.drawable.ic_avatar_placeholder)
-                    }
+                    ivAvatar.loadAvatarUri(user.avatarUri, R.drawable.ic_avatar_placeholder)
 
                     // Update navigation header
                     val headerView = navigationView.getHeaderView(0)
@@ -236,16 +238,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                     navHeaderUserName.text = user.fullName
 
                     // Update navigation header avatar
-                    user.avatarUri?.let { uriString ->
-                        try {
-                            val uri = uriString.toUri()
-                            navHeaderAvatar.setImageURI(uri)
-                        } catch (_: Exception) {
-                            navHeaderAvatar.setImageResource(R.drawable.ic_profile)
-                        }
-                    } ?: run {
-                        navHeaderAvatar.setImageResource(R.drawable.ic_profile)
-                    }
+                    navHeaderAvatar.loadAvatarUri(user.avatarUri, R.drawable.ic_profile)
                 }
             } catch (e: Exception) {
                 runOnUiThread {
@@ -424,6 +417,12 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
             R.id.nav_profile -> {
                 Toast.makeText(this, "Already on Profile", Toast.LENGTH_SHORT).show()
+            }
+
+            R.id.nav_progress -> {
+                val intent = Intent(this, ProgressActivity::class.java)
+                intent.putExtra("USER_IDENTIFIER", userIdentifier)
+                startActivity(intent)
             }
 
             R.id.nav_logout -> {

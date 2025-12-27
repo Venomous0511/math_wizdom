@@ -132,53 +132,20 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.3" />
 
-        <!-- PDF Viewer Container -->
+        <!-- Interactive Lesson Container (replaces PDF viewer) -->
         <FrameLayout
-            android:id="@+id/pdfContainer"
+            android:id="@+id/lessonContainer"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="0dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/pdf_border"
-
+            android:background="@drawable/lesson_container_border"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/topBar">
-
-            <!-- PDF Viewer directly inside pdfContainer -->
-            <com.github.barteksc.pdfviewer.PDFView
-                android:id="@+id/pdfView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <!-- Full Screen Button -->
-            <ImageButton
-                android:id="@+id/btnPdfFullScreen"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_gravity="top|start"
-                android:layout_margin="8dp"
-                android:background="@drawable/button_round_background"
-                android:contentDescription="@string/full_screen"
-                android:src="@drawable/full_screen"
-                app:tint="@android:color/white" />
-
-            <!-- Minimize Button -->
-            <ImageButton
-                android:id="@+id/btnPdfMinimize"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_gravity="top|start"
-                android:layout_margin="8dp"
-                android:background="@drawable/button_round_background"
-                android:contentDescription="@string/minimize"
-                android:src="@drawable/minimize"
-                android:visibility="gone"
-                app:tint="@android:color/white" />
-
-        </FrameLayout>
+            app:layout_constraintTop_toBottomOf="@+id/topBar" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

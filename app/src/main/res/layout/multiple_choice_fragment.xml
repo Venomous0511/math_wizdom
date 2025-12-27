@@ -18,7 +18,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Back Button -->
         <ImageButton
             android:id="@+id/btnBack"
             android:layout_width="48dp"
@@ -28,7 +27,6 @@
             android:src="@drawable/ic_arrow_back"
             app:tint="@android:color/white" />
 
-        <!-- Title -->
         <TextView
             android:id="@+id/tvActivityTitle"
             android:layout_width="0dp"
@@ -44,7 +42,45 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <!-- Settings Button -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            app:cardBackgroundColor="#CC000000"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/ivTimerIcon"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_timer"
+                    android:contentDescription="Timer"
+                    app:tint="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/tvTimer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="01:00"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
         <ImageButton
             android:id="@+id/btnSettings"
             android:layout_width="48dp"
@@ -56,12 +92,57 @@
 
     </LinearLayout>
 
+    <!-- DIRECTIONS CARD -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardDirections"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        app:cardBackgroundColor="#CC2196F3"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="6dp"
+            android:paddingHorizontal="12dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_info"
+                android:contentDescription="Info"
+                app:tint="@android:color/white" />
+
+            <TextView
+                android:id="@+id/tvDirections"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:text="Read each question carefully and choose the correct answer."
+                android:textColor="@android:color/white"
+                android:textSize="13sp"
+                android:lineSpacingExtra="2dp" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
     <!-- Progress Indicator -->
     <TextView
         android:id="@+id/tvProgress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:background="#FFFFFF"
         android:paddingStart="16dp"
         android:paddingTop="4dp"
@@ -73,7 +154,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/topBar" />
+        app:layout_constraintTop_toBottomOf="@id/cardDirections" />
 
     <!-- Question Card -->
     <com.google.android.material.card.MaterialCardView
@@ -81,7 +162,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         app:cardBackgroundColor="#CC000000"
         app:cardCornerRadius="16dp"
@@ -104,7 +185,6 @@
                 android:scaleType="fitCenter"
                 android:layout_marginBottom="16dp"/>
 
-            <!-- Question Image (optional) -->
             <ImageView
                 android:id="@+id/ivQuestionImage"
                 android:layout_width="50dp"
@@ -115,7 +195,6 @@
                 android:scaleType="centerCrop"
                 android:visibility="gone" />
 
-            <!-- Question Text -->
             <TextView
                 android:id="@+id/tvQuestion"
                 android:layout_width="match_parent"
@@ -132,7 +211,7 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <!-- Answer Buttons Container (Horizontal) -->
+    <!-- Answer Buttons Container -->
     <LinearLayout
         android:id="@+id/layoutAnswers"
         android:layout_width="0dp"

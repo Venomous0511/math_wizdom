@@ -19,6 +19,7 @@
     <string name="new_user">New User</string>
     <string name="full_name">Full Name</string>
     <string name="gender">Gender</string>
+    <string name="sex">Sex</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="_123456789">123456789</string>
@@ -30,6 +31,7 @@
     <string name="gender_label">Gender:</string>
     <string name="home">Home</string>
     <string name="profile">Profile</string>
+    <string name="progress">Progress</string>
     <string name="logout">Logout</string>
     <string name="grade_six_mathematics">GRADE SIX MATHEMATICS</string>
     <string name="student_name">Student Name</string>
