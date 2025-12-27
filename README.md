@@ -1,27 +1,33 @@
+<div style="text-align: center;">
 # 🧙‍♂️ Math Wizdom
 
-**An interactive mathematics learning Android app designed to make math engaging and accessible for everyone.**
-
-[![Version](https://img.shields.io/badge/version-0.6--beta-orange)](https://github.com/Venomous0511/math_wizdom/releases)
+[![Version](https://img.shields.io/badge/version-0.9--beta-orange)](https://github.com/Venomous0511/math_wizdom/releases)
 [![Status](https://img.shields.io/badge/status-beta-yellow)](https://github.com/Venomous0511/math_wizdom)
 [![Android](https://img.shields.io/badge/Android-12+-green)](https://www.android.com)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
+**An interactive mathematics learning Android app designed to make math engaging and accessible for everyone.**
+
+</div>
 
 ---
 
 ## 📖 About
 
-Math Wizdom is an Android educational app that transforms traditional mathematics learning into an interactive and engaging mobile experience. Through carefully designed lessons, real-time feedback, and intuitive visualizations, students can master mathematical concepts at their own pace, right from their Android devices.
+Math Wizdom is an Android educational app that transforms traditional mathematics learning into an interactive and engaging mobile experience. Through carefully designed lessons, real-time feedback, timed activities, and intuitive visualizations, students can master mathematical concepts at their own pace, right from their Android devices.
 
 ### ✨ Key Features
 
-- **🎨 Modern Interface** - Clean, intuitive design optimized for Android devices
-- **📚 Interactive Lessons** - Hands-on problem-solving with instant feedback
-- **📊 Progress Tracking** - Monitor your learning journey and achievements
-- **🗄️ Structured Content** - Organized lesson database for easy navigation
+- **🎨 Modern Interface** - Clean, intuitive design optimized for Android devices with 3-column grid layout
+- **📚 Interactive Lessons** - Hands-on problem-solving with instant feedback and visual guides
+- **⏱️ Timed Activities** - Focused learning with activity timers
+- **🔒 Progressive Learning** - Sequential lesson unlocking with quarter-based progression system
+- **📊 Progress Tracking** - Real-time menu bar showing unlocked lessons and learning achievements
+- **🎬 Video Tutorials** - Complete video integration with randomized playback and required completion
 - **📱 Native Android** - Built specifically for Android 12+ devices
-- **🎯 Personalized Learning** - Adaptive content based on your progress
+- **🎯 Achievement-Based Advancement** - Complete 2 activities with scores of 3+ to unlock next lesson
 - **⚡ Offline Support** - Learn anywhere, even without internet connection
+- **👤 Student Profiles** - Personalized avatars and profile customization
 
 ---
 
@@ -92,24 +98,51 @@ To build a release APK:
 ## 🎯 Roadmap
 
 ### Current Focus (Beta Phase)
+✅ Completed (v0.9 Beta)
 - [x] Room database implementation
-- [x] Core lesson structure
+- [x] Core lesson structure with 4 quarters
 - [x] Material Design UI
-- [x] Interactive Activity
-- [x] Interactive Lesson
-- [ ] User authentication
-- [ ] Progress analytics dashboard
-- [ ] Lesson content expansion
-- [ ] Activity content expansion
+- [x] Interactive activities with timers
+- [x] Interactive lessons with PDF slides
+- [x] Complete video tutorial integration
+- [x] All activities completed across all quarters
+- [x] All lesson content finalized
+- [x] Progressive learning system with quarter locking
+- [x] Student authentication system
+- [x] Profile customization with avatars
+- [x] Progress tracking in menu bar
+- [x] Activity guides with visual instructions
+
+### Current Focus (Pre-v1.0)
+- [ ] Final bug fixes and performance optimizations
+- [ ] Enhanced analytics dashboard
+- [ ] Additional accessibility features
+- [ ] Comprehensive testing across devices
+- [ ] User feedback integration
 
 ### Future Plans
-- Advanced math topics (calculus, statistics)
 - Gamification elements (badges, achievements)
 - Cloud sync for cross-device progress
 - Social learning features
 - Tablet optimization
 - iOS version development
 - Multi-language support
+
+---
+
+### 📚 App Structure
+Learning Progression
+- 4 Quarters - Complete curriculum divided into sequential quarters
+- Sequential Unlocking - Q2, Q3, and Q4 unlock after completing previous quarter
+- Lesson-Based Learning - Each quarter contains multiple lessons with topics
+- Activity Requirements - 2 activities with scores of 3+ to unlock next lesson
+
+Activity Types
+- True/False & 2-Choice - 60 seconds per question
+- Multiple Choice (3-4 options) - 60 seconds per question
+- Matching Type - 5 minutes total
+- Crossing Activities - 5 minutes total
+- Video Activities - Required completion with randomized content
 
 ---
 
@@ -131,6 +164,8 @@ We welcome contributions from the community! Here's how you can help:
 3. **Commit your changes** (`git commit -m 'Add some AmazingFeature'`)
 4. **Push to the branch** (`git push origin feature/AmazingFeature`)
 5. **Open a Pull Request**
+
+Please ensure your code follows our coding standards and includes appropriate tests.
 
 ---
 
@@ -160,7 +195,8 @@ Run the test suite:
 
 ## 🙏 Acknowledgments
 
-- Thanks to all beta testers for their valuable feedback
+- Thanks to all beta testers for their invaluable feedback on v0.8 and v0.9
+- Special appreciation to our focus group for identifying critical UI/UX improvements
 - Inspired by modern educational technology practices
 - Built with passion for making math accessible to everyone
 
@@ -176,11 +212,11 @@ Have questions or want to get in touch?
 
 ## ⚠️ Beta Notice
 
-**This is beta software.** While we've tested thoroughly, you may encounter bugs or incomplete features. Please report any issues you find to help us improve Math Wizdom!
+**This is beta software.** While we've implemented complete content and tested thoroughly, you may encounter minor bugs or areas for refinement. This version is not recommended for production deployment yet. Please report any issues you find to help us prepare for the v1.0 release!
 
 ---
 
-<div align="center">
+<div style="text-align: center;">
 
 **Made with ❤️ for math learners everywhere**
 
