@@ -34,6 +34,8 @@ import com.bitrealm.mathwizdomapp.database.AppDatabase
 import com.bitrealm.mathwizdomapp.database.dao.LessonProgressDao
 import com.bitrealm.mathwizdomapp.database.entities.LessonProgress
 import kotlinx.coroutines.launch
+import android.os.Handler
+import android.os.Looper
 
 class RoutineProblemFragment : Fragment() {
 
@@ -56,6 +58,8 @@ class RoutineProblemFragment : Fragment() {
 
     private var player: ExoPlayer? = null
     private var isFullscreen = false
+    private var progressCheckHandler: Handler? = null
+    private var progressCheckRunnable: Runnable? = null
     private lateinit var lessonProgressDao: LessonProgressDao
 
     // Track video completion
@@ -211,7 +215,7 @@ class RoutineProblemFragment : Fragment() {
 
             val mediaItem = MediaItem.fromUri(videoUri)
             exoPlayer.setMediaItem(mediaItem)
-            exoPlayer.repeatMode = Player.REPEAT_MODE_ONE
+            exoPlayer.repeatMode = Player.REPEAT_MODE_OFF
             exoPlayer.prepare()
             exoPlayer.playWhenReady = true
 
@@ -225,6 +229,7 @@ class RoutineProblemFragment : Fragment() {
                         Player.STATE_READY -> {
                             Log.d(TAG, "Player ready")
                             MusicManager.pauseForVideo()
+                            startProgressCheck()
                         }
                         Player.STATE_BUFFERING -> Log.d(TAG, "Buffering...")
                         Player.STATE_ENDED -> {
@@ -233,20 +238,47 @@ class RoutineProblemFragment : Fragment() {
                             hasWatchedEnough = true
                             videoWatchPercentage = 100
                             enableCompleteButton()
+                            stopProgressCheck()
                         }
-                        Player.STATE_IDLE -> Log.d(TAG, "Player idle")
+                        Player.STATE_IDLE -> {
+                            Log.d(TAG, "Player idle")
+                            stopProgressCheck()
+                        }
                     }
                 }
 
                 override fun onIsPlayingChanged(isPlaying: Boolean) {
                     if (isPlaying) {
                         MusicManager.pauseForVideo()
-
-                        checkWatchProgress()
+                        startProgressCheck()
+                    } else {
+                        stopProgressCheck()
                     }
                 }
             })
         }
+    }
+
+    private fun startProgressCheck() {
+        stopProgressCheck()
+
+        progressCheckHandler = Handler(Looper.getMainLooper())
+        progressCheckRunnable = object : Runnable {
+            override fun run() {
+                checkWatchProgress()
+                // Check progress every 500ms
+                progressCheckHandler?.postDelayed(this, 500)
+            }
+        }
+        progressCheckHandler?.post(progressCheckRunnable!!)
+    }
+
+    private fun stopProgressCheck() {
+        progressCheckRunnable?.let { runnable ->
+            progressCheckHandler?.removeCallbacks(runnable)
+        }
+        progressCheckHandler = null
+        progressCheckRunnable = null
     }
 
     private fun checkWatchProgress() {
@@ -258,12 +290,13 @@ class RoutineProblemFragment : Fragment() {
                 val percentage = ((currentPosition.toFloat() / duration.toFloat()) * 100).toInt()
                 videoWatchPercentage = maxOf(videoWatchPercentage, percentage)
 
-                Log.d(TAG, "Watch progress: $videoWatchPercentage%")
+                Log.d(TAG, "Watch progress: $videoWatchPercentage% (${currentPosition}ms / ${duration}ms)")
 
                 // If watched at least MIN_WATCH_PERCENTAGE%, enable complete button
                 if (videoWatchPercentage >= MIN_WATCH_PERCENTAGE && !hasWatchedEnough) {
                     hasWatchedEnough = true
                     enableCompleteButton()
+                    stopProgressCheck()
                 }
             }
         }
@@ -278,6 +311,7 @@ class RoutineProblemFragment : Fragment() {
     }
 
     private fun releasePlayer() {
+        stopProgressCheck()
         player?.release()
         player = null
     }
@@ -419,11 +453,14 @@ class RoutineProblemFragment : Fragment() {
         MusicManager.pauseForVideo()
         player?.playWhenReady = true
 
-        checkWatchProgress()
+        if (player?.isPlaying == true) {
+            startProgressCheck()
+        }
     }
 
     override fun onPause() {
         super.onPause()
+        stopProgressCheck()
         player?.playWhenReady = false
     }
 
@@ -434,6 +471,7 @@ class RoutineProblemFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        stopProgressCheck()
         releasePlayer()
 
         if (isFullscreen) {
