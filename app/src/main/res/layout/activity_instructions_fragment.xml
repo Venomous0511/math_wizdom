@@ -231,7 +231,7 @@
                     android:layout_marginTop="18dp"
                     android:layout_weight="1"
                     android:contentDescription="Activity Guide"
-                    android:scaleType="fitCenter"
+                    android:scaleType="matrix"
                     android:src="@drawable/ic_placeholder" />
 
             </LinearLayout>
