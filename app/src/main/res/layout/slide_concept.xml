@@ -14,7 +14,8 @@
         android:textSize="17sp"
         android:lineSpacingExtra="6dp"
         android:paddingBottom="16dp"
-        android:fontFamily="sans-serif" />
+        android:fontFamily="sans-serif"
+        android:justificationMode="inter_word" />
 
     <!-- Image View -->
     <LinearLayout

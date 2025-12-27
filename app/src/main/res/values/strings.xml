@@ -61,7 +61,7 @@
     <string name="objective">OBJECTIVE:</string>
     <string name="ObjectiveDescription">After this lesson, you should be able to add and subtract simple fractions and mixed numbers, whether with regrouping or without regrouping.</string>
     <string name="settings">Settings</string>
-    <string name="example">Example:</string>
+    <string name="example">Guide:</string>
     <string name="exampledescription">Fractions are similar if they have the same bottom number (denominator) and dissimilar if they have different bottom numbers.</string>
     <string name="exampleviews">2/20 and 5/20</string>
     <string name="similar">SIMILAR</string>

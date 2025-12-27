@@ -15,6 +15,9 @@ import com.bitrealm.mathwizdomapp.models.Activity
 import com.bitrealm.mathwizdomapp.models.ActivityType
 import com.bitrealm.mathwizdomapp.utils.MusicManager
 import com.google.android.material.button.MaterialButton
+import androidx.appcompat.app.AlertDialog
+import com.bitrealm.mathwizdomapp.models.Question
+import com.bitrealm.mathwizdomapp.utils.ZoomTouchListener
 
 class ActivityInstructionsFragment : Fragment() {
 
@@ -223,6 +226,35 @@ class ActivityInstructionsFragment : Fragment() {
     private fun setupUI() {
         tvInstructionTitle.text = "ACTIVITY #${activity.activityNumber}"
         ivAnimal.setImageResource(quarterAnimals[quarter] ?: R.drawable.cat)
+
+        // Set guide image based on activity type and question format
+        val guideImageRes = when (activity.type) {
+            ActivityType.MULTIPLE_CHOICE -> {
+                // Check if it's True/False or Similar/Dissimilar based on options
+                val firstQuestion = activity.questions.firstOrNull() as? Question.MultipleChoice
+                when {
+                    firstQuestion?.options?.size == 2 -> {
+                        when {
+                            firstQuestion.options.contains("True") && firstQuestion.options.contains("False")
+                                -> R.drawable.guide_true_false
+                            firstQuestion.options.contains("Similar") && firstQuestion.options.contains("Dissimilar")
+                                -> R.drawable.guide_similar_dissimilar
+                            else -> R.drawable.guide_multiple_choice
+                        }
+                    }
+                    else -> R.drawable.guide_multiple_choice
+                }
+            }
+            ActivityType.DRAG_DROP -> R.drawable.guide_drag_drop
+            ActivityType.WIRE_MATCHING -> R.drawable.guide_wire_matching
+            ActivityType.ROUTINE_PROBLEM -> R.drawable.guide_routine_problem
+        }
+        ivGuide.setImageResource(guideImageRes)
+
+        // Add click listener for zoom functionality
+        ivGuide.setOnClickListener {
+            showZoomedImage(guideImageRes)
+        }
 
         // Set content based on activity
         when ("${quarter}_${lessonNumber}_${activity.activityNumber}") {
@@ -862,6 +894,37 @@ class ActivityInstructionsFragment : Fragment() {
                 ivGuide.setImageResource(R.drawable.ic_placeholder)
             }
         }
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun showZoomedImage(imageRes: Int) {
+        val dialogView = LayoutInflater.from(requireContext()).inflate(
+            R.layout.dialog_zoomed_image,
+            null
+        )
+
+        val zoomedImageView = dialogView.findViewById<ImageView>(R.id.ivZoomedImage)
+        val btnClose = dialogView.findViewById<ImageButton>(R.id.btnClose)
+
+        zoomedImageView.setImageResource(imageRes)
+
+        val dialog = AlertDialog.Builder(requireContext())
+            .setView(dialogView)
+            .create()
+
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        btnClose.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        // Enable pinch-to-zoom on the image
+        zoomedImageView.apply {
+            scaleType = ImageView.ScaleType.MATRIX
+            setOnTouchListener(ZoomTouchListener())
+        }
+
+        dialog.show()
     }
 
     private fun setupListeners() {
