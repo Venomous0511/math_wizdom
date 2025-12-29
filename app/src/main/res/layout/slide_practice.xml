@@ -40,7 +40,10 @@
                 android:textSize="18sp"
                 android:fontFamily="sans-serif-medium"
                 android:lineSpacingExtra="4dp"
-                android:justificationMode="inter_word" />
+                android:justificationMode="inter_word"
+                android:hyphenationFrequency="none"
+                android:gravity="start"
+                android:textAlignment="textStart" />
 
             <ImageView
                 android:id="@+id/ivSlideImage"

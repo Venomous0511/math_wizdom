@@ -26,7 +26,9 @@
             android:layout_height="200dp"
             android:src="@drawable/student_icon"
             android:contentDescription="@string/student"
-            android:scaleType="fitCenter" />
+            android:scaleType="fitCenter"
+            android:background="@drawable/icon_background"
+            android:padding="16dp" />
 
         <TextView
             android:id="@+id/tvRoleTitle"

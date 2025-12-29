@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:paddingVertical="16dp"
+    android:paddingHorizontal="16dp">
 
     <TextView
         android:id="@+id/tvContent"
@@ -13,9 +14,11 @@
         android:textColor="#000000"
         android:textSize="17sp"
         android:lineSpacingExtra="6dp"
-        android:paddingBottom="16dp"
+        android:gravity="start"
+        android:textAlignment="textStart"
         android:fontFamily="sans-serif"
-        android:justificationMode="inter_word" />
+        android:justificationMode="inter_word"
+        android:hyphenationFrequency="none" />
 
     <!-- Image View -->
     <LinearLayout

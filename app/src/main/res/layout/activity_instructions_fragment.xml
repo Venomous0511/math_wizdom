@@ -180,7 +180,7 @@
                     android:text="@string/directiondescription"
                     android:textAlignment="center"
                     android:textColor="@android:color/white"
-                    android:textSize="11sp" />
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -208,33 +208,68 @@
             app:layout_constraintStart_toEndOf="@id/guideline"
             app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp">
+                android:layout_height="match_parent">
 
-                <!-- Example Section -->
-                <TextView
+                <!-- Fullscreen Button -->
+                <ImageButton
+                    android:id="@+id/btnFullScreenGuide"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/button_round_background"
+                    android:contentDescription="@string/full_screen"
+                    android:elevation="8dp"
+                    android:src="@drawable/full_screen"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@android:color/white" />
+
+                <!-- Minimize Button -->
+                <ImageButton
+                    android:id="@+id/btnMinimizeGuide"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/button_round_background"
+                    android:contentDescription="@string/minimize"
+                    android:elevation="8dp"
+                    android:src="@drawable/minimize"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@android:color/white" />
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/example"
-                    android:textColor="#FF9800"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
-                <ImageView
-                    android:id="@+id/ivGuide"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="18dp"
-                    android:layout_weight="1"
-                    android:contentDescription="Activity Guide"
-                    android:scaleType="matrix"
-                    android:src="@drawable/ic_placeholder" />
+                    <!-- Example Section -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/example"
+                        android:textColor="#FF9800"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-            </LinearLayout>
+                    <ImageView
+                        android:id="@+id/ivGuide"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="18dp"
+                        android:layout_weight="1"
+                        android:contentDescription="Activity Guide"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_placeholder" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>
 

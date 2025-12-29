@@ -26,6 +26,7 @@ import com.google.android.material.card.MaterialCardView
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.launch
 import android.net.Uri
+import com.bitrealm.mathwizdomapp.utils.NavigationHelper
 import com.bitrealm.mathwizdomapp.utils.loadAvatarUri
 
 class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -269,6 +270,10 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
                 val intent = Intent(this, ProgressActivity::class.java)
                 intent.putExtra("USER_IDENTIFIER", userIdentifier)
                 startActivity(intent)
+            }
+
+            R.id.nav_about -> {
+                NavigationHelper.showAboutDialog(this)
             }
 
             R.id.nav_logout -> {

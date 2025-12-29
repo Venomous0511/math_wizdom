@@ -23,6 +23,7 @@ import com.bitrealm.mathwizdomapp.database.AppDatabase
 import com.bitrealm.mathwizdomapp.dialogs.VolumeControlDialog
 import com.bitrealm.mathwizdomapp.repository.UserRepository
 import com.bitrealm.mathwizdomapp.utils.MusicManager
+import com.bitrealm.mathwizdomapp.utils.NavigationHelper
 import com.bitrealm.mathwizdomapp.utils.loadAvatarUri
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.navigation.NavigationView
@@ -226,6 +227,10 @@ class LessonDetailActivity : AppCompatActivity(), NavigationView.OnNavigationIte
                 val intent = Intent(this, ProgressActivity::class.java)
                 intent.putExtra("USER_IDENTIFIER", userIdentifier)
                 startActivity(intent)
+            }
+
+            R.id.nav_about -> {
+                NavigationHelper.showAboutDialog(this)
             }
 
             R.id.nav_logout -> {
