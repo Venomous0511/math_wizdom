@@ -1,6 +1,7 @@
 package com.bitrealm.mathwizdomapp.fragments
 
 import android.annotation.SuppressLint
+import android.graphics.text.LineBreaker
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -142,6 +143,36 @@ class InteractiveLessonFragment : Fragment() {
         }
     }
 
+    private fun setJustifiedText(textView: TextView, text: String) {
+        // justificationMode is already set in XML, so we just need to handle indentation
+        textView.justificationMode = LineBreaker.JUSTIFICATION_MODE_INTER_WORD
+
+        val indentSize = 50
+        val paragraphs = text.split("\n\n")
+        val spannableString = android.text.SpannableString(text)
+
+        var currentIndex = 0
+        paragraphs.forEach { paragraph ->
+            if (currentIndex < text.length) {
+                spannableString.setSpan(
+                    android.text.style.LeadingMarginSpan.Standard(indentSize, 0),
+                    currentIndex,
+                    currentIndex + paragraph.length,
+                    android.text.Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+                currentIndex += paragraph.length + 2
+            }
+        }
+
+        textView.text = spannableString
+    }
+
+    private fun setJustifiedTextNoIndent(textView: TextView, text: String) {
+        // Just set justification mode without indentation
+        textView.justificationMode = LineBreaker.JUSTIFICATION_MODE_INTER_WORD
+        textView.text = text
+    }
+
     private fun loadSlide(index: Int) {
         val slide = lesson.slides[index]
         slideContentContainer.removeAllViews()
@@ -171,7 +202,7 @@ class InteractiveLessonFragment : Fragment() {
             false
         )
 
-        view.findViewById<TextView>(R.id.tvContent).text = slide.content
+        setJustifiedText(view.findViewById(R.id.tvContent), slide.content)
 
         // Load image if available
         val imageView = view.findViewById<ImageView>(R.id.ivSlideImage)
@@ -194,7 +225,7 @@ class InteractiveLessonFragment : Fragment() {
             false
         )
 
-        view.findViewById<TextView>(R.id.tvContent).text = slide.content
+        setJustifiedText(view.findViewById(R.id.tvContent), slide.content)
 
         // Load image if available
         val singleImageView = view.findViewById<ImageView>(R.id.ivSlideImage)
@@ -260,7 +291,7 @@ class InteractiveLessonFragment : Fragment() {
             false
         )
 
-        view.findViewById<TextView>(R.id.tvProblem).text = slide.problem
+        setJustifiedTextNoIndent(view.findViewById(R.id.tvProblem), slide.problem)
 
         // Display image items if available
         val imageItemsContainer = view.findViewById<ViewGroup>(R.id.imageItemsContainer)
@@ -279,7 +310,8 @@ class InteractiveLessonFragment : Fragment() {
                 stepsContainer,
                 false
             )
-            stepView.findViewById<TextView>(R.id.tvStep).text = step
+            val tvStep = stepView.findViewById<TextView>(R.id.tvStep)
+            setJustifiedTextNoIndent(tvStep, step)
             stepsContainer.addView(stepView)
         }
 
@@ -288,7 +320,7 @@ class InteractiveLessonFragment : Fragment() {
         val tvAnswer = view.findViewById<TextView>(R.id.tvAnswer)
         val btnRevealAnswer = view.findViewById<MaterialButton>(R.id.btnRevealAnswer)
 
-        tvAnswer.text = slide.answer
+        setJustifiedTextNoIndent(tvAnswer, slide.answer)
         answerCard.visibility = View.GONE
 
         btnRevealAnswer.setOnClickListener {
@@ -326,7 +358,7 @@ class InteractiveLessonFragment : Fragment() {
             false
         )
 
-        view.findViewById<TextView>(R.id.tvQuestion).text = slide.question
+        setJustifiedTextNoIndent(view.findViewById(R.id.tvQuestion), slide.question)
 
         // Load image if available
         val imageView = view.findViewById<ImageView>(R.id.ivSlideImage)
@@ -376,7 +408,7 @@ class InteractiveLessonFragment : Fragment() {
                     optionView.setBackgroundColor(
                         ContextCompat.getColor(requireContext(), android.R.color.holo_green_dark)
                     )
-                    tvFeedback.text = "✓ " + slide.explanation
+                    setJustifiedTextNoIndent(tvFeedback, "✓ " + slide.explanation)
                     cardFeedback.setCardBackgroundColor(
                         ContextCompat.getColor(requireContext(), android.R.color.holo_green_light)
                     )
@@ -389,7 +421,7 @@ class InteractiveLessonFragment : Fragment() {
                     correctButton.setBackgroundColor(
                         ContextCompat.getColor(requireContext(), android.R.color.holo_green_dark)
                     )
-                    tvFeedback.text = "✗ Incorrect. " + slide.explanation
+                    setJustifiedTextNoIndent(tvFeedback, "✗ Incorrect. " + slide.explanation)
                     cardFeedback.setCardBackgroundColor(
                         ContextCompat.getColor(requireContext(), android.R.color.holo_red_light)
                     )
@@ -420,7 +452,8 @@ class InteractiveLessonFragment : Fragment() {
                 keyPointsContainer,
                 false
             )
-            pointView.findViewById<TextView>(R.id.tvSummaryPoint).text = point
+            val tvSummaryPoint = pointView.findViewById<TextView>(R.id.tvSummaryPoint)
+            setJustifiedText(tvSummaryPoint, point)
             keyPointsContainer.addView(pointView)
         }
 

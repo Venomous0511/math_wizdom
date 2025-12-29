@@ -385,7 +385,7 @@ class MultipleChoiceFragment : Fragment() {
             orientation = LinearLayout.HORIZONTAL
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
+                LinearLayout.LayoutParams.MATCH_PARENT
             )
             gravity = android.view.Gravity.CENTER
         }
@@ -408,7 +408,7 @@ class MultipleChoiceFragment : Fragment() {
 
                 layoutParams = LinearLayout.LayoutParams(
                     0,
-                    200,
+                    LinearLayout.LayoutParams.MATCH_PARENT,
                     1f
                 ).apply {
                     // Add margins between buttons

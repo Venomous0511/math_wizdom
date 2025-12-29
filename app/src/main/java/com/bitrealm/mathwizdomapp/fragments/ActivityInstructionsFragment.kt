@@ -36,6 +36,9 @@ class ActivityInstructionsFragment : Fragment() {
     private lateinit var btnStart: MaterialButton
     private lateinit var btnBack: ImageButton
     private lateinit var ivGuide: ImageView
+    private lateinit var btnFullScreenGuide: ImageButton
+    private lateinit var btnMinimizeGuide: ImageButton
+    private var isGuideFullScreen = false
 
     private val quarterAnimals = mapOf(
         1 to R.drawable.cat,
@@ -220,6 +223,8 @@ class ActivityInstructionsFragment : Fragment() {
         ivAnimal = view.findViewById(R.id.ivAnimal)
         btnBack = view.findViewById(R.id.btnBack)
         ivGuide = view.findViewById(R.id.ivGuide)
+        btnFullScreenGuide = view.findViewById(R.id.btnFullScreenGuide)
+        btnMinimizeGuide = view.findViewById(R.id.btnMinimizeGuide)
     }
 
     @SuppressLint("SetTextI18n")
@@ -944,6 +949,68 @@ class ActivityInstructionsFragment : Fragment() {
             @Suppress("DEPRECATION")
             requireActivity().onBackPressed()
         }
+
+        btnFullScreenGuide.setOnClickListener {
+            enterGuideFullScreen()
+        }
+
+        btnMinimizeGuide.setOnClickListener {
+            exitGuideFullScreen()
+        }
+    }
+
+    private fun enterGuideFullScreen() {
+        isGuideFullScreen = true
+        val guideImageRes = ivGuide.drawable
+
+        showFullScreenGuideDialog(guideImageRes)
+    }
+
+    private fun exitGuideFullScreen() {
+        isGuideFullScreen = false
+        btnFullScreenGuide.visibility = View.VISIBLE
+        btnMinimizeGuide.visibility = View.GONE
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun showFullScreenGuideDialog(drawable: android.graphics.drawable.Drawable?) {
+        val dialogView = LayoutInflater.from(requireContext()).inflate(
+            R.layout.dialog_fullscreen_guide,
+            null
+        )
+
+        val fullScreenImageView = dialogView.findViewById<ImageView>(R.id.ivFullScreenGuide)
+        val btnCloseFullScreen = dialogView.findViewById<ImageButton>(R.id.btnCloseFullScreen)
+
+        fullScreenImageView.setImageDrawable(drawable)
+
+        val dialog = AlertDialog.Builder(requireContext())
+            .setView(dialogView)
+            .create()
+
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        @Suppress("DEPRECATION")
+        dialog.window?.setFlags(
+            android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
+
+        btnCloseFullScreen.setOnClickListener {
+            dialog.dismiss()
+            exitGuideFullScreen()
+        }
+
+        // Enable pinch-to-zoom on the fullscreen image
+        fullScreenImageView.apply {
+            scaleType = ImageView.ScaleType.MATRIX
+            setOnTouchListener(ZoomTouchListener())
+        }
+
+        dialog.setOnDismissListener {
+            exitGuideFullScreen()
+        }
+
+        dialog.show()
     }
 
     private fun startCountdown() {

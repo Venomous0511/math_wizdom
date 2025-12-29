@@ -6,12 +6,12 @@ import android.os.Bundle
 import android.text.InputFilter
 import android.view.View
 import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.ProgressBar
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
@@ -24,7 +24,6 @@ import com.bitrealm.mathwizdomapp.database.entities.UserRole
 import com.bitrealm.mathwizdomapp.repository.UserRepository
 import com.bitrealm.mathwizdomapp.utils.MusicManager
 import com.google.android.material.appbar.MaterialToolbar
-import com.google.android.material.card.MaterialCardView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.launch
@@ -32,7 +31,6 @@ import kotlinx.coroutines.launch
 class RegistrationActivity : AppCompatActivity() {
 
     private lateinit var toolbar: MaterialToolbar
-    private lateinit var tvRoleEmoji: TextView
     private lateinit var tvNewUser: TextView
     private lateinit var tvIdentifier: TextView
     private lateinit var tilFullName: TextInputLayout
@@ -102,8 +100,6 @@ class RegistrationActivity : AppCompatActivity() {
         rgGender = findViewById(R.id.rgGender)
         rbMale = findViewById(R.id.rbMale)
         rbFemale = findViewById(R.id.rbFemale)
-        rbMale = findViewById(R.id.rbMale)
-        rbFemale = findViewById(R.id.rbFemale)
         tvError = findViewById(R.id.tvError)
         btnRegister = findViewById(R.id.btnRegister)
         progressBar = findViewById(R.id.progressBar)
@@ -170,6 +166,7 @@ class RegistrationActivity : AppCompatActivity() {
                 R.id.rbFemale -> Gender.FEMALE
                 else -> null
             }
+
             validateForm()
             tvError.visibility = View.GONE
         }
@@ -272,6 +269,8 @@ class RegistrationActivity : AppCompatActivity() {
                     btnRegister.isEnabled = false
                     etFullName.isEnabled = false
                     rgGender.isEnabled = false
+                    rbMale.isEnabled = false
+                    rbFemale.isEnabled = false
                 }
             } catch (_: Exception) {
                 // Handle error silently
@@ -292,6 +291,8 @@ class RegistrationActivity : AppCompatActivity() {
         validateForm()
         etFullName.isEnabled = !loading
         rgGender.isEnabled = !loading
+        rbMale.isEnabled = !loading
+        rbFemale.isEnabled = !loading
 
         if (loading) {
             btnRegister.text = ""

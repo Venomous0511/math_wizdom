@@ -16,6 +16,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.bitrealm.mathwizdomapp.data.ActivityDataProvider
 import com.bitrealm.mathwizdomapp.fragments.ActivityInstructionsFragment
 import com.bitrealm.mathwizdomapp.utils.MusicManager
+import com.bitrealm.mathwizdomapp.utils.NavigationHelper
 import com.google.android.material.navigation.NavigationView
 
 class ActivityDetailActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -118,6 +119,10 @@ class ActivityDetailActivity : AppCompatActivity(), NavigationView.OnNavigationI
                 val intent = Intent(this, ProgressActivity::class.java)
                 intent.putExtra("USER_IDENTIFIER", userIdentifier)
                 startActivity(intent)
+            }
+
+            R.id.nav_about -> {
+                NavigationHelper.showAboutDialog(this)
             }
 
             R.id.nav_logout -> {

@@ -31,6 +31,7 @@ import kotlinx.coroutines.launch
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bitrealm.mathwizdomapp.database.dao.LessonProgressDao
+import com.bitrealm.mathwizdomapp.utils.NavigationHelper
 import com.bitrealm.mathwizdomapp.utils.loadAvatarUri
 
 class ActivityActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -239,6 +240,10 @@ class ActivityActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
                 val intent = Intent(this, ProgressActivity::class.java)
                 intent.putExtra("USER_IDENTIFIER", userIdentifier)
                 startActivity(intent)
+            }
+
+            R.id.nav_about -> {
+                NavigationHelper.showAboutDialog(this)
             }
 
             R.id.nav_logout -> {
