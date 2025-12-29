@@ -288,7 +288,7 @@ Have questions or want to get in touch?
 
 ## 📝 Release Notes
 
-**Latest Release: v1.0.0** (January 15, 2025)
+**Latest Release: v1.0.0** (December 30, 2025)
 
 ### Highlights
 ✨ Official production release  
