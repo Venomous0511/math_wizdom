@@ -2,7 +2,7 @@
 
 # 🧙‍♂️ Math Wizdom 
 
-[![Version](https://img.shields.io/badge/version-1.0.0-brightgreen)](https://github.com/Venomous0511/math_wizdom/releases)
+[![Version](https://img.shields.io/badge/version-1.0.1-brightgreen)](https://github.com/Venomous0511/math_wizdom/releases)
 [![Status](https://img.shields.io/badge/status-stable-green)](https://github.com/Venomous0511/math_wizdom)
 [![Android](https://img.shields.io/badge/Android-12+-green)](https://www.android.com)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
@@ -51,13 +51,13 @@ Math Wizdom is an Android educational app that transforms traditional mathematic
 
 **Minimum:**
 - Android 12 (API 31) or higher
-- 150MB free storage space
-- 2GB RAM
+- 2GB free storage spaces
+- 4GB RAM
 - Internet connection for video tutorials
 
 **Recommended:**
 - Android 13+ for optimal performance
-- 4GB RAM
+- 8GB RAM
 - Wi-Fi connection for the best video streaming experience
 
 ---
@@ -104,7 +104,7 @@ Before you begin, ensure you have the following installed:
    - Connect your Android device via USB (with USB debugging enabled)
    - OR start your Android emulator
    - Click the "Run" button (green play icon) or press `Shift + F10`
-   - Select your device and click "OK."
+   - Select your device and click "OK"
 
 ### Building APK
 
@@ -150,7 +150,7 @@ To build a release APK:
 
 ## 🎯 Roadmap
 
-### ✅ v1.0.0 (Current Release - January 2025)
+### ✅ v1.0.0 (Current Release - December 2025)
 - [x] Complete lesson content across all 4 quarters
 - [x] All activity types implemented with timers
 - [x] Progressive learning system with quarter locking
@@ -162,7 +162,7 @@ To build a release APK:
 - [x] All About App section
 - [x] Production-ready stability
 
-### 🔄 v1.1.0 (Planned - Q1 2025)
+### 🔄 v1.1.0 (Planned - Q1 2026)
 - [ ] Enhanced analytics dashboard
 - [ ] Detailed progress reports
 - [ ] Additional accessibility features
@@ -259,7 +259,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- **Beta Testers** - Thank you to all v0.8 and v0.9 beta testers for invaluable feedback
+- **Beta Testers** - Thank you to all v0.1 to v0.9 beta testers for invaluable feedback
 - **Focus Group** - Special appreciation for identifying critical UI/UX improvements
 - **Community Contributors** - Everyone who reported bugs and suggested features
 - **Educational Technology** - Inspired by modern EdTech best practices
@@ -288,14 +288,15 @@ Have questions or want to get in touch?
 
 ## 📝 Release Notes
 
-**Latest Release: v1.0.0** (December 30, 2025)
+**Latest Release: v1.0.1** (January 4, 2026)
 
 ### Highlights
-✨ Official production release  
-📐 Enhanced content formatting with justified paragraphs  
-🔍 Improved preview and zoom functionality  
-👤 Refined profile and authentication UI  
-📱 New "All About App" section  
+🐛 Critical bug fix for matching activity, clear issue  
+⚡ Improved drag-and-drop responsiveness (instant touch)  
+🎯 Smart topic navigation (Previous/Next/Done buttons)  
+🏠 Streamlined flow with auto-return to home  
+🎉 Success notifications on lesson completion  
+✏️ Sex field now editable  
 
 [View Full Release Notes](https://github.com/Venomous0511/math_wizdom/releases/latest) | [Version History](CHANGELOG.md)
 
