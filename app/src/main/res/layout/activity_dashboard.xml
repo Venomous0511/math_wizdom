@@ -255,6 +255,21 @@
                             android:textSize="18sp"
                             tools:text="Male" />
 
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                        <ImageButton
+                            android:id="@+id/btnEditGender"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="@string/edit_gender"
+                            android:padding="12dp"
+                            android:src="@drawable/ic_edit"
+                            app:tint="?attr/colorPrimary" />
+
                     </LinearLayout>
 
                 </LinearLayout>

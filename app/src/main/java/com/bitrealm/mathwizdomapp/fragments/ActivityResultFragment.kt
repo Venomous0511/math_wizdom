@@ -1,6 +1,9 @@
 package com.bitrealm.mathwizdomapp.fragments
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import com.bitrealm.mathwizdomapp.QuarterSelectionActivity
 import com.bitrealm.mathwizdomapp.R
 import com.bitrealm.mathwizdomapp.database.AppDatabase
 import com.bitrealm.mathwizdomapp.database.dao.LessonProgressDao
@@ -73,6 +77,57 @@ class ActivityResultFragment : Fragment() {
             quarter = it.getInt(ARG_QUARTER)
             lessonNumber = it.getInt(ARG_LESSON)
         }
+    }
+
+    private fun getTotalActivitiesForLesson(quarter: Int, lessonNumber: Int): Int {
+        return 2
+    }
+
+    private fun checkAndShowLessonCompletion() {
+        lifecycleScope.launch {
+            try {
+                // Count how many activities in this lesson are completed
+                val completedCount = lessonProgressDao.getLessonCompletedActivitiesCount(
+                    userIdentifier,
+                    quarter,
+                    lessonNumber
+                )
+
+                val totalActivitiesInLesson = getTotalActivitiesForLesson(quarter, lessonNumber)
+
+                // Check if this is the passing threshold (at least 2 activities)
+                if (completedCount >= totalActivitiesInLesson) {
+                    // Check if we haven't shown this notification before
+                    val prefs = requireActivity().getSharedPreferences("lesson_completion", Context.MODE_PRIVATE)
+                    val key = "${userIdentifier}_${quarter}_${lessonNumber}"
+
+                    if (!prefs.getBoolean(key, false)) {
+                        // Mark as shown
+                        prefs.edit().putBoolean(key, true).apply()
+
+                        // Show congratulations dialog
+                        requireActivity().runOnUiThread {
+                            showLessonCompletionDialog()
+                        }
+                    }
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+    private fun showLessonCompletionDialog() {
+        val dialog = AlertDialog.Builder(requireContext())
+            .setTitle("🎉 Congratulations!")
+            .setMessage("You have successfully passed Lesson $lessonNumber activities!")
+            .setPositiveButton("OK") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setCancelable(false)
+            .create()
+
+        dialog.show()
     }
 
     override fun onResume() {
@@ -233,8 +288,18 @@ class ActivityResultFragment : Fragment() {
         }
 
         btnContinue.setOnClickListener {
-            // Go back to activity list
-            requireActivity().finish()
+            // Check if lesson is completed
+            checkAndShowLessonCompletion()
+
+            // Navigate after a short delay to allow the dialog to show
+            lifecycleScope.launch {
+                kotlinx.coroutines.delay(500)
+                val intent = Intent(requireActivity(), QuarterSelectionActivity::class.java)
+                intent.putExtra("USER_IDENTIFIER", userIdentifier)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+                requireActivity().finish()
+            }
         }
     }
 }

@@ -25,6 +25,8 @@ class InteractiveLessonFragment : Fragment() {
     private lateinit var lesson: InteractiveLesson
     private var currentSlideIndex = 0
     private var isPracticeAnswered = false
+    private var currentTopicIndex = 0
+    private var totalTopics = 0
 
     private lateinit var tvSlideTitle: TextView
     private lateinit var cardSlideContent: MaterialCardView
@@ -38,11 +40,15 @@ class InteractiveLessonFragment : Fragment() {
 
     companion object {
         private const val ARG_LESSON = "lesson"
+        private const val ARG_TOPIC_INDEX = "topic_index"
+        private const val ARG_TOTAL_TOPICS = "total_topics"
 
-        fun newInstance(lesson: InteractiveLesson): InteractiveLessonFragment {
+        fun newInstance(lesson: InteractiveLesson, topicIndex: Int = 0, totalTopics: Int = 1): InteractiveLessonFragment {
             val fragment = InteractiveLessonFragment()
             val args = Bundle().apply {
                 putSerializable(ARG_LESSON, lesson)
+                putInt(ARG_TOPIC_INDEX, topicIndex)
+                putInt(ARG_TOTAL_TOPICS, totalTopics)
             }
             fragment.arguments = args
             return fragment
@@ -54,6 +60,8 @@ class InteractiveLessonFragment : Fragment() {
         arguments?.let {
             @Suppress("DEPRECATION")
             lesson = it.getSerializable(ARG_LESSON) as InteractiveLesson
+            currentTopicIndex = it.getInt(ARG_TOPIC_INDEX, 0)
+            totalTopics = it.getInt(ARG_TOTAL_TOPICS, 1)
         }
     }
 
@@ -111,8 +119,12 @@ class InteractiveLessonFragment : Fragment() {
     private fun setupListeners() {
         btnPrevious.setOnClickListener {
             if (currentSlideIndex > 0) {
+                // Normal previous slide
                 currentSlideIndex--
                 loadSlide(currentSlideIndex)
+            } else if (currentTopicIndex > 0) {
+                // Go to previous topic
+                (activity as? TopicActivity)?.loadPreviousTopic()
             }
         }
 
@@ -129,8 +141,15 @@ class InteractiveLessonFragment : Fragment() {
             }
 
             if (currentSlideIndex < lesson.slides.size - 1) {
+                // Normal next slide
                 currentSlideIndex++
                 loadSlide(currentSlideIndex)
+            } else if (currentTopicIndex < totalTopics - 1) {
+                // Go to next topic
+                (activity as? TopicActivity)?.loadNextTopic()
+            } else {
+                // Last topic, go back to lesson detail
+                (activity as? TopicActivity)?.finishLesson()
             }
         }
 
@@ -527,13 +546,42 @@ class InteractiveLessonFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun updateNavigationButtons() {
-        btnPrevious.isEnabled = currentSlideIndex > 0
-        btnNext.isEnabled = currentSlideIndex < lesson.slides.size - 1
+        // Check if we're at the beginning or end of current topic
+        val isFirstSlide = currentSlideIndex == 0
+        val isLastSlide = currentSlideIndex == lesson.slides.size - 1
 
-        if (currentSlideIndex == lesson.slides.size - 1) {
-            btnNext.text = "Complete"
+        // Previous button logic
+        if (isFirstSlide) {
+            if (currentTopicIndex > 0) {
+                // There's a previous topic
+                btnPrevious.text = "Previous Topic"
+                btnPrevious.isEnabled = true
+            } else {
+                // First topic, first slide
+                btnPrevious.text = "Previous"
+                btnPrevious.isEnabled = false
+            }
         } else {
+            // Not first slide, normal previous
+            btnPrevious.text = "Previous"
+            btnPrevious.isEnabled = true
+        }
+
+        // Next button logic
+        if (isLastSlide) {
+            if (currentTopicIndex < totalTopics - 1) {
+                // There's a next topic
+                btnNext.text = "Next Topic"
+                btnNext.isEnabled = true
+            } else {
+                // Last topic, go back to lesson detail
+                btnNext.text = "Done"
+                btnNext.isEnabled = true
+            }
+        } else {
+            // Not last slide, normal next
             btnNext.text = "Next"
+            btnNext.isEnabled = true
         }
     }
 

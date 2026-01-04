@@ -154,7 +154,7 @@
             android:layout_height="64dp"
             android:layout_marginStart="8dp"
             android:layout_weight="1"
-            android:text="Continue"
+            android:text="Done"
             android:textSize="18sp"
             app:backgroundTint="#4CAF50"
             app:cornerRadius="12dp" />

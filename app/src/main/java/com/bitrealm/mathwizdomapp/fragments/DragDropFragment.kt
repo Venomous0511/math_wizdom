@@ -515,17 +515,21 @@ class DragDropFragment : Fragment() {
             holder.tvAnswer.text = answer
 
             // Make draggable
-            holder.card.setOnLongClickListener { v ->
-                val item = ClipData.Item(answer)
-                val dragData = ClipData(
-                    answer,
-                    arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN),
-                    item
-                )
+            holder.card.setOnTouchListener { v, event ->
+                if (event.action == android.view.MotionEvent.ACTION_DOWN) {
+                    val item = ClipData.Item(answer)
+                    val dragData = ClipData(
+                        answer,
+                        arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN),
+                        item
+                    )
 
-                val shadowBuilder = View.DragShadowBuilder(v)
-                v.startDragAndDrop(dragData, shadowBuilder, v, 0)
-                true
+                    val shadowBuilder = View.DragShadowBuilder(v)
+                    v.startDragAndDrop(dragData, shadowBuilder, v, 0)
+                    true
+                } else {
+                    false
+                }
             }
         }
 

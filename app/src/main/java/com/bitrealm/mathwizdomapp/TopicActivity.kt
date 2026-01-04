@@ -2,7 +2,6 @@ package com.bitrealm.mathwizdomapp
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -27,7 +26,6 @@ import com.bitrealm.mathwizdomapp.data.InteractiveLessonProvider
 import com.bitrealm.mathwizdomapp.database.AppDatabase
 import com.bitrealm.mathwizdomapp.dialogs.VolumeControlDialog
 import com.bitrealm.mathwizdomapp.fragments.InteractiveLessonFragment
-import com.bitrealm.mathwizdomapp.models.InteractiveLesson
 import com.bitrealm.mathwizdomapp.models.Subtopic
 import com.bitrealm.mathwizdomapp.repository.UserRepository
 import com.bitrealm.mathwizdomapp.utils.MusicManager
@@ -58,8 +56,8 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
     private var quarter: Int = 1
     private var lessonNumber: Int = 1
     private var isFullScreen = false
+    private var currentTopicIndex = 0
 
-    // Store original constraints
     private val originalConstraints = ConstraintSet()
 
     override fun onResume() {
@@ -488,9 +486,13 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         }
 
         subtopicAdapter = SubtopicAdapter(updatedSubtopics) { subtopic ->
+            // Find the clicked topic index
+            val clickedIndex = updatedSubtopics.indexOf(subtopic)
+            currentTopicIndex = clickedIndex
+
             if (subtopic.interactiveLesson != null) {
                 // Show interactive lesson
-                loadInteractiveLesson(subtopic.interactiveLesson)
+                loadInteractiveLessonAtIndex(clickedIndex, updatedSubtopics)
             } else {
                 // Show message that lesson is not available yet
                 Toast.makeText(this, "Interactive lesson not available yet", Toast.LENGTH_SHORT).show()
@@ -501,20 +503,65 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
         // Load first subtopic by default
         if (updatedSubtopics.isNotEmpty()) {
+            currentTopicIndex = 0
             val firstSubtopic = updatedSubtopics[0]
             if (firstSubtopic.interactiveLesson != null) {
-                loadInteractiveLesson(firstSubtopic.interactiveLesson)
+                loadInteractiveLessonAtIndex(0, updatedSubtopics)
             }
         }
     }
 
-    private fun loadInteractiveLesson(lesson: InteractiveLesson) {
-        // Show interactive lesson fragment in lessonContainer
-        val fragment = InteractiveLessonFragment.newInstance(lesson)
+    private fun loadInteractiveLessonAtIndex(index: Int, allSubtopics: List<Subtopic>) {
+        currentTopicIndex = index
+        val subtopic = allSubtopics[index]
+        subtopic.interactiveLesson?.let { lesson ->
+            val fragment = InteractiveLessonFragment.newInstance(
+                lesson,
+                topicIndex = index,
+                totalTopics = allSubtopics.size
+            )
 
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.lessonContainer, fragment)
-            .commit()
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.lessonContainer, fragment)
+                .commit()
+        }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun loadPreviousTopic() {
+        val lessonKey = "${quarter}_$lessonNumber"
+        val subtopics = lessonSubtopics[lessonKey] ?: emptyList()
+        val updatedSubtopics = subtopics.mapIndexed { index, subtopic ->
+            val interactiveLesson = InteractiveLessonProvider.getLesson(quarter, lessonNumber, index + 1)
+            subtopic.copy(interactiveLesson = interactiveLesson)
+        }
+
+        if (currentTopicIndex > 0) {
+            loadInteractiveLessonAtIndex(currentTopicIndex - 1, updatedSubtopics)
+            // Update RecyclerView selection if needed
+            subtopicAdapter.notifyDataSetChanged()
+        }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun loadNextTopic() {
+        val lessonKey = "${quarter}_$lessonNumber"
+        val subtopics = lessonSubtopics[lessonKey] ?: emptyList()
+        val updatedSubtopics = subtopics.mapIndexed { index, subtopic ->
+            val interactiveLesson = InteractiveLessonProvider.getLesson(quarter, lessonNumber, index + 1)
+            subtopic.copy(interactiveLesson = interactiveLesson)
+        }
+
+        if (currentTopicIndex < updatedSubtopics.size - 1) {
+            loadInteractiveLessonAtIndex(currentTopicIndex + 1, updatedSubtopics)
+            // Update RecyclerView selection if needed
+            subtopicAdapter.notifyDataSetChanged()
+        }
+    }
+
+    fun finishLesson() {
+        // Go back to LessonDetailActivity
+        finish()
     }
 
     @SuppressLint("UseKtx")

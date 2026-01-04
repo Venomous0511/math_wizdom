@@ -28,7 +28,6 @@ import com.bitrealm.mathwizdomapp.repository.UserRepository
 import com.bitrealm.mathwizdomapp.utils.MusicManager
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.launch
-import androidx.core.net.toUri
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bitrealm.mathwizdomapp.database.dao.LessonProgressDao
 import com.bitrealm.mathwizdomapp.utils.NavigationHelper
