@@ -3,6 +3,8 @@
 package com.bitrealm.mathwizdomapp.fragments
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -36,6 +38,7 @@ import com.bitrealm.mathwizdomapp.database.entities.LessonProgress
 import kotlinx.coroutines.launch
 import android.os.Handler
 import android.os.Looper
+import com.bitrealm.mathwizdomapp.QuarterSelectionActivity
 
 class RoutineProblemFragment : Fragment() {
 
@@ -111,6 +114,57 @@ class RoutineProblemFragment : Fragment() {
 
         val allQuestions = activity.questions.filterIsInstance<Question.RoutineProblem>()
         question = allQuestions.random()
+    }
+
+    private fun getTotalActivitiesForLesson(quarter: Int, lessonNumber: Int): Int {
+        return 2
+    }
+
+    private fun checkAndShowLessonCompletion() {
+        lifecycleScope.launch {
+            try {
+                // Count how many activities in this lesson are completed
+                val completedCount = lessonProgressDao.getLessonCompletedActivitiesCount(
+                    userIdentifier,
+                    quarter,
+                    lessonNumber
+                )
+
+                val totalActivitiesInLesson = getTotalActivitiesForLesson(quarter, lessonNumber)
+
+                // Check if this is the passing threshold (at least 2 activities)
+                if (completedCount >= totalActivitiesInLesson) {
+                    // Check if we haven't shown this notification before
+                    val prefs = requireActivity().getSharedPreferences("lesson_completion", Context.MODE_PRIVATE)
+                    val key = "${userIdentifier}_${quarter}_${lessonNumber}"
+
+                    if (!prefs.getBoolean(key, false)) {
+                        // Mark as shown
+                        prefs.edit().putBoolean(key, true).apply()
+
+                        // Show congratulations dialog
+                        requireActivity().runOnUiThread {
+                            showLessonCompletionDialog()
+                        }
+                    }
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+    private fun showLessonCompletionDialog() {
+        val dialog = AlertDialog.Builder(requireContext())
+            .setTitle("🎉 Congratulations!")
+            .setMessage("You have successfully passed Lesson $lessonNumber activities!")
+            .setPositiveButton("OK") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setCancelable(false)
+            .create()
+
+        dialog.show()
     }
 
     override fun onCreateView(
@@ -407,25 +461,31 @@ class RoutineProblemFragment : Fragment() {
         // Save progress to database
         lifecycleScope.launch {
             try {
+                val totalQuestions = activity.questions.size
+
                 val progress = LessonProgress(
                     userIdentifier = userIdentifier,
                     quarter = quarter,
                     lessonNumber = lessonNumber,
                     activityId = activity.id.toString(),
-                    score = 5,
-                    totalQuestions = 5
+                    score = totalQuestions,
+                    totalQuestions = totalQuestions
                 )
                 lessonProgressDao.insertProgress(progress)
 
                 requireActivity().runOnUiThread {
-                    AlertDialog.Builder(requireContext())
-                        .setTitle("Activity Completed")
-                        .setMessage("Great! You've watched the routine problem video (${videoWatchPercentage}% completed).\n\nRemember to write your answers on paper for your teacher to check.")
-                        .setPositiveButton("OK") { _, _ ->
-                            requireActivity().finish()
-                        }
-                        .setCancelable(false)
-                        .show()
+                    // Check if lesson is completed after this activity
+                    checkAndShowLessonCompletion()
+
+                    // Navigate after delay
+                    lifecycleScope.launch {
+                        kotlinx.coroutines.delay(500)
+                        val intent = Intent(requireActivity(), QuarterSelectionActivity::class.java)
+                        intent.putExtra("USER_IDENTIFIER", userIdentifier)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+                        startActivity(intent)
+                        requireActivity().finish()
+                    }
                 }
             } catch (e: Exception) {
                 requireActivity().runOnUiThread {

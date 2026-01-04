@@ -16,6 +16,9 @@ class ZoomTouchListener : View.OnTouchListener {
     private val matrix = Matrix()
     private val savedMatrix = Matrix()
     private var scaleGestureDetector: ScaleGestureDetector? = null
+    private var minScale = 1f
+    private var maxScale = 4f
+    private var isInitialized = false
 
     companion object {
         private const val NONE = 0
@@ -23,9 +26,23 @@ class ZoomTouchListener : View.OnTouchListener {
         private const val ZOOM = 2
     }
 
+    fun forceInitialize(view: ImageView) {
+        if (!isInitialized && view.drawable != null) {
+            view.post {
+                initializeMatrix(view)
+                isInitialized = true
+            }
+        }
+    }
+
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouch(v: View?, event: MotionEvent?): Boolean {
         val view = v as? ImageView ?: return false
+
+        if (!isInitialized && view.drawable != null) {
+            initializeMatrix(view)
+            isInitialized = true
+        }
 
         if (scaleGestureDetector == null) {
             scaleGestureDetector = ScaleGestureDetector(view.context, ScaleListener(view))
@@ -69,13 +86,50 @@ class ZoomTouchListener : View.OnTouchListener {
         return true
     }
 
+    private fun initializeMatrix(view: ImageView) {
+        val drawable = view.drawable ?: return
+
+        val viewWidth = view.width.toFloat()
+        val viewHeight = view.height.toFloat()
+        val drawableWidth = drawable.intrinsicWidth.toFloat()
+        val drawableHeight = drawable.intrinsicHeight.toFloat()
+
+        if (viewWidth == 0f || viewHeight == 0f || drawableWidth == 0f || drawableHeight == 0f) {
+            return
+        }
+
+        // Calculate scales
+        val scaleX = viewWidth / drawableWidth
+        val scaleY = viewHeight / drawableHeight
+
+        // Use the larger scale to fill the screen (crop mode)
+        val scale = maxOf(scaleX, scaleY)
+
+        minScale = scale
+        maxScale = scale * 4f
+
+        // Calculate position to center the image
+        val scaledWidth = drawableWidth * scale
+        val scaledHeight = drawableHeight * scale
+        val dx = (viewWidth - scaledWidth) / 2f
+        val dy = (viewHeight - scaledHeight) / 2f
+
+        matrix.reset()
+        matrix.postScale(scale, scale)
+        matrix.postTranslate(dx, dy)
+
+        view.imageMatrix = matrix
+    }
+
     private fun spacing(event: MotionEvent): Float {
+        if (event.pointerCount < 2) return 0f
         val x = event.getX(0) - event.getX(1)
         val y = event.getY(0) - event.getY(1)
         return kotlin.math.sqrt((x * x + y * y).toDouble()).toFloat()
     }
 
     private fun midPoint(point: PointF, event: MotionEvent) {
+        if (event.pointerCount < 2) return
         val x = event.getX(0) + event.getX(1)
         val y = event.getY(0) + event.getY(1)
         point.set(x / 2, y / 2)
@@ -86,8 +140,21 @@ class ZoomTouchListener : View.OnTouchListener {
 
         override fun onScale(detector: ScaleGestureDetector): Boolean {
             val scaleFactor = detector.scaleFactor
-            matrix.postScale(scaleFactor, scaleFactor, detector.focusX, detector.focusY)
-            view.imageMatrix = matrix
+
+            // Get current scale
+            val values = FloatArray(9)
+            matrix.getValues(values)
+            val currentScale = values[Matrix.MSCALE_X]
+
+            // Calculate new scale
+            val newScale = currentScale * scaleFactor
+
+            // Constrain scale between min and max
+            if (newScale in minScale..maxScale) {
+                matrix.postScale(scaleFactor, scaleFactor, detector.focusX, detector.focusY)
+                view.imageMatrix = matrix
+            }
+
             return true
         }
     }

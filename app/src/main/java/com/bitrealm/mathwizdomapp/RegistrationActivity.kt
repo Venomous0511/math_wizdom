@@ -51,7 +51,7 @@ class RegistrationActivity : AppCompatActivity() {
 
     // Constants for account limits
     private companion object {
-        const val MAX_ACCOUNTS = 12
+        const val MAX_ACCOUNTS = 5
         const val REQUIRED_IDENTIFIER_LENGTH = 12
         const val MAX_FULL_NAME_LENGTH = 36
     }

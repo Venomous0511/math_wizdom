@@ -352,8 +352,22 @@ class WireMatchingFragment : Fragment() {
         return wireColors[index % wireColors.size]
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun handleColumnBClick(index: Int) {
         val columnAIndex = selectedColumnAIndex ?: return
+
+        val isAlreadyMatched = userMatches.entries.any {
+            it.value == index && it.key != columnAIndex
+        }
+
+        if (isAlreadyMatched) {
+            Toast.makeText(
+                requireContext(),
+                "This answer is already matched. Please choose another.",
+                Toast.LENGTH_SHORT
+            ).show()
+            return
+        }
 
         val existingLine = lines.find {
             it.columnAIndex == columnAIndex && it.columnBIndex == index
@@ -402,6 +416,7 @@ class WireMatchingFragment : Fragment() {
 
         selectedColumnAIndex = null
         columnAAdapter.setSelectedIndex(null)
+        columnBAdapter.notifyDataSetChanged()
         drawingCanvas.setLines(lines)
     }
 
@@ -410,6 +425,7 @@ class WireMatchingFragment : Fragment() {
         userMatches.clear()
         selectedColumnAIndex = null
         columnAAdapter.setSelectedIndex(null)
+        columnBAdapter.notifyDataSetChanged()
         drawingCanvas.setLines(lines)
     }
 
@@ -483,7 +499,7 @@ class WireMatchingFragment : Fragment() {
 
     inner class ColumnAdapter(
         private val items: List<String>,
-        @Suppress("unused") private val isColumnA: Boolean,
+        private val isColumnA: Boolean,
         private val onItemClick: (Int) -> Unit,
         private val getColor: (Int) -> Int
     ) : RecyclerView.Adapter<ColumnAdapter.ViewHolder>() {
@@ -511,16 +527,40 @@ class WireMatchingFragment : Fragment() {
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             holder.tvItem.text = items[position]
 
-            holder.card.setCardBackgroundColor(
-                if (position == selectedIndex) {
-                    getColor(position)
-                } else {
-                    "#424242".toColorInt()
-                }
-            )
+            // Check if this item is matched
+            val isMatched = if (isColumnA) {
+                userMatches.containsKey(position)
+            } else {
+                userMatches.containsValue(position)
+            }
 
-            holder.card.setOnClickListener {
-                onItemClick(position)
+            // Determine background color
+            val backgroundColor = when {
+                position == selectedIndex -> getColor(position)
+                isMatched -> {
+                    if (isColumnA) {
+                        getColor(position)
+                    } else {
+                        // Find which Column A index this is matched to
+                        val matchedColumnAIndex = userMatches.entries.find { it.value == position }?.key
+                        matchedColumnAIndex?.let { getColor(it) } ?: "#424242".toColorInt()
+                    }
+                }
+                else -> "#424242".toColorInt()
+            }
+
+            holder.card.setCardBackgroundColor(backgroundColor)
+
+            // Disable click for matched Column B items
+            if (!isColumnA && isMatched && position != selectedIndex) {
+                holder.card.alpha = 0.5f
+                holder.card.isClickable = false
+            } else {
+                holder.card.alpha = 1.0f
+                holder.card.isClickable = true
+                holder.card.setOnClickListener {
+                    onItemClick(position)
+                }
             }
         }
 

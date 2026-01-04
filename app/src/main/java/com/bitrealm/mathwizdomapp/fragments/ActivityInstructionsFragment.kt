@@ -1,11 +1,13 @@
 package com.bitrealm.mathwizdomapp.fragments
 
 import android.annotation.SuppressLint
+import android.app.Dialog
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
@@ -15,7 +17,6 @@ import com.bitrealm.mathwizdomapp.models.Activity
 import com.bitrealm.mathwizdomapp.models.ActivityType
 import com.bitrealm.mathwizdomapp.utils.MusicManager
 import com.google.android.material.button.MaterialButton
-import androidx.appcompat.app.AlertDialog
 import com.bitrealm.mathwizdomapp.models.Question
 import com.bitrealm.mathwizdomapp.utils.ZoomTouchListener
 
@@ -258,7 +259,7 @@ class ActivityInstructionsFragment : Fragment() {
 
         // Add click listener for zoom functionality
         ivGuide.setOnClickListener {
-            showZoomedImage(guideImageRes)
+            showFullscreenZoomDialog(ivGuide.drawable)
         }
 
         // Set content based on activity
@@ -901,37 +902,6 @@ class ActivityInstructionsFragment : Fragment() {
         }
     }
 
-    @SuppressLint("ClickableViewAccessibility")
-    private fun showZoomedImage(imageRes: Int) {
-        val dialogView = LayoutInflater.from(requireContext()).inflate(
-            R.layout.dialog_zoomed_image,
-            null
-        )
-
-        val zoomedImageView = dialogView.findViewById<ImageView>(R.id.ivZoomedImage)
-        val btnClose = dialogView.findViewById<ImageButton>(R.id.btnClose)
-
-        zoomedImageView.setImageResource(imageRes)
-
-        val dialog = AlertDialog.Builder(requireContext())
-            .setView(dialogView)
-            .create()
-
-        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-
-        btnClose.setOnClickListener {
-            dialog.dismiss()
-        }
-
-        // Enable pinch-to-zoom on the image
-        zoomedImageView.apply {
-            scaleType = ImageView.ScaleType.MATRIX
-            setOnTouchListener(ZoomTouchListener())
-        }
-
-        dialog.show()
-    }
-
     private fun setupListeners() {
         btnStart.setOnClickListener {
             btnStart.visibility = View.GONE
@@ -961,9 +931,7 @@ class ActivityInstructionsFragment : Fragment() {
 
     private fun enterGuideFullScreen() {
         isGuideFullScreen = true
-        val guideImageRes = ivGuide.drawable
-
-        showFullScreenGuideDialog(guideImageRes)
+        showFullscreenZoomDialog(ivGuide.drawable)
     }
 
     private fun exitGuideFullScreen() {
@@ -973,44 +941,58 @@ class ActivityInstructionsFragment : Fragment() {
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    private fun showFullScreenGuideDialog(drawable: android.graphics.drawable.Drawable?) {
-        val dialogView = LayoutInflater.from(requireContext()).inflate(
-            R.layout.dialog_fullscreen_guide,
-            null
-        )
+    private fun showFullscreenZoomDialog(drawable: android.graphics.drawable.Drawable?) {
+        // Create a fullscreen dialog
+        val dialog = Dialog(requireContext(), android.R.style.Theme_Black_NoTitleBar_Fullscreen)
+        dialog.setContentView(R.layout.dialog_zoomed_image)
 
-        val fullScreenImageView = dialogView.findViewById<ImageView>(R.id.ivFullScreenGuide)
-        val btnCloseFullScreen = dialogView.findViewById<ImageButton>(R.id.btnCloseFullScreen)
+        val zoomedImageView = dialog.findViewById<ImageView>(R.id.ivZoomedImage)
+        val btnClose = dialog.findViewById<ImageButton>(R.id.btnClose)
 
-        fullScreenImageView.setImageDrawable(drawable)
+        dialog.window?.apply {
+            // Set the dialog to fullscreen
+            setLayout(
+                WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.MATCH_PARENT
+            )
 
-        val dialog = AlertDialog.Builder(requireContext())
-            .setView(dialogView)
-            .create()
+            setBackgroundDrawableResource(android.R.color.transparent)
 
-        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-        @Suppress("DEPRECATION")
-        dialog.window?.setFlags(
-            android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
+            // Add fullscreen flags
+            @Suppress("DEPRECATION")
+            addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+            addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+            addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN)
 
-        btnCloseFullScreen.setOnClickListener {
-            dialog.dismiss()
-            exitGuideFullScreen()
-        }
+            // Remove dim behind the dialog
+            clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
 
-        // Enable pinch-to-zoom on the fullscreen image
-        fullScreenImageView.apply {
-            scaleType = ImageView.ScaleType.MATRIX
-            setOnTouchListener(ZoomTouchListener())
-        }
-
-        dialog.setOnDismissListener {
-            exitGuideFullScreen()
+            // Hide system bars
+            @Suppress("DEPRECATION")
+            decorView.systemUiVisibility = (
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            or View.SYSTEM_UI_FLAG_FULLSCREEN
+                            or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                    )
         }
 
         dialog.show()
+
+        // Set image and initialize zoom AFTER dialog is shown
+        zoomedImageView.post {
+            zoomedImageView.setImageDrawable(drawable)
+            zoomedImageView.scaleType = ImageView.ScaleType.MATRIX
+            val zoomListener = ZoomTouchListener()
+            zoomedImageView.setOnTouchListener(zoomListener)
+            zoomListener.forceInitialize(zoomedImageView)
+        }
+
+        btnClose.setOnClickListener {
+            dialog.dismiss()
+        }
     }
 
     private fun startCountdown() {

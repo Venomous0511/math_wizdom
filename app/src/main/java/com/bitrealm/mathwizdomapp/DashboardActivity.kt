@@ -41,6 +41,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     private lateinit var ivAvatar: ImageView
     private lateinit var btnEditAvatar: ImageButton
     private lateinit var btnEditName: ImageButton
+    private lateinit var btnEditGender: ImageButton
     private lateinit var tvFullName: TextView
     private lateinit var tvGender: TextView
 
@@ -137,6 +138,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         ivAvatar = findViewById(R.id.ivAvatar)
         btnEditAvatar = findViewById(R.id.btnEditAvatar)
         btnEditName = findViewById(R.id.btnEditName)
+        btnEditGender = findViewById(R.id.btnEditGender)
         tvFullName = findViewById(R.id.tvFullName)
         tvGender = findViewById(R.id.tvGender)
 
@@ -176,6 +178,11 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         // Edit name
         btnEditName.setOnClickListener {
             showEditNameDialog()
+        }
+
+        // Edit gender
+        btnEditGender.setOnClickListener {
+            showEditGenderDialog()
         }
     }
 
@@ -403,6 +410,76 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                     ).show()
                 }
                 println("Error updating name: ${e.message}")
+                e.printStackTrace()
+            }
+        }
+    }
+
+    private fun showEditGenderDialog() {
+        val genderOptions = arrayOf("Male", "Female")
+        val currentGenderIndex = when (currentUser?.gender?.name?.uppercase()) {
+            "MALE" -> 0
+            "FEMALE" -> 1
+            else -> 0
+        }
+
+        AlertDialog.Builder(this)
+            .setTitle("Select Sex")
+            .setSingleChoiceItems(genderOptions, currentGenderIndex) { dialog, which ->
+                val selectedGender = genderOptions[which]
+                updateUserGender(selectedGender)
+                dialog.dismiss()
+            }
+            .setNegativeButton("Cancel") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
+    }
+
+    private fun updateUserGender(newGender: String) {
+        lifecycleScope.launch {
+            try {
+                val latestUser = userRepository.getUserByIdentifier(userIdentifier)
+
+                if (latestUser == null) {
+                    runOnUiThread {
+                        Toast.makeText(
+                            this@DashboardActivity,
+                            "User not found",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    return@launch
+                }
+
+                val genderEnum = com.bitrealm.mathwizdomapp.database.entities.Gender.valueOf(newGender.uppercase())
+
+                val updatedUser = latestUser.copy(
+                    gender = genderEnum,
+                    updatedAt = System.currentTimeMillis()
+                )
+
+                userRepository.updateUser(updatedUser)
+
+                runOnUiThread {
+                    currentUser = updatedUser
+                    tvGender.text = newGender
+
+                    Toast.makeText(
+                        this@DashboardActivity,
+                        "Sex updated successfully",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            } catch (e: Exception) {
+                runOnUiThread {
+                    Toast.makeText(
+                        this@DashboardActivity,
+                        "Failed to update sex: ${e.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                println("Error updating gender: ${e.message}")
                 e.printStackTrace()
             }
         }
