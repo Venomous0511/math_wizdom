@@ -38,7 +38,9 @@ interface UserDao {
     @Query("SELECT EXISTS(SELECT 1 FROM users WHERE identifier = :identifier LIMIT 1)")
     suspend fun userExists(identifier: String): Boolean
 
-    // In UserDao.kt
     @Query("SELECT COUNT(*) FROM users WHERE role = :role")
     suspend fun getUserCountByRole(role: UserRole): Int
+
+    @Query("SELECT COUNT(*) FROM users WHERE role = 'STUDENT' AND substr(identifier, 1, 6) = :lrnPrefix")
+    suspend fun getStudentCountByLrnPrefix(lrnPrefix: String): Int
 }

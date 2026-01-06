@@ -425,6 +425,7 @@ class WireMatchingFragment : Fragment() {
         userMatches.clear()
         selectedColumnAIndex = null
         columnAAdapter.setSelectedIndex(null)
+        columnAAdapter.notifyDataSetChanged()
         columnBAdapter.notifyDataSetChanged()
         drawingCanvas.setLines(lines)
     }
@@ -458,10 +459,6 @@ class WireMatchingFragment : Fragment() {
                     "Please complete all matchings before submitting",
                     Toast.LENGTH_SHORT
                 ).show()
-
-                if (timeLeftInMillis > 0) {
-                    startTimer()
-                }
             }
             return
         }
