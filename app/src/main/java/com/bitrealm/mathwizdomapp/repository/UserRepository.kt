@@ -53,8 +53,11 @@ class UserRepository(private val userDao: UserDao) {
         return userDao.getAllUsersFlow()
     }
 
-    // In UserRepository.kt
     suspend fun getUserCountByRole(role: UserRole): Int {
         return userDao.getUserCountByRole(role)
+    }
+
+    suspend fun getStudentCountByLrnPrefix(lrnPrefix: String): Int {
+        return userDao.getStudentCountByLrnPrefix(lrnPrefix)
     }
 }

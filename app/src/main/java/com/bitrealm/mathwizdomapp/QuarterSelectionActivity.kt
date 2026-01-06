@@ -130,6 +130,38 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
         }
     }
 
+    private fun checkAndShowLessonCompletion() {
+        lifecycleScope.launch {
+            try {
+                for (q in 1..4) {
+                    val lastLesson = lastLessonPerQuarter[q] ?: continue
+                    for (lesson in 1..lastLesson) {
+                        val completedCount = lessonProgressDao.getCompletedActivitiesCount(
+                            userIdentifier, q, lesson
+                        )
+                        if (completedCount >= 2) {
+                            val prefs = getSharedPreferences("lesson_completion", MODE_PRIVATE)
+                            val key = "${userIdentifier}_${q}_${lesson}"
+                            if (!prefs.getBoolean(key, false)) {
+                                prefs.edit().putBoolean(key, true).apply()
+                                runOnUiThread {
+                                    AlertDialog.Builder(this@QuarterSelectionActivity)
+                                        .setTitle("🎉 Congratulations!")
+                                        .setMessage("You have successfully passed Quarter $q - Lesson $lesson activities!")
+                                        .setPositiveButton("OK", null)
+                                        .show()
+                                }
+                                return@launch
+                            }
+                        }
+                    }
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
+
     private suspend fun isQuarterCompleted(quarter: Int): Boolean {
         val lastLesson = lastLessonPerQuarter[quarter] ?: return false
         val completedCount = lessonProgressDao.getLastLessonCompletedActivitiesCount(
@@ -237,6 +269,7 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
         MusicManager.play()
         updateVolumeIcon()
         checkQuarterLocks()
+        checkAndShowLessonCompletion()
     }
 
     override fun onPause() {

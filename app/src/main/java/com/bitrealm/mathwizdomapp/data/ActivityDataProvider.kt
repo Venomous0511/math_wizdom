@@ -8529,28 +8529,58 @@ object ActivityDataProvider {
             ),
 
             // Activity 2: Routine and Non-Routine Problems - Any Operations including Decimals, Whole Numbers and Money (Video-based)
-//            Activity(
-//                id = 2,
-//                quarter = 3,
-//                lessonNumber = 6,
-//                activityNumber = 2,
-//                title = "Routine or Non-routine Problems Involving Any of the Operations Including any Decimals, Whole Numbers and Money",
-//                type = ActivityType.ROUTINE_PROBLEM,
-//                questions = listOf(
-//                    Question.RoutineProblem(
-//                        id = 1,
-//                        text = "",
-//                        videoFileName = "activity_1-n1.mp4",
-//                        description = "Routine or Non-routine Problems Involving Any of the Operations Including any Decimals, Whole Numbers and Money"
-//                    ),
-//                    Question.RoutineProblem(
-//                        id = 2,
-//                        text = "",
-//                        videoFileName = "activity_1-n2.mp4",
-//                        description = "Routine or Non-routine Problems Involving Any of the Operations Including any Decimals, Whole Numbers and Money"
-//                    ),
-//                )
-//            ),
+            Activity(
+                id = 2,
+                quarter = 3,
+                lessonNumber = 6,
+                activityNumber = 2,
+                title = "Routine or Non-routine Problems Involving Any of the Operations Including any Decimals, Whole Numbers and Money",
+                type = ActivityType.ROUTINE_PROBLEM,
+                questions = listOf(
+                    Question.RoutineProblem(
+                        id = 1,
+                        text = "",
+                        videoFileName = "activity_2-n1.mp4",
+                        description = "Routine or Non-routine Problems Involving Any of the Operations Including any Decimals, Whole Numbers and Money"
+                    ),
+                    Question.RoutineProblem(
+                        id = 2,
+                        text = "",
+                        videoFileName = "activity_2-n2.mp4",
+                        description = "Routine or Non-routine Problems Involving Any of the Operations Including any Decimals, Whole Numbers and Money"
+                    ),
+                    Question.RoutineProblem(
+                        id = 3,
+                        text = "",
+                        videoFileName = "activity_2-n3.mp4",
+                        description = "Routine or Non-routine Problems Involving Any of the Operations Including any Decimals, Whole Numbers and Money"
+                    ),
+                    Question.RoutineProblem(
+                        id = 4,
+                        text = "",
+                        videoFileName = "activity_2-n4.mp4",
+                        description = "Routine or Non-routine Problems Involving Any of the Operations Including any Decimals, Whole Numbers and Money"
+                    ),
+                    Question.RoutineProblem(
+                        id = 5,
+                        text = "",
+                        videoFileName = "activity_2-n5.mp4",
+                        description = "Routine or Non-routine Problems Involving Any of the Operations Including any Decimals, Whole Numbers and Money"
+                    ),
+                    Question.RoutineProblem(
+                        id = 6,
+                        text = "",
+                        videoFileName = "activity_2-n6.mp4",
+                        description = "Routine or Non-routine Problems Involving Any of the Operations Including any Decimals, Whole Numbers and Money"
+                    ),
+                    Question.RoutineProblem(
+                        id = 7,
+                        text = "",
+                        videoFileName = "activity_2-n7.mp4",
+                        description = "Routine or Non-routine Problems Involving Any of the Operations Including any Decimals, Whole Numbers and Money"
+                    ),
+                )
+            ),
         )
     }
 
@@ -8935,52 +8965,106 @@ object ActivityDataProvider {
     private fun getQuarter3Lesson8Activities(): List<Activity> {
         return listOf(
             // Activity 1: Routine and Non-Routine Problems - Problem Solving Involving Surface Area (Video-based)
-//            Activity(
-//                id = 1,
-//                quarter = 3,
-//                lessonNumber = 8,
-//                activityNumber = 1,
-//                title = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area",
-//                type = ActivityType.ROUTINE_PROBLEM,
-//                questions = listOf(
-//                    Question.RoutineProblem(
-//                        id = 1,
-//                        text = "",
-//                        videoFileName = "activity_1-n1.mp4",
-//                        description = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area"
-//                    ),
-//                    Question.RoutineProblem(
-//                        id = 2,
-//                        text = "",
-//                        videoFileName = "activity_1-n2.mp4",
-//                        description = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area"
-//                    ),
-//                )
-//            ),
+            Activity(
+                id = 1,
+                quarter = 3,
+                lessonNumber = 8,
+                activityNumber = 1,
+                title = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area",
+                type = ActivityType.ROUTINE_PROBLEM,
+                questions = listOf(
+                    Question.RoutineProblem(
+                        id = 1,
+                        text = "",
+                        videoFileName = "activity_1-n1.mp4",
+                        description = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area"
+                    ),
+                    Question.RoutineProblem(
+                        id = 2,
+                        text = "",
+                        videoFileName = "activity_1-n2.mp4",
+                        description = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area"
+                    ),
+                    Question.RoutineProblem(
+                        id = 3,
+                        text = "",
+                        videoFileName = "activity_1-n3.mp4",
+                        description = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area"
+                    ),
+                    Question.RoutineProblem(
+                        id = 4,
+                        text = "",
+                        videoFileName = "activity_1-n4.mp4",
+                        description = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area"
+                    ),
+                    Question.RoutineProblem(
+                        id = 5,
+                        text = "",
+                        videoFileName = "activity_1-n5.mp4",
+                        description = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area"
+                    ),
+                    Question.RoutineProblem(
+                        id = 6,
+                        text = "",
+                        videoFileName = "activity_1-n6.mp4",
+                        description = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area"
+                    ),
+                    Question.RoutineProblem(
+                        id = 7,
+                        text = "",
+                        videoFileName = "activity_1-n7.mp4",
+                        description = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area"
+                    ),
+                )
+            ),
 
             // Activity 2: Routine and Non-Routine Problems - Problem Solving Involving Surface Area (Video-based)
-//            Activity(
-//                id = 2,
-//                quarter = 3,
-//                lessonNumber = 8,
-//                activityNumber = 2,
-//                title = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area",
-//                type = ActivityType.ROUTINE_PROBLEM,
-//                questions = listOf(
-//                    Question.RoutineProblem(
-//                        id = 1,
-//                        text = "",
-//                        videoFileName = "activity_1-n1.mp4",
-//                        description = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area"
-//                    ),
-//                    Question.RoutineProblem(
-//                        id = 2,
-//                        text = "",
-//                        videoFileName = "activity_1-n2.mp4",
-//                        description = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area"
-//                    ),
-//                )
-//            ),
+            Activity(
+                id = 2,
+                quarter = 3,
+                lessonNumber = 8,
+                activityNumber = 2,
+                title = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area",
+                type = ActivityType.ROUTINE_PROBLEM,
+                questions = listOf(
+                    Question.RoutineProblem(
+                        id = 1,
+                        text = "",
+                        videoFileName = "activity_2-n1.mp4",
+                        description = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area"
+                    ),
+                    Question.RoutineProblem(
+                        id = 2,
+                        text = "",
+                        videoFileName = "activity_2-n2.mp4",
+                        description = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area"
+                    ),
+                    Question.RoutineProblem(
+                        id = 3,
+                        text = "",
+                        videoFileName = "activity_2-n3.mp4",
+                        description = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area"
+                    ),
+                    Question.RoutineProblem(
+                        id = 4,
+                        text = "",
+                        videoFileName = "activity_2-n4.mp4",
+                        description = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area"
+                    ),
+                    Question.RoutineProblem(
+                        id = 5,
+                        text = "",
+                        videoFileName = "activity_2-n5.mp4",
+                        description = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area"
+                    ),
+                    Question.RoutineProblem(
+                        id = 6,
+                        text = "",
+                        videoFileName = "activity_2-n6.mp4",
+                        description = "Routine and Non-Routine Problems - Problem Solving Involving Surface Area"
+                    ),
+                )
+            ),
         )
     }
 
@@ -9316,52 +9400,112 @@ object ActivityDataProvider {
     private fun getQuarter4Lesson2Activities(): List<Activity> {
         return listOf(
             // Activity 1: Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres (Video-based)
-//            Activity(
-//                id = 1,
-//                quarter = 4,
-//                lessonNumber = 2,
-//                activityNumber = 1,
-//                title = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres",
-//                type = ActivityType.ROUTINE_PROBLEM,
-//                questions = listOf(
-//                    Question.RoutineProblem(
-//                        id = 1,
-//                        text = "",
-//                        videoFileName = "activity_1-n1.mp4",
-//                        description = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres"
-//                    ),
-//                    Question.RoutineProblem(
-//                        id = 2,
-//                        text = "",
-//                        videoFileName = "activity_1-n2.mp4",
-//                        description = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres"
-//                    ),
-//                )
-//            ),
+            Activity(
+                id = 1,
+                quarter = 4,
+                lessonNumber = 2,
+                activityNumber = 1,
+                title = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres",
+                type = ActivityType.ROUTINE_PROBLEM,
+                questions = listOf(
+                    Question.RoutineProblem(
+                        id = 1,
+                        text = "",
+                        videoFileName = "activity_1-n1.mp4",
+                        description = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres"
+                    ),
+                    Question.RoutineProblem(
+                        id = 2,
+                        text = "",
+                        videoFileName = "activity_1-n2.mp4",
+                        description = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres"
+                    ),
+                    Question.RoutineProblem(
+                        id = 3,
+                        text = "",
+                        videoFileName = "activity_1-n3.mp4",
+                        description = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres"
+                    ),
+                    Question.RoutineProblem(
+                        id = 4,
+                        text = "",
+                        videoFileName = "activity_1-n4.mp4",
+                        description = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres"
+                    ),
+                    Question.RoutineProblem(
+                        id = 5,
+                        text = "",
+                        videoFileName = "activity_1-n5.mp4",
+                        description = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres"
+                    ),
+                    Question.RoutineProblem(
+                        id = 6,
+                        text = "",
+                        videoFileName = "activity_1-n6.mp4",
+                        description = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres"
+                    ),
+                    Question.RoutineProblem(
+                        id = 7,
+                        text = "",
+                        videoFileName = "activity_1-n7.mp4",
+                        description = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres"
+                    ),
+                )
+            ),
 
             // Activity 2: Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres (Video-based)
-//            Activity(
-//                id = 2,
-//                quarter = 4,
-//                lessonNumber = 2,
-//                activityNumber = 2,
-//                title = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres",
-//                type = ActivityType.ROUTINE_PROBLEM,
-//                questions = listOf(
-//                    Question.RoutineProblem(
-//                        id = 1,
-//                        text = "",
-//                        videoFileName = "activity_1-n1.mp4",
-//                        description = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres"
-//                    ),
-//                    Question.RoutineProblem(
-//                        id = 2,
-//                        text = "",
-//                        videoFileName = "activity_1-n2.mp4",
-//                        description = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres"
-//                    ),
-//                )
-//            ),
+            Activity(
+                id = 2,
+                quarter = 4,
+                lessonNumber = 2,
+                activityNumber = 2,
+                title = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres",
+                type = ActivityType.ROUTINE_PROBLEM,
+                questions = listOf(
+                    Question.RoutineProblem(
+                        id = 1,
+                        text = "",
+                        videoFileName = "activity_2-n1.mp4",
+                        description = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres"
+                    ),
+                    Question.RoutineProblem(
+                        id = 2,
+                        text = "",
+                        videoFileName = "activity_2-n2.mp4",
+                        description = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres"
+                    ),
+                    Question.RoutineProblem(
+                        id = 3,
+                        text = "",
+                        videoFileName = "activity_2-n3.mp4",
+                        description = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres"
+                    ),
+                    Question.RoutineProblem(
+                        id = 4,
+                        text = "",
+                        videoFileName = "activity_2-n4.mp4",
+                        description = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres"
+                    ),
+                    Question.RoutineProblem(
+                        id = 5,
+                        text = "",
+                        videoFileName = "activity_2-n5.mp4",
+                        description = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres"
+                    ),
+                    Question.RoutineProblem(
+                        id = 6,
+                        text = "",
+                        videoFileName = "activity_2-n6.mp4",
+                        description = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres"
+                    ),
+                    Question.RoutineProblem(
+                        id = 7,
+                        text = "",
+                        videoFileName = "activity_2-n7.mp4",
+                        description = "Routine and Non-Routine Problems - Finds the Volume of Cylinders, Pyramids, Cones, and Spheres"
+                    ),
+                )
+            ),
         )
     }
 
@@ -11577,52 +11721,112 @@ object ActivityDataProvider {
     private fun getQuarter4Lesson9Activities(): List<Activity> {
         return listOf(
             // Activity 1: Routine and Non-Routine Problems - Involving Experimental and Theoretical probability (Video-based)
-//            Activity(
-//                id = 1,
-//                quarter = 4,
-//                lessonNumber = 2,
-//                activityNumber = 1,
-//                title = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability",
-//                type = ActivityType.ROUTINE_PROBLEM,
-//                questions = listOf(
-//                    Question.RoutineProblem(
-//                        id = 1,
-//                        text = "",
-//                        videoFileName = "activity_1-n1.mp4",
-//                        description = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability"
-//                    ),
-//                    Question.RoutineProblem(
-//                        id = 2,
-//                        text = "",
-//                        videoFileName = "activity_1-n2.mp4",
-//                        description = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability"
-//                    ),
-//                )
-//            ),
+            Activity(
+                id = 1,
+                quarter = 4,
+                lessonNumber = 2,
+                activityNumber = 1,
+                title = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability",
+                type = ActivityType.ROUTINE_PROBLEM,
+                questions = listOf(
+                    Question.RoutineProblem(
+                        id = 1,
+                        text = "",
+                        videoFileName = "activity_1-n1.mp4",
+                        description = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability"
+                    ),
+                    Question.RoutineProblem(
+                        id = 2,
+                        text = "",
+                        videoFileName = "activity_1-n2.mp4",
+                        description = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability"
+                    ),
+                    Question.RoutineProblem(
+                        id = 3,
+                        text = "",
+                        videoFileName = "activity_1-n3.mp4",
+                        description = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability"
+                    ),
+                    Question.RoutineProblem(
+                        id = 4,
+                        text = "",
+                        videoFileName = "activity_1-n4.mp4",
+                        description = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability"
+                    ),
+                    Question.RoutineProblem(
+                        id = 5,
+                        text = "",
+                        videoFileName = "activity_1-n5.mp4",
+                        description = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability"
+                    ),
+                    Question.RoutineProblem(
+                        id = 6,
+                        text = "",
+                        videoFileName = "activity_1-n6.mp4",
+                        description = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability"
+                    ),
+                    Question.RoutineProblem(
+                        id = 7,
+                        text = "",
+                        videoFileName = "activity_1-n7.mp4",
+                        description = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability"
+                    ),
+                )
+            ),
 
             // Activity 2: Routine and Non-Routine Problems - Involving Experimental and Theoretical probability (Video-based)
-//            Activity(
-//                id = 2,
-//                quarter = 4,
-//                lessonNumber = 2,
-//                activityNumber = 2,
-//                title = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability",
-//                type = ActivityType.ROUTINE_PROBLEM,
-//                questions = listOf(
-//                    Question.RoutineProblem(
-//                        id = 1,
-//                        text = "",
-//                        videoFileName = "activity_1-n1.mp4",
-//                        description = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability"
-//                    ),
-//                    Question.RoutineProblem(
-//                        id = 2,
-//                        text = "",
-//                        videoFileName = "activity_1-n2.mp4",
-//                        description = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability"
-//                    ),
-//                )
-//            ),
+            Activity(
+                id = 2,
+                quarter = 4,
+                lessonNumber = 2,
+                activityNumber = 2,
+                title = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability",
+                type = ActivityType.ROUTINE_PROBLEM,
+                questions = listOf(
+                    Question.RoutineProblem(
+                        id = 1,
+                        text = "",
+                        videoFileName = "activity_2-n1.mp4",
+                        description = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability"
+                    ),
+                    Question.RoutineProblem(
+                        id = 2,
+                        text = "",
+                        videoFileName = "activity_2-n2.mp4",
+                        description = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability"
+                    ),
+                    Question.RoutineProblem(
+                        id = 3,
+                        text = "",
+                        videoFileName = "activity_2-n3.mp4",
+                        description = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability"
+                    ),
+                    Question.RoutineProblem(
+                        id = 4,
+                        text = "",
+                        videoFileName = "activity_2-n4.mp4",
+                        description = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability"
+                    ),
+                    Question.RoutineProblem(
+                        id = 5,
+                        text = "",
+                        videoFileName = "activity_2-n5.mp4",
+                        description = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability"
+                    ),
+                    Question.RoutineProblem(
+                        id = 6,
+                        text = "",
+                        videoFileName = "activity_2-n6.mp4",
+                        description = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability"
+                    ),
+                    Question.RoutineProblem(
+                        id = 7,
+                        text = "",
+                        videoFileName = "activity_2-n7.mp4",
+                        description = "Routine and Non-Routine Problems - Involving Experimental and Theoretical probability"
+                    ),
+                )
+            ),
         )
     }
 }

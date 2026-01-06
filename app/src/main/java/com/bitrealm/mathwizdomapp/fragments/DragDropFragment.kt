@@ -365,11 +365,6 @@ class DragDropFragment : Fragment() {
                     "Please complete all problems before submitting",
                     Toast.LENGTH_SHORT
                 ).show()
-
-                // Restart timer if it was paused
-                if (timeLeftInMillis > 0) {
-                    startTimer()
-                }
             }
             return
         }
@@ -514,21 +509,33 @@ class DragDropFragment : Fragment() {
             val answer = answers[position]
             holder.tvAnswer.text = answer
 
-            // Make draggable
-            holder.card.setOnTouchListener { v, event ->
-                if (event.action == android.view.MotionEvent.ACTION_DOWN) {
-                    val item = ClipData.Item(answer)
-                    val dragData = ClipData(
-                        answer,
-                        arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN),
-                        item
-                    )
+            // Make draggable with 1 second hold
+            var touchStartTime = 0L
 
-                    val shadowBuilder = View.DragShadowBuilder(v)
-                    v.startDragAndDrop(dragData, shadowBuilder, v, 0)
-                    true
-                } else {
-                    false
+            holder.card.setOnTouchListener { v, event ->
+                when (event.action) {
+                    android.view.MotionEvent.ACTION_DOWN -> {
+                        touchStartTime = System.currentTimeMillis()
+                        false // Allow scrolling
+                    }
+                    android.view.MotionEvent.ACTION_MOVE -> {
+                        val holdDuration = System.currentTimeMillis() - touchStartTime
+                        if (holdDuration >= 2000) { // 1 second = 1000ms
+                            val item = ClipData.Item(answer)
+                            val dragData = ClipData(
+                                answer,
+                                arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN),
+                                item
+                            )
+
+                            val shadowBuilder = View.DragShadowBuilder(v)
+                            v.startDragAndDrop(dragData, shadowBuilder, v, 0)
+                            true
+                        } else {
+                            false
+                        }
+                    }
+                    else -> false
                 }
             }
         }

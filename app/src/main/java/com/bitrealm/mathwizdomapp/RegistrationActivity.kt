@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.text.InputFilter
 import android.view.View
 import android.widget.Button
-import android.widget.FrameLayout
 import android.widget.ProgressBar
 import android.widget.RadioButton
 import android.widget.RadioGroup
@@ -27,6 +26,8 @@ import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.launch
+import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 
 class RegistrationActivity : AppCompatActivity() {
 
@@ -59,6 +60,17 @@ class RegistrationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
+
+        // Disable back button
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                Toast.makeText(
+                    this@RegistrationActivity,
+                    "Please complete registration",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        })
 
         setupImmersiveMode()
 
@@ -107,12 +119,6 @@ class RegistrationActivity : AppCompatActivity() {
 
     private fun setupToolbar() {
         setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
-
-        toolbar.setNavigationOnClickListener {
-            finish()
-        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -208,17 +214,33 @@ class RegistrationActivity : AppCompatActivity() {
         }
     }
 
+    private val validLrnPrefixes = listOf("109636", "109635", "109632")
+    private val maxStudentsPerLrn = 5
     private fun onRegisterClick(fullName: String, gender: Gender) {
         // Check identifier length requirement
         if (identifier.length != REQUIRED_IDENTIFIER_LENGTH) {
-            showError(getString(R.string.identifier_required_length, REQUIRED_IDENTIFIER_LENGTH))
+            val errorMsg = getString(R.string.identifier_required_length, REQUIRED_IDENTIFIER_LENGTH)
+            showError(errorMsg)
+            showAlertError(errorMsg)
             return
         }
 
         // Check full name length requirement
         if (fullName.length > MAX_FULL_NAME_LENGTH) {
-            showError(getString(R.string.full_name_too_long, MAX_FULL_NAME_LENGTH))
+            val errorMsg = getString(R.string.full_name_too_long, MAX_FULL_NAME_LENGTH)
+            showError(errorMsg)
+            showAlertError(errorMsg)
             return
+        }
+
+        // Validate LRN prefix for students
+        if (userRole == UserRole.STUDENT) {
+            val prefix = identifier.take(6)
+            if (!validLrnPrefixes.contains(prefix)) {
+                showError("Invalid LRN. Please check your Learner Reference Number.")
+                showAlertError("Invalid LRN. Please check your Learner Reference Number.")
+                return
+            }
         }
 
         setLoadingState(true)
@@ -226,10 +248,29 @@ class RegistrationActivity : AppCompatActivity() {
         // Save user to database
         lifecycleScope.launch {
             try {
+                // For students, check if max registration limit reached for this LRN prefix
+                if (userRole == UserRole.STUDENT) {
+                    val prefix = identifier.take(6)
+                    val registeredCount = userRepository.getStudentCountByLrnPrefix(prefix)
+
+                    if (registeredCount >= maxStudentsPerLrn) {
+                        runOnUiThread {
+                            showError("Maximum registrations (5) reached for this LRN series. Please contact your administrator.")
+                            showAlertError("Maximum registrations (5) reached for this LRN series. Please contact your administrator.")
+                        }
+                        setLoadingState(false)
+                        return@launch
+                    }
+                }
+
                 // Check account limit before registering
                 val userCount = userRepository.getUserCountByRole(userRole)
                 if (userCount >= MAX_ACCOUNTS) {
-                    showError(getString(R.string.max_accounts_reached, MAX_ACCOUNTS, userRole.name.lowercase()))
+                    val errorMsg = getString(R.string.max_accounts_reached, MAX_ACCOUNTS, userRole.name.lowercase())
+                    runOnUiThread {
+                        showError(errorMsg)
+                        showAlertError(errorMsg)
+                    }
                     setLoadingState(false)
                     return@launch
                 }
@@ -243,17 +284,21 @@ class RegistrationActivity : AppCompatActivity() {
 
                 userRepository.insertUser(user)
 
-                android.widget.Toast.makeText(
+                Toast.makeText(
                     this@RegistrationActivity,
                     getString(R.string.registration_successful),
-                    android.widget.Toast.LENGTH_SHORT
+                    Toast.LENGTH_SHORT
                 ).show()
 
                 // Navigate to home
                 navigateToHome()
 
             } catch (e: Exception) {
-                showError(getString(R.string.registration_failed, e.message ?: getString(R.string.unknown_error)))
+                val errorMsg = getString(R.string.registration_failed, e.message ?: getString(R.string.unknown_error))
+                runOnUiThread {
+                    showError(errorMsg)
+                    showAlertError(errorMsg)
+                }
             } finally {
                 setLoadingState(false)
             }
@@ -308,6 +353,18 @@ class RegistrationActivity : AppCompatActivity() {
         tvError.visibility = View.VISIBLE
         tilFullName.error = " "
     }
+
+    private fun showAlertError(message: String) {
+        androidx.appcompat.app.AlertDialog.Builder(this)
+            .setTitle("Error")
+            .setMessage(message)
+            .setPositiveButton("OK") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setCancelable(false)
+            .show()
+    }
+
 
     private fun setupImmersiveMode() {
         WindowCompat.setDecorFitsSystemWindows(window, false)

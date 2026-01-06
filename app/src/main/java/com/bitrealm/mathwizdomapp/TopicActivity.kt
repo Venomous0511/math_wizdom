@@ -493,6 +493,7 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
             if (subtopic.interactiveLesson != null) {
                 // Show interactive lesson
                 loadInteractiveLessonAtIndex(clickedIndex, updatedSubtopics)
+                // Already updated by setSelectedPosition in adapter's onItemClick
             } else {
                 // Show message that lesson is not available yet
                 Toast.makeText(this, "Interactive lesson not available yet", Toast.LENGTH_SHORT).show()
@@ -507,6 +508,8 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
             val firstSubtopic = updatedSubtopics[0]
             if (firstSubtopic.interactiveLesson != null) {
                 loadInteractiveLessonAtIndex(0, updatedSubtopics)
+                // Set initial selection - ADD THIS
+                subtopicAdapter.setSelectedPosition(0)
             }
         }
     }
@@ -538,8 +541,10 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
         if (currentTopicIndex > 0) {
             loadInteractiveLessonAtIndex(currentTopicIndex - 1, updatedSubtopics)
-            // Update RecyclerView selection if needed
-            subtopicAdapter.notifyDataSetChanged()
+            // Update RecyclerView selection - CHANGE THIS LINE
+            subtopicAdapter.setSelectedPosition(currentTopicIndex - 1)
+            // Scroll to the selected item
+            rvSubtopics.scrollToPosition(currentTopicIndex - 1)
         }
     }
 
@@ -554,8 +559,10 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
         if (currentTopicIndex < updatedSubtopics.size - 1) {
             loadInteractiveLessonAtIndex(currentTopicIndex + 1, updatedSubtopics)
-            // Update RecyclerView selection if needed
-            subtopicAdapter.notifyDataSetChanged()
+            // Update RecyclerView selection - CHANGE THIS LINE
+            subtopicAdapter.setSelectedPosition(currentTopicIndex + 1)
+            // Scroll to the selected item
+            rvSubtopics.scrollToPosition(currentTopicIndex + 1)
         }
     }
 

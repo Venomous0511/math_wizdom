@@ -148,12 +148,12 @@ class LoginActivity : AppCompatActivity() {
 
         btnSubmit.isEnabled = !isLoading && isValid
 
-        // Show error for invalid identifier length without revealing required digits
+        // Show error for invalid identifier length
         if (identifier.isNotEmpty() && !isValid) {
             if (userRole == UserRole.STUDENT) {
-                tilIdentifier.error = "Please enter a valid LRN"
+                tilIdentifier.error = "LRN must be exactly 12 digits"
             } else {
-                tilIdentifier.error = "Please enter a valid employee number"
+                tilIdentifier.error = "Employee number must be exactly 7 digits"
             }
         } else {
             tilIdentifier.error = null
@@ -167,15 +167,24 @@ class LoginActivity : AppCompatActivity() {
         return identifier.length == requiredLength && identifier.matches(Regex("\\d+"))
     }
 
+    private val validLrnPrefixes = listOf("109636", "109635", "109632")
+    private val maxStudentsPerLrn = 5
     private fun onLoginClick(identifier: String) {
         // Validate identifier before proceeding
         if (!isValidIdentifier(identifier)) {
-            if (userRole == UserRole.STUDENT) {
-                showError("Please enter a valid LRN")
-            } else {
-                showError("Please enter a valid employee number")
-            }
+            showError("LRN must be exactly 12 digits")
+            showAlertError("LRN must be exactly 12 digits")
             return
+        }
+
+        // Check if LRN prefix is valid (for students only)
+        if (userRole == UserRole.STUDENT) {
+            val prefix = identifier.take(6)
+            if (!validLrnPrefixes.contains(prefix)) {
+                showError("Invalid LRN. Please check your Learner Reference Number.")
+                showAlertError("Invalid LRN. Please check your Learner Reference Number.")
+                return
+            }
         }
 
         setLoadingState(true)
@@ -192,11 +201,29 @@ class LoginActivity : AppCompatActivity() {
                         navigateToHome(it.identifier, it.fullName)
                     }
                 } else {
+                    // For students, check if max registration limit reached for this LRN prefix
+                    if (userRole == UserRole.STUDENT) {
+                        val prefix = identifier.take(6)
+                        val registeredCount = userRepository.getStudentCountByLrnPrefix(prefix)
+
+                        if (registeredCount >= maxStudentsPerLrn) {
+                            runOnUiThread {
+                                showError("Maximum registrations (5) reached for this LRN series. Please contact your administrator.")
+                                showAlertError("Maximum registrations (5) reached for this LRN series. Please contact your administrator.")
+                            }
+                            setLoadingState(false)
+                            return@launch
+                        }
+                    }
+
                     // New user, navigate to registration
                     navigateToRegistration(identifier)
                 }
             } catch (e: Exception) {
-                showError("Error checking user: ${e.message}")
+                runOnUiThread {
+                    showError("Error checking user: ${e.message}")
+                    showAlertError("Error checking user: ${e.message}")
+                }
             } finally {
                 setLoadingState(false)
             }
@@ -239,6 +266,17 @@ class LoginActivity : AppCompatActivity() {
         tvError.text = message
         tvError.visibility = View.VISIBLE
         tilIdentifier.error = " "
+    }
+
+    private fun showAlertError(message: String) {
+        androidx.appcompat.app.AlertDialog.Builder(this)
+            .setTitle("Error")
+            .setMessage(message)
+            .setPositiveButton("OK") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setCancelable(false)
+            .show()
     }
 
     private fun setupImmersiveMode() {
