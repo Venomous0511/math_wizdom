@@ -196,7 +196,7 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
             } else {
                 card.isEnabled = false
                 card.alpha = 1.0f
-                card.foreground = ColorDrawable(Color.parseColor("#DD000000"))
+                card.foreground = ColorDrawable(Color.parseColor("#BB000000"))
             }
         }
     }

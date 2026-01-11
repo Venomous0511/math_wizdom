@@ -77,151 +77,151 @@ object ActivityDataProvider {
                 questions = listOf(
                     Question.MultipleChoice(
                         id = 1,
-                        text = "1⁄2 and 1⁄4",
+                        text = "½ and ¼",
                         options = listOf("Similar", "Dissimilar"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 2,
-                        text = "2⁄3 and 2⁄6",
+                        text = "⅔ and ²⁄₆",
                         options = listOf("Similar", "Dissimilar"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 3,
-                        text = "5⁄6 and 1⁄3",
+                        text = "⅚ and ⅓",
                         options = listOf("Similar", "Dissimilar"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 4,
-                        text = "2⁄5 and 3/10",
+                        text = "⅖ and ³⁄₁₀",
                         options = listOf("Similar", "Dissimilar"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 5,
-                        text = "32⁄3 and 61⁄6",
+                        text = "³²⁄₃ and ⁶¹⁄₆",
                         options = listOf("Similar", "Dissimilar"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 6,
-                        text = "8⁄11 and 5⁄6",
+                        text = "⁸⁄₁₁ and ⅚",
                         options = listOf("Similar", "Dissimilar"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 7,
-                        text = "6⁄15 and 7⁄8",
+                        text = "⁶⁄₁₅ and ⅞",
                         options = listOf("Similar", "Dissimilar"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 8,
-                        text = "4⁄6 and 4⁄5",
+                        text = "⁴⁄₆ and ⅘",
                         options = listOf("Similar", "Dissimilar"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 9,
-                        text = "9⁄10 and 2⁄3",
+                        text = "⁹⁄₁₀ and ⅔",
                         options = listOf("Similar", "Dissimilar"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 10,
-                        text = "7⁄14 and 2⁄3",
+                        text = "⁷⁄₁₄ and ⅔",
                         options = listOf("Similar", "Dissimilar"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 11,
-                        text = "3⁄8 and 5⁄12",
+                        text = "⅜ and ⁵⁄₁₂",
                         options = listOf("Similar", "Dissimilar"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 12,
-                        text = "1⁄9 and 2⁄7",
+                        text = "⅑ and ²⁄₇",
                         options = listOf("Similar", "Dissimilar"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 13,
-                        text = "4⁄11 and 3⁄13",
+                        text = "⁴⁄₁₁ and ³⁄₁₃",
                         options = listOf("Similar", "Dissimilar"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 14,
-                        text = "21⁄4 and 32⁄5",
+                        text = "2¹⁄₄ and 3²⁄₅",
                         options = listOf("Similar", "Dissimilar"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 15,
-                        text = "53⁄7 and 21⁄9",
+                        text = "3²⁄₅ and 2¹⁄₉",
                         options = listOf("Similar", "Dissimilar"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 16,
-                        text = "21⁄3 and 12⁄3",
+                        text = "2¹⁄₃ and 1²⁄₃",
                         options = listOf("Similar", "Dissimilar"),
                         correctAnswer = 0
                     ),
                     Question.MultipleChoice(
                         id = 17,
-                        text = "3⁄5 and 2⁄5",
+                        text = "⅗ and ⅖",
                         options = listOf("Similar", "Dissimilar"),
                         correctAnswer = 0
                     ),
                     Question.MultipleChoice(
                         id = 18,
-                        text = "11⁄2 and 21⁄2",
+                        text = "1¹⁄₂ and 2¹⁄₂",
                         options = listOf("Similar", "Dissimilar"),
                         correctAnswer = 0
                     ),
                     Question.MultipleChoice(
                         id = 19,
-                        text = "31⁄4 and 23⁄4",
+                        text = "3¹⁄₄ and 2³⁄₄",
                         options = listOf("Similar", "Dissimilar"),
                         correctAnswer = 0
                     ),
                     Question.MultipleChoice(
                         id = 20,
-                        text = "51⁄2 and 21⁄2",
+                        text = "5¹⁄₂ and 2¹⁄₂",
                         options = listOf("Similar", "Dissimilar"),
                         correctAnswer = 0
                     ),
                     Question.MultipleChoice(
                         id = 21,
-                        text = "4⁄7 and 3⁄7",
+                        text = "⁴⁄₇ and ³⁄₇",
                         options = listOf("Similar", "Dissimilar"),
                         correctAnswer = 0
                     ),
                     Question.MultipleChoice(
                         id = 22,
-                        text = "1⁄8 and 3⁄8",
+                        text = "⅛ and ⅜",
                         options = listOf("Similar", "Dissimilar"),
                         correctAnswer = 0
                     ),
                     Question.MultipleChoice(
                         id = 23,
-                        text = "41⁄3 and 32⁄3",
+                        text = "⁴¹⁄₃ and ³²⁄₃",
                         options = listOf("Similar", "Dissimilar"),
                         correctAnswer = 0
                     ),
                     Question.MultipleChoice(
                         id = 24,
-                        text = "1⁄2 and 1⁄8",
+                        text = "½ and ⅛",
                         options = listOf("Similar", "Dissimilar"),
                         correctAnswer = 0
                     ),
                     Question.MultipleChoice(
                         id = 25,
-                        text = "22⁄5 and 13⁄5",
+                        text = "²²⁄₅ and ¹³⁄₅",
                         options = listOf("Similar", "Dissimilar"),
                         correctAnswer = 0
                     ),
@@ -230,76 +230,96 @@ object ActivityDataProvider {
 
             // Activity 2: Matching Type
             Activity(
-                id = 2,
+                id = 1,
                 quarter = 1,
                 lessonNumber = 1,
-                activityNumber = 2,
-                title = "Matching Type",
+                activityNumber = 1,
+                title = "Fraction Addition and Subtraction",
                 type = ActivityType.DRAG_DROP,
                 questions = listOf(
                     Question.DragDrop(
                         id = 1,
                         text = "Solve the fractions in Column A. Then, choose the correct answer from Column B and drag it into the corresponding box in Column A.",
                         columnA = listOf(
-                            "1⁄10 + 9⁄10 =",
-                            "2⁄5 + 1⁄5 =",
-                            "3⁄8 + 2⁄8 =",
-                            "1⁄4 + 2⁄4 =",
-                            "2⁄7 + 3⁄7 =",
-                            "4⁄9 + 2⁄9 =",
-                            "1⁄6 + 4⁄6 =",
-                            "3⁄10 + 5⁄10 =",
-                            "2⁄12 + 7⁄12 =",
-                            "5⁄8 - 1⁄8 =",
-                            "7⁄10 - 3⁄10 =",
-                            "8⁄9 - 2⁄9 =",
-                            "5⁄6 - 1⁄6 =",
-                            "9⁄12 - 4⁄12 =",
-                            "6⁄7 - 2⁄7 =",
-                            "21⁄4 + 12⁄4 =",
-                            "32⁄5 + 21⁄5 =",
-                            "41⁄3 + 22⁄3 =",
-                            "52⁄6 + 13⁄6 =",
-                            "33⁄8 + 24⁄8 =",
-                            "44⁄5 - 21⁄5 =",
-                            "65⁄7 - 32⁄7 =",
-                            "57⁄9 - 23⁄9 =",
-                            "75⁄10 - 42⁄10 =",
-                            "86⁄12 - 34⁄12 ="
+                            "²⁄₁₀ + ³⁄₁₀ =",
+                            "³⁄₇ + ⁴⁄₁₄ =",
+                            "2⅙ + 3⁴⁄₆ =",
+                            "3²⁄₄ + 6¼ =",
+                            "⅝ + ⅛ =",
+                            "4⅕ + 2⅗ =",
+                            "3²⁄₈ + 1⅛ =",
+                            "²⁄₉ + ⁴⁄₉ =",
+                            "¾ + ¼ =",
+                            "5⅜ + 1⁴⁄₈ =",
+                            "⅙ + ⅙ =",
+                            "2²⁄₆ + 1³⁄₆ =",
+                            "1³⁄₆ + 2⅙ =",
+                            "⁷⁄₁₀ + ²⁄₁₀ =",
+                            "5¼ + 2¼ =",
+                            "4⅔ - 2⅓ =",
+                            "7⅚ - 3⅔ =",
+                            "6¾ - 2⅝ =",
+                            "8⅗ - 5⅖ =",
+                            "9¾ - 4½ =",
+                            "10⁶⁄₈ - ¾ =",
+                            "⅝ - ²⁄₈ =",
+                            "⅘ - ⅖ =",
+                            "⅝ - ⁴⁄₈ =",
+                            "⁷⁄₁₀ - ⁴⁄₁₀ ="
                         ),
                         columnB = listOf(
-                            "1",          // #1: 1/10 + 9/10
-                            "3⁄5",        // #2: 2/5 + 1/5
-                            "5⁄8",        // #3: 3/8 + 2/8
-                            "3⁄4",        // #4: 1/4 + 2/4 (FIRST instance)
-                            "5⁄7",        // #5: 2/7 + 3/7
-                            "2⁄3",        // #6: 4/9 + 2/9 (FIRST instance)
-                            "5⁄6",        // #7: 1/6 + 4/6
-                            "4⁄5",        // #8: 3/10 + 5/10
-                            "3⁄4",        // #9: 2/12 + 7/12 (SECOND instance of 3/4)
-                            "1⁄2",        // #10: 5/8 - 1/8
-                            "2⁄5",        // #11: 7/10 - 3/10
-                            "2⁄3",        // #12: 8/9 - 2/9 (SECOND instance of 2/3)
-                            "2⁄3",        // #13: 5/6 - 1/6 (THIRD instance of 2/3)
-                            "5⁄12",       // #14: 9/12 - 4/12
-                            "4⁄7",        // #15: 6/7 - 2/7
-                            "33⁄4",      // #16: 2 1/4 + 1 2/4
-                            "53⁄5",      // #17: 3 2/5 + 2 1/5
-                            "7",          // #18: 4 1/3 + 2 2/3
-                            "65⁄6",      // #19: 5 2/6 + 1 3/6
-                            "57⁄8",      // #20: 3 3/8 + 2 4/8
-                            "23⁄5",      // #21: 4 4/5 - 2 1/5
-                            "33⁄7",      // #22: 6 5/7 - 3 2/7
-                            "34⁄9",      // #23: 5 7/9 - 2 3/9
-                            "33⁄10",     // #24: 7 5/10 - 4 2/10
-                            "52⁄12"      // #25: 8 6/12 - 3 4/12
+                            "½",
+                            "⁵⁄₇",
+                            "5⅚",
+                            "9¾",
+                            "¾",
+                            "6⅘",
+                            "4⅜",
+                            "⅔",
+                            "1",
+                            "6⅞",
+                            "⅓",
+                            "3⅚",
+                            "3⅔",
+                            "⁹⁄₁₀",
+                            "7½",
+                            "2⅓",
+                            "4⅙",
+                            "4⅛",
+                            "3⅕",
+                            "5¼",
+                            "10",
+                            "⅜",
+                            "⅖",
+                            "⅛",
+                            "³⁄₁₀"
                         ),
                         correctMatches = mapOf(
-                            0 to 0, 1 to 1, 2 to 2, 3 to 3, 4 to 4,
-                            5 to 5, 6 to 6, 7 to 7, 8 to 8, 9 to 9,
-                            10 to 10, 11 to 11, 12 to 12, 13 to 13, 14 to 14,
-                            15 to 15, 16 to 16, 17 to 17, 18 to 18, 19 to 19,
-                            20 to 20, 21 to 21, 22 to 22, 23 to 23, 24 to 24
+                            0 to 0,   // 2/10 + 3/10 = 1/2
+                            1 to 1,   // 3/7 + 4 1/4 = 5/7
+                            2 to 2,   // 2 1/6 + 3 4/6 = 5 5/6
+                            3 to 3,   // 3 2/4 + 6 1/4 = 9 3/4
+                            4 to 4,   // 5/8 + 1/8 = 3/4
+                            5 to 5,   // 4 1/5 + 2 3/5 = 6 4/5
+                            6 to 6,   // 3 2/8 + 1 1/8 = 4 3/8
+                            7 to 7,   // 2/9 + 4/9 = 2/3
+                            8 to 8,   // 3/4 + 1/4 = 1
+                            9 to 9,   // 5 3/8 + 1 4/8 = 6 7/8
+                            10 to 10, // 1/6 + 1/6 = 1/3
+                            11 to 11, // 2 2/6 + 1 3/6 = 3 5/6
+                            12 to 12, // 1 3/6 + 2 1/6 = 3 2/3
+                            13 to 13, // 7/10 + 2/10 = 9/10
+                            14 to 14, // 5 1/4 + 2 1/4 = 7 1/2
+                            15 to 15, // 4 2/3 - 2 1/3 = 2 1/3
+                            16 to 16, // 7 5/6 - 3 2/3 = 4 1/6
+                            17 to 17, // 6 3/4 - 2 5/8 = 4 1/8
+                            18 to 18, // 8 3/5 - 5 2/5 = 3 1/5
+                            19 to 19, // 9 3/4 - 4 1/2 = 5 1/4
+                            20 to 20, // 10 6/8 - 3/4 = 10
+                            21 to 21, // 5/8 - 2/8 = 3/8
+                            22 to 22, // 4/5 - 2/5 = 2/5
+                            23 to 23, // 5/8 - 4/8 = 1/8
+                            24 to 24  // 7/10 - 4/10 = 3/10
                         )
                     )
                 )
@@ -318,58 +338,58 @@ object ActivityDataProvider {
                         id = 1,
                         text = "Solve the fractions in Column A and match them with the correct answers in Column B by drawing a line.",
                         columnA = listOf(
-                            "1⁄8 + 5⁄8 =",
-                            "3⁄5 + 1⁄5 =",
-                            "2⁄9 + 4⁄9 =",
-                            "1⁄4 + 1⁄4 =",
-                            "3⁄11 + 5⁄11 =",
-                            "1⁄6 + 1⁄6 =",
-                            "3⁄8 + 1⁄8 =",
-                            "2⁄5 + 2⁄5 =",
-                            "5⁄12 + 7⁄12 =",
-                            "3⁄10 + 7⁄10 =",
-                            "7⁄8 - 3⁄8 =",
-                            "5⁄6 - 2⁄6 =",
-                            "7⁄9 - 2⁄9 =",
-                            "11⁄12 - 5⁄12 =",
-                            "9⁄10 - 3⁄10 =",
-                            "11⁄2 + 21⁄2 =",
-                            "32⁄3 + 11⁄3 =",
-                            "43⁄5 + 21⁄5 =",
-                            "53⁄4 + 11⁄4 =",
-                            "25⁄6 + 31⁄6 =",
-                            "67⁄8 - 23⁄8 =",
-                            "82⁄3 - 31⁄3 =",
-                            "74⁄5 - 41⁄5 =",
-                            "93⁄4 - 51⁄4 =",
-                            "105⁄6 - 61⁄6 ="
+                            "⅛ + ⅝ =",
+                            "⅗ + ⅕ =",
+                            "⅖ + ⅘ =",
+                            "¼ + ¼ =",
+                            "³⁄₁₁ + ⁵⁄₁₁ =",
+                            "⅙ + ⅙ =",
+                            "⅜ + ⅛ =",
+                            "⅖ + ⅖ =",
+                            "⁵⁄₁₂ + ⁷⁄₁₂ =",
+                            "³⁄₁₀ + ⁷⁄₁₀ =",
+                            "⅞ - ⅜ =",
+                            "⅚ - ⅙ =",
+                            "⁷⁄₉ - ⅖ =",
+                            "¹¹⁄₁₂ - ⁵⁄₁₂ =",
+                            "⁹⁄₁₀ - ³⁄₁₀ =",
+                            "1½ + 2½ =",
+                            "3⅔ + 1⅓ =",
+                            "4⅗ + 2⅕ =",
+                            "5¾ + 1¼ =",
+                            "2⅚ + 3⅙ =",
+                            "6⅞ - 2⅜ =",
+                            "8⅔ - 3⅓ =",
+                            "7⅘ - 4⅕ =",
+                            "9¾ - 5¼ =",
+                            "10⅚ - 6⅙ ="
                         ),
                         columnB = listOf(
-                            "3⁄4",        // #1: 1/8 + 5/8
-                            "4⁄5",        // #2: 3/5 + 1/5
-                            "2⁄3",        // #3: 2/9 + 4/9
-                            "1⁄2",        // #4: 1/4 + 1/4
-                            "8⁄11",       // #5: 3/11 + 5/11
-                            "1⁄3",        // #6: 1/6 + 1/6
-                            "1⁄2",        // #7: 3/8 + 1/8
-                            "4⁄5",        // #8: 2/5 + 2/5
+                            "¾",        // #1: 1/8 + 5/8
+                            "⅘",        // #2: 3/5 + 1/5
+                            "⅔",        // #3: 2/9 + 4/9
+                            "½",        // #4: 1/4 + 1/4
+                            "⁸⁄₁₁",       // #5: 3/11 + 5/11
+                            "⅓",        // #6: 1/6 + 1/6
+                            "½",        // #7: 3/8 + 1/8
+                            "⅘",        // #8: 2/5 + 2/5
                             "1",          // #9: 5/12 + 7/12
                             "1",          // #10: 3/10 + 7/10
-                            "1⁄2",        // #11: 7/8 - 3/8
-                            "1⁄2",        // #12: 5/6 - 2/6
-                            "5⁄9",        // #13: 7/9 - 2/9
-                            "1⁄2",        // #14: 11/12 - 5/12
-                            "3⁄5",        // #15: 9/10 - 3/10
+                            "½",        // #11: 7/8 - 3/8
+                            "½",        // #12: 5/6 - 2/6
+                            "⁵⁄₉",        // #13: 7/9 - 2/9
+                            "½",        // #14: 11/12 - 5/12
+                            "⅗",        // #15: 9/10 - 3/10
                             "4",          // #16: 1 1/2 + 2 1/2
                             "5",          // #17: 3 2/3 + 1 1/3
-                            "64⁄5",       // #18: 4 3/5 + 2 1/5
+                            "6⅘",       // #18: 4 3/5 + 2 1/5
                             "7",          // #19: 5 3/4 + 1 1/4
                             "6",          // #20: 2 5/6 + 3 1/6
-                            "41⁄2",       // #21: 6 7/8 - 2 3/8
-                            "51⁄3",       // #22: 8 2/3 - 3 1/3
-                            "33⁄5",       // #23: 7 4/5 - 4 1/5
-                            "41⁄2",       // #24: 9 3/4 - 5 1/4
-                            "42⁄3"        // #25: 10 5/6 - 6 1/6
+                            "4½",       // #21: 6 7/8 - 2 3/8
+                            "5⅓",       // #22: 8 2/3 - 3 1/3
+                            "3⅗",       // #23: 7 4/5 - 4 1/5
+                            "4½",       // #24: 9 3/4 - 5 1/4
+                            "4⅔"        // #25: 10 5/6 - 6 1/6
                         ),
                         correctMatches = mapOf(
                             0 to 0,   // 1/8 + 5/8 = 3/4
@@ -525,152 +545,152 @@ object ActivityDataProvider {
                 questions = listOf(
                     Question.MultipleChoice(
                         id = 1,
-                        text = "Ana ate 3⁄8 of a pizza and Ben ate 1⁄8 of the same pizza. How much pizza did they eat together?",
-                        options = listOf("1⁄4", "3⁄8", "1⁄2", "5⁄8"),
+                        text = "Ana ate ⅜ of a pizza and Ben ate ⅛ of the same pizza. How much pizza did they eat together?",
+                        options = listOf("¼", "⅜", "½", "⅝"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 2,
-                        text = "A baker used 2⁄3 cup of sugar in one recipe and 1⁄3 cup in another. How much sugar was used in total?",
-                        options = listOf("2⁄3", "1", "1⁄3", "11⁄3"),
+                        text = "A baker used ⅔ cup of sugar in one recipe and ⅓ cup in another. How much sugar was used in total?",
+                        options = listOf("⅔", "1", "⅓", "1⅓"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 3,
-                        text = "Maria had 7⁄8 meter of ribbon. She used 3⁄8 meter for a project. How much ribbon is left?",
-                        options = listOf("1⁄4", "3⁄8", "1⁄2", "5⁄8"),
+                        text = "Maria had ⅞ meter of ribbon. She used ⅜ meter for a project. How much ribbon is left?",
+                        options = listOf("¼", "⅜", "½", "⅝"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 4,
-                        text = "A tank was 3⁄5 full of water. After adding more water, it became 4⁄5 full. What fraction of the tank was filled?",
-                        options = listOf("1⁄5", "2⁄5", "3⁄5", "4⁄5"),
+                        text = "A tank was ⅗ full of water. After adding more water, it became ⅘ full. What fraction of the tank was filled?",
+                        options = listOf("⅕", "⅖", "⅗", "⅘"),
                         correctAnswer = 0
                     ),
                     Question.MultipleChoice(
                         id = 5,
-                        text = "John walked 21⁄3 km in the morning and 12⁄3 km in the evening. How far did he walk in total?",
-                        options = listOf("3", "32⁄3", "4", "41⁄3"),
+                        text = "John walked 2⅓ km in the morning and 1⅔ km in the evening. How far did he walk in total?",
+                        options = listOf("3", "3⅔", "4", "4⅓"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 6,
-                        text = "A recipe needs 3⁄4 cup of milk. If you only have 1⁄2 cup, how much more do you need?",
-                        options = listOf("1⁄8", "1⁄4", "3⁄8", "1⁄2"),
+                        text = "A recipe needs ¾ cup of milk. If you only have ½ cup, how much more do you need?",
+                        options = listOf("⅛", "¼", "⅜", "½"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 7,
-                        text = "Lisa read 2⁄5 of a book on Monday and 1⁄5 on Tuesday. What fraction of the book has she read?",
-                        options = listOf("1⁄5", "2⁄5", "3⁄5", "4⁄5"),
+                        text = "Lisa read ⅖ of a book on Monday and ⅕ on Tuesday. What fraction of the book has she read?",
+                        options = listOf("⅕", "⅖", "⅗", "⅘"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 8,
-                        text = "A farmer harvested 34⁄5 sacks of rice in the morning and 21⁄5 sacks in the afternoon. How many sacks in total?",
-                        options = listOf("5", "51⁄5", "52⁄5", "6"),
+                        text = "A farmer harvested 3⅘ sacks of rice in the morning and 2⅕ sacks in the afternoon. How many sacks in total?",
+                        options = listOf("5", "5⅕", "5⅖", "6"),
                         correctAnswer = 3
                     ),
                     Question.MultipleChoice(
                         id = 9,
-                        text = "Tom drank 2⁄3 liter of juice and Sara drank 1⁄3 liter. How much more did Tom drink?",
-                        options = listOf("1⁄6", "1⁄4", "1⁄3", "1⁄2"),
+                        text = "Tom drank ⅔ liter of juice and Sara drank ⅓ liter. How much more did Tom drink?",
+                        options = listOf("⅙", "¼", "⅓", "½"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 10,
-                        text = "A painter used 57⁄8 liters of paint for a room and 33⁄8 liters for another. What's the difference?",
-                        options = listOf("2", "21⁄4", "21⁄2", "23⁄4"),
+                        text = "A painter used 5⅞ liters of paint for a room and 3⅜ liters for another. What's the difference?",
+                        options = listOf("2", "2¼", "2½", "2¾"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 11,
-                        text = "A box contains 5⁄6 kg of flour. After using 1⁄6 kg, how much is left?",
-                        options = listOf("1⁄2", "2⁄3", "3⁄4", "5⁄6"),
+                        text = "A box contains ⅚ kg of flour. After using ⅙ kg, how much is left?",
+                        options = listOf("½", "⅔", "¾", "⅚"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 12,
-                        text = "Rosa spent 11⁄4 hours on homework and 3⁄4 hour reading. How much time in total?",
-                        options = listOf("11⁄2", "13⁄4", "2", "21⁄4"),
+                        text = "Rosa spent 1¼ hours on homework and ¾ hour reading. How much time in total?",
+                        options = listOf("1½", "1¾", "2", "2¼"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 13,
-                        text = "A rope was 72⁄3 meters long. After cutting off 21⁄3 meters, what length remains?",
-                        options = listOf("5", "51⁄3", "52⁄3", "6"),
+                        text = "A rope was 7⅔ meters long. After cutting off 2⅓ meters, what length remains?",
+                        options = listOf("5", "5⅓", "5⅔", "6"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 14,
-                        text = "A bucket was 5⁄8 full. After pouring out 3⁄8, what fraction remains?",
-                        options = listOf("1⁄8", "1⁄4", "3⁄8", "1⁄2"),
+                        text = "A bucket was ⅝ full. After pouring out ⅜, what fraction remains?",
+                        options = listOf("⅛", "¼", "⅜", "½"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 15,
-                        text = "Emma ran 42⁄5 km and walked 13⁄5 km. What is the total distance?",
-                        options = listOf("5", "52⁄5", "53⁄5", "6"),
+                        text = "Emma ran 4⅖ km and walked 1⅗ km. What is the total distance?",
+                        options = listOf("5", "5⅖", "5⅗", "6"),
                         correctAnswer = 3
                     ),
                     Question.MultipleChoice(
                         id = 16,
-                        text = "A cake was divided into 8 pieces. If 3⁄8 was eaten, what fraction is left?",
-                        options = listOf("3⁄8", "1⁄2", "5⁄8", "3⁄4"),
+                        text = "A cake was divided into 8 pieces. If ⅜ was eaten, what fraction is left?",
+                        options = listOf("⅜", "½", "⅝", "¾"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 17,
-                        text = "A container held 65⁄6 liters of oil. After using 21⁄6 liters, how much remains?",
-                        options = listOf("41⁄3", "41⁄2", "42⁄3", "45⁄6"),
+                        text = "A container held 6⅚ liters of oil. After using 2⅙ liters, how much remains?",
+                        options = listOf("4⅓", "4½", "4⅔", "4⅚"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 18,
-                        text = "Mike studied 3⁄5 hour in the morning and 2⁄5 hour at night. Total study time?",
-                        options = listOf("4⁄5", "1", "11⁄5", "12⁄5"),
+                        text = "Mike studied ⅗ hour in the morning and ⅖ hour at night. Total study time?",
+                        options = listOf("⅘", "1", "1⅕", "1⅖"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 19,
-                        text = "A garden path is 83⁄4 meters. If 31⁄4 meters is paved, how much is unpaved?",
-                        options = listOf("5", "51⁄4", "51⁄2", "53⁄4"),
+                        text = "A garden path is 8¾ meters. If 3¼ meters is paved, how much is unpaved?",
+                        options = listOf("5", "5¼", "5½", "5¾"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 20,
-                        text = "A recipe uses 5⁄6 cup flour and 1⁄6 cup sugar. How much more flour than sugar?",
-                        options = listOf("1⁄6", "1⁄3", "1⁄2", "2⁄3"),
+                        text = "A recipe uses ⅚ cup flour and ⅙ cup sugar. How much more flour than sugar?",
+                        options = listOf("⅙", "⅓", "½", "⅔"),
                         correctAnswer = 3
                     ),
                     Question.MultipleChoice(
                         id = 21,
-                        text = "A bottle was 7⁄8 full. After drinking 3⁄8, what fraction is left?",
-                        options = listOf("1⁄4", "3⁄8", "1⁄2", "5⁄8"),
+                        text = "A bottle was ⅞ full. After drinking ⅜, what fraction is left?",
+                        options = listOf("¼", "⅜", "½", "⅝"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 22,
-                        text = "Anna traveled 53⁄5 km by bus and 22⁄5 km by car. Total distance?",
-                        options = listOf("7", "72⁄5", "73⁄5", "8"),
+                        text = "Anna traveled 5⅗ km by bus and 2⅖ km by car. Total distance?",
+                        options = listOf("7", "7⅖", "7⅗", "8"),
                         correctAnswer = 3
                     ),
                     Question.MultipleChoice(
                         id = 23,
-                        text = "A tank contained 97⁄8 gallons. After using 43⁄8 gallons, how much remains?",
-                        options = listOf("5", "53⁄8", "51⁄2", "55⁄8"),
+                        text = "A tank contained 9⅞ gallons. After using 4⅜ gallons, how much remains?",
+                        options = listOf("5", "5⅜", "5½", "5⅝"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 24,
-                        text = "Pedro ate 2⁄7 of a pie and his sister ate 3⁄7. How much pie was eaten?",
-                        options = listOf("1⁄7", "4⁄7", "5⁄7", "6⁄7"),
+                        text = "Pedro ate ⅖ of a pie and his sister ate ⅗. How much pie was eaten?",
+                        options = listOf("⅐", "⅘", "⅚", "⅞"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 25,
-                        text = "A bag had 103⁄4 kg of rice. After using 61⁄4 kg, how much is left?",
-                        options = listOf("4", "41⁄4", "41⁄2", "43⁄4"),
+                        text = "A bag had 10¾ kg of rice. After using 6¼ kg, how much is left?",
+                        options = listOf("4", "4¼", "4½", "4¾"),
                         correctAnswer = 2
                     )
                 )
@@ -709,19 +729,19 @@ object ActivityDataProvider {
                     ),
                     Question.MultipleChoice(
                         id = 4,
-                        text = "⅗ × ⅔ = 5/10",
+                        text = "⅗ × ⅔ = ⁵⁄₁₀",
                         options = listOf("True", "False"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 5,
-                        text = "9/10 × ⅘ = 45/50",
+                        text = "⁹⁄₁₀ × ⅘ = ⁴⁵⁄₅₀",
                         options = listOf("True", "False"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 6,
-                        text = "⅔ × ⅘ = 8/15",
+                        text = "⅔ × ⅘ = ⁸⁄₁₅",
                         options = listOf("True", "False"),
                         correctAnswer = 0
                     ),
@@ -733,61 +753,61 @@ object ActivityDataProvider {
                     ),
                     Question.MultipleChoice(
                         id = 8,
-                        text = "⅞ × ⅔ = 7/12",
+                        text = "⅞ × ⅔ = ⁷⁄₁₂",
                         options = listOf("True", "False"),
                         correctAnswer = 0
                     ),
                     Question.MultipleChoice(
                         id = 9,
-                        text = "⅗ × 2/7 = 6/35",
+                        text = "⅗ × ²⁄₇ = ⁶⁄₃₅",
                         options = listOf("True", "False"),
                         correctAnswer = 0
                     ),
                     Question.MultipleChoice(
                         id = 10,
-                        text = "¼ × ⅚ = 5/24",
+                        text = "¼ × ⅚ = ⁵⁄₂₄",
                         options = listOf("True", "False"),
                         correctAnswer = 0
                     ),
                     Question.MultipleChoice(
                         id = 11,
-                        text = "⅛ × 2/8 = 2/16",
+                        text = "⅛ × ²⁄₈ = ²⁄₁₆",
                         options = listOf("True", "False"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 12,
-                        text = "⅔ × ⅓ = 3/6",
+                        text = "⅔ × ⅓ = ³⁄₆",
                         options = listOf("True", "False"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 13,
-                        text = "⅚ × 4/6 = 20/6",
+                        text = "⅚ × ⁴⁄₆ = ²⁰⁄₆",
                         options = listOf("True", "False"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 14,
-                        text = "7/10 × 3/10 = 4/10",
+                        text = "⁷⁄₁₀ × ³⁄₁₀ = ⁴⁄₁₀",
                         options = listOf("True", "False"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 15,
-                        text = "⅗ × ⅕ = 12/5",
+                        text = "⅗ × ⅕ = ¹²⁄₅",
                         options = listOf("True", "False"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 16,
-                        text = "⅘ × 3⅓ = 12/3",
+                        text = "⅘ × 3⅓ = ¹²⁄₃",
                         options = listOf("True", "False"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 17,
-                        text = "2⅖ × 3/7 = ⅘",
+                        text = "2⅖ × ³⁄₇ = ⅘",
                         options = listOf("True", "False"),
                         correctAnswer = 1
                     ),
@@ -799,43 +819,43 @@ object ActivityDataProvider {
                     ),
                     Question.MultipleChoice(
                         id = 19,
-                        text = "3¾ × 7/10 = 25/8",
+                        text = "3¾ × ⁷⁄₁₀ = ²⁵⁄₈",
                         options = listOf("True", "False"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 20,
-                        text = "2⅗ × 4/9 = 17/45",
+                        text = "2⅗ × ⁴⁄₉ = ¹⁷⁄₄₅",
                         options = listOf("True", "False"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 21,
-                        text = "1 4/9 × 2⅔ = 323/27",
+                        text = "1⁴⁄₉ × 2⅔ = ³²³⁄₂₇",
                         options = listOf("True", "False"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 22,
-                        text = "3⅖ × 1¾ = 51/20",
+                        text = "3⅖ × 1¾ = ⁵¹⁄₂₀",
                         options = listOf("True", "False"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 23,
-                        text = "2¾ × 8/15 = 22 11/20",
+                        text = "2¾ × ⁸⁄₁₅ = 22¹¹⁄₂₀",
                         options = listOf("True", "False"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 24,
-                        text = "4 9/10 × 2⅚ = 135/60",
+                        text = "4⁹⁄₁₀ × 2⅚ = ¹³⁵⁄₆₀",
                         options = listOf("True", "False"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 25,
-                        text = "11¾ × 1⅞ = 221/32",
+                        text = "11¾ × 1⅞ = ²²¹⁄₃₂",
                         options = listOf("True", "False"),
                         correctAnswer = 1
                     )
@@ -853,14 +873,14 @@ object ActivityDataProvider {
                 questions = listOf(
                     Question.MultipleChoice(
                         id = 1,
-                        text = "4/6 × ⅙ =",
-                        options = listOf("4/36", "⅓", "1/9", "4/20"),
+                        text = "⁴⁄₆ × ⅙ =",
+                        options = listOf("⁴⁄₃₆", "⅓", "⅑", "⁴⁄₂₀"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 2,
-                        text = "11/12 × 11/12 =",
-                        options = listOf("121/144", "121/4", "6", "12"),
+                        text = "¹¹⁄₁₂ × ¹¹⁄₁₂ =",
+                        options = listOf("¹²¹⁄₁₄₄", "¹²¹⁄₄", "6", "12"),
                         correctAnswer = 0
                     ),
                     Question.MultipleChoice(
@@ -871,134 +891,134 @@ object ActivityDataProvider {
                     ),
                     Question.MultipleChoice(
                         id = 4,
-                        text = "¾ × 2/4 =",
-                        options = listOf("⅔", "6/5", "3¾", "⅜"),
+                        text = "¾ × ²⁄₄ =",
+                        options = listOf("⅔", "⁶⁄₅", "3¾", "⅜"),
                         correctAnswer = 3
                     ),
                     Question.MultipleChoice(
                         id = 5,
-                        text = "1/20 × 1/10 =",
-                        options = listOf("1", "1½", "¼", "1/200"),
+                        text = "¹⁄₂₀ × ⅒ =",
+                        options = listOf("1", "1½", "¼", "¹⁄₂₀₀"),
                         correctAnswer = 3
                     ),
                     Question.MultipleChoice(
                         id = 6,
-                        text = "⅚ × 5/30 =",
-                        options = listOf("5/36", "5/30", "6/36", "6/30"),
+                        text = "⅚ × ⁵⁄₃₀ =",
+                        options = listOf("⁵⁄₃₆", "⁵⁄₃₀", "⁶⁄₃₆", "⁶⁄₃₀"),
                         correctAnswer = 0
                     ),
                     Question.MultipleChoice(
                         id = 7,
-                        text = "6/9 × 6/27 =",
-                        options = listOf("4", "4/20", "4/27", "1/27"),
+                        text = "⁶⁄₉ × ⁶⁄₂₇ =",
+                        options = listOf("4", "⁴⁄₂₀", "⁴⁄₂₇", "¹⁄₂₇"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 8,
                         text = "⅜ × ⅜ =",
-                        options = listOf("⅜", "⅓", "⅛", "9/64"),
+                        options = listOf("⅜", "⅓", "⅛", "⁹⁄₆₄"),
                         correctAnswer = 3
                     ),
                     Question.MultipleChoice(
                         id = 9,
-                        text = "2/9 × 6/18 =",
-                        options = listOf("12/162", "6/32", "2/27", "1/20"),
+                        text = "²⁄₉ × ⁶⁄₁₈ =",
+                        options = listOf("¹²⁄₁₆₂", "⁶⁄₃₂", "²⁄₂₇", "¹⁄₂₀"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 10,
-                        text = "3/6 × 9/30 =",
-                        options = listOf("3/20", "1/15", "27/180", "11/80"),
+                        text = "³⁄₆ × ⁹⁄₃₀ =",
+                        options = listOf("³⁄₂₀", "¹⁄₁₅", "²⁷⁄₁₈₀", "¹¹⁄₈₀"),
                         correctAnswer = 0
                     ),
                     Question.MultipleChoice(
                         id = 11,
                         text = "¾ × ¾ =",
-                        options = listOf("9/16", "⅗", "3", "5"),
+                        options = listOf("⁹⁄₁₆", "⅗", "3", "5"),
                         correctAnswer = 0
                     ),
                     Question.MultipleChoice(
                         id = 12,
                         text = "⅕ × ⅖ =",
-                        options = listOf("9/16", "2/25", "1/9", "6/2"),
+                        options = listOf("⁹⁄₁₆", "²⁄₂₅", "⅑", "⁶⁄₂"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 13,
-                        text = "1/11 × 1/11 =",
-                        options = listOf("11/20", "1/30", "1", "1/121"),
+                        text = "¹⁄₁₁ × ¹⁄₁₁ =",
+                        options = listOf("¹¹⁄₂₀", "¹⁄₃₀", "1", "¹⁄₁₂₁"),
                         correctAnswer = 3
                     ),
                     Question.MultipleChoice(
                         id = 14,
-                        text = "2/7 × 3/14 =",
-                        options = listOf("2/48", "22/49", "3/49", "1/49"),
+                        text = "²⁄₇ × ³⁄₁₄ =",
+                        options = listOf("²⁄₄₈", "²²⁄₄₉", "³⁄₄₉", "¹⁄₄₉"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 15,
                         text = "2⅕ × ⅓ =",
-                        options = listOf("11/15", "22/15", "2/4", "½"),
+                        options = listOf("¹¹⁄₁₅", "²²⁄₁₅", "²⁄₄", "½"),
                         correctAnswer = 0
                     ),
                     Question.MultipleChoice(
                         id = 16,
                         text = "6½ × ½ =",
-                        options = listOf("4/3", "3¼", "¼", "3"),
+                        options = listOf("⁴⁄₃", "3¼", "¼", "3"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 17,
                         text = "2⅚ × ⅓ =",
-                        options = listOf("⅞", "6/8", "17/18", "16/18"),
+                        options = listOf("⅞", "⁶⁄₈", "¹⁷⁄₁₈", "¹⁶⁄₁₈"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 18,
-                        text = "9 6/7 × ⅕ =",
-                        options = listOf("4¾", "3/3", "34/35", "134/35"),
+                        text = "9⁶⁄₇ × ⅕ =",
+                        options = listOf("4¾", "³⁄₃", "³⁴⁄₃₅", "¹³⁴⁄₃₅"),
                         correctAnswer = 3
                     ),
                     Question.MultipleChoice(
                         id = 19,
                         text = "½ × 7¾ =",
-                        options = listOf("⅞", "3⅞", "3/6", "7/36"),
+                        options = listOf("⅞", "3⅞", "³⁄₆", "⁷⁄₃₆"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 20,
                         text = "8⅔ × ⅔ =",
-                        options = listOf("7/9", "5 7/9", "5 1/9", "1/7"),
+                        options = listOf("⁷⁄₉", "5⁷⁄₉", "5⅑", "⅐"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 21,
                         text = "5½ × 5½ =",
-                        options = listOf("30¼", "30", "¼", "4/30"),
+                        options = listOf("30¼", "30", "¼", "⁴⁄₃₀"),
                         correctAnswer = 0
                     ),
                     Question.MultipleChoice(
                         id = 22,
-                        text = "3 8/9 × 1¾ =",
-                        options = listOf("20/36", "29/36", "29/30", "6 29/36"),
+                        text = "3⁸⁄₉ × 1¾ =",
+                        options = listOf("²⁰⁄₃₆", "²⁹⁄₃₆", "²⁹⁄₃₀", "6²⁹⁄₃₆"),
                         correctAnswer = 3
                     ),
                     Question.MultipleChoice(
                         id = 23,
                         text = "5½ × 1½ =",
-                        options = listOf("8 4/6", "8¼", "8⅓", "8½"),
+                        options = listOf("8⁴⁄₆", "8¼", "8⅓", "8½"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 24,
-                        text = "16/9 × 4⅖ =",
+                        text = "¹⁶⁄₉ × 4⅖ =",
                         options = listOf("7", "⅓", "7⅓", "7½"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 25,
-                        text = "19/10 × 2⅞ =",
-                        options = listOf("5 37/80", "3 7/80", "5⅛", "⅜"),
+                        text = "¹⁹⁄₁₀ × 2⅞ =",
+                        options = listOf("5³⁷⁄₈₀", "3⁷⁄₈₀", "5⅛", "⅜"),
                         correctAnswer = 0
                     )
                 )
@@ -1025,8 +1045,8 @@ object ActivityDataProvider {
                             "⅜ × ⅔ =",
                             "⅝ × ⅘ =",
                             "⅞ × ⅖ =",
-                            "2/7 × ⅚ =",
-                            "⅜ × 4/9 =",
+                            "²⁄₇ × ⅚ =",
+                            "⅜ × ⁴⁄₉ =",
                             "1½ × ⅔ =",
                             "2¼ × ⅘ =",
                             "3⅓ × ¾ =",
@@ -1045,14 +1065,14 @@ object ActivityDataProvider {
                         ),
                         columnB = listOf(
                             "⅜",          // #1: 1/2 × 3/4 = 3/8
-                            "2/9",        // #2: 1/3 × 2/3 = 2/9
-                            "6/25",       // #3: 2/5 × 3/5 = 6/25
+                            "²⁄₉",        // #2: 1/3 × 2/3 = 2/9
+                            "⁶⁄₂₅",       // #3: 2/5 × 3/5 = 6/25
                             "⅗",          // #4: 3/4 × 4/5 = 3/5
-                            "5/9",        // #5: 5/6 × 2/3 = 5/9
+                            "⁵⁄₉",        // #5: 5/6 × 2/3 = 5/9
                             "¼",          // #6: 3/8 × 2/3 = 1/4
                             "½",          // #7: 5/8 × 4/5 = 1/2
-                            "7/20",       // #8: 7/8 × 2/5 = 7/20
-                            "5/21",       // #9: 2/7 × 5/6 = 5/21
+                            "⁷⁄₂₀",       // #8: 7/8 × 2/5 = 7/20
+                            "⁵⁄₂₁",       // #9: 2/7 × 5/6 = 5/21
                             "⅙",          // #10: 3/8 × 4/9 = 1/6
                             "1",          // #11: 1 1/2 × 2/3 = 1
                             "1⅘",         // #12: 2 1/4 × 4/5 = 1 4/5
@@ -1061,8 +1081,8 @@ object ActivityDataProvider {
                             "1⅗",         // #15: 2 2/3 × 3/5 = 1 3/5
                             "3",          // #16: 4 1/2 × 2/3 = 3
                             "3",          // #17: 3 3/4 × 4/5 = 3
-                            "3 1/10",     // #18: 5 1/6 × 3/5 = 3 1/10
-                            "2 9/20",     // #19: 2 4/5 × 7/8 = 2 9/20
+                            "3⅒",     // #18: 5 1/6 × 3/5 = 3 1/10
+                            "2⁹⁄₂₀",     // #19: 2 4/5 × 7/8 = 2 9/20
                             "5",          // #20: 6 2/3 × 3/4 = 5
                             "3",          // #21: 1 1/3 × 2 1/4 = 3
                             "4⅕",         // #22: 3 1/2 × 1 1/5 = 4 1/5
@@ -1254,7 +1274,7 @@ object ActivityDataProvider {
                     Question.MultipleChoice(
                         id = 2,
                         text = "A garden is ⅔ meter wide and ¾ meter long. What is the area of the garden?",
-                        options = listOf("½ m²", "7/12 m²", "⅔ m²", "11/12 m²"),
+                        options = listOf("½ m²", "⁷⁄₁₂ m²", "⅔ m²", "¹¹⁄₁₂ m²"),
                         correctAnswer = 0
                     ),
                     Question.MultipleChoice(
@@ -1308,7 +1328,7 @@ object ActivityDataProvider {
                     Question.MultipleChoice(
                         id = 11,
                         text = "A bottle contains 1⅕ liters of juice. If you drink ⅖ of it, how much did you drink?",
-                        options = listOf("12/25 L", "8/25 L", "½ L", "⅗ L"),
+                        options = listOf("¹²⁄₂₅ L", "⁸⁄₂₅ L", "½ L", "⅗ L"),
                         correctAnswer = 0
                     ),
                     Question.MultipleChoice(
@@ -1350,7 +1370,7 @@ object ActivityDataProvider {
                     Question.MultipleChoice(
                         id = 18,
                         text = "A bag of rice weighs 6¾ kg. If ⅖ of it is used, how much was used?",
-                        options = listOf("2½ kg", "2⅔ kg", "2⅘ kg", "2 7/10 kg"),
+                        options = listOf("2½ kg", "2⅔ kg", "2⅘ kg", "2⁷⁄₁₀ kg"),
                         correctAnswer = 3
                     ),
                     Question.MultipleChoice(
@@ -1528,7 +1548,7 @@ object ActivityDataProvider {
                     Question.MultipleChoice(
                         id = 1,
                         text = "A ribbon ⅚ meter long was cut into 5 equal pieces. What is the length of each piece?",
-                        options = listOf("⅙ m", "⅕ m", "5/30 m", "¼ m"),
+                        options = listOf("⅙ m", "⅕ m", "⁵⁄₃₀ m", "¼ m"),
                         correctAnswer = 0
                     ),
                     Question.MultipleChoice(

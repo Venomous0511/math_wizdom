@@ -19,7 +19,7 @@ data class Activity(
     val questions: List<Question>
 ): Serializable
 
-sealed class Question {
+sealed class Question : Serializable {
     abstract val id: Int
     abstract val text: String
     abstract val imageUrl: String?

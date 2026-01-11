@@ -19,8 +19,15 @@ interface LessonProgressDao {
     @Query("SELECT COUNT(DISTINCT activityId) FROM lesson_progress WHERE userIdentifier = :userId AND quarter = :quarter AND lessonNumber = :lastLesson AND score >= 3")
     suspend fun getLastLessonCompletedActivitiesCount(userId: String, quarter: Int, lastLesson: Int): Int
 
-    // Used for lesson unlocking - requires at least 60% (3/5 points)
-    @Query("SELECT DISTINCT quarter, lessonNumber FROM lesson_progress WHERE userIdentifier = :userId AND score >= 3 ORDER BY quarter, lessonNumber")
+    @Query("""
+        SELECT quarter, lessonNumber 
+        FROM lesson_progress 
+        WHERE userIdentifier = :userId 
+        AND score >= 3 
+        GROUP BY quarter, lessonNumber 
+        HAVING COUNT(DISTINCT activityId) >= 2
+        ORDER BY quarter, lessonNumber
+    """)
     suspend fun getUnlockedLessons(userId: String): List<UnlockedLesson>
 
     // Used for congratulations notification - requires at least 60% (3/5 points)

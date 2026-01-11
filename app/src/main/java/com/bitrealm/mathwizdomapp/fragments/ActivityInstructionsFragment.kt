@@ -2,6 +2,7 @@ package com.bitrealm.mathwizdomapp.fragments
 
 import android.annotation.SuppressLint
 import android.app.Dialog
+import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.bitrealm.mathwizdomapp.R
+import com.bitrealm.mathwizdomapp.WordProblemSelectionActivity
 import com.bitrealm.mathwizdomapp.models.Activity
 import com.bitrealm.mathwizdomapp.models.ActivityType
 import com.bitrealm.mathwizdomapp.utils.MusicManager
@@ -999,7 +1001,20 @@ class ActivityInstructionsFragment : Fragment() {
         }.start()
     }
 
+
     private fun startActivity() {
+        // Check if this is a routine problem activity - launch new activity instead of fragment
+        if (activity.type == ActivityType.ROUTINE_PROBLEM) {
+            val intent = Intent(requireActivity(), WordProblemSelectionActivity::class.java)
+            intent.putExtra(WordProblemSelectionActivity.EXTRA_ACTIVITY, activity)
+            intent.putExtra(WordProblemSelectionActivity.EXTRA_USER_ID, userIdentifier)
+            intent.putExtra(WordProblemSelectionActivity.EXTRA_QUARTER, quarter)
+            intent.putExtra(WordProblemSelectionActivity.EXTRA_LESSON, lessonNumber)
+            startActivity(intent)
+            requireActivity().finish()
+            return
+        }
+
         // Load the appropriate activity fragment based on type
         val fragment = when (activity.type) {
             ActivityType.MULTIPLE_CHOICE -> MultipleChoiceFragment.newInstance(
@@ -1011,9 +1026,13 @@ class ActivityInstructionsFragment : Fragment() {
             ActivityType.WIRE_MATCHING -> WireMatchingFragment.newInstance(
                 activity, userIdentifier, quarter, lessonNumber
             )
-            ActivityType.ROUTINE_PROBLEM -> RoutineProblemFragment.newInstance(
-                activity, userIdentifier, quarter, lessonNumber
-            )
+            ActivityType.ROUTINE_PROBLEM -> {
+                // This case should never be reached due to the check above
+                // but included for completeness
+                RoutineProblemFragment.newInstance(
+                    activity, userIdentifier, quarter, lessonNumber
+                )
+            }
         }
 
         parentFragmentManager.beginTransaction()

@@ -31,6 +31,11 @@ class NetworkValidator(private val context: Context) {
         // CONFIGURE THESE VALUES FOR YOUR SCHOOL
         // ============================================
 
+        // ⚠️ TESTING MODE - Set to true to bypass WiFi checks
+        // When true: App works on ANY network (or no network)
+        // When false: Requires school WiFi to activate timer
+        private const val TESTING_MODE = true  // ← Change to false for production
+
         // School Wi-Fi SSID (name of the school's WiFi network)
         // Example: "SchoolWiFi2024" or "ABC_High_School"
         private const val SCHOOL_WIFI_SSID = "MathWizdom"
@@ -62,6 +67,14 @@ class NetworkValidator(private val context: Context) {
     fun canUseApp(): Boolean {
         checkAndResetIfNewDay()
 
+        // TESTING MODE: Skip WiFi check and activate timer immediately
+        if (TESTING_MODE) {
+            activateDailyTimer()
+            Log.d(TAG, "⚠️ TESTING MODE - Timer activated without WiFi check")
+            return true
+        }
+
+        // PRODUCTION MODE: Require school network
         if (isConnectedToWifi() && isOnSchoolNetwork()) {
             activateDailyTimer()
             Log.d(TAG, "✓ On school network - timer active")
@@ -108,7 +121,8 @@ class NetworkValidator(private val context: Context) {
             }
 
             val endTime = getFormattedEndTime()
-            Log.d(TAG, "Daily timer activated - ${DAILY_USAGE_HOURS}h available until $endTime")
+            val mode = if (TESTING_MODE) "TESTING MODE" else "Production"
+            Log.d(TAG, "Daily timer activated [$mode] - ${DAILY_USAGE_HOURS}h available until $endTime")
         } else {
             val timeRemaining = getDailyTimeRemaining()
             Log.d(TAG, "Daily timer already active - ${formatTime(timeRemaining)} remaining")
@@ -211,11 +225,18 @@ class NetworkValidator(private val context: Context) {
             startTime = startTimeFormatted,
             endTime = getFormattedEndTime(),
             dailyLimit = "${DAILY_USAGE_HOURS}h",
-            canUseApp = canUseApp()
+            canUseApp = canUseApp(),
+            testingMode = TESTING_MODE
         )
     }
 
     private fun isOnSchoolNetwork(): Boolean {
+        // In testing mode, always return true
+        if (TESTING_MODE) {
+            Log.d(TAG, "⚠️ TESTING MODE - Skipping network validation")
+            return true
+        }
+
         val isCorrectSSID = isConnectedToSchoolWifi()
         val isCorrectIP = isOnSchoolIPRange()
 
@@ -226,6 +247,9 @@ class NetworkValidator(private val context: Context) {
 
     @SuppressLint("ObsoleteSdkInt")
     private fun isConnectedToWifi(): Boolean {
+        // In testing mode, pretend we're always connected
+        if (TESTING_MODE) return true
+
         val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -304,7 +328,9 @@ class NetworkValidator(private val context: Context) {
 
         @Suppress("DEPRECATION")
         val ssid = try {
-            if (isConnectedToWifi()) {
+            if (TESTING_MODE) {
+                "TESTING MODE"
+            } else if (isConnectedToWifi()) {
                 if (!hasLocationPermission()) {
                     "<unknown ssid>"
                 } else {
@@ -318,7 +344,9 @@ class NetworkValidator(private val context: Context) {
         }
 
         val ipAddress = try {
-            if (isConnectedToWifi()) {
+            if (TESTING_MODE) {
+                "TESTING MODE"
+            } else if (isConnectedToWifi()) {
                 @Suppress("DEPRECATION")
                 val dhcpInfo = wifiManager.dhcpInfo
                 val ip = dhcpInfo.ipAddress
@@ -341,11 +369,12 @@ class NetworkValidator(private val context: Context) {
         return NetworkInfo(
             ssid = ssid,
             ipAddress = ipAddress,
-            isWifiConnected = isConnectedToWifi(),
-            isOnSchoolNetwork = isOnSchoolNetwork(),
+            isWifiConnected = if (TESTING_MODE) true else isConnectedToWifi(),
+            isOnSchoolNetwork = if (TESTING_MODE) true else isOnSchoolNetwork(),
             canUseApp = canUseApp(),
             timerInfo = timerInfo,
-            hasLocationPermission = hasLocationPermission()
+            hasLocationPermission = hasLocationPermission(),
+            testingMode = TESTING_MODE
         )
     }
 
@@ -363,7 +392,8 @@ class NetworkValidator(private val context: Context) {
         val startTime: String,
         val endTime: String,
         val dailyLimit: String,
-        val canUseApp: Boolean
+        val canUseApp: Boolean,
+        val testingMode: Boolean = false
     )
 
     data class NetworkInfo(
@@ -373,6 +403,7 @@ class NetworkValidator(private val context: Context) {
         val isOnSchoolNetwork: Boolean,
         val canUseApp: Boolean,
         val timerInfo: TimerInfo,
-        val hasLocationPermission: Boolean
+        val hasLocationPermission: Boolean,
+        val testingMode: Boolean = false
     )
 }

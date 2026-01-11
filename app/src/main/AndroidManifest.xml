@@ -59,6 +59,12 @@
             android:theme="@style/Theme.MathWizdomApp"
             tools:ignore="DiscouragedApi,Instantiatable" />
         <activity
+            android:name=".WordProblemSelectionActivity"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false"
+            tools:ignore="DiscouragedApi,Instantiatable" />
+        <activity
             android:name=".fragments.RoutineProblemFragment"
             android:exported="false"
             android:screenOrientation="sensorLandscape"
