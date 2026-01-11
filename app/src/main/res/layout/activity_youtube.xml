@@ -64,6 +64,24 @@
 
         </LinearLayout>
 
+        <!-- Disclaimer -->
+        <TextView
+            android:id="@+id/tvDisclaimer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/rounded_background"
+            android:padding="12dp"
+            android:text="This application uses videos from YouTube for educational purposes only. All video content belongs to their respective owners. We do not claim ownership of any third-party videos used in this application."
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/topBar" />
+
         <!-- YouTube Links List -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvYoutubeLinks"
@@ -79,21 +97,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/topBar" />
-
-        <!-- Decorative Animal -->
-        <ImageView
-            android:id="@+id/ivAnimal"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginEnd="16dp"
-            android:alpha="0.2"
-            android:contentDescription="@string/animal"
-            android:scaleType="fitCenter"
-            android:src="@drawable/cat"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/tvDisclaimer" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

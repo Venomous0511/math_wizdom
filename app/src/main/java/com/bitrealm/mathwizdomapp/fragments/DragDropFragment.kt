@@ -39,20 +39,11 @@ class DragDropFragment : Fragment() {
     private lateinit var rvColumnA: RecyclerView
     private lateinit var rvColumnB: RecyclerView
     private lateinit var btnSubmit: MaterialButton
-    private lateinit var ivAnimal: ImageView
-
     private lateinit var columnAAdapter: ColumnAAdapter
     private lateinit var columnBAdapter: ColumnBAdapter
 
     private val userAnswers = mutableMapOf<Int, String>()
     private val availableAnswers = mutableListOf<String>()
-
-    private val quarterAnimals = mapOf(
-        1 to R.drawable.cat,
-        2 to R.drawable.bird,
-        3 to R.drawable.dragon,
-        4 to R.drawable.fox
-    )
 
     private var countDownTimer: CountDownTimer? = null
     private var timeLeftInMillis: Long = 300000
@@ -178,14 +169,12 @@ class DragDropFragment : Fragment() {
         rvColumnA = view.findViewById(R.id.rvColumnA)
         rvColumnB = view.findViewById(R.id.rvColumnB)
         btnSubmit = view.findViewById(R.id.btnSubmit)
-        ivAnimal = view.findViewById(R.id.ivAnimal)
 
         tvTimer = view.findViewById(R.id.tvTimer)
         cardTimer = view.findViewById(R.id.cardTimer)
         ivTimerIcon = view.findViewById(R.id.ivTimerIcon)
 
         tvActivityTitle.text = "ACTIVITY #${activity.activityNumber}"
-        ivAnimal.setImageResource(quarterAnimals[quarter] ?: R.drawable.cat)
 
         tvDirections = view.findViewById(R.id.tvDirections)
     }
@@ -195,13 +184,14 @@ class DragDropFragment : Fragment() {
     }
 
     private fun startTimer() {
-        countDownTimer = object : CountDownTimer(timeLeftInMillis, 100) {
+        countDownTimer = object : CountDownTimer(timeLeftInMillis, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 timeLeftInMillis = millisUntilFinished
                 updateTimerUI()
             }
 
             override fun onFinish() {
+                timeLeftInMillis = 0
                 onTimeUp()
             }
         }.start()
@@ -246,7 +236,8 @@ class DragDropFragment : Fragment() {
     }
 
     private fun onTimeUp() {
-        countDownTimer?.cancel()
+        timeLeftInMillis = 0
+        updateTimerUI()
 
         Toast.makeText(requireContext(), "Time's up!", Toast.LENGTH_LONG).show()
 
@@ -336,39 +327,21 @@ class DragDropFragment : Fragment() {
     private fun checkAnswers() {
         countDownTimer?.cancel()
 
+        // Check if all answers are complete
         if (userAnswers.size < question.columnA.size) {
-            val isFromTimeUp = timeLeftInMillis <= 0
-
-            if (isFromTimeUp) {
-                var correctCount = 0
-                var wrongCount = 0
-
-                // Check answered questions
-                question.correctMatches.forEach { (problemIndex, answerIndex) ->
-                    val correctAnswer = question.columnB[answerIndex]
-                    val userAnswer = userAnswers[problemIndex]
-
-                    if (userAnswer == correctAnswer) {
-                        correctCount++
-                    } else {
-                        wrongCount++
-                    }
-                }
-
-                wrongCount += (question.columnA.size - userAnswers.size)
-
-                showResults(correctCount, wrongCount)
-            } else {
-                // Manual submit - require all answers
+            // If time is NOT up, show message and don't proceed
+            if (timeLeftInMillis > 0) {
                 Toast.makeText(
                     requireContext(),
                     "Please complete all problems before submitting",
                     Toast.LENGTH_SHORT
                 ).show()
+                return
             }
-            return
+            // If time IS up, continue to calculate results with partial answers
         }
 
+        // Calculate results
         var correctCount = 0
         var wrongCount = 0
 
@@ -502,41 +475,24 @@ class DragDropFragment : Fragment() {
             return ViewHolder(view)
         }
 
-        @SuppressLint("ClickableViewAccessibility")
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             if (position >= answers.size) return
 
             val answer = answers[position]
             holder.tvAnswer.text = answer
 
-            // Make draggable with 1 second hold
-            var touchStartTime = 0L
+            // Make draggable with long press (built-in ~500ms-1000ms delay)
+            holder.card.setOnLongClickListener { v ->
+                val item = ClipData.Item(answer)
+                val dragData = ClipData(
+                    answer,
+                    arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN),
+                    item
+                )
 
-            holder.card.setOnTouchListener { v, event ->
-                when (event.action) {
-                    android.view.MotionEvent.ACTION_DOWN -> {
-                        touchStartTime = System.currentTimeMillis()
-                        false // Allow scrolling
-                    }
-                    android.view.MotionEvent.ACTION_MOVE -> {
-                        val holdDuration = System.currentTimeMillis() - touchStartTime
-                        if (holdDuration >= 2000) { // 1 second = 1000ms
-                            val item = ClipData.Item(answer)
-                            val dragData = ClipData(
-                                answer,
-                                arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN),
-                                item
-                            )
-
-                            val shadowBuilder = View.DragShadowBuilder(v)
-                            v.startDragAndDrop(dragData, shadowBuilder, v, 0)
-                            true
-                        } else {
-                            false
-                        }
-                    }
-                    else -> false
-                }
+                val shadowBuilder = View.DragShadowBuilder(v)
+                v.startDragAndDrop(dragData, shadowBuilder, v, 0)
+                true
             }
         }
 

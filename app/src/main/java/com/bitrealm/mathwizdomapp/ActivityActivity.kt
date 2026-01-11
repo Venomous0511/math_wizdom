@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.ImageButton
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
@@ -41,7 +40,6 @@ class ActivityActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
     private lateinit var btnSpeaker: ImageButton
     private lateinit var tvActivityTitle: TextView
     private lateinit var rvActivities: RecyclerView
-    private lateinit var ivAnimal: ImageView
 
     private lateinit var userRepository: UserRepository
     private lateinit var activityAdapter: ActivityAdapter
@@ -51,13 +49,6 @@ class ActivityActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
     private var lessonNumber: Int = 1
     @Suppress("unused")
     private var isSpeakerEnabled = true
-
-    private val quarterAnimals = mapOf(
-        1 to R.drawable.cat,
-        2 to R.drawable.bird,
-        3 to R.drawable.dragon,
-        4 to R.drawable.fox
-    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -112,13 +103,11 @@ class ActivityActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         btnSpeaker = findViewById(R.id.btnSpeaker)
         tvActivityTitle = findViewById(R.id.tvActivityTitle)
         rvActivities = findViewById(R.id.rvActivities)
-        ivAnimal = findViewById(R.id.ivAnimal)
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupUI() {
         tvActivityTitle.text = "LESSON $lessonNumber - ACTIVITIES"
-        ivAnimal.setImageResource(quarterAnimals[quarter] ?: R.drawable.cat)
     }
 
     private fun setupNavigationDrawer() {
@@ -137,8 +126,7 @@ class ActivityActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
     private fun showVolumeDialog() {
         val dialog = VolumeControlDialog(this)
-        dialog.show()
-        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.show(btnSpeaker)
     }
 
     private fun setupBackPressHandler() {

@@ -81,21 +81,6 @@
             app:layout_constraintTop_toBottomOf="@id/topBar" />
 
         <!-- Scrollable Lessons List -->
-
-        <ImageView
-            android:id="@+id/ivAnimal"
-            android:layout_width="89dp"
-            android:layout_height="82dp"
-            android:layout_marginEnd="156dp"
-            android:alpha=".8"
-            android:contentDescription="@string/animal"
-            android:scaleType="fitCenter"
-            android:src="@drawable/cat"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.097" />
-
         <androidx.core.widget.NestedScrollView
             android:layout_width="0dp"
             android:layout_height="0dp"

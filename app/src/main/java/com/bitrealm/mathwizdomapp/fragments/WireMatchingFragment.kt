@@ -48,7 +48,6 @@ class WireMatchingFragment : Fragment() {
     private lateinit var rvColumnB: RecyclerView
     private lateinit var btnSubmit: MaterialButton
     private lateinit var btnClear: MaterialButton
-    private lateinit var ivAnimal: ImageView
     private lateinit var drawingCanvas: DrawingCanvasView
     private lateinit var tvDirections: TextView
 
@@ -59,13 +58,6 @@ class WireMatchingFragment : Fragment() {
     private val lines = mutableListOf<Line>()
 
     private var selectedColumnAIndex: Int? = null
-
-    private val quarterAnimals = mapOf(
-        1 to R.drawable.cat,
-        2 to R.drawable.bird,
-        3 to R.drawable.dragon,
-        4 to R.drawable.fox
-    )
 
     private var countDownTimer: CountDownTimer? = null
     private var timeLeftInMillis: Long = 300000
@@ -185,7 +177,6 @@ class WireMatchingFragment : Fragment() {
         rvColumnB = view.findViewById(R.id.rvColumnB)
         btnSubmit = view.findViewById(R.id.btnSubmit)
         btnClear = view.findViewById(R.id.btnClear)
-        ivAnimal = view.findViewById(R.id.ivAnimal)
         drawingCanvas = view.findViewById(R.id.drawingCanvas)
 
         tvTimer = view.findViewById(R.id.tvTimer)
@@ -193,19 +184,19 @@ class WireMatchingFragment : Fragment() {
         ivTimerIcon = view.findViewById(R.id.ivTimerIcon)
 
         tvActivityTitle.text = "ACTIVITY #${activity.activityNumber}"
-        ivAnimal.setImageResource(quarterAnimals[quarter] ?: R.drawable.cat)
 
         tvDirections = view.findViewById(R.id.tvDirections)
     }
 
     private fun startTimer() {
-        countDownTimer = object : CountDownTimer(timeLeftInMillis, 100) {
+        countDownTimer = object : CountDownTimer(timeLeftInMillis, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 timeLeftInMillis = millisUntilFinished
                 updateTimerUI()
             }
 
             override fun onFinish() {
+                timeLeftInMillis = 0
                 onTimeUp()
             }
         }.start()
@@ -250,6 +241,9 @@ class WireMatchingFragment : Fragment() {
     }
 
     private fun onTimeUp() {
+        timeLeftInMillis = 0
+        updateTimerUI()
+
         Toast.makeText(requireContext(), "Time's up!", Toast.LENGTH_LONG).show()
 
         // Auto-submit with current answers
@@ -420,6 +414,7 @@ class WireMatchingFragment : Fragment() {
         drawingCanvas.setLines(lines)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun clearAllLines() {
         lines.clear()
         userMatches.clear()
@@ -433,36 +428,21 @@ class WireMatchingFragment : Fragment() {
     private fun checkAnswers() {
         countDownTimer?.cancel()
 
+        // Check if all answers are complete
         if (userMatches.size < question.columnA.size) {
-            val isFromTimeUp = timeLeftInMillis <= 0
-
-            if (isFromTimeUp) {
-                var correctCount = 0
-                var wrongCount = 0
-
-                question.correctMatches.forEach { (problemIndex, answerIndex) ->
-                    val userAnswer = userMatches[problemIndex]
-                    if (userAnswer == answerIndex) {
-                        correctCount++
-                    } else if (userAnswer != null) {
-                        wrongCount++
-                    } else {
-                        wrongCount++
-                    }
-                }
-
-                showResults(correctCount, wrongCount)
-            } else {
-                // Manual submit - require all answers
+            // If time is NOT up, show message and don't proceed
+            if (timeLeftInMillis > 0) {
                 Toast.makeText(
                     requireContext(),
                     "Please complete all matchings before submitting",
                     Toast.LENGTH_SHORT
                 ).show()
+                return
             }
-            return
+            // If time IS up, continue to calculate results with partial answers
         }
 
+        // Calculate results
         var correctCount = 0
         var wrongCount = 0
 

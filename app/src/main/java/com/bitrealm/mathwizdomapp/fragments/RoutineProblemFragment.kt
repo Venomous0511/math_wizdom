@@ -69,13 +69,6 @@ class RoutineProblemFragment : Fragment() {
     private var hasWatchedEnough = false
     private var videoWatchPercentage = 0
 
-    private val quarterAnimals = mapOf(
-        1 to R.drawable.cat,
-        2 to R.drawable.bird,
-        3 to R.drawable.dragon,
-        4 to R.drawable.fox
-    )
-
     companion object {
         private const val TAG = "RoutineProblem"
         private const val ARG_ACTIVITY = "activity"
@@ -83,12 +76,14 @@ class RoutineProblemFragment : Fragment() {
         private const val ARG_QUARTER = "quarter"
         private const val ARG_LESSON = "lesson"
         private const val MIN_WATCH_PERCENTAGE = 90
+        private const val ARG_QUESTION_INDEX = "question_index"
 
         fun newInstance(
             activity: Activity,
             userIdentifier: String,
             quarter: Int,
-            lessonNumber: Int
+            lessonNumber: Int,
+            questionIndex: Int = 0
         ): RoutineProblemFragment {
             val fragment = RoutineProblemFragment()
             val args = Bundle().apply {
@@ -96,6 +91,7 @@ class RoutineProblemFragment : Fragment() {
                 putString(ARG_USER_ID, userIdentifier)
                 putInt(ARG_QUARTER, quarter)
                 putInt(ARG_LESSON, lessonNumber)
+                putInt(ARG_QUESTION_INDEX, questionIndex)
             }
             fragment.arguments = args
             return fragment
@@ -105,21 +101,23 @@ class RoutineProblemFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            @Suppress("DEPRECATION")
             activity = it.getSerializable(ARG_ACTIVITY) as Activity
             userIdentifier = it.getString(ARG_USER_ID) ?: ""
             quarter = it.getInt(ARG_QUARTER)
             lessonNumber = it.getInt(ARG_LESSON)
-        }
+            val questionIndex = it.getInt(ARG_QUESTION_INDEX, 0)
 
-        val allQuestions = activity.questions.filterIsInstance<Question.RoutineProblem>()
-        question = allQuestions.random()
+            val allQuestions = activity.questions.filterIsInstance<Question.RoutineProblem>()
+            question = allQuestions.getOrNull(questionIndex) ?: allQuestions.first()
+        }
     }
 
+    @Suppress("unused")
     private fun getTotalActivitiesForLesson(quarter: Int, lessonNumber: Int): Int {
         return 2
     }
 
+    @SuppressLint("UseKtx")
     private fun checkAndShowLessonCompletion() {
         lifecycleScope.launch {
             try {
@@ -199,12 +197,10 @@ class RoutineProblemFragment : Fragment() {
         tvActivityTitle = view.findViewById(R.id.tvActivityTitle)
         playerView = view.findViewById(R.id.playerView)
         btnComplete = view.findViewById(R.id.btnComplete)
-        ivAnimal = view.findViewById(R.id.ivAnimal)
         topBar = view.findViewById(R.id.topBar)
         cardVideo = view.findViewById(R.id.cardVideo)
 
         tvActivityTitle.text = "ACTIVITY #${activity.activityNumber}"
-        ivAnimal.setImageResource(quarterAnimals[quarter] ?: R.drawable.cat)
 
         tvDirections = view.findViewById(R.id.tvDirections)
 

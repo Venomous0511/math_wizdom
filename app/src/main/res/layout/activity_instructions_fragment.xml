@@ -277,18 +277,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Decorative Animal -->
-    <ImageView
-        android:id="@+id/ivAnimal"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
-        android:alpha="0.5"
-        android:contentDescription="@string/animal"
-        android:scaleType="fitCenter"
-        android:src="@drawable/cat"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

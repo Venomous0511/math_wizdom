@@ -43,18 +43,10 @@ class MultipleChoiceFragment : Fragment() {
     private lateinit var tvProgress: TextView
     private lateinit var tvQuestion: TextView
     private lateinit var layoutAnswers: LinearLayout
-    private lateinit var ivAnimal: ImageView
     private lateinit var ivGroupImage: ImageView
     private lateinit var tvDirections: TextView
 
     private val answerButtons = mutableListOf<MaterialButton>()
-
-    private val quarterAnimals = mapOf(
-        1 to R.drawable.cat,
-        2 to R.drawable.bird,
-        3 to R.drawable.dragon,
-        4 to R.drawable.fox
-    )
 
     private var countDownTimer: CountDownTimer? = null
     private var timeLeftInMillis: Long = 60000
@@ -165,7 +157,6 @@ class MultipleChoiceFragment : Fragment() {
         tvProgress = view.findViewById(R.id.tvProgress)
         tvQuestion = view.findViewById(R.id.tvQuestion)
         layoutAnswers = view.findViewById(R.id.layoutAnswers)
-        ivAnimal = view.findViewById(R.id.ivAnimal)
         ivGroupImage = view.findViewById(R.id.ivGroupImage)
 
         tvTimer = view.findViewById(R.id.tvTimer)
@@ -173,7 +164,6 @@ class MultipleChoiceFragment : Fragment() {
         ivTimerIcon = view.findViewById(R.id.ivTimerIcon)
 
         tvActivityTitle.text = "ACTIVITY #${activity.activityNumber}"
-        ivAnimal.setImageResource(quarterAnimals[quarter] ?: R.drawable.cat)
 
         tvDirections = view.findViewById(R.id.tvDirections)
     }

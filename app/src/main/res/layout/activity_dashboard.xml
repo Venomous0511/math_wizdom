@@ -88,7 +88,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="16dp">
+                android:padding="6dp">
 
                 <!-- Left Section - Avatar -->
                 <LinearLayout
@@ -223,7 +223,7 @@
                         android:id="@+id/tvFullName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="2dp"
                         android:textSize="18sp"
                         tools:text="John Doe" />
 
@@ -268,9 +268,21 @@
                             android:contentDescription="@string/edit_gender"
                             android:padding="12dp"
                             android:src="@drawable/ic_edit"
-                            app:tint="?attr/colorPrimary" />
+                            app:tint="?attr/colorPrimary"
+                            tools:ignore="SpeakableTextPresentCheck" />
 
                     </LinearLayout>
+
+                    <!-- Delete Account Button -->
+                    <Button
+                        android:id="@+id/btnDeleteAccount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Delete Account"
+                        android:textColor="@android:color/white"
+                        android:backgroundTint="@android:color/holo_red_dark"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 

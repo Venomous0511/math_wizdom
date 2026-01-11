@@ -1,8 +1,8 @@
 <div align="center">
 
-# 🧙‍♂️ Math Wizdom 
+# 🧙‍♂️ Math Wizdom
 
-[![Version](https://img.shields.io/badge/version-1.0.1-brightgreen)](https://github.com/Venomous0511/math_wizdom/releases)
+[![Version](https://img.shields.io/badge/version-1.1.0-brightgreen)](https://github.com/Venomous0511/math_wizdom/releases)
 [![Status](https://img.shields.io/badge/status-stable-green)](https://github.com/Venomous0511/math_wizdom)
 [![Android](https://img.shields.io/badge/Android-12+-green)](https://www.android.com)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
@@ -23,17 +23,18 @@ Math Wizdom is an Android educational app that transforms traditional mathematic
 
 ### ✨ Key Features
 
-- **🎨 Modern Interface** - Clean, intuitive design optimized for Android devices with a 3-column grid layout
+- **🎨 Modern Interface** - Clean, intuitive design optimized for Android devices with 3-column grid layout
 - **📚 Interactive Lessons** - Hands-on problem-solving with instant feedback and visual guides
 - **⏱️ Timed Activities** - Focused learning with activity timers (60s for questions, 5min for activities)
 - **🔒 Progressive Learning** - Sequential lesson unlocking with quarter-based progression system
 - **📊 Progress Tracking** - Real-time menu bar showing unlocked lessons and learning achievements
-- **🎬 Video Tutorials** - Complete video integration with randomized playback and required completion
+- **🎬 Video Tutorials** - Complete video integration with selection system (choose from 7 word problems)
 - **📱 Native Android** - Built specifically for Android 12+ devices
 - **🎯 Achievement-Based Advancement** - Complete 2 activities with scores of 3+ to unlock next lesson
-- **⚡ Offline Support** - Learn anywhere, even without an internet connection
-- **👤 Student Profiles** - Personalized avatars and profile customization
+- **⚡ Offline Support** - Learn anywhere, even without internet connection
+- **👤 Student Profiles** - Personalized avatars, profile customization, and account management
 - **📐 Professional Content** - Justified paragraphs with proper formatting and example slides
+- **🗑️ Account Control** - Full account deletion with safety confirmations
 
 ---
 
@@ -51,14 +52,14 @@ Math Wizdom is an Android educational app that transforms traditional mathematic
 
 **Minimum:**
 - Android 12 (API 31) or higher
-- 2GB free storage spaces
-- 4GB RAM
+- 150MB free storage space
+- 2GB RAM
 - Internet connection for video tutorials
 
 **Recommended:**
 - Android 13+ for optimal performance
-- 8GB RAM
-- Wi-Fi connection for the best video streaming experience
+- 4GB RAM
+- Wi-Fi connection for best video streaming experience
 
 ---
 
@@ -150,33 +151,30 @@ To build a release APK:
 
 ## 🎯 Roadmap
 
-### ✅ v1.0.0 (Current Release - December 2025)
-- [x] Complete lesson content across all 4 quarters
-- [x] All activity types implemented with timers
-- [x] Progressive learning system with quarter locking
-- [x] Video tutorial integration
-- [x] Student authentication and profiles
-- [x] Progress tracking system
-- [x] Enhanced UI/UX with justified content
-- [x] Preview and zoom functionality
-- [x] All About App section
-- [x] Production-ready stability
+### ✅ v1.1.0 (Current Release - January 2026)
+- [x] Delete account functionality
+- [x] Additional activities per lesson (Quarter 1)
+- [x] Video selection system for routine/non-routine
+- [x] YouTube educational disclaimer
+- [x] Quarter 1 content validation and corrections
+- [x] Screen space maximization
+- [x] Timer fixes for all activity types
+- [x] Background music management improvements
 
-### 🔄 v1.1.0 (Planned - Q1 2026)
+### 🔄 v1.2.0 (Planned - Q1 2026)
+- [ ] Interactive activity guide system (video tutorials or driver.js)
+- [ ] Quarter 2-4 content validation
 - [ ] Enhanced analytics dashboard
-- [ ] Detailed progress reports
 - [ ] Additional accessibility features
-- [ ] Improved tablet optimization
-- [ ] Performance enhancements
+- [ ] Tablet optimization improvements
 
-### 🔮 Future Plans (v1.2.0+)
+### 🔮 Future Plans (v1.3.0+)
 - Gamification elements (badges, leaderboards, achievements)
 - Cloud sync for cross-device progress
 - Social learning features (study groups, peer challenges)
 - Teacher dashboard and classroom management
 - Multi-language support
 - iOS version development
-- Offline video caching
 - Advanced analytics and insights
 
 ---
@@ -259,7 +257,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- **Beta Testers** - Thank you to all v0.1 to v0.9 beta testers for invaluable feedback
+- **Beta Testers** - Thank you to all v0.8 and v0.9 beta testers for invaluable feedback
 - **Focus Group** - Special appreciation for identifying critical UI/UX improvements
 - **Community Contributors** - Everyone who reported bugs and suggested features
 - **Educational Technology** - Inspired by modern EdTech best practices
@@ -288,15 +286,16 @@ Have questions or want to get in touch?
 
 ## 📝 Release Notes
 
-**Latest Release: v1.0.1** (January 4, 2026)
+**Latest Release: v1.1.0** (January 11, 2026)
 
 ### Highlights
-🐛 Critical bug fix for matching activity, clear issue  
-⚡ Improved drag-and-drop responsiveness (instant touch)  
-🎯 Smart topic navigation (Previous/Next/Done buttons)  
-🏠 Streamlined flow with auto-return to home  
-🎉 Success notifications on lesson completion  
-✏️ Sex field now editable  
+🎉 New: Delete account functionality with confirmations  
+📚 New: Additional activity per lesson in Quarter 1  
+🎬 New: Video selection system (choose from 7 problems)  
+📺 New: YouTube educational use disclaimer  
+✅ Fixed: All Q1 activities validated and corrected  
+📐 Improved: Maximized screen space in topic slides  
+⏱️ Fixed: Timers in drag-drop and matching activities
 
 [View Full Release Notes](https://github.com/Venomous0511/math_wizdom/releases/latest) | [Version History](CHANGELOG.md)
 

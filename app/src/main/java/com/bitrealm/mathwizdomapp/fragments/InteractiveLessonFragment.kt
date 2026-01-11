@@ -114,6 +114,8 @@ class InteractiveLessonFragment : Fragment() {
         btnMinimize = view.findViewById(R.id.btnMinimize)
 
         progressBar.max = 100
+
+        tvSlideTitle.visibility = View.GONE
     }
 
     private fun setupListeners() {
@@ -212,18 +214,33 @@ class InteractiveLessonFragment : Fragment() {
         updateProgress()
     }
 
-    private fun renderIntroSlide(slide: Slide.IntroSlide) {
-        tvSlideTitle.text = slide.title
+    private fun addTitleToContent(title: String) {
+        val titleView = TextView(requireContext()).apply {
+            text = title
+            textSize = 24f
+            setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+            setTypeface(null, android.graphics.Typeface.BOLD)
+            layoutParams = ViewGroup.MarginLayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            ).apply {
+                bottomMargin = 16.dpToPx()
+            }
+        }
+        slideContentContainer.addView(titleView, 0)
+    }
 
+    private fun renderIntroSlide(slide: Slide.IntroSlide) {
         val view = LayoutInflater.from(context).inflate(
             R.layout.slide_intro,
             slideContentContainer,
             false
         )
 
+        addTitleToContent(slide.title) // Add this line
+
         setJustifiedText(view.findViewById(R.id.tvContent), slide.content)
 
-        // Load image if available
         val imageView = view.findViewById<ImageView>(R.id.ivSlideImage)
         if (slide.imageResourceId != null) {
             imageView.setImageResource(slide.imageResourceId)
@@ -236,13 +253,13 @@ class InteractiveLessonFragment : Fragment() {
     }
 
     private fun renderConceptSlide(slide: Slide.ConceptSlide) {
-        tvSlideTitle.text = slide.title
-
         val view = LayoutInflater.from(context).inflate(
             R.layout.slide_concept,
             slideContentContainer,
             false
         )
+
+        addTitleToContent(slide.title)
 
         setJustifiedText(view.findViewById(R.id.tvContent), slide.content)
 
@@ -302,13 +319,13 @@ class InteractiveLessonFragment : Fragment() {
 
     @SuppressLint("UseKtx", "SetTextI18n")
     private fun renderExampleSlide(slide: Slide.ExampleSlide) {
-        tvSlideTitle.text = slide.title
-
         val view = LayoutInflater.from(context).inflate(
             R.layout.slide_example,
             slideContentContainer,
             false
         )
+
+        addTitleToContent(slide.title)
 
         setJustifiedTextNoIndent(view.findViewById(R.id.tvProblem), slide.problem)
 
@@ -369,13 +386,13 @@ class InteractiveLessonFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun renderPracticeSlide(slide: Slide.PracticeSlide) {
-        tvSlideTitle.text = "Practice Time!!"
-
         val view = LayoutInflater.from(context).inflate(
             R.layout.slide_practice,
             slideContentContainer,
             false
         )
+
+        addTitleToContent("Practice Time!!")
 
         setJustifiedTextNoIndent(view.findViewById(R.id.tvQuestion), slide.question)
 
@@ -456,13 +473,13 @@ class InteractiveLessonFragment : Fragment() {
     }
 
     private fun renderSummarySlide(slide: Slide.SummarySlide) {
-        tvSlideTitle.text = slide.title
-
         val view = LayoutInflater.from(context).inflate(
             R.layout.slide_summary,
             slideContentContainer,
             false
         )
+
+        addTitleToContent(slide.title)
 
         val keyPointsContainer = view.findViewById<ViewGroup>(R.id.keyPointsContainer)
         slide.keyPoints.forEach { point ->
@@ -478,7 +495,6 @@ class InteractiveLessonFragment : Fragment() {
 
         slideContentContainer.addView(view)
     }
-
     // Function to display image items
     private fun displayImageItems(container: ViewGroup, imageItems: List<Slide.ImageItem>) {
         container.removeAllViews()
@@ -587,7 +603,8 @@ class InteractiveLessonFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun updateProgress() {
-        tvProgress.text = "Slide ${currentSlideIndex + 1} of ${lesson.slides.size}"
+        val tvProgressCenter = view?.findViewById<TextView>(R.id.tvProgressCenter)
+        tvProgressCenter?.text = "${currentSlideIndex + 1} / ${lesson.slides.size}"
 
         // Update progress bar
         val progress = ((currentSlideIndex + 1).toFloat() / lesson.slides.size * 100).toInt()

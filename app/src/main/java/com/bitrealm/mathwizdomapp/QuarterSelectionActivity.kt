@@ -25,9 +25,12 @@ import com.bitrealm.mathwizdomapp.utils.MusicManager
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.launch
-import android.net.Uri
 import com.bitrealm.mathwizdomapp.utils.NavigationHelper
+import com.bitrealm.mathwizdomapp.utils.TestingModeHelper
 import com.bitrealm.mathwizdomapp.utils.loadAvatarUri
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import androidx.core.graphics.toColorInt
 
 class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -40,14 +43,10 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
     private lateinit var card3rdQuarter: MaterialCardView
     private lateinit var card4thQuarter: MaterialCardView
 
-    // REMOVED - These TextViews don't exist in your XML
-    // private lateinit var tvQuarter1Lock: TextView
-    // private lateinit var tvQuarter2Lock: TextView
-    // private lateinit var tvQuarter3Lock: TextView
-    // private lateinit var tvQuarter4Lock: TextView
+    private lateinit var tvTitle: TextView
 
     private lateinit var userRepository: UserRepository
-    private lateinit var lessonProgressDao: LessonProgressDao // ADD THIS
+    private lateinit var lessonProgressDao: LessonProgressDao
     private var userIdentifier: String = ""
     @Suppress("unused")
     private var isSpeakerEnabled = true
@@ -68,7 +67,7 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
         // Initialize database and repository
         val database = AppDatabase.getDatabase(this)
         userRepository = UserRepository(database.userDao())
-        lessonProgressDao = database.lessonProgressDao() // ADD THIS
+        lessonProgressDao = database.lessonProgressDao()
 
         userIdentifier = intent.getStringExtra("USER_IDENTIFIER") ?: ""
 
@@ -89,6 +88,7 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
         card2ndQuarter = findViewById(R.id.card2ndQuarter)
         card3rdQuarter = findViewById(R.id.card3rdQuarter)
         card4thQuarter = findViewById(R.id.card4thQuarter)
+        tvTitle = findViewById(R.id.tvTitle)
     }
 
     private fun setupNavigationDrawer() {
@@ -104,7 +104,6 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
             showVolumeDialog()
         }
 
-        // FIXED - Use the correct method
         card1stQuarter.setOnClickListener { onQuarterSelected(1) }
         card2ndQuarter.setOnClickListener { onQuarterSelected(2) }
         card3rdQuarter.setOnClickListener { onQuarterSelected(3) }
@@ -113,23 +112,30 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
 
     private fun checkQuarterLocks() {
         lifecycleScope.launch {
-            // Q1 is always unlocked
+            // If testing mode is enabled, unlock everything
+            if (TestingModeHelper.isTestingModeEnabled(this@QuarterSelectionActivity)) {
+                updateQuarterUI(1, true)
+                updateQuarterUI(2, true)
+                updateQuarterUI(3, true)
+                updateQuarterUI(4, true)
+                return@launch
+            }
+
+            // Normal progression logic
             updateQuarterUI(1, true)
 
-            // Check Q2 - requires Q1 last lesson completion
             val q1Completed = isQuarterCompleted(1)
             updateQuarterUI(2, q1Completed)
 
-            // Check Q3 - requires Q2 last lesson completion
             val q2Completed = isQuarterCompleted(2)
             updateQuarterUI(3, q2Completed)
 
-            // Check Q4 - requires Q3 last lesson completion
             val q3Completed = isQuarterCompleted(3)
             updateQuarterUI(4, q3Completed)
         }
     }
 
+    @SuppressLint("UseKtx")
     private fun checkAndShowLessonCompletion() {
         lifecycleScope.launch {
             try {
@@ -172,6 +178,7 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
         return completedCount >= 2
     }
 
+    @SuppressLint("UseKtx")
     private fun updateQuarterUI(quarter: Int, isUnlocked: Boolean) {
         runOnUiThread {
             val card = when (quarter) {
@@ -182,25 +189,31 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
                 else -> return@runOnUiThread
             }
 
-            // Since you don't have lock TextViews, just use alpha and enabled state
             if (isUnlocked) {
                 card.isEnabled = true
                 card.alpha = 1.0f
+                card.foreground = null
             } else {
                 card.isEnabled = false
-                card.alpha = 0.5f
+                card.alpha = 1.0f
+                card.foreground = ColorDrawable(Color.parseColor("#DD000000"))
             }
         }
     }
 
     private fun onQuarterSelected(quarter: Int) {
         lifecycleScope.launch {
-            val isUnlocked = when (quarter) {
-                1 -> true
-                2 -> isQuarterCompleted(1)
-                3 -> isQuarterCompleted(2)
-                4 -> isQuarterCompleted(3)
-                else -> false
+            // If testing mode is enabled, allow all quarters
+            val isUnlocked = if (TestingModeHelper.isTestingModeEnabled(this@QuarterSelectionActivity)) {
+                true
+            } else {
+                when (quarter) {
+                    1 -> true
+                    2 -> isQuarterCompleted(1)
+                    3 -> isQuarterCompleted(2)
+                    4 -> isQuarterCompleted(3)
+                    else -> false
+                }
             }
 
             if (!isUnlocked) {
@@ -226,8 +239,7 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
 
     private fun showVolumeDialog() {
         val dialog = VolumeControlDialog(this)
-        dialog.show()
-        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.show(btnSpeaker)
     }
 
     private fun setupBackPressHandler() {
@@ -264,12 +276,22 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
         }
     }
 
+    @SuppressLint("SetTextI18n", "UseKtx")
     override fun onResume() {
         super.onResume()
         MusicManager.play()
         updateVolumeIcon()
         checkQuarterLocks()
         checkAndShowLessonCompletion()
+
+        // Show testing mode indicator
+        if (TestingModeHelper.isTestingModeEnabled(this)) {
+            tvTitle.text = "QUARTER'S SELECTION (TEST MODE)"
+            tvTitle.setTextColor("#FF9800".toColorInt())
+        } else {
+            tvTitle.text = "QUARTER'S SELECTION"
+            tvTitle.setTextColor(Color.WHITE)
+        }
     }
 
     override fun onPause() {
@@ -307,6 +329,20 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
 
             R.id.nav_about -> {
                 NavigationHelper.showAboutDialog(this)
+            }
+
+            R.id.nav_testing_mode -> {
+                TestingModeHelper.toggleTestingMode(this)
+                val isEnabled = TestingModeHelper.isTestingModeEnabled(this)
+
+                Toast.makeText(
+                    this,
+                    if (isEnabled) "Testing Mode ENABLED - All quarters unlocked"
+                    else "Testing Mode DISABLED - Normal progression",
+                    Toast.LENGTH_LONG
+                ).show()
+
+                checkQuarterLocks()
             }
 
             R.id.nav_logout -> {

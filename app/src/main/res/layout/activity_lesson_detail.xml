@@ -71,20 +71,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/topBar" />
 
-        <!-- Decorative Animal Image -->
-        <ImageView
-            android:id="@+id/ivAnimal"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginStart="16dp"
-            android:alpha="0.3"
-            android:contentDescription="@string/animal"
-            android:scaleType="fitCenter"
-            android:src="@drawable/cat"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <!-- Buttons Container -->
         <LinearLayout
             android:id="@+id/buttonsContainer"

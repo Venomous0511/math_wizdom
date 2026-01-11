@@ -39,19 +39,11 @@ class YoutubeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
     private lateinit var btnSpeaker: ImageButton
     private lateinit var tvTitle: TextView
     private lateinit var rvYoutubeLinks: RecyclerView
-    private lateinit var ivAnimal: ImageView
 
     private lateinit var userRepository: UserRepository
     private var userIdentifier: String = ""
     private var quarter: Int = 1
     private var lessonNumber: Int = 1
-
-    private val quarterAnimals = mapOf(
-        1 to R.drawable.cat,
-        2 to R.drawable.bird,
-        3 to R.drawable.dragon,
-        4 to R.drawable.fox
-    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -92,13 +84,11 @@ class YoutubeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         btnSpeaker = findViewById(R.id.btnSpeaker)
         tvTitle = findViewById(R.id.tvYoutubeTitle)
         rvYoutubeLinks = findViewById(R.id.rvYoutubeLinks)
-        ivAnimal = findViewById(R.id.ivAnimal)
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupUI() {
         tvTitle.text = "LESSON $lessonNumber - YOUTUBE VIDEOS"
-        ivAnimal.setImageResource(quarterAnimals[quarter] ?: R.drawable.cat)
     }
 
     private fun setupNavigationDrawer() {
@@ -117,8 +107,7 @@ class YoutubeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
     private fun showVolumeDialog() {
         val dialog = VolumeControlDialog(this)
-        dialog.show()
-        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.show(btnSpeaker)
     }
 
     private fun setupBackPressHandler() {

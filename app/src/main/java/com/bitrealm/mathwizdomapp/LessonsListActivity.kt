@@ -29,6 +29,7 @@ import com.bitrealm.mathwizdomapp.dialogs.VolumeControlDialog
 import com.bitrealm.mathwizdomapp.repository.UserRepository
 import com.bitrealm.mathwizdomapp.utils.MusicManager
 import com.bitrealm.mathwizdomapp.utils.NavigationHelper
+import com.bitrealm.mathwizdomapp.utils.TestingModeHelper
 import com.bitrealm.mathwizdomapp.utils.loadAvatarUri
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.launch
@@ -41,7 +42,6 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
     private lateinit var btnMenu: ImageButton
     private lateinit var btnSpeaker: ImageButton
     private lateinit var tvTitle: TextView
-    private lateinit var ivAnimal: ImageView
     private lateinit var lessonsContainer: RecyclerView
 
     private lateinit var userRepository: UserRepository
@@ -55,14 +55,6 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         2 to 11,  // Quarter 2: 11 lessons
         3 to 8,   // Quarter 3: 8 lessons
         4 to 9    // Quarter 4: 9 lessons
-    )
-
-    // Animal images for each quarter
-    private val quarterAnimals = mapOf(
-        1 to R.drawable.cat,
-        2 to R.drawable.bird,
-        3 to R.drawable.rat,
-        4 to R.drawable.fox
     )
 
     override fun onResume() {
@@ -179,14 +171,12 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         btnMenu = findViewById(R.id.btnMenu)
         btnSpeaker = findViewById(R.id.btnSpeaker)
         tvTitle = findViewById(R.id.tvTitle)
-        ivAnimal = findViewById(R.id.ivAnimal)
         lessonsContainer = findViewById(R.id.lessonsContainer)
     }
 
     @SuppressLint("SetTextI18n")
     private fun setupUI() {
         tvTitle.text = "QUARTER $quarter LESSONS"
-        ivAnimal.setImageResource(quarterAnimals[quarter] ?: R.drawable.cat)
     }
 
     private fun setupNavigationDrawer() {
@@ -209,8 +199,7 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
 
     private fun showVolumeDialog() {
         val dialog = VolumeControlDialog(this)
-        dialog.show()
-        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.show(btnSpeaker)
     }
 
     private fun setupBackPressHandler() {
@@ -230,8 +219,16 @@ class LessonsListActivity : AppCompatActivity(), NavigationView.OnNavigationItem
             val lessonCount = lessonCounts[quarter] ?: 3
             val lessons = mutableListOf<LessonItem>()
 
+            // If testing mode is enabled, unlock all lessons
+            val testingModeEnabled = TestingModeHelper.isTestingModeEnabled(this@LessonsListActivity)
+
             for (i in 1..lessonCount) {
-                val isLocked = !isLessonUnlocked(i)
+                val isLocked = if (testingModeEnabled) {
+                    false // All lessons unlocked in testing mode
+                } else {
+                    !isLessonUnlocked(i) // Normal progression check
+                }
+
                 lessons.add(LessonItem(i, getLessonName(quarter, i), isLocked))
             }
 

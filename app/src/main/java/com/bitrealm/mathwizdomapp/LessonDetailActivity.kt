@@ -36,7 +36,6 @@ class LessonDetailActivity : AppCompatActivity(), NavigationView.OnNavigationIte
     private lateinit var btnBack: ImageButton
     private lateinit var btnSpeaker: ImageButton
     private lateinit var tvLessonTitle: TextView
-    private lateinit var ivAnimal: ImageView
     private lateinit var btnTopic: MaterialButton
     private lateinit var btnActivity: MaterialButton
 
@@ -46,13 +45,6 @@ class LessonDetailActivity : AppCompatActivity(), NavigationView.OnNavigationIte
     private var userIdentifier: String = ""
     private var quarter: Int = 1
     private var lessonNumber: Int = 1
-
-    private val quarterAnimals = mapOf(
-        1 to R.drawable.cat,
-        2 to R.drawable.bird,
-        3 to R.drawable.dragon,
-        4 to R.drawable.fox
-    )
 
     override fun onResume() {
         super.onResume()
@@ -104,7 +96,6 @@ class LessonDetailActivity : AppCompatActivity(), NavigationView.OnNavigationIte
         btnBack = findViewById(R.id.btnBack)
         btnSpeaker = findViewById(R.id.btnSpeaker)
         tvLessonTitle = findViewById(R.id.tvLessonTitle)
-        ivAnimal = findViewById(R.id.ivAnimal)
         btnTopic = findViewById(R.id.btnTopic)
         btnActivity = findViewById(R.id.btnActivity)
         btnYoutube = findViewById(R.id.btnYoutube)
@@ -113,7 +104,6 @@ class LessonDetailActivity : AppCompatActivity(), NavigationView.OnNavigationIte
     @SuppressLint("SetTextI18n")
     private fun setupUI() {
         tvLessonTitle.text = "LESSON $lessonNumber"
-        ivAnimal.setImageResource(quarterAnimals[quarter] ?: R.drawable.cat)
     }
 
     private fun setupNavigationDrawer() {
@@ -144,8 +134,7 @@ class LessonDetailActivity : AppCompatActivity(), NavigationView.OnNavigationIte
 
     private fun showVolumeDialog() {
         val dialog = VolumeControlDialog(this)
-        dialog.show()
-        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.show(btnSpeaker)
     }
 
     private fun setupBackPressHandler() {

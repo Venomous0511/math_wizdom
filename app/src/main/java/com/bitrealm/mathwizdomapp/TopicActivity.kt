@@ -456,8 +456,7 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
     private fun showVolumeDialog() {
         val dialog = VolumeControlDialog(this)
-        dialog.show()
-        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.show(btnSpeaker)
     }
 
     private fun setupBackPressHandler() {

@@ -33,20 +33,12 @@ class ActivityInstructionsFragment : Fragment() {
     private lateinit var tvTitleContent: TextView
     private lateinit var tvDirection: TextView
     private lateinit var tvCountdown: TextView
-    private lateinit var ivAnimal: ImageView
     private lateinit var btnStart: MaterialButton
     private lateinit var btnBack: ImageButton
     private lateinit var ivGuide: ImageView
     private lateinit var btnFullScreenGuide: ImageButton
     private lateinit var btnMinimizeGuide: ImageButton
     private var isGuideFullScreen = false
-
-    private val quarterAnimals = mapOf(
-        1 to R.drawable.cat,
-        2 to R.drawable.bird,
-        3 to R.drawable.dragon,
-        4 to R.drawable.fox
-    )
 
     override fun onResume() {
         super.onResume()
@@ -221,7 +213,6 @@ class ActivityInstructionsFragment : Fragment() {
         tvTitleContent = view.findViewById(R.id.tvTitleContent)
         tvDirection = view.findViewById(R.id.tvDirection)
         tvCountdown = view.findViewById(R.id.tvCountdown)
-        ivAnimal = view.findViewById(R.id.ivAnimal)
         btnBack = view.findViewById(R.id.btnBack)
         ivGuide = view.findViewById(R.id.ivGuide)
         btnFullScreenGuide = view.findViewById(R.id.btnFullScreenGuide)
@@ -231,7 +222,6 @@ class ActivityInstructionsFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     private fun setupUI() {
         tvInstructionTitle.text = "ACTIVITY #${activity.activityNumber}"
-        ivAnimal.setImageResource(quarterAnimals[quarter] ?: R.drawable.cat)
 
         // Set guide image based on activity type and question format
         val guideImageRes = when (activity.type) {

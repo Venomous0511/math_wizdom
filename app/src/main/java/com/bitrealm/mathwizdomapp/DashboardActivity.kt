@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
@@ -44,6 +45,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     private lateinit var btnEditGender: ImageButton
     private lateinit var tvFullName: TextView
     private lateinit var tvGender: TextView
+    private lateinit var btnDeleteAccount: Button
 
     private lateinit var userRepository: UserRepository
     private var currentUser: User? = null
@@ -141,6 +143,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         btnEditGender = findViewById(R.id.btnEditGender)
         tvFullName = findViewById(R.id.tvFullName)
         tvGender = findViewById(R.id.tvGender)
+        btnDeleteAccount = findViewById(R.id.btnDeleteAccount)
 
         // Clear default text immediately
         tvFullName.text = ""
@@ -184,12 +187,16 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         btnEditGender.setOnClickListener {
             showEditGenderDialog()
         }
+
+        // Delete account
+        btnDeleteAccount.setOnClickListener {
+            showDeleteAccountDialog()
+        }
     }
 
     private fun showVolumeDialog() {
         val dialog = VolumeControlDialog(this)
-        dialog.show()
-        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.show(btnSpeaker)
     }
 
     private fun setupBackPressHandler() {
@@ -545,6 +552,62 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         finish()
 
         Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun showDeleteAccountDialog() {
+        AlertDialog.Builder(this)
+            .setTitle("Delete Account")
+            .setMessage("Are you sure you want to delete your account? This action is permanent and cannot be undone. All your account information and progress will be permanently deleted.")
+            .setPositiveButton("Delete") { dialog, _ ->
+                deleteAccount()
+                dialog.dismiss()
+            }
+            .setNegativeButton("Cancel") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
+    }
+
+    private fun deleteAccount() {
+        lifecycleScope.launch {
+            try {
+                currentUser?.let { user ->
+                    // Delete user from database
+                    userRepository.deleteUser(user)
+
+                    runOnUiThread {
+                        // Show success message
+                        AlertDialog.Builder(this@DashboardActivity)
+                            .setTitle("Account Deleted")
+                            .setMessage("Your account has been successfully deleted.")
+                            .setPositiveButton("OK") { dialog, _ ->
+                                dialog.dismiss()
+                                // Clear any saved session data
+                                val prefs = getSharedPreferences("app_prefs", MODE_PRIVATE)
+                                prefs.edit { clear() }
+
+                                // Navigate back to selection screen
+                                val intent = Intent(this@DashboardActivity, SelectionActivity::class.java)
+                                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                startActivity(intent)
+                                finish()
+                            }
+                            .setCancelable(false)
+                            .show()
+                    }
+                }
+            } catch (e: Exception) {
+                runOnUiThread {
+                    Toast.makeText(
+                        this@DashboardActivity,
+                        "Failed to delete account: ${e.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                println("Error deleting account: ${e.message}")
+                e.printStackTrace()
+            }
+        }
     }
 
     private fun setupImmersiveMode() {
