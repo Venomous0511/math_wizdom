@@ -1,5 +1,6 @@
 package com.bitrealm.mathwizdomapp.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,6 +24,7 @@ class ProgressAdapter(
         return ViewHolder(view)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val lesson = unlockedLessons[position]
         holder.tvQuarter.text = "Quarter ${lesson.quarter}"

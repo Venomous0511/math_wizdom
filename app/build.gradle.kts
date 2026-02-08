@@ -8,9 +8,7 @@ plugins {
 
 android {
     namespace = "com.bitrealm.mathwizdomapp"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.bitrealm.mathwizdomapp"

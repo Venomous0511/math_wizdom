@@ -4,6 +4,7 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bitrealm.mathwizdomapp.R
 import com.google.android.material.button.MaterialButton
@@ -18,11 +19,14 @@ class LessonsAdapter(
 
         fun bind(lesson: LessonItem) {
             btnLesson.apply {
-                // Show lock icon if lesson is locked
-                text = if (lesson.isLocked) {
-                    "🔒\n${lesson.number}"
+                if (lesson.isLocked) {
+                    text = lesson.number.toString()
+                    icon = ContextCompat.getDrawable(context, R.drawable.ic_lock)
+                    iconGravity = MaterialButton.ICON_GRAVITY_TOP
+                    iconSize = 24
                 } else {
-                    lesson.name
+                    text = lesson.name
+                    icon = null
                 }
 
                 textSize = 11f

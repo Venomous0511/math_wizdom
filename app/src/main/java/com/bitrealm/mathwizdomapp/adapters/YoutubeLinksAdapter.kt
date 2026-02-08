@@ -1,9 +1,9 @@
 package com.bitrealm.mathwizdomapp.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bitrealm.mathwizdomapp.R
@@ -17,9 +17,8 @@ class YoutubeLinksAdapter(
     inner class YoutubeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvTitle: TextView = itemView.findViewById(R.id.tvYoutubeTitle)
         val tvOwner: TextView = itemView.findViewById(R.id.tvYoutubeOwner)
-        @Suppress("unused")
-        val ivYoutube: ImageView = itemView.findViewById(R.id.ivYoutube)
 
+        @SuppressLint("SetTextI18n")
         fun bind(youtubeLink: YoutubeLink) {
             tvTitle.text = youtubeLink.title
             tvOwner.text = "by ${youtubeLink.owner}"

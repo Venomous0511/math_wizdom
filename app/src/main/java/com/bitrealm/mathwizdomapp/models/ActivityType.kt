@@ -21,12 +21,12 @@ data class Activity(
 
 sealed class Question : Serializable {
     abstract val id: Int
-    abstract val text: String
+    abstract val text: String?
     abstract val imageUrl: String?
 
     data class MultipleChoice(
         override val id: Int,
-        override val text: String,
+        override val text: String? = null,
         override val imageUrl: String? = null,
         val options: List<String>,
         val correctAnswer: Int,

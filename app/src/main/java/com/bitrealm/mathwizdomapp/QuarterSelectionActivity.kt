@@ -154,7 +154,10 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
                                     AlertDialog.Builder(this@QuarterSelectionActivity)
                                         .setTitle("🎉 Congratulations!")
                                         .setMessage("You have successfully passed Quarter $q - Lesson $lesson activities!")
-                                        .setPositiveButton("OK", null)
+                                        .setPositiveButton("OK") { dialog, _ ->
+                                            dialog.dismiss()
+                                        }
+                                        .setCancelable(false)
                                         .show()
                                 }
                                 return@launch
@@ -279,7 +282,7 @@ class QuarterSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
     @SuppressLint("SetTextI18n", "UseKtx")
     override fun onResume() {
         super.onResume()
-        MusicManager.play()
+        MusicManager.resume()
         updateVolumeIcon()
         checkQuarterLocks()
         checkAndShowLessonCompletion()

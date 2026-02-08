@@ -18,7 +18,11 @@ class ZoomTouchListener : View.OnTouchListener {
     private var scaleGestureDetector: ScaleGestureDetector? = null
     private var minScale = 1f
     private var maxScale = 4f
+
+    @Volatile
     private var isInitialized = false
+
+    private val initLock = Any()
 
     companion object {
         private const val NONE = 0
@@ -28,9 +32,13 @@ class ZoomTouchListener : View.OnTouchListener {
 
     fun forceInitialize(view: ImageView) {
         if (!isInitialized && view.drawable != null) {
-            view.post {
-                initializeMatrix(view)
-                isInitialized = true
+            synchronized(initLock) {
+                if (!isInitialized) {
+                    view.post {
+                        initializeMatrix(view)
+                        isInitialized = true
+                    }
+                }
             }
         }
     }

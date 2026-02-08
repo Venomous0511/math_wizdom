@@ -6,6 +6,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -38,6 +39,7 @@ import com.bitrealm.mathwizdomapp.database.entities.LessonProgress
 import kotlinx.coroutines.launch
 import android.os.Handler
 import android.os.Looper
+import android.widget.Toast
 import com.bitrealm.mathwizdomapp.QuarterSelectionActivity
 
 class RoutineProblemFragment : Fragment() {
@@ -101,14 +103,33 @@ class RoutineProblemFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            activity = it.getSerializable(ARG_ACTIVITY) as Activity
-            userIdentifier = it.getString(ARG_USER_ID) ?: ""
-            quarter = it.getInt(ARG_QUARTER)
-            lessonNumber = it.getInt(ARG_LESSON)
+            activity = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                it.getSerializable(ARG_ACTIVITY, Activity::class.java)
+            } else {
+                @Suppress("DEPRECATION")
+                it.getSerializable(ARG_ACTIVITY) as? Activity
+            } ?: run {
+                Toast.makeText(context, "Missing activity data", Toast.LENGTH_SHORT).show()
+                requireActivity().finish()
+                return
+            }
+
+            userIdentifier = it.getString(ARG_USER_ID) ?: run {
+                Toast.makeText(context, "Missing user data", Toast.LENGTH_SHORT).show()
+                requireActivity().finish()
+                return
+            }
+
+            quarter = it.getInt(ARG_QUARTER, 1)
+            lessonNumber = it.getInt(ARG_LESSON, 1)
+
             val questionIndex = it.getInt(ARG_QUESTION_INDEX, 0)
 
             val allQuestions = activity.questions.filterIsInstance<Question.RoutineProblem>()
             question = allQuestions.getOrNull(questionIndex) ?: allQuestions.first()
+        } ?: run {
+            Toast.makeText(context, "Missing arguments", Toast.LENGTH_SHORT).show()
+            requireActivity().finish()
         }
     }
 
@@ -473,15 +494,11 @@ class RoutineProblemFragment : Fragment() {
                     // Check if lesson is completed after this activity
                     checkAndShowLessonCompletion()
 
-                    // Navigate after delay
-                    lifecycleScope.launch {
-                        kotlinx.coroutines.delay(500)
-                        val intent = Intent(requireActivity(), QuarterSelectionActivity::class.java)
-                        intent.putExtra("USER_IDENTIFIER", userIdentifier)
-                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
-                        startActivity(intent)
-                        requireActivity().finish()
-                    }
+                    val intent = Intent(requireActivity(), QuarterSelectionActivity::class.java)
+                    intent.putExtra("USER_IDENTIFIER", userIdentifier)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+                    startActivity(intent)
+                    requireActivity().finish()
                 }
             } catch (e: Exception) {
                 requireActivity().runOnUiThread {

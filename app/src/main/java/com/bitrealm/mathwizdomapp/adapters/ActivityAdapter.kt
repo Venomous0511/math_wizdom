@@ -34,16 +34,25 @@ class ActivityAdapter(
         val activity = activities[position]
         val isCompleted = completionStatus[activity.id.toString()] ?: false
 
-        // Show checkmark if activity is completed with score >= 3
-        holder.tvActivityNumber.text = if (isCompleted) {
-            "✓ ACTIVITY #${activity.activityNumber}"
-        } else {
-            "ACTIVITY #${activity.activityNumber}"
-        }
+        // Show checkmark icon if activity is completed with score >= 3
+        holder.tvActivityNumber.setCompoundDrawablesWithIntrinsicBounds(
+            if (isCompleted) R.drawable.ic_check else 0, 0, 0, 0
+        )
 
+        holder.tvActivityNumber.text = "ACTIVITY #${activity.activityNumber}"
+
+        holder.tvActivityNumber.setTextColor(
+            ContextCompat.getColor(holder.itemView.context, android.R.color.white)
+        )
+
+        // Set activity type text
         holder.tvActivityType.text = getActivityTypeLabel(activity.quarter, activity.lessonNumber, activity.activityNumber)
 
-        // Change card background color if completed - USE ContextCompat
+        holder.tvActivityType.setTextColor(
+            ContextCompat.getColor(holder.itemView.context, android.R.color.white)
+        )
+
+        // Change card background color if completed
         if (isCompleted) {
             holder.cardActivity.setCardBackgroundColor(
                 ContextCompat.getColor(holder.itemView.context, R.color.completed_activity_color)

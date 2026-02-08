@@ -3,7 +3,6 @@ package com.bitrealm.mathwizdomapp.data
 import com.bitrealm.mathwizdomapp.models.*
 
 object ActivityDataProvider {
-
     fun getActivitiesForLesson(quarter: Int, lessonNumber: Int): List<Activity> {
         return when ("${quarter}_$lessonNumber") {
             // ----------- QUARTER 1 -----------
@@ -209,7 +208,7 @@ object ActivityDataProvider {
                     ),
                     Question.MultipleChoice(
                         id = 23,
-                        text = "⁴¹⁄₃ and ³²⁄₃",
+                        text = "4¹⁄₃ and 3²⁄₃",
                         options = listOf("Similar", "Dissimilar"),
                         correctAnswer = 0
                     ),
@@ -217,7 +216,7 @@ object ActivityDataProvider {
                         id = 24,
                         text = "½ and ⅛",
                         options = listOf("Similar", "Dissimilar"),
-                        correctAnswer = 0
+                        correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 25,
@@ -230,10 +229,10 @@ object ActivityDataProvider {
 
             // Activity 2: Matching Type
             Activity(
-                id = 1,
+                id = 2,
                 quarter = 1,
                 lessonNumber = 1,
-                activityNumber = 1,
+                activityNumber = 2,
                 title = "Fraction Addition and Subtraction",
                 type = ActivityType.DRAG_DROP,
                 questions = listOf(
@@ -326,101 +325,101 @@ object ActivityDataProvider {
             ),
 
             // Activity 3: Addition and Subtraction Wire Matching
-            Activity(
-                id = 3,
-                quarter = 1,
-                lessonNumber = 1,
-                activityNumber = 3,
-                title = "Addition and Subtraction of Similar Fractions",
-                type = ActivityType.WIRE_MATCHING,
-                questions = listOf(
-                    Question.WireMatching(
-                        id = 1,
-                        text = "Solve the fractions in Column A and match them with the correct answers in Column B by drawing a line.",
-                        columnA = listOf(
-                            "⅛ + ⅝ =",
-                            "⅗ + ⅕ =",
-                            "⅖ + ⅘ =",
-                            "¼ + ¼ =",
-                            "³⁄₁₁ + ⁵⁄₁₁ =",
-                            "⅙ + ⅙ =",
-                            "⅜ + ⅛ =",
-                            "⅖ + ⅖ =",
-                            "⁵⁄₁₂ + ⁷⁄₁₂ =",
-                            "³⁄₁₀ + ⁷⁄₁₀ =",
-                            "⅞ - ⅜ =",
-                            "⅚ - ⅙ =",
-                            "⁷⁄₉ - ⅖ =",
-                            "¹¹⁄₁₂ - ⁵⁄₁₂ =",
-                            "⁹⁄₁₀ - ³⁄₁₀ =",
-                            "1½ + 2½ =",
-                            "3⅔ + 1⅓ =",
-                            "4⅗ + 2⅕ =",
-                            "5¾ + 1¼ =",
-                            "2⅚ + 3⅙ =",
-                            "6⅞ - 2⅜ =",
-                            "8⅔ - 3⅓ =",
-                            "7⅘ - 4⅕ =",
-                            "9¾ - 5¼ =",
-                            "10⅚ - 6⅙ ="
-                        ),
-                        columnB = listOf(
-                            "¾",        // #1: 1/8 + 5/8
-                            "⅘",        // #2: 3/5 + 1/5
-                            "⅔",        // #3: 2/9 + 4/9
-                            "½",        // #4: 1/4 + 1/4
-                            "⁸⁄₁₁",       // #5: 3/11 + 5/11
-                            "⅓",        // #6: 1/6 + 1/6
-                            "½",        // #7: 3/8 + 1/8
-                            "⅘",        // #8: 2/5 + 2/5
-                            "1",          // #9: 5/12 + 7/12
-                            "1",          // #10: 3/10 + 7/10
-                            "½",        // #11: 7/8 - 3/8
-                            "½",        // #12: 5/6 - 2/6
-                            "⁵⁄₉",        // #13: 7/9 - 2/9
-                            "½",        // #14: 11/12 - 5/12
-                            "⅗",        // #15: 9/10 - 3/10
-                            "4",          // #16: 1 1/2 + 2 1/2
-                            "5",          // #17: 3 2/3 + 1 1/3
-                            "6⅘",       // #18: 4 3/5 + 2 1/5
-                            "7",          // #19: 5 3/4 + 1 1/4
-                            "6",          // #20: 2 5/6 + 3 1/6
-                            "4½",       // #21: 6 7/8 - 2 3/8
-                            "5⅓",       // #22: 8 2/3 - 3 1/3
-                            "3⅗",       // #23: 7 4/5 - 4 1/5
-                            "4½",       // #24: 9 3/4 - 5 1/4
-                            "4⅔"        // #25: 10 5/6 - 6 1/6
-                        ),
-                        correctMatches = mapOf(
-                            0 to 0,   // 1/8 + 5/8 = 3/4
-                            1 to 1,   // 3/5 + 1/5 = 4/5
-                            2 to 2,   // 2/9 + 4/9 = 2/3
-                            3 to 3,   // 1/4 + 1/4 = 1/2
-                            4 to 4,   // 3/11 + 5/11 = 8/11
-                            5 to 5,   // 1/6 + 1/6 = 1/3
-                            6 to 6,   // 3/8 + 1/8 = 1/2
-                            7 to 7,   // 2/5 + 2/5 = 4/5
-                            8 to 8,   // 5/12 + 7/12 = 1
-                            9 to 9,   // 3/10 + 7/10 = 1
-                            10 to 10, // 7/8 - 3/8 = 1/2
-                            11 to 11, // 5/6 - 2/6 = 1/2
-                            12 to 12, // 7/9 - 2/9 = 5/9
-                            13 to 13, // 11/12 - 5/12 = 1/2
-                            14 to 14, // 9/10 - 3/10 = 3/5
-                            15 to 15, // 1 1/2 + 2 1/2 = 4
-                            16 to 16, // 3 2/3 + 1 1/3 = 5
-                            17 to 17, // 4 3/5 + 2 1/5 = 6 4/5
-                            18 to 18, // 5 3/4 + 1 1/4 = 7
-                            19 to 19, // 2 5/6 + 3 1/6 = 6
-                            20 to 20, // 6 7/8 - 2 3/8 = 4 1/2
-                            21 to 21, // 8 2/3 - 3 1/3 = 5 1/3
-                            22 to 22, // 7 4/5 - 4 1/5 = 3 3/5
-                            23 to 23, // 9 3/4 - 5 1/4 = 4 1/2
-                            24 to 24  // 10 5/6 - 6 1/6 = 4 2/3
-                        )
-                    )
-                )
-            )
+//            Activity(
+//                id = 3,
+//                quarter = 1,
+//                lessonNumber = 1,
+//                activityNumber = 3,
+//                title = "Addition and Subtraction of Similar Fractions",
+//                type = ActivityType.WIRE_MATCHING,
+//                questions = listOf(
+//                    Question.WireMatching(
+//                        id = 1,
+//                        text = "Solve the fractions in Column A and match them with the correct answers in Column B by drawing a line.",
+//                        columnA = listOf(
+//                            "⅛ + ⅝ =",
+//                            "⅗ + ⅕ =",
+//                            "⅖ + ⅘ =",
+//                            "¼ + ¼ =",
+//                            "³⁄₁₁ + ⁵⁄₁₁ =",
+//                            "⅙ + ⅙ =",
+//                            "⅜ + ⅛ =",
+//                            "⅖ + ⅖ =",
+//                            "⁵⁄₁₂ + ⁷⁄₁₂ =",
+//                            "³⁄₁₀ + ⁷⁄₁₀ =",
+//                            "⅞ - ⅜ =",
+//                            "⅚ - ⅙ =",
+//                            "⁷⁄₉ - ⅖ =",
+//                            "¹¹⁄₁₂ - ⁵⁄₁₂ =",
+//                            "⁹⁄₁₀ - ³⁄₁₀ =",
+//                            "1½ + 2½ =",
+//                            "3⅔ + 1⅓ =",
+//                            "4⅗ + 2⅕ =",
+//                            "5¾ + 1¼ =",
+//                            "2⅚ + 3⅙ =",
+//                            "6⅞ - 2⅜ =",
+//                            "8⅔ - 3⅓ =",
+//                            "7⅘ - 4⅕ =",
+//                            "9¾ - 5¼ =",
+//                            "10⅚ - 6⅙ ="
+//                        ),
+//                        columnB = listOf(
+//                            "¾",        // #1: 1/8 + 5/8
+//                            "⅘",        // #2: 3/5 + 1/5
+//                            "⅔",        // #3: 2/9 + 4/9
+//                            "½",        // #4: 1/4 + 1/4
+//                            "⁸⁄₁₁",       // #5: 3/11 + 5/11
+//                            "⅓",        // #6: 1/6 + 1/6
+//                            "½",        // #7: 3/8 + 1/8
+//                            "⅘",        // #8: 2/5 + 2/5
+//                            "1",          // #9: 5/12 + 7/12
+//                            "1",          // #10: 3/10 + 7/10
+//                            "½",        // #11: 7/8 - 3/8
+//                            "½",        // #12: 5/6 - 2/6
+//                            "⁵⁄₉",        // #13: 7/9 - 2/9
+//                            "½",        // #14: 11/12 - 5/12
+//                            "⅗",        // #15: 9/10 - 3/10
+//                            "4",          // #16: 1 1/2 + 2 1/2
+//                            "5",          // #17: 3 2/3 + 1 1/3
+//                            "6⅘",       // #18: 4 3/5 + 2 1/5
+//                            "7",          // #19: 5 3/4 + 1 1/4
+//                            "6",          // #20: 2 5/6 + 3 1/6
+//                            "4½",       // #21: 6 7/8 - 2 3/8
+//                            "5⅓",       // #22: 8 2/3 - 3 1/3
+//                            "3⅗",       // #23: 7 4/5 - 4 1/5
+//                            "4½",       // #24: 9 3/4 - 5 1/4
+//                            "4⅔"        // #25: 10 5/6 - 6 1/6
+//                        ),
+//                        correctMatches = mapOf(
+//                            0 to 0,   // 1/8 + 5/8 = 3/4
+//                            1 to 1,   // 3/5 + 1/5 = 4/5
+//                            2 to 2,   // 2/9 + 4/9 = 2/3
+//                            3 to 3,   // 1/4 + 1/4 = 1/2
+//                            4 to 4,   // 3/11 + 5/11 = 8/11
+//                            5 to 5,   // 1/6 + 1/6 = 1/3
+//                            6 to 6,   // 3/8 + 1/8 = 1/2
+//                            7 to 7,   // 2/5 + 2/5 = 4/5
+//                            8 to 8,   // 5/12 + 7/12 = 1
+//                            9 to 9,   // 3/10 + 7/10 = 1
+//                            10 to 10, // 7/8 - 3/8 = 1/2
+//                            11 to 11, // 5/6 - 2/6 = 1/2
+//                            12 to 12, // 7/9 - 2/9 = 5/9
+//                            13 to 13, // 11/12 - 5/12 = 1/2
+//                            14 to 14, // 9/10 - 3/10 = 3/5
+//                            15 to 15, // 1 1/2 + 2 1/2 = 4
+//                            16 to 16, // 3 2/3 + 1 1/3 = 5
+//                            17 to 17, // 4 3/5 + 2 1/5 = 6 4/5
+//                            18 to 18, // 5 3/4 + 1 1/4 = 7
+//                            19 to 19, // 2 5/6 + 3 1/6 = 6
+//                            20 to 20, // 6 7/8 - 2 3/8 = 4 1/2
+//                            21 to 21, // 8 2/3 - 3 1/3 = 5 1/3
+//                            22 to 22, // 7 4/5 - 4 1/5 = 3 3/5
+//                            23 to 23, // 9 3/4 - 5 1/4 = 4 1/2
+//                            24 to 24  // 10 5/6 - 6 1/6 = 4 2/3
+//                        )
+//                    )
+//                )
+//            )
         )
     }
 
@@ -535,166 +534,166 @@ object ActivityDataProvider {
             ),
 
             // Activity 3: Word Problems - Addition and Subtraction
-            Activity(
-                id = 3,
-                quarter = 1,
-                lessonNumber = 2,
-                activityNumber = 3,
-                title = "Word Problems Involving Addition and Subtraction of Fractions",
-                type = ActivityType.MULTIPLE_CHOICE,
-                questions = listOf(
-                    Question.MultipleChoice(
-                        id = 1,
-                        text = "Ana ate ⅜ of a pizza and Ben ate ⅛ of the same pizza. How much pizza did they eat together?",
-                        options = listOf("¼", "⅜", "½", "⅝"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 2,
-                        text = "A baker used ⅔ cup of sugar in one recipe and ⅓ cup in another. How much sugar was used in total?",
-                        options = listOf("⅔", "1", "⅓", "1⅓"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 3,
-                        text = "Maria had ⅞ meter of ribbon. She used ⅜ meter for a project. How much ribbon is left?",
-                        options = listOf("¼", "⅜", "½", "⅝"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 4,
-                        text = "A tank was ⅗ full of water. After adding more water, it became ⅘ full. What fraction of the tank was filled?",
-                        options = listOf("⅕", "⅖", "⅗", "⅘"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 5,
-                        text = "John walked 2⅓ km in the morning and 1⅔ km in the evening. How far did he walk in total?",
-                        options = listOf("3", "3⅔", "4", "4⅓"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 6,
-                        text = "A recipe needs ¾ cup of milk. If you only have ½ cup, how much more do you need?",
-                        options = listOf("⅛", "¼", "⅜", "½"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 7,
-                        text = "Lisa read ⅖ of a book on Monday and ⅕ on Tuesday. What fraction of the book has she read?",
-                        options = listOf("⅕", "⅖", "⅗", "⅘"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 8,
-                        text = "A farmer harvested 3⅘ sacks of rice in the morning and 2⅕ sacks in the afternoon. How many sacks in total?",
-                        options = listOf("5", "5⅕", "5⅖", "6"),
-                        correctAnswer = 3
-                    ),
-                    Question.MultipleChoice(
-                        id = 9,
-                        text = "Tom drank ⅔ liter of juice and Sara drank ⅓ liter. How much more did Tom drink?",
-                        options = listOf("⅙", "¼", "⅓", "½"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 10,
-                        text = "A painter used 5⅞ liters of paint for a room and 3⅜ liters for another. What's the difference?",
-                        options = listOf("2", "2¼", "2½", "2¾"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 11,
-                        text = "A box contains ⅚ kg of flour. After using ⅙ kg, how much is left?",
-                        options = listOf("½", "⅔", "¾", "⅚"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 12,
-                        text = "Rosa spent 1¼ hours on homework and ¾ hour reading. How much time in total?",
-                        options = listOf("1½", "1¾", "2", "2¼"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 13,
-                        text = "A rope was 7⅔ meters long. After cutting off 2⅓ meters, what length remains?",
-                        options = listOf("5", "5⅓", "5⅔", "6"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 14,
-                        text = "A bucket was ⅝ full. After pouring out ⅜, what fraction remains?",
-                        options = listOf("⅛", "¼", "⅜", "½"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 15,
-                        text = "Emma ran 4⅖ km and walked 1⅗ km. What is the total distance?",
-                        options = listOf("5", "5⅖", "5⅗", "6"),
-                        correctAnswer = 3
-                    ),
-                    Question.MultipleChoice(
-                        id = 16,
-                        text = "A cake was divided into 8 pieces. If ⅜ was eaten, what fraction is left?",
-                        options = listOf("⅜", "½", "⅝", "¾"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 17,
-                        text = "A container held 6⅚ liters of oil. After using 2⅙ liters, how much remains?",
-                        options = listOf("4⅓", "4½", "4⅔", "4⅚"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 18,
-                        text = "Mike studied ⅗ hour in the morning and ⅖ hour at night. Total study time?",
-                        options = listOf("⅘", "1", "1⅕", "1⅖"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 19,
-                        text = "A garden path is 8¾ meters. If 3¼ meters is paved, how much is unpaved?",
-                        options = listOf("5", "5¼", "5½", "5¾"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 20,
-                        text = "A recipe uses ⅚ cup flour and ⅙ cup sugar. How much more flour than sugar?",
-                        options = listOf("⅙", "⅓", "½", "⅔"),
-                        correctAnswer = 3
-                    ),
-                    Question.MultipleChoice(
-                        id = 21,
-                        text = "A bottle was ⅞ full. After drinking ⅜, what fraction is left?",
-                        options = listOf("¼", "⅜", "½", "⅝"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 22,
-                        text = "Anna traveled 5⅗ km by bus and 2⅖ km by car. Total distance?",
-                        options = listOf("7", "7⅖", "7⅗", "8"),
-                        correctAnswer = 3
-                    ),
-                    Question.MultipleChoice(
-                        id = 23,
-                        text = "A tank contained 9⅞ gallons. After using 4⅜ gallons, how much remains?",
-                        options = listOf("5", "5⅜", "5½", "5⅝"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 24,
-                        text = "Pedro ate ⅖ of a pie and his sister ate ⅗. How much pie was eaten?",
-                        options = listOf("⅐", "⅘", "⅚", "⅞"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 25,
-                        text = "A bag had 10¾ kg of rice. After using 6¼ kg, how much is left?",
-                        options = listOf("4", "4¼", "4½", "4¾"),
-                        correctAnswer = 2
-                    )
-                )
-            )
+//            Activity(
+//                id = 3,
+//                quarter = 1,
+//                lessonNumber = 2,
+//                activityNumber = 3,
+//                title = "Word Problems Involving Addition and Subtraction of Fractions",
+//                type = ActivityType.MULTIPLE_CHOICE,
+//                questions = listOf(
+//                    Question.MultipleChoice(
+//                        id = 1,
+//                        text = "Ana ate ⅜ of a pizza and Ben ate ⅛ of the same pizza. How much pizza did they eat together?",
+//                        options = listOf("¼", "⅜", "½", "⅝"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 2,
+//                        text = "A baker used ⅔ cup of sugar in one recipe and ⅓ cup in another. How much sugar was used in total?",
+//                        options = listOf("⅔", "1", "⅓", "1⅓"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 3,
+//                        text = "Maria had ⅞ meter of ribbon. She used ⅜ meter for a project. How much ribbon is left?",
+//                        options = listOf("¼", "⅜", "½", "⅝"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 4,
+//                        text = "A tank was ⅗ full of water. After adding more water, it became ⅘ full. What fraction of the tank was filled?",
+//                        options = listOf("⅕", "⅖", "⅗", "⅘"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 5,
+//                        text = "John walked 2⅓ km in the morning and 1⅔ km in the evening. How far did he walk in total?",
+//                        options = listOf("3", "3⅔", "4", "4⅓"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 6,
+//                        text = "A recipe needs ¾ cup of milk. If you only have ½ cup, how much more do you need?",
+//                        options = listOf("⅛", "¼", "⅜", "½"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 7,
+//                        text = "Lisa read ⅖ of a book on Monday and ⅕ on Tuesday. What fraction of the book has she read?",
+//                        options = listOf("⅕", "⅖", "⅗", "⅘"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 8,
+//                        text = "A farmer harvested 3⅘ sacks of rice in the morning and 2⅕ sacks in the afternoon. How many sacks in total?",
+//                        options = listOf("5", "5⅕", "5⅖", "6"),
+//                        correctAnswer = 3
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 9,
+//                        text = "Tom drank ⅔ liter of juice and Sara drank ⅓ liter. How much more did Tom drink?",
+//                        options = listOf("⅙", "¼", "⅓", "½"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 10,
+//                        text = "A painter used 5⅞ liters of paint for a room and 3⅜ liters for another. What's the difference?",
+//                        options = listOf("2", "2¼", "2½", "2¾"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 11,
+//                        text = "A box contains ⅚ kg of flour. After using ⅙ kg, how much is left?",
+//                        options = listOf("½", "⅔", "¾", "⅚"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 12,
+//                        text = "Rosa spent 1¼ hours on homework and ¾ hour reading. How much time in total?",
+//                        options = listOf("1½", "1¾", "2", "2¼"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 13,
+//                        text = "A rope was 7⅔ meters long. After cutting off 2⅓ meters, what length remains?",
+//                        options = listOf("5", "5⅓", "5⅔", "6"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 14,
+//                        text = "A bucket was ⅝ full. After pouring out ⅜, what fraction remains?",
+//                        options = listOf("⅛", "¼", "⅜", "½"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 15,
+//                        text = "Emma ran 4⅖ km and walked 1⅗ km. What is the total distance?",
+//                        options = listOf("5", "5⅖", "5⅗", "6"),
+//                        correctAnswer = 3
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 16,
+//                        text = "A cake was divided into 8 pieces. If ⅜ was eaten, what fraction is left?",
+//                        options = listOf("⅜", "½", "⅝", "¾"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 17,
+//                        text = "A container held 6⅚ liters of oil. After using 2⅙ liters, how much remains?",
+//                        options = listOf("4⅓", "4½", "4⅔", "4⅚"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 18,
+//                        text = "Mike studied ⅗ hour in the morning and ⅖ hour at night. Total study time?",
+//                        options = listOf("⅘", "1", "1⅕", "1⅖"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 19,
+//                        text = "A garden path is 8¾ meters. If 3¼ meters is paved, how much is unpaved?",
+//                        options = listOf("5", "5¼", "5½", "5¾"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 20,
+//                        text = "A recipe uses ⅚ cup flour and ⅙ cup sugar. How much more flour than sugar?",
+//                        options = listOf("⅙", "⅓", "½", "⅔"),
+//                        correctAnswer = 3
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 21,
+//                        text = "A bottle was ⅞ full. After drinking ⅜, what fraction is left?",
+//                        options = listOf("¼", "⅜", "½", "⅝"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 22,
+//                        text = "Anna traveled 5⅗ km by bus and 2⅖ km by car. Total distance?",
+//                        options = listOf("7", "7⅖", "7⅗", "8"),
+//                        correctAnswer = 3
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 23,
+//                        text = "A tank contained 9⅞ gallons. After using 4⅜ gallons, how much remains?",
+//                        options = listOf("5", "5⅜", "5½", "5⅝"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 24,
+//                        text = "Pedro ate ⅖ of a pie and his sister ate ⅗. How much pie was eaten?",
+//                        options = listOf("⅐", "⅘", "⅚", "⅞"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 25,
+//                        text = "A bag had 10¾ kg of rice. After using 6¼ kg, how much is left?",
+//                        options = listOf("4", "4¼", "4½", "4¾"),
+//                        correctAnswer = 2
+//                    )
+//                )
+//            )
         )
     }
 
@@ -1025,101 +1024,101 @@ object ActivityDataProvider {
             ),
 
             // Activity 3: Multiplication Practice - Drag and Drop
-            Activity(
-                id = 3,
-                quarter = 1,
-                lessonNumber = 3,
-                activityNumber = 3,
-                title = "Multiplication of Fractions - Practice",
-                type = ActivityType.DRAG_DROP,
-                questions = listOf(
-                    Question.DragDrop(
-                        id = 1,
-                        text = "Solve the multiplication problems in Column A and drag the correct answer from Column B.",
-                        columnA = listOf(
-                            "½ × ¾ =",
-                            "⅓ × ⅔ =",
-                            "⅖ × ⅗ =",
-                            "¾ × ⅘ =",
-                            "⅚ × ⅔ =",
-                            "⅜ × ⅔ =",
-                            "⅝ × ⅘ =",
-                            "⅞ × ⅖ =",
-                            "²⁄₇ × ⅚ =",
-                            "⅜ × ⁴⁄₉ =",
-                            "1½ × ⅔ =",
-                            "2¼ × ⅘ =",
-                            "3⅓ × ¾ =",
-                            "1⅗ × ⅚ =",
-                            "2⅔ × ⅗ =",
-                            "4½ × ⅔ =",
-                            "3¾ × ⅘ =",
-                            "5⅙ × ⅗ =",
-                            "2⅘ × ⅞ =",
-                            "6⅔ × ¾ =",
-                            "1⅓ × 2¼ =",
-                            "3½ × 1⅕ =",
-                            "2⅖ × 2½ =",
-                            "4¾ × 1⅓ =",
-                            "5½ × 2⅔ ="
-                        ),
-                        columnB = listOf(
-                            "⅜",          // #1: 1/2 × 3/4 = 3/8
-                            "²⁄₉",        // #2: 1/3 × 2/3 = 2/9
-                            "⁶⁄₂₅",       // #3: 2/5 × 3/5 = 6/25
-                            "⅗",          // #4: 3/4 × 4/5 = 3/5
-                            "⁵⁄₉",        // #5: 5/6 × 2/3 = 5/9
-                            "¼",          // #6: 3/8 × 2/3 = 1/4
-                            "½",          // #7: 5/8 × 4/5 = 1/2
-                            "⁷⁄₂₀",       // #8: 7/8 × 2/5 = 7/20
-                            "⁵⁄₂₁",       // #9: 2/7 × 5/6 = 5/21
-                            "⅙",          // #10: 3/8 × 4/9 = 1/6
-                            "1",          // #11: 1 1/2 × 2/3 = 1
-                            "1⅘",         // #12: 2 1/4 × 4/5 = 1 4/5
-                            "2½",         // #13: 3 1/3 × 3/4 = 2 1/2
-                            "1⅓",         // #14: 1 3/5 × 5/6 = 1 1/3
-                            "1⅗",         // #15: 2 2/3 × 3/5 = 1 3/5
-                            "3",          // #16: 4 1/2 × 2/3 = 3
-                            "3",          // #17: 3 3/4 × 4/5 = 3
-                            "3⅒",     // #18: 5 1/6 × 3/5 = 3 1/10
-                            "2⁹⁄₂₀",     // #19: 2 4/5 × 7/8 = 2 9/20
-                            "5",          // #20: 6 2/3 × 3/4 = 5
-                            "3",          // #21: 1 1/3 × 2 1/4 = 3
-                            "4⅕",         // #22: 3 1/2 × 1 1/5 = 4 1/5
-                            "6",          // #23: 2 2/5 × 2 1/2 = 6
-                            "6⅓",         // #24: 4 3/4 × 1 1/3 = 6 1/3
-                            "14⅔"         // #25: 5 1/2 × 2 2/3 = 14 2/3
-                        ),
-                        correctMatches = mapOf(
-                            0 to 0,   // 1/2 × 3/4 = 3/8
-                            1 to 1,   // 1/3 × 2/3 = 2/9
-                            2 to 2,   // 2/5 × 3/5 = 6/25
-                            3 to 3,   // 3/4 × 4/5 = 3/5
-                            4 to 4,   // 5/6 × 2/3 = 5/9
-                            5 to 5,   // 3/8 × 2/3 = 1/4
-                            6 to 6,   // 5/8 × 4/5 = 1/2
-                            7 to 7,   // 7/8 × 2/5 = 7/20
-                            8 to 8,   // 2/7 × 5/6 = 5/21
-                            9 to 9,   // 3/8 × 4/9 = 1/6
-                            10 to 10, // 1 1/2 × 2/3 = 1
-                            11 to 11, // 2 1/4 × 4/5 = 1 4/5
-                            12 to 12, // 3 1/3 × 3/4 = 2 1/2
-                            13 to 13, // 1 3/5 × 5/6 = 1 1/3
-                            14 to 14, // 2 2/3 × 3/5 = 1 3/5
-                            15 to 15, // 4 1/2 × 2/3 = 3
-                            16 to 16, // 3 3/4 × 4/5 = 3
-                            17 to 17, // 5 1/6 × 3/5 = 3 1/10
-                            18 to 18, // 2 4/5 × 7/8 = 2 9/20
-                            19 to 19, // 6 2/3 × 3/4 = 5
-                            20 to 20, // 1 1/3 × 2 1/4 = 3
-                            21 to 21, // 3 1/2 × 1 1/5 = 4 1/5
-                            22 to 22, // 2 2/5 × 2 1/2 = 6
-                            23 to 23, // 4 3/4 × 1 1/3 = 6 1/3
-                            24 to 24  // 5 1/2 × 2 2/3 = 14 2/3
-                        )
-                    )
-                )
-            )
+//            Activity(
+//                id = 3,
+//                quarter = 1,
+//                lessonNumber = 3,
+//                activityNumber = 3,
+//                title = "Multiplication of Fractions - Practice",
+//                type = ActivityType.DRAG_DROP,
+//                questions = listOf(
+//                    Question.DragDrop(
+//                        id = 1,
+//                        text = "Solve the multiplication problems in Column A and drag the correct answer from Column B.",
+//                        columnA = listOf(
+//                            "½ × ¾ =",
+//                            "⅓ × ⅔ =",
+//                            "⅖ × ⅗ =",
+//                            "¾ × ⅘ =",
+//                            "⅚ × ⅔ =",
+//                            "⅜ × ⅔ =",
+//                            "⅝ × ⅘ =",
+//                            "⅞ × ⅖ =",
+//                            "²⁄₇ × ⅚ =",
+//                            "⅜ × ⁴⁄₉ =",
+//                            "1½ × ⅔ =",
+//                            "2¼ × ⅘ =",
+//                            "3⅓ × ¾ =",
+//                            "1⅗ × ⅚ =",
+//                            "2⅔ × ⅗ =",
+//                            "4½ × ⅔ =",
+//                            "3¾ × ⅘ =",
+//                            "5⅙ × ⅗ =",
+//                            "2⅘ × ⅞ =",
+//                            "6⅔ × ¾ =",
+//                            "1⅓ × 2¼ =",
+//                            "3½ × 1⅕ =",
+//                            "2⅖ × 2½ =",
+//                            "4¾ × 1⅓ =",
+//                            "5½ × 2⅔ ="
+//                        ),
+//                        columnB = listOf(
+//                            "⅜",          // #1: 1/2 × 3/4 = 3/8
+//                            "²⁄₉",        // #2: 1/3 × 2/3 = 2/9
+//                            "⁶⁄₂₅",       // #3: 2/5 × 3/5 = 6/25
+//                            "⅗",          // #4: 3/4 × 4/5 = 3/5
+//                            "⁵⁄₉",        // #5: 5/6 × 2/3 = 5/9
+//                            "¼",          // #6: 3/8 × 2/3 = 1/4
+//                            "½",          // #7: 5/8 × 4/5 = 1/2
+//                            "⁷⁄₂₀",       // #8: 7/8 × 2/5 = 7/20
+//                            "⁵⁄₂₁",       // #9: 2/7 × 5/6 = 5/21
+//                            "⅙",          // #10: 3/8 × 4/9 = 1/6
+//                            "1",          // #11: 1 1/2 × 2/3 = 1
+//                            "1⅘",         // #12: 2 1/4 × 4/5 = 1 4/5
+//                            "2½",         // #13: 3 1/3 × 3/4 = 2 1/2
+//                            "1⅓",         // #14: 1 3/5 × 5/6 = 1 1/3
+//                            "1⅗",         // #15: 2 2/3 × 3/5 = 1 3/5
+//                            "3",          // #16: 4 1/2 × 2/3 = 3
+//                            "3",          // #17: 3 3/4 × 4/5 = 3
+//                            "3⅒",     // #18: 5 1/6 × 3/5 = 3 1/10
+//                            "2⁹⁄₂₀",     // #19: 2 4/5 × 7/8 = 2 9/20
+//                            "5",          // #20: 6 2/3 × 3/4 = 5
+//                            "3",          // #21: 1 1/3 × 2 1/4 = 3
+//                            "4⅕",         // #22: 3 1/2 × 1 1/5 = 4 1/5
+//                            "6",          // #23: 2 2/5 × 2 1/2 = 6
+//                            "6⅓",         // #24: 4 3/4 × 1 1/3 = 6 1/3
+//                            "14⅔"         // #25: 5 1/2 × 2 2/3 = 14 2/3
+//                        ),
+//                        correctMatches = mapOf(
+//                            0 to 0,   // 1/2 × 3/4 = 3/8
+//                            1 to 1,   // 1/3 × 2/3 = 2/9
+//                            2 to 2,   // 2/5 × 3/5 = 6/25
+//                            3 to 3,   // 3/4 × 4/5 = 3/5
+//                            4 to 4,   // 5/6 × 2/3 = 5/9
+//                            5 to 5,   // 3/8 × 2/3 = 1/4
+//                            6 to 6,   // 5/8 × 4/5 = 1/2
+//                            7 to 7,   // 7/8 × 2/5 = 7/20
+//                            8 to 8,   // 2/7 × 5/6 = 5/21
+//                            9 to 9,   // 3/8 × 4/9 = 1/6
+//                            10 to 10, // 1 1/2 × 2/3 = 1
+//                            11 to 11, // 2 1/4 × 4/5 = 1 4/5
+//                            12 to 12, // 3 1/3 × 3/4 = 2 1/2
+//                            13 to 13, // 1 3/5 × 5/6 = 1 1/3
+//                            14 to 14, // 2 2/3 × 3/5 = 1 3/5
+//                            15 to 15, // 4 1/2 × 2/3 = 3
+//                            16 to 16, // 3 3/4 × 4/5 = 3
+//                            17 to 17, // 5 1/6 × 3/5 = 3 1/10
+//                            18 to 18, // 2 4/5 × 7/8 = 2 9/20
+//                            19 to 19, // 6 2/3 × 3/4 = 5
+//                            20 to 20, // 1 1/3 × 2 1/4 = 3
+//                            21 to 21, // 3 1/2 × 1 1/5 = 4 1/5
+//                            22 to 22, // 2 2/5 × 2 1/2 = 6
+//                            23 to 23, // 4 3/4 × 1 1/3 = 6 1/3
+//                            24 to 24  // 5 1/2 × 2 2/3 = 14 2/3
+//                        )
+//                    )
+//                )
+//            )
         )
     }
 
@@ -1257,166 +1256,166 @@ object ActivityDataProvider {
             ),
 
             // Activity 3: Multiplication Word Problems
-            Activity(
-                id = 3,
-                quarter = 1,
-                lessonNumber = 4,
-                activityNumber = 3,
-                title = "Multiplication Word Problems with Fractions",
-                type = ActivityType.MULTIPLE_CHOICE,
-                questions = listOf(
-                    Question.MultipleChoice(
-                        id = 1,
-                        text = "A recipe calls for ¾ cup of sugar. If you want to make half the recipe, how much sugar do you need?",
-                        options = listOf("¼ cup", "⅜ cup", "½ cup", "⅝ cup"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 2,
-                        text = "A garden is ⅔ meter wide and ¾ meter long. What is the area of the garden?",
-                        options = listOf("½ m²", "⁷⁄₁₂ m²", "⅔ m²", "¹¹⁄₁₂ m²"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 3,
-                        text = "Maria spent ⅖ of her ₱500. How much did she spend?",
-                        options = listOf("₱100", "₱150", "₱200", "₱250"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 4,
-                        text = "A rope is 8½ meters long. If you cut it into ⅔ of its length, how long is the piece?",
-                        options = listOf("5 m", "5⅔ m", "6 m", "6⅓ m"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 5,
-                        text = "A tank holds 12 liters when full. If it is ¾ full, how many liters does it contain?",
-                        options = listOf("8 L", "9 L", "10 L", "11 L"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 6,
-                        text = "John read ⅗ of a 200-page book. How many pages did he read?",
-                        options = listOf("100", "120", "140", "160"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 7,
-                        text = "A box of candies weighs 2¼ kg. If each candy weighs ⅛ kg, how many candies are there?",
-                        options = listOf("16", "18", "20", "22"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 8,
-                        text = "A field is 15½ meters by ⅔ meters. What is the area?",
-                        options = listOf("10 m²", "10⅓ m²", "11 m²", "11⅓ m²"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 9,
-                        text = "Lisa practiced piano for 1⅔ hours. If she spent ¾ of that time on scales, how long did she practice scales?",
-                        options = listOf("1 hr", "1¼ hr", "1⅓ hr", "1½ hr"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 10,
-                        text = "A baker uses ⅝ kg of flour for one cake. How much flour for 4 cakes?",
-                        options = listOf("2 kg", "2¼ kg", "2½ kg", "2¾ kg"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 11,
-                        text = "A bottle contains 1⅕ liters of juice. If you drink ⅖ of it, how much did you drink?",
-                        options = listOf("¹²⁄₂₅ L", "⁸⁄₂₅ L", "½ L", "⅗ L"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 12,
-                        text = "A fabric is 4¾ meters long. If you need ⅗ of it, how much do you need?",
-                        options = listOf("2⅘ m", "2⅚ m", "3 m", "3⅕ m"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 13,
-                        text = "Tom ran ⅝ of a 12 km race. How far did he run?",
-                        options = listOf("6 km", "6½ km", "7 km", "7½ km"),
-                        correctAnswer = 3
-                    ),
-                    Question.MultipleChoice(
-                        id = 14,
-                        text = "A pizza is cut into 8 slices. If you eat ⅜ of the pizza, how many slices did you eat?",
-                        options = listOf("2", "3", "4", "5"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 15,
-                        text = "A car travels ⅔ of a 90 km distance. How far has it traveled?",
-                        options = listOf("50 km", "55 km", "60 km", "65 km"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 16,
-                        text = "A rectangle is 5⅓ meters long and ¾ meter wide. What is its area?",
-                        options = listOf("3¾ m²", "4 m²", "4¼ m²", "4½ m²"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 17,
-                        text = "Anna saved ⅘ of her ₱2,500 allowance. How much did she save?",
-                        options = listOf("₱1,800", "₱1,900", "₱2,000", "₱2,100"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 18,
-                        text = "A bag of rice weighs 6¾ kg. If ⅖ of it is used, how much was used?",
-                        options = listOf("2½ kg", "2⅔ kg", "2⅘ kg", "2⁷⁄₁₀ kg"),
-                        correctAnswer = 3
-                    ),
-                    Question.MultipleChoice(
-                        id = 19,
-                        text = "A worker earns ₱18,000 per month. If he spends ⅚ of it, how much does he spend?",
-                        options = listOf("₱14,000", "₱15,000", "₱16,000", "₱17,000"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 20,
-                        text = "A trail is 7½ km long. If you hike ⅗ of it, how far did you hike?",
-                        options = listOf("4 km", "4¼ km", "4½ km", "4¾ km"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 21,
-                        text = "A water tank holds 20 gallons. If it is ⅗ full, how many gallons are in it?",
-                        options = listOf("10 gal", "12 gal", "14 gal", "16 gal"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 22,
-                        text = "A painter used ⅞ of a 16-liter can of paint. How much paint was used?",
-                        options = listOf("12 L", "13 L", "14 L", "15 L"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 23,
-                        text = "A school has 450 students. If ⅖ are boys, how many boys are there?",
-                        options = listOf("150", "160", "170", "180"),
-                        correctAnswer = 3
-                    ),
-                    Question.MultipleChoice(
-                        id = 24,
-                        text = "A ribbon is 9⅔ meters long. If you use ¾ of it, how much did you use?",
-                        options = listOf("7 m", "7¼ m", "7½ m", "7¾ m"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 25,
-                        text = "A farmer harvested 840 kg of rice. If he sold ⅚ of it, how much did he sell?",
-                        options = listOf("650 kg", "700 kg", "750 kg", "800 kg"),
-                        correctAnswer = 1
-                    )
-                )
-            )
+//            Activity(
+//                id = 3,
+//                quarter = 1,
+//                lessonNumber = 4,
+//                activityNumber = 3,
+//                title = "Multiplication Word Problems with Fractions",
+//                type = ActivityType.MULTIPLE_CHOICE,
+//                questions = listOf(
+//                    Question.MultipleChoice(
+//                        id = 1,
+//                        text = "A recipe calls for ¾ cup of sugar. If you want to make half the recipe, how much sugar do you need?",
+//                        options = listOf("¼ cup", "⅜ cup", "½ cup", "⅝ cup"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 2,
+//                        text = "A garden is ⅔ meter wide and ¾ meter long. What is the area of the garden?",
+//                        options = listOf("½ m²", "⁷⁄₁₂ m²", "⅔ m²", "¹¹⁄₁₂ m²"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 3,
+//                        text = "Maria spent ⅖ of her ₱500. How much did she spend?",
+//                        options = listOf("₱100", "₱150", "₱200", "₱250"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 4,
+//                        text = "A rope is 8½ meters long. If you cut it into ⅔ of its length, how long is the piece?",
+//                        options = listOf("5 m", "5⅔ m", "6 m", "6⅓ m"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 5,
+//                        text = "A tank holds 12 liters when full. If it is ¾ full, how many liters does it contain?",
+//                        options = listOf("8 L", "9 L", "10 L", "11 L"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 6,
+//                        text = "John read ⅗ of a 200-page book. How many pages did he read?",
+//                        options = listOf("100", "120", "140", "160"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 7,
+//                        text = "A box of candies weighs 2¼ kg. If each candy weighs ⅛ kg, how many candies are there?",
+//                        options = listOf("16", "18", "20", "22"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 8,
+//                        text = "A field is 15½ meters by ⅔ meters. What is the area?",
+//                        options = listOf("10 m²", "10⅓ m²", "11 m²", "11⅓ m²"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 9,
+//                        text = "Lisa practiced piano for 1⅔ hours. If she spent ¾ of that time on scales, how long did she practice scales?",
+//                        options = listOf("1 hr", "1¼ hr", "1⅓ hr", "1½ hr"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 10,
+//                        text = "A baker uses ⅝ kg of flour for one cake. How much flour for 4 cakes?",
+//                        options = listOf("2 kg", "2¼ kg", "2½ kg", "2¾ kg"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 11,
+//                        text = "A bottle contains 1⅕ liters of juice. If you drink ⅖ of it, how much did you drink?",
+//                        options = listOf("¹²⁄₂₅ L", "⁸⁄₂₅ L", "½ L", "⅗ L"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 12,
+//                        text = "A fabric is 4¾ meters long. If you need ⅗ of it, how much do you need?",
+//                        options = listOf("2⅘ m", "2⅚ m", "3 m", "3⅕ m"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 13,
+//                        text = "Tom ran ⅝ of a 12 km race. How far did he run?",
+//                        options = listOf("6 km", "6½ km", "7 km", "7½ km"),
+//                        correctAnswer = 3
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 14,
+//                        text = "A pizza is cut into 8 slices. If you eat ⅜ of the pizza, how many slices did you eat?",
+//                        options = listOf("2", "3", "4", "5"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 15,
+//                        text = "A car travels ⅔ of a 90 km distance. How far has it traveled?",
+//                        options = listOf("50 km", "55 km", "60 km", "65 km"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 16,
+//                        text = "A rectangle is 5⅓ meters long and ¾ meter wide. What is its area?",
+//                        options = listOf("3¾ m²", "4 m²", "4¼ m²", "4½ m²"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 17,
+//                        text = "Anna saved ⅘ of her ₱2,500 allowance. How much did she save?",
+//                        options = listOf("₱1,800", "₱1,900", "₱2,000", "₱2,100"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 18,
+//                        text = "A bag of rice weighs 6¾ kg. If ⅖ of it is used, how much was used?",
+//                        options = listOf("2½ kg", "2⅔ kg", "2⅘ kg", "2⁷⁄₁₀ kg"),
+//                        correctAnswer = 3
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 19,
+//                        text = "A worker earns ₱18,000 per month. If he spends ⅚ of it, how much does he spend?",
+//                        options = listOf("₱14,000", "₱15,000", "₱16,000", "₱17,000"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 20,
+//                        text = "A trail is 7½ km long. If you hike ⅗ of it, how far did you hike?",
+//                        options = listOf("4 km", "4¼ km", "4½ km", "4¾ km"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 21,
+//                        text = "A water tank holds 20 gallons. If it is ⅗ full, how many gallons are in it?",
+//                        options = listOf("10 gal", "12 gal", "14 gal", "16 gal"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 22,
+//                        text = "A painter used ⅞ of a 16-liter can of paint. How much paint was used?",
+//                        options = listOf("12 L", "13 L", "14 L", "15 L"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 23,
+//                        text = "A school has 450 students. If ⅖ are boys, how many boys are there?",
+//                        options = listOf("150", "160", "170", "180"),
+//                        correctAnswer = 3
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 24,
+//                        text = "A ribbon is 9⅔ meters long. If you use ¾ of it, how much did you use?",
+//                        options = listOf("7 m", "7¼ m", "7½ m", "7¾ m"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 25,
+//                        text = "A farmer harvested 840 kg of rice. If he sold ⅚ of it, how much did he sell?",
+//                        options = listOf("650 kg", "700 kg", "750 kg", "800 kg"),
+//                        correctAnswer = 1
+//                    )
+//                )
+//            )
         )
     }
 
@@ -1537,166 +1536,166 @@ object ActivityDataProvider {
             ),
 
             // Activity 3: Division Word Problems
-            Activity(
-                id = 3,
-                quarter = 1,
-                lessonNumber = 5,
-                activityNumber = 3,
-                title = "Division Word Problems with Fractions",
-                type = ActivityType.MULTIPLE_CHOICE,
-                questions = listOf(
-                    Question.MultipleChoice(
-                        id = 1,
-                        text = "A ribbon ⅚ meter long was cut into 5 equal pieces. What is the length of each piece?",
-                        options = listOf("⅙ m", "⅕ m", "⁵⁄₃₀ m", "¼ m"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 2,
-                        text = "A chocolate bar measuring ⅔ was split into 4 equal parts. What fraction is each part?",
-                        options = listOf("⅙", "²⁄₁₂", "⅛", "³⁄₁₆"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 3,
-                        text = "A farmer had ⅞ kilograms of rice. He divided it into 2 bags equally. How much rice was in each bag?",
-                        options = listOf("³⁄₁₆ kg", "⁷⁄₁₆ kg", "½ kg", "⅝ kg"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 4,
-                        text = "A rope 9/10 meter long was cut into 3 equal parts. How long is each part?",
-                        options = listOf("³⁄₁₀ m", "³⁄₃₀ m", "¼ m", "⅕ m"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 5,
-                        text = "A piece of wood ¾ meter long was divided into 3 equal parts. How long is each part?",
-                        options = listOf("⅛ m", "³⁄₁₂ m", "¼ m", "⅓ m"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 6,
-                        text = "The quotient of ¾ ÷ ½ tells how many halves are in three-fourths. What is the answer?",
-                        options = listOf("1", "1¼", "1½", "1¾"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 7,
-                        text = "A farmer split ⅖ of a sack of corn into 10 equal bags. What fraction of the sack is in each bag?",
-                        options = listOf("⅒", "¹⁄₂₅", "²⁄₅₀", "⅕"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 8,
-                        text = "A stick ½ meter long was cut into 2 equal pieces. What is the length of each piece?",
-                        options = listOf("⅛ m", "⅙ m", "¼ m", "⅓ m"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 9,
-                        text = "A chocolate bar ⅘ was split between 2 friends equally. How much does each receive?",
-                        options = listOf("⅖", "⅗", "⁴⁄₁₀", "½"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 10,
-                        text = "The quotient of ⅚ ÷ ⅓ shows how many one-thirds are in five-sixths. What is the result?",
-                        options = listOf("2", "2¼", "2½", "2¾"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 11,
-                        text = "How many ¼-cup servings are in ¾ cup of juice?",
-                        options = listOf("2", "2½", "3", "3½"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 12,
-                        text = "A pizza is ⅞ of its original size. If you divide it among 7 people equally, what fraction does each person get?",
-                        options = listOf("⅛", "⅐", "¹⁄₅₆", "⅙"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 13,
-                        text = "A recipe needs ⅔ cup of flour. If you want to make ½ of the recipe, how much flour do you need?",
-                        options = listOf("¼ cup", "⅓ cup", "⅖ cup", "½ cup"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 14,
-                        text = "A trail is 6¾ km long. If you divide it into 3 equal sections, how long is each section?",
-                        options = listOf("2 km", "2¼ km", "2½ km", "2¾ km"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 15,
-                        text = "A bottle contains 4½ liters of water. If you pour it equally into 3 containers, how much is in each?",
-                        options = listOf("1¼ L", "1⅓ L", "1½ L", "1⅔ L"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 16,
-                        text = "A cloth 8⅔ meters long is cut into 4 equal pieces. How long is each piece?",
-                        options = listOf("2⅙ m", "2⅓ m", "2½ m", "2⅔ m"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 17,
-                        text = "The quotient of ⅞ ÷ ¼ gives the number of fourths in seven-eighths. What is the answer?",
-                        options = listOf("2½", "3", "3½", "4"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 18,
-                        text = "A rope 12½ meters long is cut into 5 equal parts. How long is each part?",
-                        options = listOf("2 m", "2¼ m", "2½ m", "2¾ m"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 19,
-                        text = "How many ⅓-liter bottles can be filled from 5⅔ liters of juice?",
-                        options = listOf("15", "16", "17", "18"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 20,
-                        text = "A cake weighing 3¾ kg is divided equally among 5 children. How much does each child get?",
-                        options = listOf("⅗ kg", "¾ kg", "⅘ kg", "⁷⁄₈ kg"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 21,
-                        text = "The average of ½, ¾, and ⅔ is found by dividing their sum by 3. What is the average?",
-                        options = listOf("⁵⁄₁₂", "½", "⁷⁄₁₂", "⅔"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 22,
-                        text = "The average of ⅖ and ⅘ is found by dividing their sum by 2. What is the result?",
-                        options = listOf("⅖", "½", "⅗", "⅘"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 23,
-                        text = "A ribbon 15¾ meters long is cut into pieces of ¾ meter each. How many pieces are there?",
-                        options = listOf("18", "19", "20", "21"),
-                        correctAnswer = 3
-                    ),
-                    Question.MultipleChoice(
-                        id = 24,
-                        text = "The average of ⅔, ⅚, and ½ is found by dividing their sum by 3. What is the average?",
-                        options = listOf("½", "⅔", "¾", "⅚"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 25,
-                        text = "How many ⅝-meter pieces can be cut from a 10-meter rope?",
-                        options = listOf("14", "15", "16", "17"),
-                        correctAnswer = 2
-                    )
-                )
-            )
+//            Activity(
+//                id = 3,
+//                quarter = 1,
+//                lessonNumber = 5,
+//                activityNumber = 3,
+//                title = "Division Word Problems with Fractions",
+//                type = ActivityType.MULTIPLE_CHOICE,
+//                questions = listOf(
+//                    Question.MultipleChoice(
+//                        id = 1,
+//                        text = "A ribbon ⅚ meter long was cut into 5 equal pieces. What is the length of each piece?",
+//                        options = listOf("⅙ m", "⅕ m", "⁵⁄₃₀ m", "¼ m"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 2,
+//                        text = "A chocolate bar measuring ⅔ was split into 4 equal parts. What fraction is each part?",
+//                        options = listOf("⅙", "²⁄₁₂", "⅛", "³⁄₁₆"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 3,
+//                        text = "A farmer had ⅞ kilograms of rice. He divided it into 2 bags equally. How much rice was in each bag?",
+//                        options = listOf("³⁄₁₆ kg", "⁷⁄₁₆ kg", "½ kg", "⅝ kg"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 4,
+//                        text = "A rope 9/10 meter long was cut into 3 equal parts. How long is each part?",
+//                        options = listOf("³⁄₁₀ m", "³⁄₃₀ m", "¼ m", "⅕ m"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 5,
+//                        text = "A piece of wood ¾ meter long was divided into 3 equal parts. How long is each part?",
+//                        options = listOf("⅛ m", "³⁄₁₂ m", "¼ m", "⅓ m"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 6,
+//                        text = "The quotient of ¾ ÷ ½ tells how many halves are in three-fourths. What is the answer?",
+//                        options = listOf("1", "1¼", "1½", "1¾"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 7,
+//                        text = "A farmer split ⅖ of a sack of corn into 10 equal bags. What fraction of the sack is in each bag?",
+//                        options = listOf("⅒", "¹⁄₂₅", "²⁄₅₀", "⅕"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 8,
+//                        text = "A stick ½ meter long was cut into 2 equal pieces. What is the length of each piece?",
+//                        options = listOf("⅛ m", "⅙ m", "¼ m", "⅓ m"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 9,
+//                        text = "A chocolate bar ⅘ was split between 2 friends equally. How much does each receive?",
+//                        options = listOf("⅖", "⅗", "⁴⁄₁₀", "½"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 10,
+//                        text = "The quotient of ⅚ ÷ ⅓ shows how many one-thirds are in five-sixths. What is the result?",
+//                        options = listOf("2", "2¼", "2½", "2¾"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 11,
+//                        text = "How many ¼-cup servings are in ¾ cup of juice?",
+//                        options = listOf("2", "2½", "3", "3½"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 12,
+//                        text = "A pizza is ⅞ of its original size. If you divide it among 7 people equally, what fraction does each person get?",
+//                        options = listOf("⅛", "⅐", "¹⁄₅₆", "⅙"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 13,
+//                        text = "A recipe needs ⅔ cup of flour. If you want to make ½ of the recipe, how much flour do you need?",
+//                        options = listOf("¼ cup", "⅓ cup", "⅖ cup", "½ cup"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 14,
+//                        text = "A trail is 6¾ km long. If you divide it into 3 equal sections, how long is each section?",
+//                        options = listOf("2 km", "2¼ km", "2½ km", "2¾ km"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 15,
+//                        text = "A bottle contains 4½ liters of water. If you pour it equally into 3 containers, how much is in each?",
+//                        options = listOf("1¼ L", "1⅓ L", "1½ L", "1⅔ L"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 16,
+//                        text = "A cloth 8⅔ meters long is cut into 4 equal pieces. How long is each piece?",
+//                        options = listOf("2⅙ m", "2⅓ m", "2½ m", "2⅔ m"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 17,
+//                        text = "The quotient of ⅞ ÷ ¼ gives the number of fourths in seven-eighths. What is the answer?",
+//                        options = listOf("2½", "3", "3½", "4"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 18,
+//                        text = "A rope 12½ meters long is cut into 5 equal parts. How long is each part?",
+//                        options = listOf("2 m", "2¼ m", "2½ m", "2¾ m"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 19,
+//                        text = "How many ⅓-liter bottles can be filled from 5⅔ liters of juice?",
+//                        options = listOf("15", "16", "17", "18"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 20,
+//                        text = "A cake weighing 3¾ kg is divided equally among 5 children. How much does each child get?",
+//                        options = listOf("⅗ kg", "¾ kg", "⅘ kg", "⁷⁄₈ kg"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 21,
+//                        text = "The average of ½, ¾, and ⅔ is found by dividing their sum by 3. What is the average?",
+//                        options = listOf("⁵⁄₁₂", "½", "⁷⁄₁₂", "⅔"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 22,
+//                        text = "The average of ⅖ and ⅘ is found by dividing their sum by 2. What is the result?",
+//                        options = listOf("⅖", "½", "⅗", "⅘"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 23,
+//                        text = "A ribbon 15¾ meters long is cut into pieces of ¾ meter each. How many pieces are there?",
+//                        options = listOf("18", "19", "20", "21"),
+//                        correctAnswer = 3
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 24,
+//                        text = "The average of ⅔, ⅚, and ½ is found by dividing their sum by 3. What is the average?",
+//                        options = listOf("½", "⅔", "¾", "⅚"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 25,
+//                        text = "How many ⅝-meter pieces can be cut from a 10-meter rope?",
+//                        options = listOf("14", "15", "16", "17"),
+//                        correctAnswer = 2
+//                    )
+//                )
+//            )
         )
     }
 
@@ -1919,101 +1918,101 @@ object ActivityDataProvider {
             ),
 
             // Activity 3: Division Concepts Matching
-            Activity(
-                id = 3,
-                quarter = 1,
-                lessonNumber = 6,
-                activityNumber = 3,
-                title = "Division Concepts and Applications",
-                type = ActivityType.WIRE_MATCHING,
-                questions = listOf(
-                    Question.WireMatching(
-                        id = 1,
-                        text = "Match the division problems in Column A with their correct answers in Column B by drawing a line.",
-                        columnA = listOf(
-                            "½ ÷ ¼ =",
-                            "⅔ ÷ ⅓ =",
-                            "¾ ÷ ⅛ =",
-                            "⅘ ÷ ⅖ =",
-                            "⅚ ÷ ⅙ =",
-                            "⅝ ÷ ⅝ =",
-                            "⁹⁄₁₀ ÷ ³⁄₁₀ =",
-                            "⅞ ÷ ⅞ =",
-                            "⅗ ÷ ⅕ =",
-                            "⁷⁄₈ ÷ ⅐ =",
-                            "6 ÷ ½ =",
-                            "8 ÷ ¼ =",
-                            "9 ÷ ⅓ =",
-                            "10 ÷ ⅖ =",
-                            "12 ÷ ¾ =",
-                            "3½ ÷ ½ =",
-                            "4¾ ÷ ¾ =",
-                            "5⅔ ÷ ⅔ =",
-                            "6⅘ ÷ ⅘ =",
-                            "8⅚ ÷ ⅚ =",
-                            "2½ ÷ 1¼ =",
-                            "3¾ ÷ 1½ =",
-                            "4⅔ ÷ 2⅓ =",
-                            "5⅘ ÷ 2⅖ =",
-                            "6⅚ ÷ 3⅔ ="
-                        ),
-                        columnB = listOf(
-                            "2",           // #1: 1/2 ÷ 1/4 = 2
-                            "2",           // #2: 2/3 ÷ 1/3 = 2
-                            "6",           // #3: 3/4 ÷ 1/8 = 6
-                            "2",           // #4: 4/5 ÷ 2/5 = 2
-                            "5",           // #5: 5/6 ÷ 1/6 = 5
-                            "1",           // #6: 5/8 ÷ 5/8 = 1
-                            "3",           // #7: 9/10 ÷ 3/10 = 3
-                            "1",           // #8: 7/8 ÷ 7/8 = 1
-                            "3",           // #9: 3/5 ÷ 1/5 = 3
-                            "⁴⁹⁄₈",        // #10: 7/8 ÷ 1/7 = 49/8
-                            "12",          // #11: 6 ÷ 1/2 = 12
-                            "32",          // #12: 8 ÷ 1/4 = 32
-                            "27",          // #13: 9 ÷ 1/3 = 27
-                            "25",          // #14: 10 ÷ 2/5 = 25
-                            "16",          // #15: 12 ÷ 3/4 = 16
-                            "7",           // #16: 3 1/2 ÷ 1/2 = 7
-                            "⁶⅓",          // #17: 4 3/4 ÷ 3/4 = 6 1/3
-                            "8½",          // #18: 5 2/3 ÷ 2/3 = 8 1/2
-                            "8½",          // #19: 6 4/5 ÷ 4/5 = 8 1/2
-                            "10⅗",         // #20: 8 5/6 ÷ 5/6 = 10 3/5
-                            "2",           // #21: 2 1/2 ÷ 1 1/4 = 2
-                            "2½",          // #22: 3 3/4 ÷ 1 1/2 = 2 1/2
-                            "2",           // #23: 4 2/3 ÷ 2 1/3 = 2
-                            "2⅖",          // #24: 5 4/5 ÷ 2 2/5 = 2 2/5
-                            "1⅞"           // #25: 6 5/6 ÷ 3 2/3 = 1 7/8
-                        ),
-                        correctMatches = mapOf(
-                            0 to 0,   // 1/2 ÷ 1/4 = 2
-                            1 to 1,   // 2/3 ÷ 1/3 = 2
-                            2 to 2,   // 3/4 ÷ 1/8 = 6
-                            3 to 3,   // 4/5 ÷ 2/5 = 2
-                            4 to 4,   // 5/6 ÷ 1/6 = 5
-                            5 to 5,   // 5/8 ÷ 5/8 = 1
-                            6 to 6,   // 9/10 ÷ 3/10 = 3
-                            7 to 7,   // 7/8 ÷ 7/8 = 1
-                            8 to 8,   // 3/5 ÷ 1/5 = 3
-                            9 to 9,   // 7/8 ÷ 1/7 = 49/8
-                            10 to 10, // 6 ÷ 1/2 = 12
-                            11 to 11, // 8 ÷ 1/4 = 32
-                            12 to 12, // 9 ÷ 1/3 = 27
-                            13 to 13, // 10 ÷ 2/5 = 25
-                            14 to 14, // 12 ÷ 3/4 = 16
-                            15 to 15, // 3 1/2 ÷ 1/2 = 7
-                            16 to 16, // 4 3/4 ÷ 3/4 = 6 1/3
-                            17 to 17, // 5 2/3 ÷ 2/3 = 8 1/2
-                            18 to 18, // 6 4/5 ÷ 4/5 = 8 1/2
-                            19 to 19, // 8 5/6 ÷ 5/6 = 10 3/5
-                            20 to 20, // 2 1/2 ÷ 1 1/4 = 2
-                            21 to 21, // 3 3/4 ÷ 1 1/2 = 2 1/2
-                            22 to 22, // 4 2/3 ÷ 2 1/3 = 2
-                            23 to 23, // 5 4/5 ÷ 2 2/5 = 2 2/5
-                            24 to 24  // 6 5/6 ÷ 3 2/3 = 1 7/8
-                        )
-                    )
-                )
-            )
+//            Activity(
+//                id = 3,
+//                quarter = 1,
+//                lessonNumber = 6,
+//                activityNumber = 3,
+//                title = "Division Concepts and Applications",
+//                type = ActivityType.WIRE_MATCHING,
+//                questions = listOf(
+//                    Question.WireMatching(
+//                        id = 1,
+//                        text = "Match the division problems in Column A with their correct answers in Column B by drawing a line.",
+//                        columnA = listOf(
+//                            "½ ÷ ¼ =",
+//                            "⅔ ÷ ⅓ =",
+//                            "¾ ÷ ⅛ =",
+//                            "⅘ ÷ ⅖ =",
+//                            "⅚ ÷ ⅙ =",
+//                            "⅝ ÷ ⅝ =",
+//                            "⁹⁄₁₀ ÷ ³⁄₁₀ =",
+//                            "⅞ ÷ ⅞ =",
+//                            "⅗ ÷ ⅕ =",
+//                            "⁷⁄₈ ÷ ⅐ =",
+//                            "6 ÷ ½ =",
+//                            "8 ÷ ¼ =",
+//                            "9 ÷ ⅓ =",
+//                            "10 ÷ ⅖ =",
+//                            "12 ÷ ¾ =",
+//                            "3½ ÷ ½ =",
+//                            "4¾ ÷ ¾ =",
+//                            "5⅔ ÷ ⅔ =",
+//                            "6⅘ ÷ ⅘ =",
+//                            "8⅚ ÷ ⅚ =",
+//                            "2½ ÷ 1¼ =",
+//                            "3¾ ÷ 1½ =",
+//                            "4⅔ ÷ 2⅓ =",
+//                            "5⅘ ÷ 2⅖ =",
+//                            "6⅚ ÷ 3⅔ ="
+//                        ),
+//                        columnB = listOf(
+//                            "2",           // #1: 1/2 ÷ 1/4 = 2
+//                            "2",           // #2: 2/3 ÷ 1/3 = 2
+//                            "6",           // #3: 3/4 ÷ 1/8 = 6
+//                            "2",           // #4: 4/5 ÷ 2/5 = 2
+//                            "5",           // #5: 5/6 ÷ 1/6 = 5
+//                            "1",           // #6: 5/8 ÷ 5/8 = 1
+//                            "3",           // #7: 9/10 ÷ 3/10 = 3
+//                            "1",           // #8: 7/8 ÷ 7/8 = 1
+//                            "3",           // #9: 3/5 ÷ 1/5 = 3
+//                            "⁴⁹⁄₈",        // #10: 7/8 ÷ 1/7 = 49/8
+//                            "12",          // #11: 6 ÷ 1/2 = 12
+//                            "32",          // #12: 8 ÷ 1/4 = 32
+//                            "27",          // #13: 9 ÷ 1/3 = 27
+//                            "25",          // #14: 10 ÷ 2/5 = 25
+//                            "16",          // #15: 12 ÷ 3/4 = 16
+//                            "7",           // #16: 3 1/2 ÷ 1/2 = 7
+//                            "⁶⅓",          // #17: 4 3/4 ÷ 3/4 = 6 1/3
+//                            "8½",          // #18: 5 2/3 ÷ 2/3 = 8 1/2
+//                            "8½",          // #19: 6 4/5 ÷ 4/5 = 8 1/2
+//                            "10⅗",         // #20: 8 5/6 ÷ 5/6 = 10 3/5
+//                            "2",           // #21: 2 1/2 ÷ 1 1/4 = 2
+//                            "2½",          // #22: 3 3/4 ÷ 1 1/2 = 2 1/2
+//                            "2",           // #23: 4 2/3 ÷ 2 1/3 = 2
+//                            "2⅖",          // #24: 5 4/5 ÷ 2 2/5 = 2 2/5
+//                            "1⅞"           // #25: 6 5/6 ÷ 3 2/3 = 1 7/8
+//                        ),
+//                        correctMatches = mapOf(
+//                            0 to 0,   // 1/2 ÷ 1/4 = 2
+//                            1 to 1,   // 2/3 ÷ 1/3 = 2
+//                            2 to 2,   // 3/4 ÷ 1/8 = 6
+//                            3 to 3,   // 4/5 ÷ 2/5 = 2
+//                            4 to 4,   // 5/6 ÷ 1/6 = 5
+//                            5 to 5,   // 5/8 ÷ 5/8 = 1
+//                            6 to 6,   // 9/10 ÷ 3/10 = 3
+//                            7 to 7,   // 7/8 ÷ 7/8 = 1
+//                            8 to 8,   // 3/5 ÷ 1/5 = 3
+//                            9 to 9,   // 7/8 ÷ 1/7 = 49/8
+//                            10 to 10, // 6 ÷ 1/2 = 12
+//                            11 to 11, // 8 ÷ 1/4 = 32
+//                            12 to 12, // 9 ÷ 1/3 = 27
+//                            13 to 13, // 10 ÷ 2/5 = 25
+//                            14 to 14, // 12 ÷ 3/4 = 16
+//                            15 to 15, // 3 1/2 ÷ 1/2 = 7
+//                            16 to 16, // 4 3/4 ÷ 3/4 = 6 1/3
+//                            17 to 17, // 5 2/3 ÷ 2/3 = 8 1/2
+//                            18 to 18, // 6 4/5 ÷ 4/5 = 8 1/2
+//                            19 to 19, // 8 5/6 ÷ 5/6 = 10 3/5
+//                            20 to 20, // 2 1/2 ÷ 1 1/4 = 2
+//                            21 to 21, // 3 3/4 ÷ 1 1/2 = 2 1/2
+//                            22 to 22, // 4 2/3 ÷ 2 1/3 = 2
+//                            23 to 23, // 5 4/5 ÷ 2 2/5 = 2 2/5
+//                            24 to 24  // 6 5/6 ÷ 3 2/3 = 1 7/8
+//                        )
+//                    )
+//                )
+//            )
         )
     }
 
@@ -2279,101 +2278,101 @@ object ActivityDataProvider {
             ),
 
             // Activity 3: Decimal Addition and Subtraction Matching
-            Activity(
-                id = 3,
-                quarter = 1,
-                lessonNumber = 7,
-                activityNumber = 3,
-                title = "Decimal Addition and Subtraction Practice",
-                type = ActivityType.WIRE_MATCHING,
-                questions = listOf(
-                    Question.WireMatching(
-                        id = 1,
-                        text = "Solve the decimal problems in Column A and match them with the correct answers in Column B by drawing a line.",
-                        columnA = listOf(
-                            "2.5 + 3.7 =",
-                            "8.4 + 1.9 =",
-                            "5.6 + 4.8 =",
-                            "7.3 + 2.9 =",
-                            "9.1 + 0.8 =",
-                            "3.25 + 4.75 =",
-                            "6.45 + 2.55 =",
-                            "8.15 + 1.85 =",
-                            "5.35 + 3.65 =",
-                            "7.28 + 2.72 =",
-                            "12.5 - 4.3 =",
-                            "15.8 - 7.6 =",
-                            "20.4 - 9.8 =",
-                            "18.9 - 6.7 =",
-                            "25.3 - 12.1 =",
-                            "10.75 - 3.25 =",
-                            "14.50 - 6.25 =",
-                            "22.85 - 11.45 =",
-                            "30.60 - 15.35 =",
-                            "18.95 - 8.75 =",
-                            "4.567 + 2.345 =",
-                            "9.876 + 3.124 =",
-                            "7.234 + 1.876 =",
-                            "15.678 - 8.234 =",
-                            "20.456 - 12.789 ="
-                        ),
-                        columnB = listOf(
-                            "6.2",          // #1: 2.5 + 3.7
-                            "10.3",         // #2: 8.4 + 1.9
-                            "10.4",         // #3: 5.6 + 4.8
-                            "10.2",         // #4: 7.3 + 2.9
-                            "9.9",          // #5: 9.1 + 0.8
-                            "8",            // #6: 3.25 + 4.75
-                            "9",            // #7: 6.45 + 2.55
-                            "10",           // #8: 8.15 + 1.85
-                            "9",            // #9: 5.35 + 3.65
-                            "10",           // #10: 7.28 + 2.72
-                            "8.2",          // #11: 12.5 - 4.3
-                            "8.2",          // #12: 15.8 - 7.6
-                            "10.6",         // #13: 20.4 - 9.8
-                            "12.2",         // #14: 18.9 - 6.7
-                            "13.2",         // #15: 25.3 - 12.1
-                            "7.5",          // #16: 10.75 - 3.25
-                            "8.25",         // #17: 14.50 - 6.25
-                            "11.4",         // #18: 22.85 - 11.45
-                            "15.25",        // #19: 30.60 - 15.35
-                            "10.2",         // #20: 18.95 - 8.75
-                            "6.912",        // #21: 4.567 + 2.345
-                            "13",           // #22: 9.876 + 3.124
-                            "9.11",         // #23: 7.234 + 1.876
-                            "7.444",        // #24: 15.678 - 8.234
-                            "7.667"         // #25: 20.456 - 12.789
-                        ),
-                        correctMatches = mapOf(
-                            0 to 0,   // 2.5 + 3.7 = 6.2
-                            1 to 1,   // 8.4 + 1.9 = 10.3
-                            2 to 2,   // 5.6 + 4.8 = 10.4
-                            3 to 3,   // 7.3 + 2.9 = 10.2
-                            4 to 4,   // 9.1 + 0.8 = 9.9
-                            5 to 5,   // 3.25 + 4.75 = 8
-                            6 to 6,   // 6.45 + 2.55 = 9
-                            7 to 7,   // 8.15 + 1.85 = 10
-                            8 to 8,   // 5.35 + 3.65 = 9
-                            9 to 9,   // 7.28 + 2.72 = 10
-                            10 to 10, // 12.5 - 4.3 = 8.2
-                            11 to 11, // 15.8 - 7.6 = 8.2
-                            12 to 12, // 20.4 - 9.8 = 10.6
-                            13 to 13, // 18.9 - 6.7 = 12.2
-                            14 to 14, // 25.3 - 12.1 = 13.2
-                            15 to 15, // 10.75 - 3.25 = 7.5
-                            16 to 16, // 14.50 - 6.25 = 8.25
-                            17 to 17, // 22.85 - 11.45 = 11.4
-                            18 to 18, // 30.60 - 15.35 = 15.25
-                            19 to 19, // 18.95 - 8.75 = 10.2
-                            20 to 20, // 4.567 + 2.345 = 6.912
-                            21 to 21, // 9.876 + 3.124 = 13
-                            22 to 22, // 7.234 + 1.876 = 9.11
-                            23 to 23, // 15.678 - 8.234 = 7.444
-                            24 to 24  // 20.456 - 12.789 = 7.667
-                        )
-                    )
-                )
-            )
+//            Activity(
+//                id = 3,
+//                quarter = 1,
+//                lessonNumber = 7,
+//                activityNumber = 3,
+//                title = "Decimal Addition and Subtraction Practice",
+//                type = ActivityType.WIRE_MATCHING,
+//                questions = listOf(
+//                    Question.WireMatching(
+//                        id = 1,
+//                        text = "Solve the decimal problems in Column A and match them with the correct answers in Column B by drawing a line.",
+//                        columnA = listOf(
+//                            "2.5 + 3.7 =",
+//                            "8.4 + 1.9 =",
+//                            "5.6 + 4.8 =",
+//                            "7.3 + 2.9 =",
+//                            "9.1 + 0.8 =",
+//                            "3.25 + 4.75 =",
+//                            "6.45 + 2.55 =",
+//                            "8.15 + 1.85 =",
+//                            "5.35 + 3.65 =",
+//                            "7.28 + 2.72 =",
+//                            "12.5 - 4.3 =",
+//                            "15.8 - 7.6 =",
+//                            "20.4 - 9.8 =",
+//                            "18.9 - 6.7 =",
+//                            "25.3 - 12.1 =",
+//                            "10.75 - 3.25 =",
+//                            "14.50 - 6.25 =",
+//                            "22.85 - 11.45 =",
+//                            "30.60 - 15.35 =",
+//                            "18.95 - 8.75 =",
+//                            "4.567 + 2.345 =",
+//                            "9.876 + 3.124 =",
+//                            "7.234 + 1.876 =",
+//                            "15.678 - 8.234 =",
+//                            "20.456 - 12.789 ="
+//                        ),
+//                        columnB = listOf(
+//                            "6.2",          // #1: 2.5 + 3.7
+//                            "10.3",         // #2: 8.4 + 1.9
+//                            "10.4",         // #3: 5.6 + 4.8
+//                            "10.2",         // #4: 7.3 + 2.9
+//                            "9.9",          // #5: 9.1 + 0.8
+//                            "8",            // #6: 3.25 + 4.75
+//                            "9",            // #7: 6.45 + 2.55
+//                            "10",           // #8: 8.15 + 1.85
+//                            "9",            // #9: 5.35 + 3.65
+//                            "10",           // #10: 7.28 + 2.72
+//                            "8.2",          // #11: 12.5 - 4.3
+//                            "8.2",          // #12: 15.8 - 7.6
+//                            "10.6",         // #13: 20.4 - 9.8
+//                            "12.2",         // #14: 18.9 - 6.7
+//                            "13.2",         // #15: 25.3 - 12.1
+//                            "7.5",          // #16: 10.75 - 3.25
+//                            "8.25",         // #17: 14.50 - 6.25
+//                            "11.4",         // #18: 22.85 - 11.45
+//                            "15.25",        // #19: 30.60 - 15.35
+//                            "10.2",         // #20: 18.95 - 8.75
+//                            "6.912",        // #21: 4.567 + 2.345
+//                            "13",           // #22: 9.876 + 3.124
+//                            "9.11",         // #23: 7.234 + 1.876
+//                            "7.444",        // #24: 15.678 - 8.234
+//                            "7.667"         // #25: 20.456 - 12.789
+//                        ),
+//                        correctMatches = mapOf(
+//                            0 to 0,   // 2.5 + 3.7 = 6.2
+//                            1 to 1,   // 8.4 + 1.9 = 10.3
+//                            2 to 2,   // 5.6 + 4.8 = 10.4
+//                            3 to 3,   // 7.3 + 2.9 = 10.2
+//                            4 to 4,   // 9.1 + 0.8 = 9.9
+//                            5 to 5,   // 3.25 + 4.75 = 8
+//                            6 to 6,   // 6.45 + 2.55 = 9
+//                            7 to 7,   // 8.15 + 1.85 = 10
+//                            8 to 8,   // 5.35 + 3.65 = 9
+//                            9 to 9,   // 7.28 + 2.72 = 10
+//                            10 to 10, // 12.5 - 4.3 = 8.2
+//                            11 to 11, // 15.8 - 7.6 = 8.2
+//                            12 to 12, // 20.4 - 9.8 = 10.6
+//                            13 to 13, // 18.9 - 6.7 = 12.2
+//                            14 to 14, // 25.3 - 12.1 = 13.2
+//                            15 to 15, // 10.75 - 3.25 = 7.5
+//                            16 to 16, // 14.50 - 6.25 = 8.25
+//                            17 to 17, // 22.85 - 11.45 = 11.4
+//                            18 to 18, // 30.60 - 15.35 = 15.25
+//                            19 to 19, // 18.95 - 8.75 = 10.2
+//                            20 to 20, // 4.567 + 2.345 = 6.912
+//                            21 to 21, // 9.876 + 3.124 = 13
+//                            22 to 22, // 7.234 + 1.876 = 9.11
+//                            23 to 23, // 15.678 - 8.234 = 7.444
+//                            24 to 24  // 20.456 - 12.789 = 7.667
+//                        )
+//                    )
+//                )
+//            )
         )
     }
 
@@ -2489,166 +2488,166 @@ object ActivityDataProvider {
             ),
 
             // Activity 3: Word Problems - Addition and Subtraction of Decimals
-            Activity(
-                id = 3,
-                quarter = 1,
-                lessonNumber = 8,
-                activityNumber = 3,
-                title = "Word Problems Involving Addition and Subtraction of Decimals",
-                type = ActivityType.MULTIPLE_CHOICE,
-                questions = listOf(
-                    Question.MultipleChoice(
-                        id = 1,
-                        text = "Maria bought a notebook for ₱35.75 and a pen for ₱12.50. How much did she spend in total?",
-                        options = listOf("₱47.25", "₱48.25", "₱48.50", "₱49.25"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 2,
-                        text = "A ribbon measures 8.5 meters. If 3.25 meters is cut off, how much ribbon remains?",
-                        options = listOf("5.15 m", "5.25 m", "5.35 m", "5.45 m"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 3,
-                        text = "John ran 3.75 km in the morning and 2.5 km in the evening. What is the total distance he ran?",
-                        options = listOf("6.15 km", "6.20 km", "6.25 km", "6.30 km"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 4,
-                        text = "A bottle contains 2.5 liters of juice. After drinking 0.75 liters, how much juice is left?",
-                        options = listOf("1.5 L", "1.65 L", "1.75 L", "1.85 L"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 5,
-                        text = "The temperature in the morning was 25.5°C. It rose by 3.75°C in the afternoon. What was the afternoon temperature?",
-                        options = listOf("29.15°C", "29.25°C", "29.35°C", "29.45°C"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 6,
-                        text = "A box weighs 4.25 kg. After removing some items, it weighs 1.75 kg. How much weight was removed?",
-                        options = listOf("2.25 kg", "2.50 kg", "2.75 kg", "3.00 kg"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 7,
-                        text = "Ana saved ₱125.50 in January and ₱78.25 in February. How much did she save in total?",
-                        options = listOf("₱203.50", "₱203.75", "₱204.00", "₱204.25"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 8,
-                        text = "A rope was 15.6 meters long. After cutting off 7.85 meters, what length remains?",
-                        options = listOf("7.65 m", "7.75 m", "7.85 m", "7.95 m"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 9,
-                        text = "A tank had 50.5 liters of water. After adding 23.75 liters, how much water is in the tank?",
-                        options = listOf("74.15 L", "74.25 L", "74.35 L", "74.45 L"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 10,
-                        text = "Pedro's height is 1.45 meters and his brother's height is 1.62 meters. What is the difference in their heights?",
-                        options = listOf("0.15 m", "0.17 m", "0.19 m", "0.21 m"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 11,
-                        text = "A baker used 2.75 kg of flour in the morning and 3.5 kg in the afternoon. How much flour was used in total?",
-                        options = listOf("6.15 kg", "6.20 kg", "6.25 kg", "6.30 kg"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 12,
-                        text = "A car traveled 85.25 km and then 67.8 km. What is the total distance traveled?",
-                        options = listOf("152.95 km", "153.05 km", "153.15 km", "153.25 km"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 13,
-                        text = "Lisa had ₱500. After buying items worth ₱287.50, how much money does she have left?",
-                        options = listOf("₱212.50", "₱213.50", "₱214.50", "₱215.50"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 14,
-                        text = "A garden path is 12.5 meters long. If 4.75 meters is already paved, how much more needs to be paved?",
-                        options = listOf("7.50 m", "7.65 m", "7.75 m", "7.85 m"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 15,
-                        text = "Three friends contributed to a gift: ₱150.50, ₱125.75, and ₱98.25. What is the total contribution?",
-                        options = listOf("₱374.50", "₱375.00", "₱375.50", "₱376.00"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 16,
-                        text = "A recipe needs 1.25 cups of milk and 0.75 cups of cream. How much liquid in total?",
-                        options = listOf("1.90 cups", "1.95 cups", "2.00 cups", "2.05 cups"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 17,
-                        text = "The rainfall on Monday was 12.5 mm and on Tuesday was 8.75 mm. How much more rain fell on Monday?",
-                        options = listOf("3.50 mm", "3.65 mm", "3.75 mm", "3.85 mm"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 18,
-                        text = "A farmer harvested 125.75 kg of rice from one field and 98.5 kg from another. What is the total harvest?",
-                        options = listOf("224.15 kg", "224.25 kg", "224.35 kg", "224.45 kg"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 19,
-                        text = "A water tank contains 75.5 liters. After using 28.75 liters, how much water remains?",
-                        options = listOf("46.50 L", "46.65 L", "46.75 L", "46.85 L"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 20,
-                        text = "Tom's bag weighs 3.25 kg. After adding books weighing 1.85 kg, what is the total weight?",
-                        options = listOf("5.00 kg", "5.05 kg", "5.10 kg", "5.15 kg"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 21,
-                        text = "A piece of wood is 9.8 meters long. After cutting off 4.95 meters, how much remains?",
-                        options = listOf("4.75 m", "4.80 m", "4.85 m", "4.90 m"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 22,
-                        text = "Rosa spent ₱67.50 on groceries and ₱45.75 on transportation. How much did she spend in total?",
-                        options = listOf("₱112.25", "₱113.00", "₱113.25", "₱113.50"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 23,
-                        text = "A trail is 18.5 km long. If you have walked 9.75 km, how much further do you need to walk?",
-                        options = listOf("8.50 km", "8.65 km", "8.75 km", "8.85 km"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 24,
-                        text = "Two containers hold 15.5 liters and 12.75 liters of oil. What is the total amount of oil?",
-                        options = listOf("28.15 L", "28.20 L", "28.25 L", "28.30 L"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 25,
-                        text = "A shop sold items worth ₱1,250.50 in the morning and ₱875.75 in the afternoon. What were the total sales?",
-                        options = listOf("₱2,125.25", "₱2,126.00", "₱2,126.25", "₱2,127.00"),
-                        correctAnswer = 2
-                    )
-                )
-            )
+//            Activity(
+//                id = 3,
+//                quarter = 1,
+//                lessonNumber = 8,
+//                activityNumber = 3,
+//                title = "Word Problems Involving Addition and Subtraction of Decimals",
+//                type = ActivityType.MULTIPLE_CHOICE,
+//                questions = listOf(
+//                    Question.MultipleChoice(
+//                        id = 1,
+//                        text = "Maria bought a notebook for ₱35.75 and a pen for ₱12.50. How much did she spend in total?",
+//                        options = listOf("₱47.25", "₱48.25", "₱48.50", "₱49.25"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 2,
+//                        text = "A ribbon measures 8.5 meters. If 3.25 meters is cut off, how much ribbon remains?",
+//                        options = listOf("5.15 m", "5.25 m", "5.35 m", "5.45 m"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 3,
+//                        text = "John ran 3.75 km in the morning and 2.5 km in the evening. What is the total distance he ran?",
+//                        options = listOf("6.15 km", "6.20 km", "6.25 km", "6.30 km"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 4,
+//                        text = "A bottle contains 2.5 liters of juice. After drinking 0.75 liters, how much juice is left?",
+//                        options = listOf("1.5 L", "1.65 L", "1.75 L", "1.85 L"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 5,
+//                        text = "The temperature in the morning was 25.5°C. It rose by 3.75°C in the afternoon. What was the afternoon temperature?",
+//                        options = listOf("29.15°C", "29.25°C", "29.35°C", "29.45°C"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 6,
+//                        text = "A box weighs 4.25 kg. After removing some items, it weighs 1.75 kg. How much weight was removed?",
+//                        options = listOf("2.25 kg", "2.50 kg", "2.75 kg", "3.00 kg"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 7,
+//                        text = "Ana saved ₱125.50 in January and ₱78.25 in February. How much did she save in total?",
+//                        options = listOf("₱203.50", "₱203.75", "₱204.00", "₱204.25"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 8,
+//                        text = "A rope was 15.6 meters long. After cutting off 7.85 meters, what length remains?",
+//                        options = listOf("7.65 m", "7.75 m", "7.85 m", "7.95 m"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 9,
+//                        text = "A tank had 50.5 liters of water. After adding 23.75 liters, how much water is in the tank?",
+//                        options = listOf("74.15 L", "74.25 L", "74.35 L", "74.45 L"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 10,
+//                        text = "Pedro's height is 1.45 meters and his brother's height is 1.62 meters. What is the difference in their heights?",
+//                        options = listOf("0.15 m", "0.17 m", "0.19 m", "0.21 m"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 11,
+//                        text = "A baker used 2.75 kg of flour in the morning and 3.5 kg in the afternoon. How much flour was used in total?",
+//                        options = listOf("6.15 kg", "6.20 kg", "6.25 kg", "6.30 kg"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 12,
+//                        text = "A car traveled 85.25 km and then 67.8 km. What is the total distance traveled?",
+//                        options = listOf("152.95 km", "153.05 km", "153.15 km", "153.25 km"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 13,
+//                        text = "Lisa had ₱500. After buying items worth ₱287.50, how much money does she have left?",
+//                        options = listOf("₱212.50", "₱213.50", "₱214.50", "₱215.50"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 14,
+//                        text = "A garden path is 12.5 meters long. If 4.75 meters is already paved, how much more needs to be paved?",
+//                        options = listOf("7.50 m", "7.65 m", "7.75 m", "7.85 m"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 15,
+//                        text = "Three friends contributed to a gift: ₱150.50, ₱125.75, and ₱98.25. What is the total contribution?",
+//                        options = listOf("₱374.50", "₱375.00", "₱375.50", "₱376.00"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 16,
+//                        text = "A recipe needs 1.25 cups of milk and 0.75 cups of cream. How much liquid in total?",
+//                        options = listOf("1.90 cups", "1.95 cups", "2.00 cups", "2.05 cups"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 17,
+//                        text = "The rainfall on Monday was 12.5 mm and on Tuesday was 8.75 mm. How much more rain fell on Monday?",
+//                        options = listOf("3.50 mm", "3.65 mm", "3.75 mm", "3.85 mm"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 18,
+//                        text = "A farmer harvested 125.75 kg of rice from one field and 98.5 kg from another. What is the total harvest?",
+//                        options = listOf("224.15 kg", "224.25 kg", "224.35 kg", "224.45 kg"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 19,
+//                        text = "A water tank contains 75.5 liters. After using 28.75 liters, how much water remains?",
+//                        options = listOf("46.50 L", "46.65 L", "46.75 L", "46.85 L"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 20,
+//                        text = "Tom's bag weighs 3.25 kg. After adding books weighing 1.85 kg, what is the total weight?",
+//                        options = listOf("5.00 kg", "5.05 kg", "5.10 kg", "5.15 kg"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 21,
+//                        text = "A piece of wood is 9.8 meters long. After cutting off 4.95 meters, how much remains?",
+//                        options = listOf("4.75 m", "4.80 m", "4.85 m", "4.90 m"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 22,
+//                        text = "Rosa spent ₱67.50 on groceries and ₱45.75 on transportation. How much did she spend in total?",
+//                        options = listOf("₱112.25", "₱113.00", "₱113.25", "₱113.50"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 23,
+//                        text = "A trail is 18.5 km long. If you have walked 9.75 km, how much further do you need to walk?",
+//                        options = listOf("8.50 km", "8.65 km", "8.75 km", "8.85 km"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 24,
+//                        text = "Two containers hold 15.5 liters and 12.75 liters of oil. What is the total amount of oil?",
+//                        options = listOf("28.15 L", "28.20 L", "28.25 L", "28.30 L"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 25,
+//                        text = "A shop sold items worth ₱1,250.50 in the morning and ₱875.75 in the afternoon. What were the total sales?",
+//                        options = listOf("₱2,125.25", "₱2,126.00", "₱2,126.25", "₱2,127.00"),
+//                        correctAnswer = 2
+//                    )
+//                )
+//            )
         )
     }
 
@@ -2914,101 +2913,101 @@ object ActivityDataProvider {
             ),
 
             // Activity 3: Decimal Multiplication Practice
-            Activity(
-                id = 3,
-                quarter = 1,
-                lessonNumber = 9,
-                activityNumber = 3,
-                title = "Multiplication of Decimals - Practice",
-                type = ActivityType.DRAG_DROP,
-                questions = listOf(
-                    Question.DragDrop(
-                        id = 1,
-                        text = "Solve the multiplication problems in Column A and drag the correct answer from Column B.",
-                        columnA = listOf(
-                            "1.5 × 2 =",
-                            "2.4 × 3 =",
-                            "3.2 × 4 =",
-                            "4.5 × 2 =",
-                            "5.6 × 3 =",
-                            "1.25 × 4 =",
-                            "2.75 × 2 =",
-                            "3.5 × 6 =",
-                            "4.8 × 5 =",
-                            "6.25 × 4 =",
-                            "0.5 × 0.4 =",
-                            "0.8 × 0.7 =",
-                            "0.6 × 0.9 =",
-                            "0.3 × 0.5 =",
-                            "0.7 × 0.8 =",
-                            "1.2 × 1.5 =",
-                            "2.5 × 1.4 =",
-                            "3.6 × 2.5 =",
-                            "4.2 × 1.8 =",
-                            "5.5 × 2.2 =",
-                            "0.25 × 0.4 =",
-                            "0.75 × 0.8 =",
-                            "1.35 × 0.6 =",
-                            "2.45 × 0.5 =",
-                            "3.85 × 0.7 ="
-                        ),
-                        columnB = listOf(
-                            "3",           // #1: 1.5 × 2 = 3
-                            "7.2",         // #2: 2.4 × 3 = 7.2
-                            "12.8",        // #3: 3.2 × 4 = 12.8
-                            "9",           // #4: 4.5 × 2 = 9
-                            "16.8",        // #5: 5.6 × 3 = 16.8
-                            "5",           // #6: 1.25 × 4 = 5
-                            "5.5",         // #7: 2.75 × 2 = 5.5
-                            "21",          // #8: 3.5 × 6 = 21
-                            "24",          // #9: 4.8 × 5 = 24
-                            "25",          // #10: 6.25 × 4 = 25
-                            "0.2",         // #11: 0.5 × 0.4 = 0.2
-                            "0.56",        // #12: 0.8 × 0.7 = 0.56
-                            "0.54",        // #13: 0.6 × 0.9 = 0.54
-                            "0.15",        // #14: 0.3 × 0.5 = 0.15
-                            "0.56",        // #15: 0.7 × 0.8 = 0.56
-                            "1.8",         // #16: 1.2 × 1.5 = 1.8
-                            "3.5",         // #17: 2.5 × 1.4 = 3.5
-                            "9",           // #18: 3.6 × 2.5 = 9
-                            "7.56",        // #19: 4.2 × 1.8 = 7.56
-                            "12.1",        // #20: 5.5 × 2.2 = 12.1
-                            "0.1",         // #21: 0.25 × 0.4 = 0.1
-                            "0.6",         // #22: 0.75 × 0.8 = 0.6
-                            "0.81",        // #23: 1.35 × 0.6 = 0.81
-                            "1.225",       // #24: 2.45 × 0.5 = 1.225
-                            "2.695"        // #25: 3.85 × 0.7 = 2.695
-                        ),
-                        correctMatches = mapOf(
-                            0 to 0,   // 1.5 × 2 = 3
-                            1 to 1,   // 2.4 × 3 = 7.2
-                            2 to 2,   // 3.2 × 4 = 12.8
-                            3 to 3,   // 4.5 × 2 = 9
-                            4 to 4,   // 5.6 × 3 = 16.8
-                            5 to 5,   // 1.25 × 4 = 5
-                            6 to 6,   // 2.75 × 2 = 5.5
-                            7 to 7,   // 3.5 × 6 = 21
-                            8 to 8,   // 4.8 × 5 = 24
-                            9 to 9,   // 6.25 × 4 = 25
-                            10 to 10, // 0.5 × 0.4 = 0.2
-                            11 to 11, // 0.8 × 0.7 = 0.56
-                            12 to 12, // 0.6 × 0.9 = 0.54
-                            13 to 13, // 0.3 × 0.5 = 0.15
-                            14 to 14, // 0.7 × 0.8 = 0.56
-                            15 to 15, // 1.2 × 1.5 = 1.8
-                            16 to 16, // 2.5 × 1.4 = 3.5
-                            17 to 17, // 3.6 × 2.5 = 9
-                            18 to 18, // 4.2 × 1.8 = 7.56
-                            19 to 19, // 5.5 × 2.2 = 12.1
-                            20 to 20, // 0.25 × 0.4 = 0.1
-                            21 to 21, // 0.75 × 0.8 = 0.6
-                            22 to 22, // 1.35 × 0.6 = 0.81
-                            23 to 23, // 2.45 × 0.5 = 1.225
-                            24 to 24  // 3.85 × 0.7 = 2.695
-                        )
-                    )
-                )
-            )
+//            Activity(
+//                id = 3,
+//                quarter = 1,
+//                lessonNumber = 9,
+//                activityNumber = 3,
+//                title = "Multiplication of Decimals - Practice",
+//                type = ActivityType.DRAG_DROP,
+//                questions = listOf(
+//                    Question.DragDrop(
+//                        id = 1,
+//                        text = "Solve the multiplication problems in Column A and drag the correct answer from Column B.",
+//                        columnA = listOf(
+//                            "1.5 × 2 =",
+//                            "2.4 × 3 =",
+//                            "3.2 × 4 =",
+//                            "4.5 × 2 =",
+//                            "5.6 × 3 =",
+//                            "1.25 × 4 =",
+//                            "2.75 × 2 =",
+//                            "3.5 × 6 =",
+//                            "4.8 × 5 =",
+//                            "6.25 × 4 =",
+//                            "0.5 × 0.4 =",
+//                            "0.8 × 0.7 =",
+//                            "0.6 × 0.9 =",
+//                            "0.3 × 0.5 =",
+//                            "0.7 × 0.8 =",
+//                            "1.2 × 1.5 =",
+//                            "2.5 × 1.4 =",
+//                            "3.6 × 2.5 =",
+//                            "4.2 × 1.8 =",
+//                            "5.5 × 2.2 =",
+//                            "0.25 × 0.4 =",
+//                            "0.75 × 0.8 =",
+//                            "1.35 × 0.6 =",
+//                            "2.45 × 0.5 =",
+//                            "3.85 × 0.7 ="
+//                        ),
+//                        columnB = listOf(
+//                            "3",           // #1: 1.5 × 2 = 3
+//                            "7.2",         // #2: 2.4 × 3 = 7.2
+//                            "12.8",        // #3: 3.2 × 4 = 12.8
+//                            "9",           // #4: 4.5 × 2 = 9
+//                            "16.8",        // #5: 5.6 × 3 = 16.8
+//                            "5",           // #6: 1.25 × 4 = 5
+//                            "5.5",         // #7: 2.75 × 2 = 5.5
+//                            "21",          // #8: 3.5 × 6 = 21
+//                            "24",          // #9: 4.8 × 5 = 24
+//                            "25",          // #10: 6.25 × 4 = 25
+//                            "0.2",         // #11: 0.5 × 0.4 = 0.2
+//                            "0.56",        // #12: 0.8 × 0.7 = 0.56
+//                            "0.54",        // #13: 0.6 × 0.9 = 0.54
+//                            "0.15",        // #14: 0.3 × 0.5 = 0.15
+//                            "0.56",        // #15: 0.7 × 0.8 = 0.56
+//                            "1.8",         // #16: 1.2 × 1.5 = 1.8
+//                            "3.5",         // #17: 2.5 × 1.4 = 3.5
+//                            "9",           // #18: 3.6 × 2.5 = 9
+//                            "7.56",        // #19: 4.2 × 1.8 = 7.56
+//                            "12.1",        // #20: 5.5 × 2.2 = 12.1
+//                            "0.1",         // #21: 0.25 × 0.4 = 0.1
+//                            "0.6",         // #22: 0.75 × 0.8 = 0.6
+//                            "0.81",        // #23: 1.35 × 0.6 = 0.81
+//                            "1.225",       // #24: 2.45 × 0.5 = 1.225
+//                            "2.695"        // #25: 3.85 × 0.7 = 2.695
+//                        ),
+//                        correctMatches = mapOf(
+//                            0 to 0,   // 1.5 × 2 = 3
+//                            1 to 1,   // 2.4 × 3 = 7.2
+//                            2 to 2,   // 3.2 × 4 = 12.8
+//                            3 to 3,   // 4.5 × 2 = 9
+//                            4 to 4,   // 5.6 × 3 = 16.8
+//                            5 to 5,   // 1.25 × 4 = 5
+//                            6 to 6,   // 2.75 × 2 = 5.5
+//                            7 to 7,   // 3.5 × 6 = 21
+//                            8 to 8,   // 4.8 × 5 = 24
+//                            9 to 9,   // 6.25 × 4 = 25
+//                            10 to 10, // 0.5 × 0.4 = 0.2
+//                            11 to 11, // 0.8 × 0.7 = 0.56
+//                            12 to 12, // 0.6 × 0.9 = 0.54
+//                            13 to 13, // 0.3 × 0.5 = 0.15
+//                            14 to 14, // 0.7 × 0.8 = 0.56
+//                            15 to 15, // 1.2 × 1.5 = 1.8
+//                            16 to 16, // 2.5 × 1.4 = 3.5
+//                            17 to 17, // 3.6 × 2.5 = 9
+//                            18 to 18, // 4.2 × 1.8 = 7.56
+//                            19 to 19, // 5.5 × 2.2 = 12.1
+//                            20 to 20, // 0.25 × 0.4 = 0.1
+//                            21 to 21, // 0.75 × 0.8 = 0.6
+//                            22 to 22, // 1.35 × 0.6 = 0.81
+//                            23 to 23, // 2.45 × 0.5 = 1.225
+//                            24 to 24  // 3.85 × 0.7 = 2.695
+//                        )
+//                    )
+//                )
+//            )
         )
     }
 
@@ -3274,101 +3273,101 @@ object ActivityDataProvider {
             ),
 
             // Activity 3: Special Multiplication Patterns
-            Activity(
-                id = 3,
-                quarter = 1,
-                lessonNumber = 10,
-                activityNumber = 3,
-                title = "Special Multiplication Patterns with 0.1, 0.01, 10, and 100",
-                type = ActivityType.WIRE_MATCHING,
-                questions = listOf(
-                    Question.WireMatching(
-                        id = 1,
-                        text = "Match the multiplication problems in Column A with their correct answers in Column B by drawing a line.",
-                        columnA = listOf(
-                            "0.25 × 0.1 =",
-                            "0.38 × 0.1 =",
-                            "0.56 × 0.1 =",
-                            "0.72 × 0.1 =",
-                            "0.85 × 0.1 =",
-                            "0.18 × 0.01 =",
-                            "0.42 × 0.01 =",
-                            "0.61 × 0.01 =",
-                            "0.88 × 0.01 =",
-                            "0.95 × 0.01 =",
-                            "0.16 × 10 =",
-                            "0.27 × 10 =",
-                            "0.35 × 10 =",
-                            "0.48 × 10 =",
-                            "0.59 × 10 =",
-                            "0.03 × 100 =",
-                            "0.14 × 100 =",
-                            "0.26 × 100 =",
-                            "0.37 × 100 =",
-                            "0.45 × 100 =",
-                            "1.5 × 0.1 =",
-                            "2.8 × 0.01 =",
-                            "3.6 × 10 =",
-                            "4.2 × 100 =",
-                            "5.7 × 0.1 ="
-                        ),
-                        columnB = listOf(
-                            "0.025",      // #1: 0.25 × 0.1
-                            "0.038",      // #2: 0.38 × 0.1
-                            "0.056",      // #3: 0.56 × 0.1
-                            "0.072",      // #4: 0.72 × 0.1
-                            "0.085",      // #5: 0.85 × 0.1
-                            "0.0018",     // #6: 0.18 × 0.01
-                            "0.0042",     // #7: 0.42 × 0.01
-                            "0.0061",     // #8: 0.61 × 0.01
-                            "0.0088",     // #9: 0.88 × 0.01
-                            "0.0095",     // #10: 0.95 × 0.01
-                            "1.6",        // #11: 0.16 × 10
-                            "2.7",        // #12: 0.27 × 10
-                            "3.5",        // #13: 0.35 × 10
-                            "4.8",        // #14: 0.48 × 10
-                            "5.9",        // #15: 0.59 × 10
-                            "3",          // #16: 0.03 × 100
-                            "14",         // #17: 0.14 × 100
-                            "26",         // #18: 0.26 × 100
-                            "37",         // #19: 0.37 × 100
-                            "45",         // #20: 0.45 × 100
-                            "0.15",       // #21: 1.5 × 0.1
-                            "0.028",      // #22: 2.8 × 0.01
-                            "36",         // #23: 3.6 × 10
-                            "420",        // #24: 4.2 × 100
-                            "0.57"        // #25: 5.7 × 0.1
-                        ),
-                        correctMatches = mapOf(
-                            0 to 0,   // 0.25 × 0.1 = 0.025
-                            1 to 1,   // 0.38 × 0.1 = 0.038
-                            2 to 2,   // 0.56 × 0.1 = 0.056
-                            3 to 3,   // 0.72 × 0.1 = 0.072
-                            4 to 4,   // 0.85 × 0.1 = 0.085
-                            5 to 5,   // 0.18 × 0.01 = 0.0018
-                            6 to 6,   // 0.42 × 0.01 = 0.0042
-                            7 to 7,   // 0.61 × 0.01 = 0.0061
-                            8 to 8,   // 0.88 × 0.01 = 0.0088
-                            9 to 9,   // 0.95 × 0.01 = 0.0095
-                            10 to 10, // 0.16 × 10 = 1.6
-                            11 to 11, // 0.27 × 10 = 2.7
-                            12 to 12, // 0.35 × 10 = 3.5
-                            13 to 13, // 0.48 × 10 = 4.8
-                            14 to 14, // 0.59 × 10 = 5.9
-                            15 to 15, // 0.03 × 100 = 3
-                            16 to 16, // 0.14 × 100 = 14
-                            17 to 17, // 0.26 × 100 = 26
-                            18 to 18, // 0.37 × 100 = 37
-                            19 to 19, // 0.45 × 100 = 45
-                            20 to 20, // 1.5 × 0.1 = 0.15
-                            21 to 21, // 2.8 × 0.01 = 0.028
-                            22 to 22, // 3.6 × 10 = 36
-                            23 to 23, // 4.2 × 100 = 420
-                            24 to 24  // 5.7 × 0.1 = 0.57
-                        )
-                    )
-                )
-            )
+//            Activity(
+//                id = 3,
+//                quarter = 1,
+//                lessonNumber = 10,
+//                activityNumber = 3,
+//                title = "Special Multiplication Patterns with 0.1, 0.01, 10, and 100",
+//                type = ActivityType.WIRE_MATCHING,
+//                questions = listOf(
+//                    Question.WireMatching(
+//                        id = 1,
+//                        text = "Match the multiplication problems in Column A with their correct answers in Column B by drawing a line.",
+//                        columnA = listOf(
+//                            "0.25 × 0.1 =",
+//                            "0.38 × 0.1 =",
+//                            "0.56 × 0.1 =",
+//                            "0.72 × 0.1 =",
+//                            "0.85 × 0.1 =",
+//                            "0.18 × 0.01 =",
+//                            "0.42 × 0.01 =",
+//                            "0.61 × 0.01 =",
+//                            "0.88 × 0.01 =",
+//                            "0.95 × 0.01 =",
+//                            "0.16 × 10 =",
+//                            "0.27 × 10 =",
+//                            "0.35 × 10 =",
+//                            "0.48 × 10 =",
+//                            "0.59 × 10 =",
+//                            "0.03 × 100 =",
+//                            "0.14 × 100 =",
+//                            "0.26 × 100 =",
+//                            "0.37 × 100 =",
+//                            "0.45 × 100 =",
+//                            "1.5 × 0.1 =",
+//                            "2.8 × 0.01 =",
+//                            "3.6 × 10 =",
+//                            "4.2 × 100 =",
+//                            "5.7 × 0.1 ="
+//                        ),
+//                        columnB = listOf(
+//                            "0.025",      // #1: 0.25 × 0.1
+//                            "0.038",      // #2: 0.38 × 0.1
+//                            "0.056",      // #3: 0.56 × 0.1
+//                            "0.072",      // #4: 0.72 × 0.1
+//                            "0.085",      // #5: 0.85 × 0.1
+//                            "0.0018",     // #6: 0.18 × 0.01
+//                            "0.0042",     // #7: 0.42 × 0.01
+//                            "0.0061",     // #8: 0.61 × 0.01
+//                            "0.0088",     // #9: 0.88 × 0.01
+//                            "0.0095",     // #10: 0.95 × 0.01
+//                            "1.6",        // #11: 0.16 × 10
+//                            "2.7",        // #12: 0.27 × 10
+//                            "3.5",        // #13: 0.35 × 10
+//                            "4.8",        // #14: 0.48 × 10
+//                            "5.9",        // #15: 0.59 × 10
+//                            "3",          // #16: 0.03 × 100
+//                            "14",         // #17: 0.14 × 100
+//                            "26",         // #18: 0.26 × 100
+//                            "37",         // #19: 0.37 × 100
+//                            "45",         // #20: 0.45 × 100
+//                            "0.15",       // #21: 1.5 × 0.1
+//                            "0.028",      // #22: 2.8 × 0.01
+//                            "36",         // #23: 3.6 × 10
+//                            "420",        // #24: 4.2 × 100
+//                            "0.57"        // #25: 5.7 × 0.1
+//                        ),
+//                        correctMatches = mapOf(
+//                            0 to 0,   // 0.25 × 0.1 = 0.025
+//                            1 to 1,   // 0.38 × 0.1 = 0.038
+//                            2 to 2,   // 0.56 × 0.1 = 0.056
+//                            3 to 3,   // 0.72 × 0.1 = 0.072
+//                            4 to 4,   // 0.85 × 0.1 = 0.085
+//                            5 to 5,   // 0.18 × 0.01 = 0.0018
+//                            6 to 6,   // 0.42 × 0.01 = 0.0042
+//                            7 to 7,   // 0.61 × 0.01 = 0.0061
+//                            8 to 8,   // 0.88 × 0.01 = 0.0088
+//                            9 to 9,   // 0.95 × 0.01 = 0.0095
+//                            10 to 10, // 0.16 × 10 = 1.6
+//                            11 to 11, // 0.27 × 10 = 2.7
+//                            12 to 12, // 0.35 × 10 = 3.5
+//                            13 to 13, // 0.48 × 10 = 4.8
+//                            14 to 14, // 0.59 × 10 = 5.9
+//                            15 to 15, // 0.03 × 100 = 3
+//                            16 to 16, // 0.14 × 100 = 14
+//                            17 to 17, // 0.26 × 100 = 26
+//                            18 to 18, // 0.37 × 100 = 37
+//                            19 to 19, // 0.45 × 100 = 45
+//                            20 to 20, // 1.5 × 0.1 = 0.15
+//                            21 to 21, // 2.8 × 0.01 = 0.028
+//                            22 to 22, // 3.6 × 10 = 36
+//                            23 to 23, // 4.2 × 100 = 420
+//                            24 to 24  // 5.7 × 0.1 = 0.57
+//                        )
+//                    )
+//                )
+//            )
         )
     }
 
@@ -3484,166 +3483,166 @@ object ActivityDataProvider {
             ),
 
             // Activity 3: Word Problems - Multiplication of Decimals Including Money
-            Activity(
-                id = 3,
-                quarter = 1,
-                lessonNumber = 11,
-                activityNumber = 3,
-                title = "Word Problems Involving Multiplication of Decimals Including Money",
-                type = ActivityType.MULTIPLE_CHOICE,
-                questions = listOf(
-                    Question.MultipleChoice(
-                        id = 1,
-                        text = "A notebook costs ₱25.50. How much do 4 notebooks cost?",
-                        options = listOf("₱100.00", "₱101.50", "₱102.00", "₱102.50"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 2,
-                        text = "A piece of cloth is 3.5 meters long. If you buy 6 pieces, what is the total length?",
-                        options = listOf("20 m", "21 m", "22 m", "23 m"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 3,
-                        text = "Each bottle of juice costs ₱12.75. How much do 5 bottles cost?",
-                        options = listOf("₱62.75", "₱63.25", "₱63.75", "₱64.25"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 4,
-                        text = "A box of chocolates weighs 2.25 kg. What is the total weight of 8 boxes?",
-                        options = listOf("17 kg", "18 kg", "19 kg", "20 kg"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 5,
-                        text = "Gasoline costs ₱58.50 per liter. How much does 12.5 liters cost?",
-                        options = listOf("₱730.25", "₱731.00", "₱731.25", "₱732.00"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 6,
-                        text = "A ribbon is sold at ₱8.25 per meter. How much does 7.5 meters cost?",
-                        options = listOf("₱61.50", "₱61.75", "₱61.875", "₱62.00"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 7,
-                        text = "Each kilogram of rice costs ₱45.75. How much does 3.5 kg cost?",
-                        options = listOf("₱160.00", "₱160.125", "₱160.25", "₱160.625"),
-                        correctAnswer = 3
-                    ),
-                    Question.MultipleChoice(
-                        id = 8,
-                        text = "A worker earns ₱125.50 per hour. How much does he earn in 8 hours?",
-                        options = listOf("₱1,003.00", "₱1,004.00", "₱1,005.00", "₱1,006.00"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 9,
-                        text = "A book costs ₱135.25. If you buy 6 books, how much do you pay?",
-                        options = listOf("₱810.50", "₱811.00", "₱811.50", "₱812.00"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 10,
-                        text = "Each meter of wire costs ₱15.80. How much does 9.5 meters cost?",
-                        options = listOf("₱150.00", "₱150.10", "₱150.50", "₱150.10"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 11,
-                        text = "A farmer harvests 12.75 kg of tomatoes per day. How much does he harvest in 7 days?",
-                        options = listOf("89.00 kg", "89.25 kg", "89.50 kg", "89.25 kg"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 12,
-                        text = "Each apple costs ₱18.50. How much do 15 apples cost?",
-                        options = listOf("₱277.00", "₱277.50", "₱278.00", "₱278.50"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 13,
-                        text = "A car travels 14.5 km per liter of fuel. How far can it travel with 8.5 liters?",
-                        options = listOf("123.00 km", "123.25 km", "123.50 km", "123.25 km"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 14,
-                        text = "Each kilogram of meat costs ₱285.50. How much does 2.5 kg cost?",
-                        options = listOf("₱713.50", "₱713.75", "₱714.00", "₱714.25"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 15,
-                        text = "A roll of fabric is 25.5 meters long. If you buy 3.5 rolls, what is the total length?",
-                        options = listOf("89.00 m", "89.25 m", "89.50 m", "89.25 m"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 16,
-                        text = "Each bottle of cooking oil costs ₱95.75. How much do 4 bottles cost?",
-                        options = listOf("₱382.00", "₱383.00", "₱383.50", "₱384.00"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 17,
-                        text = "A painter can paint 3.25 square meters per hour. How much can he paint in 6 hours?",
-                        options = listOf("19.25 m²", "19.50 m²", "19.75 m²", "19.50 m²"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 18,
-                        text = "Each liter of paint costs ₱175.50. How much do 5.5 liters cost?",
-                        options = listOf("₱965.00", "₱965.25", "₱965.50", "₱965.75"),
-                        correctAnswer = 3
-                    ),
-                    Question.MultipleChoice(
-                        id = 19,
-                        text = "A box of nails weighs 0.85 kg. What is the total weight of 12 boxes?",
-                        options = listOf("10.0 kg", "10.2 kg", "10.4 kg", "10.6 kg"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 20,
-                        text = "Each kilogram of fish costs ₱225.75. How much does 3.25 kg cost?",
-                        options = listOf("₱733.00", "₱733.50", "₱733.6875", "₱734.00"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 21,
-                        text = "A taxi charges ₱45.50 per kilometer. How much does a 12.5 km trip cost?",
-                        options = listOf("₱568.50", "₱568.75", "₱569.00", "₱568.75"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 22,
-                        text = "Each pack of coffee costs ₱68.25. How much do 9 packs cost?",
-                        options = listOf("₱614.00", "₱614.25", "₱614.50", "₱614.25"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 23,
-                        text = "A worker can make 6.5 items per hour. How many items can he make in 7.5 hours?",
-                        options = listOf("48.50", "48.75", "49.00", "48.75"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 24,
-                        text = "Each kilogram of sugar costs ₱52.50. How much does 8.5 kg cost?",
-                        options = listOf("₱446.00", "₱446.25", "₱446.50", "₱446.25"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 25,
-                        text = "A rope is sold at ₱12.75 per meter. How much does 15.5 meters cost?",
-                        options = listOf("₱197.50", "₱197.625", "₱198.00", "₱197.625"),
-                        correctAnswer = 1
-                    )
-                )
-            )
+//            Activity(
+//                id = 3,
+//                quarter = 1,
+//                lessonNumber = 11,
+//                activityNumber = 3,
+//                title = "Word Problems Involving Multiplication of Decimals Including Money",
+//                type = ActivityType.MULTIPLE_CHOICE,
+//                questions = listOf(
+//                    Question.MultipleChoice(
+//                        id = 1,
+//                        text = "A notebook costs ₱25.50. How much do 4 notebooks cost?",
+//                        options = listOf("₱100.00", "₱101.50", "₱102.00", "₱102.50"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 2,
+//                        text = "A piece of cloth is 3.5 meters long. If you buy 6 pieces, what is the total length?",
+//                        options = listOf("20 m", "21 m", "22 m", "23 m"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 3,
+//                        text = "Each bottle of juice costs ₱12.75. How much do 5 bottles cost?",
+//                        options = listOf("₱62.75", "₱63.25", "₱63.75", "₱64.25"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 4,
+//                        text = "A box of chocolates weighs 2.25 kg. What is the total weight of 8 boxes?",
+//                        options = listOf("17 kg", "18 kg", "19 kg", "20 kg"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 5,
+//                        text = "Gasoline costs ₱58.50 per liter. How much does 12.5 liters cost?",
+//                        options = listOf("₱730.25", "₱731.00", "₱731.25", "₱732.00"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 6,
+//                        text = "A ribbon is sold at ₱8.25 per meter. How much does 7.5 meters cost?",
+//                        options = listOf("₱61.50", "₱61.75", "₱61.875", "₱62.00"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 7,
+//                        text = "Each kilogram of rice costs ₱45.75. How much does 3.5 kg cost?",
+//                        options = listOf("₱160.00", "₱160.125", "₱160.25", "₱160.625"),
+//                        correctAnswer = 3
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 8,
+//                        text = "A worker earns ₱125.50 per hour. How much does he earn in 8 hours?",
+//                        options = listOf("₱1,003.00", "₱1,004.00", "₱1,005.00", "₱1,006.00"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 9,
+//                        text = "A book costs ₱135.25. If you buy 6 books, how much do you pay?",
+//                        options = listOf("₱810.50", "₱811.00", "₱811.50", "₱812.00"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 10,
+//                        text = "Each meter of wire costs ₱15.80. How much does 9.5 meters cost?",
+//                        options = listOf("₱150.00", "₱150.10", "₱150.50", "₱150.10"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 11,
+//                        text = "A farmer harvests 12.75 kg of tomatoes per day. How much does he harvest in 7 days?",
+//                        options = listOf("89.00 kg", "89.25 kg", "89.50 kg", "89.25 kg"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 12,
+//                        text = "Each apple costs ₱18.50. How much do 15 apples cost?",
+//                        options = listOf("₱277.00", "₱277.50", "₱278.00", "₱278.50"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 13,
+//                        text = "A car travels 14.5 km per liter of fuel. How far can it travel with 8.5 liters?",
+//                        options = listOf("123.00 km", "123.25 km", "123.50 km", "123.25 km"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 14,
+//                        text = "Each kilogram of meat costs ₱285.50. How much does 2.5 kg cost?",
+//                        options = listOf("₱713.50", "₱713.75", "₱714.00", "₱714.25"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 15,
+//                        text = "A roll of fabric is 25.5 meters long. If you buy 3.5 rolls, what is the total length?",
+//                        options = listOf("89.00 m", "89.25 m", "89.50 m", "89.25 m"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 16,
+//                        text = "Each bottle of cooking oil costs ₱95.75. How much do 4 bottles cost?",
+//                        options = listOf("₱382.00", "₱383.00", "₱383.50", "₱384.00"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 17,
+//                        text = "A painter can paint 3.25 square meters per hour. How much can he paint in 6 hours?",
+//                        options = listOf("19.25 m²", "19.50 m²", "19.75 m²", "19.50 m²"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 18,
+//                        text = "Each liter of paint costs ₱175.50. How much do 5.5 liters cost?",
+//                        options = listOf("₱965.00", "₱965.25", "₱965.50", "₱965.75"),
+//                        correctAnswer = 3
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 19,
+//                        text = "A box of nails weighs 0.85 kg. What is the total weight of 12 boxes?",
+//                        options = listOf("10.0 kg", "10.2 kg", "10.4 kg", "10.6 kg"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 20,
+//                        text = "Each kilogram of fish costs ₱225.75. How much does 3.25 kg cost?",
+//                        options = listOf("₱733.00", "₱733.50", "₱733.6875", "₱734.00"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 21,
+//                        text = "A taxi charges ₱45.50 per kilometer. How much does a 12.5 km trip cost?",
+//                        options = listOf("₱568.50", "₱568.75", "₱569.00", "₱568.75"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 22,
+//                        text = "Each pack of coffee costs ₱68.25. How much do 9 packs cost?",
+//                        options = listOf("₱614.00", "₱614.25", "₱614.50", "₱614.25"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 23,
+//                        text = "A worker can make 6.5 items per hour. How many items can he make in 7.5 hours?",
+//                        options = listOf("48.50", "48.75", "49.00", "48.75"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 24,
+//                        text = "Each kilogram of sugar costs ₱52.50. How much does 8.5 kg cost?",
+//                        options = listOf("₱446.00", "₱446.25", "₱446.50", "₱446.25"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 25,
+//                        text = "A rope is sold at ₱12.75 per meter. How much does 15.5 meters cost?",
+//                        options = listOf("₱197.50", "₱197.625", "₱198.00", "₱197.625"),
+//                        correctAnswer = 1
+//                    )
+//                )
+//            )
         )
     }
 
@@ -3759,166 +3758,166 @@ object ActivityDataProvider {
             ),
 
             // Activity 3: Multi-Step Word Problems with Decimals and Money
-            Activity(
-                id = 3,
-                quarter = 1,
-                lessonNumber = 12,
-                activityNumber = 3,
-                title = "Multi-Step Problems with Decimals and Money",
-                type = ActivityType.MULTIPLE_CHOICE,
-                questions = listOf(
-                    Question.MultipleChoice(
-                        id = 1,
-                        text = "Maria bought 3 notebooks at ₱25.50 each and 2 pens at ₱15.75 each. How much did she spend in total?",
-                        options = listOf("₱108.00", "₱108.50", "₱108.00", "₱108.00"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 2,
-                        text = "A store sold 5 shirts at ₱125.50 each and 3 pants at ₱275.75 each. What was the total sales?",
-                        options = listOf("₱1,454.75", "₱1,454.50", "₱1,455.00", "₱1,455.25"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 3,
-                        text = "John had ₱500. He bought 4 kg of rice at ₱45.50 per kg. How much money does he have left?",
-                        options = listOf("₱318.00", "₱318.50", "₱318.00", "₱319.00"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 4,
-                        text = "A baker used 2.5 kg of flour at ₱55.50 per kg and 1.5 kg of sugar at ₱65.75 per kg. What was the total cost?",
-                        options = listOf("₱237.375", "₱237.50", "₱237.625", "₱238.00"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 5,
-                        text = "Ana bought 6 bottles of juice at ₱18.25 each. She paid with ₱200. How much change did she receive?",
-                        options = listOf("₱90.50", "₱90.75", "₱91.00", "₱90.50"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 6,
-                        text = "A taxi ride costs ₱40 for the first km and ₱12.50 for each additional km. How much is a 9 km trip?",
-                        options = listOf("₱140.00", "₱140.50", "₱140.00", "₱141.00"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 7,
-                        text = "Rosa bought 3.5 meters of cloth at ₱85.50 per meter and paid ₱15.25 for thread. What was the total cost?",
-                        options = listOf("₱314.50", "₱315.00", "₱314.50", "₱315.50"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 8,
-                        text = "A worker earned ₱125.50 per hour for 8 hours and spent ₱275.75 on expenses. How much did he save?",
-                        options = listOf("₱728.25", "₱728.50", "₱729.00", "₱728.25"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 9,
-                        text = "Tom bought 4 books at ₱135.75 each and 2 pens at ₱22.50 each. How much did he spend?",
-                        options = listOf("₱588.00", "₱588.50", "₱588.00", "₱589.00"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 10,
-                        text = "A store sold 7 kg of apples at ₱95.25 per kg. The store gave a ₱50 discount. What was the final amount?",
-                        options = listOf("₱616.75", "₱617.00", "₱617.25", "₱616.75"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 11,
-                        text = "Lisa bought 2.5 kg of meat at ₱285.50 per kg and 1 kg of fish at ₱225.75. What was the total cost?",
-                        options = listOf("₱939.50", "₱940.00", "₱939.50", "₱940.50"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 12,
-                        text = "A farmer sold 12 kg of vegetables at ₱35.75 per kg and bought fertilizer for ₱185.50. How much profit did he make?",
-                        options = listOf("₱243.50", "₱244.00", "₱243.50", "₱244.50"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 13,
-                        text = "Pedro bought 5 liters of paint at ₱175.50 per liter. He paid with ₱1,000. How much change did he receive?",
-                        options = listOf("₱122.50", "₱123.00", "₱122.50", "₱123.50"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 14,
-                        text = "A restaurant bill shows 3 meals at ₱185.75 each and 2 drinks at ₱45.50 each. What is the total bill?",
-                        options = listOf("₱648.25", "₱648.50", "₱649.00", "₱648.25"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 15,
-                        text = "A shop owner bought 8 items at ₱125.25 each and sold them at ₱150.50 each. What was the total profit?",
-                        options = listOf("₱202.00", "₱202.50", "₱202.00", "₱203.00"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 16,
-                        text = "Carmen bought 4.5 kg of chicken at ₱165.50 per kg and 2 kg of pork at ₱195.75 per kg. What was the total cost?",
-                        options = listOf("₱1,136.25", "₱1,136.50", "₱1,137.00", "₱1,136.25"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 17,
-                        text = "A student bought 6 notebooks at ₱28.50 each and 3 pens at ₱18.75 each. She paid with ₱250. How much change?",
-                        options = listOf("₱77.75", "₱78.00", "₱78.25", "₱77.75"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 18,
-                        text = "A bakery sold 15 loaves of bread at ₱35.50 each and 10 cakes at ₱85.75 each. What was the total revenue?",
-                        options = listOf("₱1,390.00", "₱1,390.50", "₱1,390.00", "₱1,391.00"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 19,
-                        text = "Mark earned ₱1,500 and spent ₱275.50 on rent, ₱185.75 on food, and ₱125.25 on utilities. How much did he save?",
-                        options = listOf("₱913.50", "₱914.00", "₱913.50", "₱914.50"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 20,
-                        text = "A store bought 20 items at ₱65.75 each and sold 15 of them at ₱95.50 each. What was the profit from the 15 items sold?",
-                        options = listOf("₱446.25", "₱446.50", "₱447.00", "₱446.25"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 21,
-                        text = "Rita bought 3 meters of ribbon at ₱12.75 per meter and 5 meters of lace at ₱18.50 per meter. What was the total cost?",
-                        options = listOf("₱130.75", "₱131.00", "₱130.75", "₱131.50"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 22,
-                        text = "A gardener worked for 6.5 hours at ₱85.50 per hour and spent ₱125.75 on tools. How much money does he have left?",
-                        options = listOf("₱430.00", "₱430.50", "₱430.00", "₱431.00"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 23,
-                        text = "A family bought 8 kg of rice at ₱48.50 per kg and 3 kg of beans at ₱75.25 per kg. What was the total cost?",
-                        options = listOf("₱613.75", "₱614.00", "₱614.25", "₱613.75"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 24,
-                        text = "Jose bought 4 toys at ₱145.75 each. He received a ₱75 discount. How much did he pay?",
-                        options = listOf("₱508.00", "₱508.50", "₱508.00", "₱509.00"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 25,
-                        text = "A vendor sold 12 kg of fruits at ₱55.50 per kg in the morning and 8 kg at ₱65.75 per kg in the afternoon. What was the total sales?",
-                        options = listOf("₱1,192.00", "₱1,192.50", "₱1,192.00", "₱1,193.00"),
-                        correctAnswer = 0
-                    )
-                )
-            )
+//            Activity(
+//                id = 3,
+//                quarter = 1,
+//                lessonNumber = 12,
+//                activityNumber = 3,
+//                title = "Multi-Step Problems with Decimals and Money",
+//                type = ActivityType.MULTIPLE_CHOICE,
+//                questions = listOf(
+//                    Question.MultipleChoice(
+//                        id = 1,
+//                        text = "Maria bought 3 notebooks at ₱25.50 each and 2 pens at ₱15.75 each. How much did she spend in total?",
+//                        options = listOf("₱108.00", "₱108.50", "₱108.00", "₱108.00"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 2,
+//                        text = "A store sold 5 shirts at ₱125.50 each and 3 pants at ₱275.75 each. What was the total sales?",
+//                        options = listOf("₱1,454.75", "₱1,454.50", "₱1,455.00", "₱1,455.25"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 3,
+//                        text = "John had ₱500. He bought 4 kg of rice at ₱45.50 per kg. How much money does he have left?",
+//                        options = listOf("₱318.00", "₱318.50", "₱318.00", "₱319.00"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 4,
+//                        text = "A baker used 2.5 kg of flour at ₱55.50 per kg and 1.5 kg of sugar at ₱65.75 per kg. What was the total cost?",
+//                        options = listOf("₱237.375", "₱237.50", "₱237.625", "₱238.00"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 5,
+//                        text = "Ana bought 6 bottles of juice at ₱18.25 each. She paid with ₱200. How much change did she receive?",
+//                        options = listOf("₱90.50", "₱90.75", "₱91.00", "₱90.50"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 6,
+//                        text = "A taxi ride costs ₱40 for the first km and ₱12.50 for each additional km. How much is a 9 km trip?",
+//                        options = listOf("₱140.00", "₱140.50", "₱140.00", "₱141.00"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 7,
+//                        text = "Rosa bought 3.5 meters of cloth at ₱85.50 per meter and paid ₱15.25 for thread. What was the total cost?",
+//                        options = listOf("₱314.50", "₱315.00", "₱314.50", "₱315.50"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 8,
+//                        text = "A worker earned ₱125.50 per hour for 8 hours and spent ₱275.75 on expenses. How much did he save?",
+//                        options = listOf("₱728.25", "₱728.50", "₱729.00", "₱728.25"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 9,
+//                        text = "Tom bought 4 books at ₱135.75 each and 2 pens at ₱22.50 each. How much did he spend?",
+//                        options = listOf("₱588.00", "₱588.50", "₱588.00", "₱589.00"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 10,
+//                        text = "A store sold 7 kg of apples at ₱95.25 per kg. The store gave a ₱50 discount. What was the final amount?",
+//                        options = listOf("₱616.75", "₱617.00", "₱617.25", "₱616.75"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 11,
+//                        text = "Lisa bought 2.5 kg of meat at ₱285.50 per kg and 1 kg of fish at ₱225.75. What was the total cost?",
+//                        options = listOf("₱939.50", "₱940.00", "₱939.50", "₱940.50"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 12,
+//                        text = "A farmer sold 12 kg of vegetables at ₱35.75 per kg and bought fertilizer for ₱185.50. How much profit did he make?",
+//                        options = listOf("₱243.50", "₱244.00", "₱243.50", "₱244.50"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 13,
+//                        text = "Pedro bought 5 liters of paint at ₱175.50 per liter. He paid with ₱1,000. How much change did he receive?",
+//                        options = listOf("₱122.50", "₱123.00", "₱122.50", "₱123.50"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 14,
+//                        text = "A restaurant bill shows 3 meals at ₱185.75 each and 2 drinks at ₱45.50 each. What is the total bill?",
+//                        options = listOf("₱648.25", "₱648.50", "₱649.00", "₱648.25"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 15,
+//                        text = "A shop owner bought 8 items at ₱125.25 each and sold them at ₱150.50 each. What was the total profit?",
+//                        options = listOf("₱202.00", "₱202.50", "₱202.00", "₱203.00"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 16,
+//                        text = "Carmen bought 4.5 kg of chicken at ₱165.50 per kg and 2 kg of pork at ₱195.75 per kg. What was the total cost?",
+//                        options = listOf("₱1,136.25", "₱1,136.50", "₱1,137.00", "₱1,136.25"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 17,
+//                        text = "A student bought 6 notebooks at ₱28.50 each and 3 pens at ₱18.75 each. She paid with ₱250. How much change?",
+//                        options = listOf("₱77.75", "₱78.00", "₱78.25", "₱77.75"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 18,
+//                        text = "A bakery sold 15 loaves of bread at ₱35.50 each and 10 cakes at ₱85.75 each. What was the total revenue?",
+//                        options = listOf("₱1,390.00", "₱1,390.50", "₱1,390.00", "₱1,391.00"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 19,
+//                        text = "Mark earned ₱1,500 and spent ₱275.50 on rent, ₱185.75 on food, and ₱125.25 on utilities. How much did he save?",
+//                        options = listOf("₱913.50", "₱914.00", "₱913.50", "₱914.50"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 20,
+//                        text = "A store bought 20 items at ₱65.75 each and sold 15 of them at ₱95.50 each. What was the profit from the 15 items sold?",
+//                        options = listOf("₱446.25", "₱446.50", "₱447.00", "₱446.25"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 21,
+//                        text = "Rita bought 3 meters of ribbon at ₱12.75 per meter and 5 meters of lace at ₱18.50 per meter. What was the total cost?",
+//                        options = listOf("₱130.75", "₱131.00", "₱130.75", "₱131.50"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 22,
+//                        text = "A gardener worked for 6.5 hours at ₱85.50 per hour and spent ₱125.75 on tools. How much money does he have left?",
+//                        options = listOf("₱430.00", "₱430.50", "₱430.00", "₱431.00"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 23,
+//                        text = "A family bought 8 kg of rice at ₱48.50 per kg and 3 kg of beans at ₱75.25 per kg. What was the total cost?",
+//                        options = listOf("₱613.75", "₱614.00", "₱614.25", "₱613.75"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 24,
+//                        text = "Jose bought 4 toys at ₱145.75 each. He received a ₱75 discount. How much did he pay?",
+//                        options = listOf("₱508.00", "₱508.50", "₱508.00", "₱509.00"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 25,
+//                        text = "A vendor sold 12 kg of fruits at ₱55.50 per kg in the morning and 8 kg at ₱65.75 per kg in the afternoon. What was the total sales?",
+//                        options = listOf("₱1,192.00", "₱1,192.50", "₱1,192.00", "₱1,193.00"),
+//                        correctAnswer = 0
+//                    )
+//                )
+//            )
         )
     }
 
@@ -4119,166 +4118,166 @@ object ActivityDataProvider {
             ),
 
             // Activity 3: Division of Decimals Practice
-            Activity(
-                id = 3,
-                quarter = 1,
-                lessonNumber = 13,
-                activityNumber = 3,
-                title = "Division of Decimals - Practice Problems",
-                type = ActivityType.MULTIPLE_CHOICE,
-                questions = listOf(
-                    Question.MultipleChoice(
-                        id = 1,
-                        text = "10 ÷ 0.5 =",
-                        options = listOf("20", "25", "15", "30"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 2,
-                        text = "8 ÷ 0.4 =",
-                        options = listOf("18", "20", "22", "24"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 3,
-                        text = "12 ÷ 0.3 =",
-                        options = listOf("35", "38", "40", "42"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 4,
-                        text = "15 ÷ 0.25 =",
-                        options = listOf("50", "55", "60", "65"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 5,
-                        text = "20 ÷ 0.5 =",
-                        options = listOf("35", "40", "45", "50"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 6,
-                        text = "0.8 ÷ 4 =",
-                        options = listOf("0.15", "0.2", "0.25", "0.3"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 7,
-                        text = "0.6 ÷ 3 =",
-                        options = listOf("0.15", "0.2", "0.25", "0.3"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 8,
-                        text = "0.9 ÷ 5 =",
-                        options = listOf("0.15", "0.18", "0.2", "0.25"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 9,
-                        text = "1.2 ÷ 6 =",
-                        options = listOf("0.15", "0.2", "0.25", "0.3"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 10,
-                        text = "1.5 ÷ 5 =",
-                        options = listOf("0.25", "0.3", "0.35", "0.4"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 11,
-                        text = "0.24 ÷ 1.2 =",
-                        options = listOf("0.15", "0.2", "0.25", "0.3"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 12,
-                        text = "0.36 ÷ 1.8 =",
-                        options = listOf("0.15", "0.2", "0.25", "0.3"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 13,
-                        text = "0.45 ÷ 1.5 =",
-                        options = listOf("0.25", "0.3", "0.35", "0.4"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 14,
-                        text = "0.56 ÷ 2.8 =",
-                        options = listOf("0.15", "0.2", "0.25", "0.3"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 15,
-                        text = "0.72 ÷ 3.6 =",
-                        options = listOf("0.15", "0.2", "0.25", "0.3"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 16,
-                        text = "4 ÷ 0.2 =",
-                        options = listOf("15", "20", "25", "30"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 17,
-                        text = "6 ÷ 0.3 =",
-                        options = listOf("15", "20", "25", "30"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 18,
-                        text = "9 ÷ 0.45 =",
-                        options = listOf("18", "20", "22", "24"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 19,
-                        text = "16 ÷ 0.8 =",
-                        options = listOf("18", "20", "22", "24"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 20,
-                        text = "24 ÷ 0.6 =",
-                        options = listOf("35", "40", "45", "50"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 21,
-                        text = "0.4 ÷ 2 =",
-                        options = listOf("0.15", "0.2", "0.25", "0.3"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 22,
-                        text = "0.75 ÷ 3 =",
-                        options = listOf("0.2", "0.25", "0.3", "0.35"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 23,
-                        text = "1.6 ÷ 8 =",
-                        options = listOf("0.15", "0.2", "0.25", "0.3"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 24,
-                        text = "2.1 ÷ 7 =",
-                        options = listOf("0.25", "0.3", "0.35", "0.4"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 25,
-                        text = "3.2 ÷ 4 =",
-                        options = listOf("0.7", "0.8", "0.9", "1.0"),
-                        correctAnswer = 1
-                    )
-                )
-            )
+//            Activity(
+//                id = 3,
+//                quarter = 1,
+//                lessonNumber = 13,
+//                activityNumber = 3,
+//                title = "Division of Decimals - Practice Problems",
+//                type = ActivityType.MULTIPLE_CHOICE,
+//                questions = listOf(
+//                    Question.MultipleChoice(
+//                        id = 1,
+//                        text = "10 ÷ 0.5 =",
+//                        options = listOf("20", "25", "15", "30"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 2,
+//                        text = "8 ÷ 0.4 =",
+//                        options = listOf("18", "20", "22", "24"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 3,
+//                        text = "12 ÷ 0.3 =",
+//                        options = listOf("35", "38", "40", "42"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 4,
+//                        text = "15 ÷ 0.25 =",
+//                        options = listOf("50", "55", "60", "65"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 5,
+//                        text = "20 ÷ 0.5 =",
+//                        options = listOf("35", "40", "45", "50"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 6,
+//                        text = "0.8 ÷ 4 =",
+//                        options = listOf("0.15", "0.2", "0.25", "0.3"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 7,
+//                        text = "0.6 ÷ 3 =",
+//                        options = listOf("0.15", "0.2", "0.25", "0.3"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 8,
+//                        text = "0.9 ÷ 5 =",
+//                        options = listOf("0.15", "0.18", "0.2", "0.25"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 9,
+//                        text = "1.2 ÷ 6 =",
+//                        options = listOf("0.15", "0.2", "0.25", "0.3"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 10,
+//                        text = "1.5 ÷ 5 =",
+//                        options = listOf("0.25", "0.3", "0.35", "0.4"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 11,
+//                        text = "0.24 ÷ 1.2 =",
+//                        options = listOf("0.15", "0.2", "0.25", "0.3"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 12,
+//                        text = "0.36 ÷ 1.8 =",
+//                        options = listOf("0.15", "0.2", "0.25", "0.3"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 13,
+//                        text = "0.45 ÷ 1.5 =",
+//                        options = listOf("0.25", "0.3", "0.35", "0.4"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 14,
+//                        text = "0.56 ÷ 2.8 =",
+//                        options = listOf("0.15", "0.2", "0.25", "0.3"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 15,
+//                        text = "0.72 ÷ 3.6 =",
+//                        options = listOf("0.15", "0.2", "0.25", "0.3"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 16,
+//                        text = "4 ÷ 0.2 =",
+//                        options = listOf("15", "20", "25", "30"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 17,
+//                        text = "6 ÷ 0.3 =",
+//                        options = listOf("15", "20", "25", "30"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 18,
+//                        text = "9 ÷ 0.45 =",
+//                        options = listOf("18", "20", "22", "24"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 19,
+//                        text = "16 ÷ 0.8 =",
+//                        options = listOf("18", "20", "22", "24"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 20,
+//                        text = "24 ÷ 0.6 =",
+//                        options = listOf("35", "40", "45", "50"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 21,
+//                        text = "0.4 ÷ 2 =",
+//                        options = listOf("0.15", "0.2", "0.25", "0.3"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 22,
+//                        text = "0.75 ÷ 3 =",
+//                        options = listOf("0.2", "0.25", "0.3", "0.35"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 23,
+//                        text = "1.6 ÷ 8 =",
+//                        options = listOf("0.15", "0.2", "0.25", "0.3"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 24,
+//                        text = "2.1 ÷ 7 =",
+//                        options = listOf("0.25", "0.3", "0.35", "0.4"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 25,
+//                        text = "3.2 ÷ 4 =",
+//                        options = listOf("0.7", "0.8", "0.9", "1.0"),
+//                        correctAnswer = 1
+//                    )
+//                )
+//            )
         )
     }
 
@@ -4544,101 +4543,101 @@ object ActivityDataProvider {
             ),
 
             // Activity 3: Division by Special Numbers - Pattern Recognition
-            Activity(
-                id = 3,
-                quarter = 1,
-                lessonNumber = 14,
-                activityNumber = 3,
-                title = "Division Patterns with 0.1, 0.01, 10, 100, and 1000",
-                type = ActivityType.WIRE_MATCHING,
-                questions = listOf(
-                    Question.WireMatching(
-                        id = 1,
-                        text = "Match the division problems in Column A with their correct answers in Column B by drawing a line.",
-                        columnA = listOf(
-                            "0.5 ÷ 0.1 =",
-                            "0.8 ÷ 0.1 =",
-                            "0.3 ÷ 0.1 =",
-                            "0.6 ÷ 0.1 =",
-                            "0.9 ÷ 0.1 =",
-                            "0.25 ÷ 0.01 =",
-                            "0.48 ÷ 0.01 =",
-                            "0.72 ÷ 0.01 =",
-                            "0.36 ÷ 0.01 =",
-                            "0.91 ÷ 0.01 =",
-                            "5.5 ÷ 10 =",
-                            "8.2 ÷ 10 =",
-                            "3.7 ÷ 10 =",
-                            "6.4 ÷ 10 =",
-                            "9.1 ÷ 10 =",
-                            "25.5 ÷ 100 =",
-                            "48.6 ÷ 100 =",
-                            "72.3 ÷ 100 =",
-                            "36.8 ÷ 100 =",
-                            "91.4 ÷ 100 =",
-                            "125 ÷ 1000 =",
-                            "450 ÷ 1000 =",
-                            "780 ÷ 1000 =",
-                            "320 ÷ 1000 =",
-                            "650 ÷ 1000 ="
-                        ),
-                        columnB = listOf(
-                            "5",          // #1: 0.5 ÷ 0.1
-                            "8",          // #2: 0.8 ÷ 0.1
-                            "3",          // #3: 0.3 ÷ 0.1
-                            "6",          // #4: 0.6 ÷ 0.1
-                            "9",          // #5: 0.9 ÷ 0.1
-                            "25",         // #6: 0.25 ÷ 0.01
-                            "48",         // #7: 0.48 ÷ 0.01
-                            "72",         // #8: 0.72 ÷ 0.01
-                            "36",         // #9: 0.36 ÷ 0.01
-                            "91",         // #10: 0.91 ÷ 0.01
-                            "0.55",       // #11: 5.5 ÷ 10
-                            "0.82",       // #12: 8.2 ÷ 10
-                            "0.37",       // #13: 3.7 ÷ 10
-                            "0.64",       // #14: 6.4 ÷ 10
-                            "0.91",       // #15: 9.1 ÷ 10
-                            "0.255",      // #16: 25.5 ÷ 100
-                            "0.486",      // #17: 48.6 ÷ 100
-                            "0.723",      // #18: 72.3 ÷ 100
-                            "0.368",      // #19: 36.8 ÷ 100
-                            "0.914",      // #20: 91.4 ÷ 100
-                            "0.125",      // #21: 125 ÷ 1000
-                            "0.45",       // #22: 450 ÷ 1000
-                            "0.78",       // #23: 780 ÷ 1000
-                            "0.32",       // #24: 320 ÷ 1000
-                            "0.65"        // #25: 650 ÷ 1000
-                        ),
-                        correctMatches = mapOf(
-                            0 to 0,   // 0.5 ÷ 0.1 = 5
-                            1 to 1,   // 0.8 ÷ 0.1 = 8
-                            2 to 2,   // 0.3 ÷ 0.1 = 3
-                            3 to 3,   // 0.6 ÷ 0.1 = 6
-                            4 to 4,   // 0.9 ÷ 0.1 = 9
-                            5 to 5,   // 0.25 ÷ 0.01 = 25
-                            6 to 6,   // 0.48 ÷ 0.01 = 48
-                            7 to 7,   // 0.72 ÷ 0.01 = 72
-                            8 to 8,   // 0.36 ÷ 0.01 = 36
-                            9 to 9,   // 0.91 ÷ 0.01 = 91
-                            10 to 10, // 5.5 ÷ 10 = 0.55
-                            11 to 11, // 8.2 ÷ 10 = 0.82
-                            12 to 12, // 3.7 ÷ 10 = 0.37
-                            13 to 13, // 6.4 ÷ 10 = 0.64
-                            14 to 14, // 9.1 ÷ 10 = 0.91
-                            15 to 15, // 25.5 ÷ 100 = 0.255
-                            16 to 16, // 48.6 ÷ 100 = 0.486
-                            17 to 17, // 72.3 ÷ 100 = 0.723
-                            18 to 18, // 36.8 ÷ 100 = 0.368
-                            19 to 19, // 91.4 ÷ 100 = 0.914
-                            20 to 20, // 125 ÷ 1000 = 0.125
-                            21 to 21, // 450 ÷ 1000 = 0.45
-                            22 to 22, // 780 ÷ 1000 = 0.78
-                            23 to 23, // 320 ÷ 1000 = 0.32
-                            24 to 24  // 650 ÷ 1000 = 0.65
-                        )
-                    )
-                )
-            )
+//            Activity(
+//                id = 3,
+//                quarter = 1,
+//                lessonNumber = 14,
+//                activityNumber = 3,
+//                title = "Division Patterns with 0.1, 0.01, 10, 100, and 1000",
+//                type = ActivityType.WIRE_MATCHING,
+//                questions = listOf(
+//                    Question.WireMatching(
+//                        id = 1,
+//                        text = "Match the division problems in Column A with their correct answers in Column B by drawing a line.",
+//                        columnA = listOf(
+//                            "0.5 ÷ 0.1 =",
+//                            "0.8 ÷ 0.1 =",
+//                            "0.3 ÷ 0.1 =",
+//                            "0.6 ÷ 0.1 =",
+//                            "0.9 ÷ 0.1 =",
+//                            "0.25 ÷ 0.01 =",
+//                            "0.48 ÷ 0.01 =",
+//                            "0.72 ÷ 0.01 =",
+//                            "0.36 ÷ 0.01 =",
+//                            "0.91 ÷ 0.01 =",
+//                            "5.5 ÷ 10 =",
+//                            "8.2 ÷ 10 =",
+//                            "3.7 ÷ 10 =",
+//                            "6.4 ÷ 10 =",
+//                            "9.1 ÷ 10 =",
+//                            "25.5 ÷ 100 =",
+//                            "48.6 ÷ 100 =",
+//                            "72.3 ÷ 100 =",
+//                            "36.8 ÷ 100 =",
+//                            "91.4 ÷ 100 =",
+//                            "125 ÷ 1000 =",
+//                            "450 ÷ 1000 =",
+//                            "780 ÷ 1000 =",
+//                            "320 ÷ 1000 =",
+//                            "650 ÷ 1000 ="
+//                        ),
+//                        columnB = listOf(
+//                            "5",          // #1: 0.5 ÷ 0.1
+//                            "8",          // #2: 0.8 ÷ 0.1
+//                            "3",          // #3: 0.3 ÷ 0.1
+//                            "6",          // #4: 0.6 ÷ 0.1
+//                            "9",          // #5: 0.9 ÷ 0.1
+//                            "25",         // #6: 0.25 ÷ 0.01
+//                            "48",         // #7: 0.48 ÷ 0.01
+//                            "72",         // #8: 0.72 ÷ 0.01
+//                            "36",         // #9: 0.36 ÷ 0.01
+//                            "91",         // #10: 0.91 ÷ 0.01
+//                            "0.55",       // #11: 5.5 ÷ 10
+//                            "0.82",       // #12: 8.2 ÷ 10
+//                            "0.37",       // #13: 3.7 ÷ 10
+//                            "0.64",       // #14: 6.4 ÷ 10
+//                            "0.91",       // #15: 9.1 ÷ 10
+//                            "0.255",      // #16: 25.5 ÷ 100
+//                            "0.486",      // #17: 48.6 ÷ 100
+//                            "0.723",      // #18: 72.3 ÷ 100
+//                            "0.368",      // #19: 36.8 ÷ 100
+//                            "0.914",      // #20: 91.4 ÷ 100
+//                            "0.125",      // #21: 125 ÷ 1000
+//                            "0.45",       // #22: 450 ÷ 1000
+//                            "0.78",       // #23: 780 ÷ 1000
+//                            "0.32",       // #24: 320 ÷ 1000
+//                            "0.65"        // #25: 650 ÷ 1000
+//                        ),
+//                        correctMatches = mapOf(
+//                            0 to 0,   // 0.5 ÷ 0.1 = 5
+//                            1 to 1,   // 0.8 ÷ 0.1 = 8
+//                            2 to 2,   // 0.3 ÷ 0.1 = 3
+//                            3 to 3,   // 0.6 ÷ 0.1 = 6
+//                            4 to 4,   // 0.9 ÷ 0.1 = 9
+//                            5 to 5,   // 0.25 ÷ 0.01 = 25
+//                            6 to 6,   // 0.48 ÷ 0.01 = 48
+//                            7 to 7,   // 0.72 ÷ 0.01 = 72
+//                            8 to 8,   // 0.36 ÷ 0.01 = 36
+//                            9 to 9,   // 0.91 ÷ 0.01 = 91
+//                            10 to 10, // 5.5 ÷ 10 = 0.55
+//                            11 to 11, // 8.2 ÷ 10 = 0.82
+//                            12 to 12, // 3.7 ÷ 10 = 0.37
+//                            13 to 13, // 6.4 ÷ 10 = 0.64
+//                            14 to 14, // 9.1 ÷ 10 = 0.91
+//                            15 to 15, // 25.5 ÷ 100 = 0.255
+//                            16 to 16, // 48.6 ÷ 100 = 0.486
+//                            17 to 17, // 72.3 ÷ 100 = 0.723
+//                            18 to 18, // 36.8 ÷ 100 = 0.368
+//                            19 to 19, // 91.4 ÷ 100 = 0.914
+//                            20 to 20, // 125 ÷ 1000 = 0.125
+//                            21 to 21, // 450 ÷ 1000 = 0.45
+//                            22 to 22, // 780 ÷ 1000 = 0.78
+//                            23 to 23, // 320 ÷ 1000 = 0.32
+//                            24 to 24  // 650 ÷ 1000 = 0.65
+//                        )
+//                    )
+//                )
+//            )
         )
     }
 
@@ -4969,101 +4968,166 @@ object ActivityDataProvider {
             ),
 
             // Activity 3: Classifying Numbers
-            Activity(
-                id = 3,
-                quarter = 1,
-                lessonNumber = 15,
-                activityNumber = 3,
-                title = "Classify Numbers as Rational or Irrational",
-                type = ActivityType.WIRE_MATCHING,
-                questions = listOf(
-                    Question.WireMatching(
-                        id = 1,
-                        text = "Match each number in Column A with its classification in Column B by drawing a line.",
-                        columnA = listOf(
-                            "0.25",
-                            "√16",
-                            "π/2",
-                            "5/8",
-                            "√10",
-                            "1.333...",
-                            "√25",
-                            "2π",
-                            "7/9",
-                            "√11",
-                            "0.125",
-                            "√36",
-                            "e²",
-                            "11/13",
-                            "√15",
-                            "0.5",
-                            "√49",
-                            "3√2",
-                            "9/10",
-                            "√20",
-                            "2.75",
-                            "√64",
-                            "π + 1",
-                            "13/15",
-                            "√30"
-                        ),
-                        columnB = listOf(
-                            "Rational",      // #1: 0.25
-                            "Rational",      // #2: √16 = 4
-                            "Irrational",    // #3: π/2
-                            "Rational",      // #4: 5/8
-                            "Irrational",    // #5: √10
-                            "Rational",      // #6: 1.333...
-                            "Rational",      // #7: √25 = 5
-                            "Irrational",    // #8: 2π
-                            "Rational",      // #9: 7/9
-                            "Irrational",    // #10: √11
-                            "Rational",      // #11: 0.125
-                            "Rational",      // #12: √36 = 6
-                            "Irrational",    // #13: e²
-                            "Rational",      // #14: 11/13
-                            "Irrational",    // #15: √15
-                            "Rational",      // #16: 0.5
-                            "Rational",      // #17: √49 = 7
-                            "Irrational",    // #18: 3√2
-                            "Rational",      // #19: 9/10
-                            "Irrational",    // #20: √20
-                            "Rational",      // #21: 2.75
-                            "Rational",      // #22: √64 = 8
-                            "Irrational",    // #23: π + 1
-                            "Rational",      // #24: 13/15
-                            "Irrational"     // #25: √30
-                        ),
-                        correctMatches = mapOf(
-                            0 to 0,   // 0.25 → Rational
-                            1 to 1,   // √16 → Rational
-                            2 to 2,   // π/2 → Irrational
-                            3 to 3,   // 5/8 → Rational
-                            4 to 4,   // √10 → Irrational
-                            5 to 5,   // 1.333... → Rational
-                            6 to 6,   // √25 → Rational
-                            7 to 7,   // 2π → Irrational
-                            8 to 8,   // 7/9 → Rational
-                            9 to 9,   // √11 → Irrational
-                            10 to 10, // 0.125 → Rational
-                            11 to 11, // √36 → Rational
-                            12 to 12, // e² → Irrational
-                            13 to 13, // 11/13 → Rational
-                            14 to 14, // √15 → Irrational
-                            15 to 15, // 0.5 → Rational
-                            16 to 16, // √49 → Rational
-                            17 to 17, // 3√2 → Irrational
-                            18 to 18, // 9/10 → Rational
-                            19 to 19, // √20 → Irrational
-                            20 to 20, // 2.75 → Rational
-                            21 to 21, // √64 → Rational
-                            22 to 22, // π + 1 → Irrational
-                            23 to 23, // 13/15 → Rational
-                            24 to 24  // √30 → Irrational
-                        )
-                    )
-                )
-            )
+//            Activity(
+//                id = 3,
+//                quarter = 1,
+//                lessonNumber = 15,
+//                activityNumber = 3,
+//                title = "Classify Numbers as Rational or Irrational",
+//                type = ActivityType.MULTIPLE_CHOICE,
+//                questions = listOf(
+//                    Question.MultipleChoice(
+//                        id = 1,
+//                        text = "0.25",
+//                        options = listOf("Rational", "Irrational"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 2,
+//                        text = "√16",
+//                        options = listOf("Rational", "Irrational"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 3,
+//                        text = "π/2",
+//                        options = listOf("Rational", "Irrational"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 4,
+//                        text = "5/8",
+//                        options = listOf("Rational", "Irrational"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 5,
+//                        text = "√10",
+//                        options = listOf("Rational", "Irrational"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 6,
+//                        text = "1.333...",
+//                        options = listOf("Rational", "Irrational"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 7,
+//                        text = "√25",
+//                        options = listOf("Rational", "Irrational"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 8,
+//                        text = "2π",
+//                        options = listOf("Rational", "Irrational"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 9,
+//                        text = "7/9",
+//                        options = listOf("Rational", "Irrational"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 10,
+//                        text = "√11",
+//                        options = listOf("Rational", "Irrational"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 11,
+//                        text = "0.125",
+//                        options = listOf("Rational", "Irrational"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 12,
+//                        text = "√36",
+//                        options = listOf("Rational", "Irrational"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 13,
+//                        text = "e²",
+//                        options = listOf("Rational", "Irrational"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 14,
+//                        text = "11/13",
+//                        options = listOf("Rational", "Irrational"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 15,
+//                        text = "√15",
+//                        options = listOf("Rational", "Irrational"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 16,
+//                        text = "0.5",
+//                        options = listOf("Rational", "Irrational"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 17,
+//                        text = "√49",
+//                        options = listOf("Rational", "Irrational"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 18,
+//                        text = "3√2",
+//                        options = listOf("Rational", "Irrational"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 19,
+//                        text = "9/10",
+//                        options = listOf("Rational", "Irrational"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 20,
+//                        text = "√20",
+//                        options = listOf("Rational", "Irrational"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 21,
+//                        text = "2.75",
+//                        options = listOf("Rational", "Irrational"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 22,
+//                        text = "√64",
+//                        options = listOf("Rational", "Irrational"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 23,
+//                        text = "π + 1",
+//                        options = listOf("Rational", "Irrational"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 24,
+//                        text = "13/15",
+//                        options = listOf("Rational", "Irrational"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 25,
+//                        text = "√30",
+//                        options = listOf("Rational", "Irrational"),
+//                        correctAnswer = 1
+//                    )
+//                )
+//            )
         )
     }
 
@@ -5179,166 +5243,166 @@ object ActivityDataProvider {
             ),
 
             // Activity 3: Word Problems - Division of Decimals and Money
-            Activity(
-                id = 3,
-                quarter = 1,
-                lessonNumber = 16,
-                activityNumber = 3,
-                title = "Word Problems Involving Division of Decimals and Money",
-                type = ActivityType.MULTIPLE_CHOICE,
-                questions = listOf(
-                    Question.MultipleChoice(
-                        id = 1,
-                        text = "A 12.5 meter rope is cut into 5 equal pieces. How long is each piece?",
-                        options = listOf("2.4 m", "2.5 m", "2.6 m", "2.7 m"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 2,
-                        text = "₱450 is divided equally among 6 people. How much does each person receive?",
-                        options = listOf("₱75", "₱80", "₱85", "₱90"),
-                        correctAnswer = 0
-                    ),
-                    Question.MultipleChoice(
-                        id = 3,
-                        text = "A 15.6 kg bag of rice is divided equally into 4 smaller bags. How much rice is in each bag?",
-                        options = listOf("3.8 kg", "3.9 kg", "4.0 kg", "4.1 kg"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 4,
-                        text = "₱1,250 is shared equally among 8 workers. How much does each worker get?",
-                        options = listOf("₱156.00", "₱156.25", "₱157.00", "₱157.50"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 5,
-                        text = "A 25.5 liter tank of water is poured equally into 5 containers. How much water is in each container?",
-                        options = listOf("5.0 L", "5.1 L", "5.2 L", "5.3 L"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 6,
-                        text = "₱875.50 is divided equally among 7 children. How much does each child receive?",
-                        options = listOf("₱125.00", "₱125.07", "₱125.50", "₱126.00"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 7,
-                        text = "A 48.6 meter fence is divided into 9 equal sections. How long is each section?",
-                        options = listOf("5.2 m", "5.3 m", "5.4 m", "5.5 m"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 8,
-                        text = "₱2,400 is split equally among 15 employees. How much does each employee get?",
-                        options = listOf("₱150", "₱155", "₱160", "₱165"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 9,
-                        text = "A 36.4 kg crate is divided into 8 equal portions. How much does each portion weigh?",
-                        options = listOf("4.4 kg", "4.5 kg", "4.55 kg", "4.6 kg"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 10,
-                        text = "₱567.50 is shared equally among 5 people. How much does each person receive?",
-                        options = listOf("₱113.00", "₱113.50", "₱114.00", "₱114.50"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 11,
-                        text = "A 72.8 meter road is divided into 4 equal parts. How long is each part?",
-                        options = listOf("18.0 m", "18.2 m", "18.4 m", "18.6 m"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 12,
-                        text = "₱1,836 is divided equally among 12 students. How much does each student get?",
-                        options = listOf("₱150", "₱152", "₱153", "₱155"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 13,
-                        text = "A 91.2 liter container is split equally into 6 bottles. How much is in each bottle?",
-                        options = listOf("15.0 L", "15.2 L", "15.4 L", "15.6 L"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 14,
-                        text = "₱3,250.50 is shared equally among 10 people. How much does each person receive?",
-                        options = listOf("₱325.00", "₱325.05", "₱325.50", "₱326.00"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 15,
-                        text = "A 56.7 kg sack is divided into 9 equal portions. How much does each portion weigh?",
-                        options = listOf("6.2 kg", "6.3 kg", "6.4 kg", "6.5 kg"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 16,
-                        text = "₱945 is divided equally among 7 workers. How much does each worker get?",
-                        options = listOf("₱133", "₱134", "₱135", "₱136"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 17,
-                        text = "A 84.5 meter wire is cut into 5 equal pieces. How long is each piece?",
-                        options = listOf("16.7 m", "16.8 m", "16.9 m", "17.0 m"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 18,
-                        text = "₱2,184 is shared equally among 8 families. How much does each family receive?",
-                        options = listOf("₱271", "₱272", "₱273", "₱274"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 19,
-                        text = "A 120.6 liter tank is divided equally into 6 containers. How much is in each container?",
-                        options = listOf("20.0 L", "20.1 L", "20.2 L", "20.3 L"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 20,
-                        text = "₱1,575 is split equally among 9 people. How much does each person get?",
-                        options = listOf("₱173", "₱174", "₱175", "₱176"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 21,
-                        text = "A 67.2 kg load is divided into 8 equal parts. How much does each part weigh?",
-                        options = listOf("8.2 kg", "8.3 kg", "8.4 kg", "8.5 kg"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 22,
-                        text = "₱4,200 is shared equally among 12 employees. How much does each employee receive?",
-                        options = listOf("₱340", "₱345", "₱350", "₱355"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 23,
-                        text = "A 98.4 meter path is divided into 12 equal sections. How long is each section?",
-                        options = listOf("8.0 m", "8.1 m", "8.2 m", "8.3 m"),
-                        correctAnswer = 2
-                    ),
-                    Question.MultipleChoice(
-                        id = 24,
-                        text = "₱6,825 is divided equally among 15 winners. How much does each winner get?",
-                        options = listOf("₱450", "₱455", "₱460", "₱465"),
-                        correctAnswer = 1
-                    ),
-                    Question.MultipleChoice(
-                        id = 25,
-                        text = "A 156.8 liter barrel is split equally into 8 containers. How much is in each container?",
-                        options = listOf("19.4 L", "19.5 L", "19.6 L", "19.7 L"),
-                        correctAnswer = 2
-                    )
-                )
-            )
+//            Activity(
+//                id = 3,
+//                quarter = 1,
+//                lessonNumber = 16,
+//                activityNumber = 3,
+//                title = "Word Problems Involving Division of Decimals and Money",
+//                type = ActivityType.MULTIPLE_CHOICE,
+//                questions = listOf(
+//                    Question.MultipleChoice(
+//                        id = 1,
+//                        text = "A 12.5 meter rope is cut into 5 equal pieces. How long is each piece?",
+//                        options = listOf("2.4 m", "2.5 m", "2.6 m", "2.7 m"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 2,
+//                        text = "₱450 is divided equally among 6 people. How much does each person receive?",
+//                        options = listOf("₱75", "₱80", "₱85", "₱90"),
+//                        correctAnswer = 0
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 3,
+//                        text = "A 15.6 kg bag of rice is divided equally into 4 smaller bags. How much rice is in each bag?",
+//                        options = listOf("3.8 kg", "3.9 kg", "4.0 kg", "4.1 kg"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 4,
+//                        text = "₱1,250 is shared equally among 8 workers. How much does each worker get?",
+//                        options = listOf("₱156.00", "₱156.25", "₱157.00", "₱157.50"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 5,
+//                        text = "A 25.5 liter tank of water is poured equally into 5 containers. How much water is in each container?",
+//                        options = listOf("5.0 L", "5.1 L", "5.2 L", "5.3 L"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 6,
+//                        text = "₱875.50 is divided equally among 7 children. How much does each child receive?",
+//                        options = listOf("₱125.00", "₱125.07", "₱125.50", "₱126.00"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 7,
+//                        text = "A 48.6 meter fence is divided into 9 equal sections. How long is each section?",
+//                        options = listOf("5.2 m", "5.3 m", "5.4 m", "5.5 m"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 8,
+//                        text = "₱2,400 is split equally among 15 employees. How much does each employee get?",
+//                        options = listOf("₱150", "₱155", "₱160", "₱165"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 9,
+//                        text = "A 36.4 kg crate is divided into 8 equal portions. How much does each portion weigh?",
+//                        options = listOf("4.4 kg", "4.5 kg", "4.55 kg", "4.6 kg"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 10,
+//                        text = "₱567.50 is shared equally among 5 people. How much does each person receive?",
+//                        options = listOf("₱113.00", "₱113.50", "₱114.00", "₱114.50"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 11,
+//                        text = "A 72.8 meter road is divided into 4 equal parts. How long is each part?",
+//                        options = listOf("18.0 m", "18.2 m", "18.4 m", "18.6 m"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 12,
+//                        text = "₱1,836 is divided equally among 12 students. How much does each student get?",
+//                        options = listOf("₱150", "₱152", "₱153", "₱155"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 13,
+//                        text = "A 91.2 liter container is split equally into 6 bottles. How much is in each bottle?",
+//                        options = listOf("15.0 L", "15.2 L", "15.4 L", "15.6 L"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 14,
+//                        text = "₱3,250.50 is shared equally among 10 people. How much does each person receive?",
+//                        options = listOf("₱325.00", "₱325.05", "₱325.50", "₱326.00"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 15,
+//                        text = "A 56.7 kg sack is divided into 9 equal portions. How much does each portion weigh?",
+//                        options = listOf("6.2 kg", "6.3 kg", "6.4 kg", "6.5 kg"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 16,
+//                        text = "₱945 is divided equally among 7 workers. How much does each worker get?",
+//                        options = listOf("₱133", "₱134", "₱135", "₱136"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 17,
+//                        text = "A 84.5 meter wire is cut into 5 equal pieces. How long is each piece?",
+//                        options = listOf("16.7 m", "16.8 m", "16.9 m", "17.0 m"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 18,
+//                        text = "₱2,184 is shared equally among 8 families. How much does each family receive?",
+//                        options = listOf("₱271", "₱272", "₱273", "₱274"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 19,
+//                        text = "A 120.6 liter tank is divided equally into 6 containers. How much is in each container?",
+//                        options = listOf("20.0 L", "20.1 L", "20.2 L", "20.3 L"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 20,
+//                        text = "₱1,575 is split equally among 9 people. How much does each person get?",
+//                        options = listOf("₱173", "₱174", "₱175", "₱176"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 21,
+//                        text = "A 67.2 kg load is divided into 8 equal parts. How much does each part weigh?",
+//                        options = listOf("8.2 kg", "8.3 kg", "8.4 kg", "8.5 kg"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 22,
+//                        text = "₱4,200 is shared equally among 12 employees. How much does each employee receive?",
+//                        options = listOf("₱340", "₱345", "₱350", "₱355"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 23,
+//                        text = "A 98.4 meter path is divided into 12 equal sections. How long is each section?",
+//                        options = listOf("8.0 m", "8.1 m", "8.2 m", "8.3 m"),
+//                        correctAnswer = 2
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 24,
+//                        text = "₱6,825 is divided equally among 15 winners. How much does each winner get?",
+//                        options = listOf("₱450", "₱455", "₱460", "₱465"),
+//                        correctAnswer = 1
+//                    ),
+//                    Question.MultipleChoice(
+//                        id = 25,
+//                        text = "A 156.8 liter barrel is split equally into 8 containers. How much is in each container?",
+//                        options = listOf("19.4 L", "19.5 L", "19.6 L", "19.7 L"),
+//                        correctAnswer = 2
+//                    )
+//                )
+//            )
         )
     }
 
@@ -5562,101 +5626,101 @@ object ActivityDataProvider {
             ),
 
             // Activity 3: Mixed Operations with Decimals and Money
-            Activity(
-                id = 3,
-                quarter = 1,
-                lessonNumber = 17,
-                activityNumber = 3,
-                title = "Mixed Operations - Practice Problems",
-                type = ActivityType.DRAG_DROP,
-                questions = listOf(
-                    Question.DragDrop(
-                        id = 1,
-                        text = "Solve the following problems and drag the correct answer from Column B to Column A.",
-                        columnA = listOf(
-                            "12.5 + 8.75 =",
-                            "25.6 - 9.85 =",
-                            "4.5 × 6 =",
-                            "36 ÷ 1.5 =",
-                            "15.75 + 12.25 =",
-                            "50 - 18.65 =",
-                            "7.2 × 5 =",
-                            "48.6 ÷ 2 =",
-                            "22.45 + 17.55 =",
-                            "100 - 37.25 =",
-                            "8.4 × 3 =",
-                            "75 ÷ 2.5 =",
-                            "18.75 + 21.25 =",
-                            "65.8 - 28.9 =",
-                            "9.5 × 4 =",
-                            "84 ÷ 3.5 =",
-                            "32.6 + 27.4 =",
-                            "90 - 45.75 =",
-                            "6.8 × 7 =",
-                            "96 ÷ 4.8 =",
-                            "45.5 + 34.5 =",
-                            "120 - 56.25 =",
-                            "5.6 × 8 =",
-                            "72 ÷ 1.8 =",
-                            "28.75 + 31.25 ="
-                        ),
-                        columnB = listOf(
-                            "21.25",       // #1: 12.5 + 8.75
-                            "15.75",       // #2: 25.6 - 9.85
-                            "27",          // #3: 4.5 × 6
-                            "24",          // #4: 36 ÷ 1.5
-                            "28",          // #5: 15.75 + 12.25
-                            "31.35",       // #6: 50 - 18.65
-                            "36",          // #7: 7.2 × 5
-                            "24.3",        // #8: 48.6 ÷ 2
-                            "40",          // #9: 22.45 + 17.55
-                            "62.75",       // #10: 100 - 37.25
-                            "25.2",        // #11: 8.4 × 3
-                            "30",          // #12: 75 ÷ 2.5
-                            "40",          // #13: 18.75 + 21.25
-                            "36.9",        // #14: 65.8 - 28.9
-                            "38",          // #15: 9.5 × 4
-                            "24",          // #16: 84 ÷ 3.5
-                            "60",          // #17: 32.6 + 27.4
-                            "44.25",       // #18: 90 - 45.75
-                            "47.6",        // #19: 6.8 × 7
-                            "20",          // #20: 96 ÷ 4.8
-                            "80",          // #21: 45.5 + 34.5
-                            "63.75",       // #22: 120 - 56.25
-                            "44.8",        // #23: 5.6 × 8
-                            "40",          // #24: 72 ÷ 1.8
-                            "60"           // #25: 28.75 + 31.25
-                        ),
-                        correctMatches = mapOf(
-                            0 to 0,   // 12.5 + 8.75 = 21.25
-                            1 to 1,   // 25.6 - 9.85 = 15.75
-                            2 to 2,   // 4.5 × 6 = 27
-                            3 to 3,   // 36 ÷ 1.5 = 24
-                            4 to 4,   // 15.75 + 12.25 = 28
-                            5 to 5,   // 50 - 18.65 = 31.35
-                            6 to 6,   // 7.2 × 5 = 36
-                            7 to 7,   // 48.6 ÷ 2 = 24.3
-                            8 to 8,   // 22.45 + 17.55 = 40
-                            9 to 9,   // 100 - 37.25 = 62.75
-                            10 to 10, // 8.4 × 3 = 25.2
-                            11 to 11, // 75 ÷ 2.5 = 30
-                            12 to 12, // 18.75 + 21.25 = 40
-                            13 to 13, // 65.8 - 28.9 = 36.9
-                            14 to 14, // 9.5 × 4 = 38
-                            15 to 15, // 84 ÷ 3.5 = 24
-                            16 to 16, // 32.6 + 27.4 = 60
-                            17 to 17, // 90 - 45.75 = 44.25
-                            18 to 18, // 6.8 × 7 = 47.6
-                            19 to 19, // 96 ÷ 4.8 = 20
-                            20 to 20, // 45.5 + 34.5 = 80
-                            21 to 21, // 120 - 56.25 = 63.75
-                            22 to 22, // 5.6 × 8 = 44.8
-                            23 to 23, // 72 ÷ 1.8 = 40
-                            24 to 24  // 28.75 + 31.25 = 60
-                        )
-                    )
-                )
-            )
+//            Activity(
+//                id = 3,
+//                quarter = 1,
+//                lessonNumber = 17,
+//                activityNumber = 3,
+//                title = "Mixed Operations - Practice Problems",
+//                type = ActivityType.DRAG_DROP,
+//                questions = listOf(
+//                    Question.DragDrop(
+//                        id = 1,
+//                        text = "Solve the following problems and drag the correct answer from Column B to Column A.",
+//                        columnA = listOf(
+//                            "12.5 + 8.75 =",
+//                            "25.6 - 9.85 =",
+//                            "4.5 × 6 =",
+//                            "36 ÷ 1.5 =",
+//                            "15.75 + 12.25 =",
+//                            "50 - 18.65 =",
+//                            "7.2 × 5 =",
+//                            "48.6 ÷ 2 =",
+//                            "22.45 + 17.55 =",
+//                            "100 - 37.25 =",
+//                            "8.4 × 3 =",
+//                            "75 ÷ 2.5 =",
+//                            "18.75 + 21.25 =",
+//                            "65.8 - 28.9 =",
+//                            "9.5 × 4 =",
+//                            "84 ÷ 3.5 =",
+//                            "32.6 + 27.4 =",
+//                            "90 - 45.75 =",
+//                            "6.8 × 7 =",
+//                            "96 ÷ 4.8 =",
+//                            "45.5 + 34.5 =",
+//                            "120 - 56.25 =",
+//                            "5.6 × 8 =",
+//                            "72 ÷ 1.8 =",
+//                            "28.75 + 31.25 ="
+//                        ),
+//                        columnB = listOf(
+//                            "21.25",       // #1: 12.5 + 8.75
+//                            "15.75",       // #2: 25.6 - 9.85
+//                            "27",          // #3: 4.5 × 6
+//                            "24",          // #4: 36 ÷ 1.5
+//                            "28",          // #5: 15.75 + 12.25
+//                            "31.35",       // #6: 50 - 18.65
+//                            "36",          // #7: 7.2 × 5
+//                            "24.3",        // #8: 48.6 ÷ 2
+//                            "40",          // #9: 22.45 + 17.55
+//                            "62.75",       // #10: 100 - 37.25
+//                            "25.2",        // #11: 8.4 × 3
+//                            "30",          // #12: 75 ÷ 2.5
+//                            "40",          // #13: 18.75 + 21.25
+//                            "36.9",        // #14: 65.8 - 28.9
+//                            "38",          // #15: 9.5 × 4
+//                            "24",          // #16: 84 ÷ 3.5
+//                            "60",          // #17: 32.6 + 27.4
+//                            "44.25",       // #18: 90 - 45.75
+//                            "47.6",        // #19: 6.8 × 7
+//                            "20",          // #20: 96 ÷ 4.8
+//                            "80",          // #21: 45.5 + 34.5
+//                            "63.75",       // #22: 120 - 56.25
+//                            "44.8",        // #23: 5.6 × 8
+//                            "40",          // #24: 72 ÷ 1.8
+//                            "60"           // #25: 28.75 + 31.25
+//                        ),
+//                        correctMatches = mapOf(
+//                            0 to 0,   // 12.5 + 8.75 = 21.25
+//                            1 to 1,   // 25.6 - 9.85 = 15.75
+//                            2 to 2,   // 4.5 × 6 = 27
+//                            3 to 3,   // 36 ÷ 1.5 = 24
+//                            4 to 4,   // 15.75 + 12.25 = 28
+//                            5 to 5,   // 50 - 18.65 = 31.35
+//                            6 to 6,   // 7.2 × 5 = 36
+//                            7 to 7,   // 48.6 ÷ 2 = 24.3
+//                            8 to 8,   // 22.45 + 17.55 = 40
+//                            9 to 9,   // 100 - 37.25 = 62.75
+//                            10 to 10, // 8.4 × 3 = 25.2
+//                            11 to 11, // 75 ÷ 2.5 = 30
+//                            12 to 12, // 18.75 + 21.25 = 40
+//                            13 to 13, // 65.8 - 28.9 = 36.9
+//                            14 to 14, // 9.5 × 4 = 38
+//                            15 to 15, // 84 ÷ 3.5 = 24
+//                            16 to 16, // 32.6 + 27.4 = 60
+//                            17 to 17, // 90 - 45.75 = 44.25
+//                            18 to 18, // 6.8 × 7 = 47.6
+//                            19 to 19, // 96 ÷ 4.8 = 20
+//                            20 to 20, // 45.5 + 34.5 = 80
+//                            21 to 21, // 120 - 56.25 = 63.75
+//                            22 to 22, // 5.6 × 8 = 44.8
+//                            23 to 23, // 72 ÷ 1.8 = 40
+//                            24 to 24  // 28.75 + 31.25 = 60
+//                        )
+//                    )
+//                )
+//            )
         )
     }
 
@@ -8879,6 +8943,7 @@ object ActivityDataProvider {
         )
     }
 
+    // ------------------- QUARTER 3 -------------------
     private fun getQuarter3Lesson1Activities(): List<Activity> {
         return listOf(
             // Activity 1: Plane Figures or Solid Figures
@@ -13352,112 +13417,96 @@ object ActivityDataProvider {
                 questions = listOf(
                     Question.MultipleChoice(
                         id = 1,
-                        text = "",
                         imageUrl = "q4_l7_a2_q1",
                         options = listOf("2", "3", "4", "5"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 2,
-                        text = "",
                         imageUrl = "q4_l7_a2_q2",
                         options = listOf("4", "5", "6", "7"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 3,
-                        text = "",
                         imageUrl = "q4_l7_a2_q3",
                         options = listOf("2", "3", "4", "5"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 4,
-                        text = "",
                         imageUrl = "q4_l7_a2_q4",
                         options = listOf("3", "4", "5", "6"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 5,
-                        text = "",
                         imageUrl = "q4_l7_a2_q5",
                         options = listOf("4", "5", "6", "7"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 6,
-                        text = "",
                         imageUrl = "q4_l7_a2_q6",
                         options = listOf("6", "7", "8", "9"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 7,
-                        text = "",
                         imageUrl = "q4_l7_a2_q7",
                         options = listOf("7", "8", "9", "10"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 8,
-                        text = "",
                         imageUrl = "q4_l7_a2_q8",
                         options = listOf("8", "9", "10", "11"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 9,
-                        text = "",
                         imageUrl = "q4_l7_a2_q9",
                         options = listOf("10", "11", "12", "13"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 10,
-                        text = "",
                         imageUrl = "q4_l7_a2_q10",
                         options = listOf("12", "13", "14", "15"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 11,
-                        text = "",
                         imageUrl = "q4_l7_a2_q11",
                         options = listOf("13", "14", "15", "16"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 12,
-                        text = "",
                         imageUrl = "q4_l7_a2_q12",
                         options = listOf("14", "15", "16", "17"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 13,
-                        text = "",
                         imageUrl = "q4_l7_a2_q13",
                         options = listOf("1", "2", "3", "4"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 14,
-                        text = "",
                         imageUrl = "q4_l7_a2_q14",
                         options = listOf("2", "3", "4", "5"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 15,
-                        text = "",
                         imageUrl = "q4_l7_a2_q15",
                         options = listOf("3", "4", "5", "6"),
                         correctAnswer = 1
                     ),
                     Question.MultipleChoice(
                         id = 16,
-                        text = "",
                         imageUrl = "q4_l7_a2_q16",
                         options = listOf("4", "5", "6", "7"),
                         correctAnswer = 2
@@ -13471,56 +13520,48 @@ object ActivityDataProvider {
                     ),
                     Question.MultipleChoice(
                         id = 18,
-                        text = "",
                         imageUrl = "q4_l7_a2_q18",
                         options = listOf("7", "8", "9", "10"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 19,
-                        text = "",
                         imageUrl = "q4_l7_a2_q19",
                         options = listOf("8", "9", "10", "11"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 20,
-                        text = "",
                         imageUrl = "q4_l7_a2_q20",
                         options = listOf("10", "11", "12", "13"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 21,
-                        text = "",
                         imageUrl = "q4_l7_a2_q21",
                         options = listOf("12", "13", "14", "15"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 22,
-                        text = "",
                         imageUrl = "q4_l7_a2_q22",
                         options = listOf("13", "14", "15", "16"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 23,
-                        text = "",
                         imageUrl = "q4_l7_a2_q23",
                         options = listOf("14", "15", "16", "17"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 24,
-                        text = "",
                         imageUrl = "q4_l7_a2_q24",
                         options = listOf("16", "17", "18", "19"),
                         correctAnswer = 2
                     ),
                     Question.MultipleChoice(
                         id = 25,
-                        text = "",
                         imageUrl = "q4_l7_a2_q25",
                         options = listOf("18", "19", "20", "21"),
                         correctAnswer = 2

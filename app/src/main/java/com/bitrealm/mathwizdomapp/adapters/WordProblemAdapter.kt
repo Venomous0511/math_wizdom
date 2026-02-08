@@ -20,7 +20,6 @@ class WordProblemAdapter(
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvNumber: TextView = view.findViewById(R.id.tvProblemNumber)
-        val tvTitle: TextView = view.findViewById(R.id.tvProblemTitle)
         val card: MaterialCardView = view.findViewById(R.id.cardProblem)
     }
 
@@ -32,14 +31,7 @@ class WordProblemAdapter(
 
     @SuppressLint("SetTextI18n", "UseKtx")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val problem = problems[position]
-
         holder.tvNumber.text = "Problem ${position + 1}"
-        holder.tvTitle.text = if (problem.description.length > 50) {
-            problem.description.take(50) + "..."
-        } else {
-            problem.description
-        }
 
         // Highlight selected
         if (position == selectedPosition) {
@@ -49,7 +41,7 @@ class WordProblemAdapter(
         }
 
         holder.card.setOnClickListener {
-            @Suppress("DEPRECATION") val clickedPosition = holder.adapterPosition
+            val clickedPosition = holder.bindingAdapterPosition
             if (clickedPosition != RecyclerView.NO_POSITION) {
                 val oldPosition = selectedPosition
                 selectedPosition = clickedPosition

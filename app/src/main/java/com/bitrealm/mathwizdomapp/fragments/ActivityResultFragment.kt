@@ -4,11 +4,13 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.bitrealm.mathwizdomapp.QuarterSelectionActivity
@@ -71,8 +73,18 @@ class ActivityResultFragment : Fragment() {
             correctAnswers = it.getInt(ARG_CORRECT)
             wrongAnswers = it.getInt(ARG_WRONG)
             totalQuestions = it.getInt(ARG_TOTAL)
-            @Suppress("DEPRECATION")
-            activity = it.getSerializable(ARG_ACTIVITY) as Activity
+
+            activity = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                it.getSerializable(ARG_ACTIVITY, Activity::class.java)
+            } else {
+                @Suppress("DEPRECATION")
+                it.getSerializable(ARG_ACTIVITY) as? Activity
+            } ?: run {
+                Toast.makeText(context, "Error loading activity", Toast.LENGTH_SHORT).show()
+                requireActivity().finish()
+                return
+            }
+
             userIdentifier = it.getString(ARG_USER_ID) ?: ""
             quarter = it.getInt(ARG_QUARTER)
             lessonNumber = it.getInt(ARG_LESSON)
@@ -132,7 +144,7 @@ class ActivityResultFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        MusicManager.play()
+        MusicManager.resume()
     }
 
     override fun onPause() {
@@ -291,15 +303,11 @@ class ActivityResultFragment : Fragment() {
             // Check if lesson is completed
             checkAndShowLessonCompletion()
 
-            // Navigate after a short delay to allow the dialog to show
-            lifecycleScope.launch {
-                kotlinx.coroutines.delay(500)
-                val intent = Intent(requireActivity(), QuarterSelectionActivity::class.java)
-                intent.putExtra("USER_IDENTIFIER", userIdentifier)
-                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
-                startActivity(intent)
-                requireActivity().finish()
-            }
+            val intent = Intent(requireActivity(), QuarterSelectionActivity::class.java)
+            intent.putExtra("USER_IDENTIFIER", userIdentifier)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+            requireActivity().finish()
         }
     }
 }

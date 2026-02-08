@@ -77,7 +77,7 @@ class ActivityActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
     override fun onResume() {
         super.onResume()
-        MusicManager.play()
+        MusicManager.resume()
     }
 
     override fun onPause() {

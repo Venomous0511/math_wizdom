@@ -44,7 +44,7 @@ class ActivityInstructionsFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        MusicManager.play()
+        MusicManager.resume()
     }
 
     override fun onPause() {
@@ -64,38 +64,55 @@ class ActivityInstructionsFragment : Fragment() {
                 // Quarter 1
                 "1_1_1" -> "Check each pair of fractions. Choose SIMILAR if the denominators are the same; DISSIMILAR if they are different."
                 "1_1_2" -> "Solve the fractions in Column A, then match each answer with the correct one in Column B."
+                "1_1_3" -> "Solve the fractions in Column A, then draw a line to match each answer with the correct one in Column B."
                 "1_2_1" -> "Read and analyze the word problem, then answer the questions on your paper step by step."
                 "1_2_2" -> "Read and analyze the word problem, then answer the questions on your paper step by step."
+                "1_2_3" -> "Read each word problem carefully. Solve it and choose the correct answer from the options provided."
                 "1_3_1" -> "Solve each fraction. Choose TRUE if the answer is correct and FALSE if it is not."
                 "1_3_2" -> "Solve the given fractions and choose the right answer from the provided options."
+                "1_3_3" -> "Solve the given fractions and drag the correct answer into the box provided."
                 "1_4_1" -> "Examine each phrase and identify its correct expression. Drag the matching expression to the space next to the phrase."
                 "1_4_2" -> "Read and analyze the word problem, then answer the questions on your paper step by step."
+                "1_4_3" -> "Read each word problem carefully. Solve it and choose the correct answer from the options provided."
                 "1_5_1" -> "Solve each fraction in Column A, then find and match the correct answer from Column B."
                 "1_5_2" -> "Find the correct answer for each fraction and drag it into the box."
+                "1_5_3" -> "Solve each division problem and choose the correct answer from the options provided."
                 "1_6_1" -> "Read the word problem carefully. Decide if it uses division. Write TRUE if it does, and FALSE if it does not."
                 "1_6_2" -> "Read and analyze the word problem, then answer the questions on your paper step by step."
+                "1_6_3" -> "Solve the division problems in Column A, then draw a line to match each answer with the correct one in Column B."
                 "1_7_1" -> "Solve each fraction problem. Check if the given answer is correct. Write TRUE if it is correct, and FALSE if it is not."
                 "1_7_2" -> "Solve the decimal problems in Column A. Choose the correct answer from Column B and drag it to the matching box in Column A."
+                "1_7_3" -> "Solve the decimal problems in Column A, then draw a line to match each answer with the correct one in Column B."
                 "1_8_1" -> "Read and analyze the word problem, then answer the questions on your paper step by step."
                 "1_8_2" -> "Read and analyze the word problem, then answer the questions on your paper step by step."
+                "1_8_3" -> "Read each word problem carefully. Solve it and choose the correct answer from the options provided."
                 "1_9_1" -> "Solve the decimal problems. Choose the correct answer from the given choices."
                 "1_9_2" -> "Solve the decimal problems in Column A. Choose the correct answer from Column B and match it with the correct item in Column A."
+                "1_9_3" -> "Solve the decimal multiplication problems and drag the correct answer into the box provided."
                 "1_10_1" -> "Solve each decimal problem. Check if the given answer is correct. Write TRUE if it is correct and FALSE if it is not."
                 "1_10_2" -> "Solve the decimal problems in Column A. Choose the correct answer from Column B and drag it to the matching box in Column A."
+                "1_10_3" -> "Solve the decimal problems in Column A, then draw a line to match each answer with the correct one in Column B."
                 "1_11_1" -> "Read and analyze the word problem, then answer the questions on your paper step by step."
                 "1_11_2" -> "Read and analyze the word problem, then answer the questions on your paper step by step."
+                "1_11_3" -> "Read each word problem carefully. Solve it and choose the correct answer from the options provided."
                 "1_12_1" -> "Read and analyze the word problem, then answer the questions on your paper step by step."
                 "1_12_2" -> "Read and analyze the word problem, then answer the questions on your paper step by step."
-                "1_13_1" -> "Solve the decimal problems. Drag and drop the correct answer into the box provided."
+                "1_12_3" -> "Read each multi-step word problem carefully. Solve it and choose the correct answer from the options provided."
+                "1_13_1" -> "Solve the given decimals and drag and drop the correct answer into the box provided."
                 "1_13_2" -> "Solve the decimal problems. Choose the correct answer from Column B and match it with the correct item in Column A."
+                "1_13_3" -> "Solve each division problem and choose the correct answer from the options provided."
                 "1_14_1" -> "Solve the decimal problems. Pick the correct answer from the choices given."
                 "1_14_2" -> "Solve the decimal problems in Column A. Choose the correct answer from Column B and drag it into the matching box in Column A."
+                "1_14_3" -> "Solve the decimal problems in Column A, then draw a line to match each answer with the correct one in Column B."
                 "1_15_1" -> "Look at each number. Decide if it is rational or irrational. Choose the correct answer for each."
                 "1_15_2" -> "Look at each decimal and decide if it is terminating or repeating. Write TRUE if the given answer is correct, FALSE if not."
+                "1_15_3" -> "Look at each number and decide if it is rational or irrational. Choose the correct answer for each."
                 "1_16_1" -> "Read and analyze the word problem, then answer the questions on your paper step by step."
                 "1_16_2" -> "Read and analyze the word problem, then answer the questions on your paper step by step."
+                "1_16_3" -> "Read each word problem carefully. Solve it and choose the correct answer from the options provided."
                 "1_17_1" -> "Read and analyze the word problem, then answer the questions on your paper step by step."
                 "1_17_2" -> "Read the word problem carefully. Change it into an equation and choose the correct equation as your answer."
+                "1_17_3" -> "Solve each problem and drag the correct answer into the box provided."
 
                 // Quarter 2
                 "2_1_1" -> "Look at each pair of figures, find their ratio in colon form (A : B), and choose the correct answer."
@@ -256,634 +273,522 @@ class ActivityInstructionsFragment : Fragment() {
 
         // Set content based on activity
         when ("${quarter}_${lessonNumber}_${activity.activityNumber}") {
-            // Quarter 1, Lesson 1, Activity 1
+            // Quarter 1, Lesson 1
             "1_1_1" -> {
                 tvTitleContent.text = "IDENTIFYING SIMILAR AND DISSIMILAR FRACTIONS"
                 tvDirection.text = "Examine each pair of fractions and determine whether they are similar or dissimilar. Choose SIMILAR or DISSIMILAR for each pair."
-                //ivGuide.setImageResource(R.drawable.guide_1_1_1)
             }
-
-            // Quarter 1, Lesson 1, Activity 2
             "1_1_2" -> {
                 tvTitleContent.text = "ADDS AND SUBTRACTS SIMPLE AND MIXED FRACTIONS"
                 tvDirection.text = "Solve the fractions listed in Column A. Then, choose the correct answer from Column B and drag it into the corresponding box in Column A."
-                //ivGuide.setImageResource(R.drawable.guide_1_1_2)
+            }
+            "1_1_3" -> {
+                tvTitleContent.text = "ADDITION AND SUBTRACTION OF SIMILAR FRACTIONS"
+                tvDirection.text = "Solve the fractions in Column A and match them with the correct answers in Column B by drawing a line."
             }
 
-            // Quarter 1, Lesson 2, Activity 1
+            // Quarter 1, Lesson 2
             "1_2_1" -> {
                 tvTitleContent.text = "SOLVE ROUTINE AND NON-ROUTINE PROBLEMS INVOLVING ADDITION OF FRACTIONS"
                 tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
-                //ivGuide.setImageResource(R.drawable.guide_1_2_1)
             }
-
-            // Quarter 1, Lesson 2, Activity 2
             "1_2_2" -> {
                 tvTitleContent.text = "SOLVE NON-ROUTINE PROBLEMS INVOLVING SUBTRACTION OF FRACTIONS"
                 tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
-                //ivGuide.setImageResource(R.drawable.guide_1_2_2)
+            }
+            "1_2_3" -> {
+                tvTitleContent.text = "WORD PROBLEMS INVOLVING ADDITION AND SUBTRACTION OF FRACTIONS"
+                tvDirection.text = "Read each word problem carefully. Solve it and choose the correct answer from the options provided."
             }
 
-            // Quarter 1, Lesson 3, Activity 1
+            // Quarter 1, Lesson 3
             "1_3_1" -> {
                 tvTitleContent.text = "MULTIPLY SIMPLE AND MIXED FRACTIONS"
                 tvDirection.text = "Solve the given fractions and determine whether each answer provided is correct or not. Choose TRUE if the answer is correct and FALSE if it is incorrect."
-                //ivGuide.setImageResource(R.drawable.guide_1_3_1)
             }
-
-            // Quarter 1, Lesson 3, Activity 2
             "1_3_2" -> {
                 tvTitleContent.text = "MULTIPLY SIMPLE AND MIXED FRACTIONS"
                 tvDirection.text = "Solve the given fractions and choose the right answer from the provided options."
-                //ivGuide.setImageResource(R.drawable.guide_1_3_2)
+            }
+            "1_3_3" -> {
+                tvTitleContent.text = "MULTIPLICATION OF FRACTIONS - PRACTICE"
+                tvDirection.text = "Solve the given fractions and drag the correct answer into the box provided."
             }
 
-            // Quarter 1, Lesson 4, Activity 1
+            // Quarter 1, Lesson 4
             "1_4_1" -> {
                 tvTitleContent.text = "MATHEMATICAL EXPRESSION"
                 tvDirection.text = "Examine the given mathematical phrases and determine their correct expressions. Drag the correct expression to match its corresponding mathematical phrase in the space provided."
-                //ivGuide.setImageResource(R.drawable.guide_1_4_1)
             }
-
-            // Quarter 1, Lesson 4, Activity 2
             "1_4_2" -> {
                 tvTitleContent.text = "SOLVE ROUTINE OR NON-ROUTINE PROBLEMS INVOLVING MULTIPLICATION, WITHOUT OR WITH SUBTRACTION OF FRACTIONS AND MIXED FRACTIONS"
                 tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
-                //ivGuide.setImageResource(R.drawable.guide_1_4_2)
+            }
+            "1_4_3" -> {
+                tvTitleContent.text = "MULTIPLICATION WORD PROBLEMS WITH FRACTIONS"
+                tvDirection.text = "Read each word problem carefully. Solve it and choose the correct answer from the options provided."
             }
 
-            // Quarter 1, Lesson 5, Activity 1
+            // Quarter 1, Lesson 5
             "1_5_1" -> {
                 tvTitleContent.text = "DIVIDE SIMPLE AND MIXED FRACTIONS"
                 tvDirection.text = "Solve the given fractions in Column A. Then, choose the correct answer from Column B and cross-match it with its corresponding fraction in Column A."
-                //ivGuide.setImageResource(R.drawable.guide_1_5_1)
             }
-
-            // Quarter 1, Lesson 5, Activity 2
             "1_5_2" -> {
                 tvTitleContent.text = "DIVIDES SIMPLE AND MIXED FRACTIONS"
                 tvDirection.text = "Solve the given fractions and select the correct answer by dragging and dropping it into the box provided."
-                //ivGuide.setImageResource(R.drawable.guide_1_5_2)
+            }
+            "1_5_3" -> {
+                tvTitleContent.text = "DIVISION WORD PROBLEMS WITH FRACTIONS"
+                tvDirection.text = "Solve each division problem and choose the correct answer from the options provided."
             }
 
-            // Quarter 1, Lesson 6, Activity 1
+            // Quarter 1, Lesson 6
             "1_6_1" -> {
                 tvTitleContent.text = "TERMS IN DIVISION"
                 tvDirection.text = "Analyze the given word problem and determine whether it contains terms related to division. Choose TRUE if it does, and FALSE if it does not."
-                //ivGuide.setImageResource(R.drawable.guide_1_6_1)
             }
-
-            // Quarter 1, Lesson 6, Activity 2
             "1_6_2" -> {
                 tvTitleContent.text = "SOLVE ROUTINE OR NON-ROUTINE PROBLEMS INVOLVING DIVISION, WITHOUT OR WITH SUBTRACTION OF FRACTIONS AND MIXED FRACTIONS"
                 tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
-                //ivGuide.setImageResource(R.drawable.guide_1_6_2)
+            }
+            "1_6_3" -> {
+                tvTitleContent.text = "DIVISION CONCEPTS AND APPLICATIONS"
+                tvDirection.text = "Solve the division problems in Column A, then draw a line to match each answer with the correct one in Column B."
             }
 
-            // Quarter 1, Lesson 7, Activity 1
+            // Quarter 1, Lesson 7
             "1_7_1" -> {
                 tvTitleContent.text = "ADDS DECIMALS AND MIXED DECIMALS THROUGH TEN THOUSANDTHS"
                 tvDirection.text = "Solve the given fractions and determine whether each answer is correct or not. Choose TRUE if the answer is correct and FALSE if it is incorrect."
-                //ivGuide.setImageResource(R.drawable.guide_1_7_1)
             }
-
-            // Quarter 1, Lesson 7, Activity 2
             "1_7_2" -> {
                 tvTitleContent.text = "SUBTRACTS DECIMALS AND MIXED DECIMALS THROUGH TEN THOUSANDTHS"
                 tvDirection.text = "Solve the given decimals in Column A. Then, select the correct answer from Column B and drag it to the corresponding box in Column A."
-                //ivGuide.setImageResource(R.drawable.guide_1_7_2)
+            }
+            "1_7_3" -> {
+                tvTitleContent.text = "DECIMAL ADDITION AND SUBTRACTION PRACTICE"
+                tvDirection.text = "Solve the decimal problems in Column A, then draw a line to match each answer with the correct one in Column B."
             }
 
-            // Quarter 1, Lesson 8, Activity 1
+            // Quarter 1, Lesson 8
             "1_8_1" -> {
                 tvTitleContent.text = "SOLVE ROUTINE AND NON-ROUTINE PROBLEMS INVOLVING ADDITION OF DECIMALS AND MIXED DECIMALS"
                 tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
-                //ivGuide.setImageResource(R.drawable.guide_1_8_1)
             }
-
-            // Quarter 1, Lesson 8, Activity 2
             "1_8_2" -> {
                 tvTitleContent.text = "SOLVE ROUTINE AND NON-ROUTINE PROBLEMS INVOLVING SUBTRACTION OF DECIMALS"
                 tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
-                //ivGuide.setImageResource(R.drawable.guide_1_8_2)
+            }
+            "1_8_3" -> {
+                tvTitleContent.text = "WORD PROBLEMS INVOLVING ADDITION AND SUBTRACTION OF DECIMALS"
+                tvDirection.text = "Read each word problem carefully. Solve it and choose the correct answer from the options provided."
             }
 
-            // Quarter 1, Lesson 9, Activity 1
+            // Quarter 1, Lesson 9
             "1_9_1" -> {
                 tvTitleContent.text = "MULTIPLY DECIMALS AND MIXED DECIMALS WITH UP TO 2 DECIMAL PLACES"
                 tvDirection.text = "Solve the given decimals and choose the right answer from the provided options."
-                //ivGuide.setImageResource(R.drawable.guide_1_9_1)
             }
-
-            // Quarter 1, Lesson 9, Activity 2
             "1_9_2" -> {
                 tvTitleContent.text = "MULTIPLY DECIMALS AND MIXED DECIMALS WITH UP TO 2 DECIMAL PLACES"
                 tvDirection.text = "Solve the given decimals in Column A. Then, choose the correct answer from Column B and cross-match it with its corresponding item in Column A."
-                //ivGuide.setImageResource(R.drawable.guide_1_9_2)
+            }
+            "1_9_3" -> {
+                tvTitleContent.text = "MULTIPLICATION OF DECIMALS - PRACTICE"
+                tvDirection.text = "Solve the decimal multiplication problems and drag the correct answer into the box provided."
             }
 
-            // Quarter 1, Lesson 10, Activity 1
+            // Quarter 1, Lesson 10
             "1_10_1" -> {
                 tvTitleContent.text = "MULTIPLY DECIMALS AND MIXED DECIMALS WITH UP TO 2 DECIMAL PLACES"
                 tvDirection.text = "Solve the given decimals in Column A. Then, choose the correct answer from Column B and cross-match it with its corresponding item in Column A."
-                //ivGuide.setImageResource(R.drawable.guide_1_10_1)
             }
-
-            // Quarter 1, Lesson 10, Activity 2
             "1_10_2" -> {
                 tvTitleContent.text = "MULTIPLY DECIMALS UP TO 2 DECIMAL PLACES BY 0.1, 0.01, 10, AND 100"
                 tvDirection.text = "Solve the given decimals in Column A. Then, select the correct answer from Column B and drag it to the corresponding box in Column A."
-                //ivGuide.setImageResource(R.drawable.guide_1_10_2)
+            }
+            "1_10_3" -> {
+                tvTitleContent.text = "SPECIAL MULTIPLICATION PATTERNS WITH 0.1, 0.01, 10, AND 100"
+                tvDirection.text = "Solve the decimal problems in Column A, then draw a line to match each answer with the correct one in Column B."
             }
 
-            // Quarter 1, Lesson 11, Activity 1
+            // Quarter 1, Lesson 11
             "1_11_1" -> {
                 tvTitleContent.text = "SOLVE ROUTINE AND NON-ROUTINE PROBLEMS INVOLVING MULTIPLICATION OF DECIMALS AND MIXED DECIMALS, INCLUDING MONEY"
                 tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
-                //ivGuide.setImageResource(R.drawable.guide_1_11_1)
             }
-
-            // Quarter 1, Lesson 11, Activity 2
             "1_11_2" -> {
                 tvTitleContent.text = "SOLVE ROUTINE AND NON-ROUTINE PROBLEMS INVOLVING MULTIPLICATION OF DECIMALS AND MIXED DECIMALS, INCLUDING MONEY"
                 tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
-                //ivGuide.setImageResource(R.drawable.guide_1_11_2)
+            }
+            "1_11_3" -> {
+                tvTitleContent.text = "WORD PROBLEMS INVOLVING MULTIPLICATION OF DECIMALS INCLUDING MONEY"
+                tvDirection.text = "Read each word problem carefully. Solve it and choose the correct answer from the options provided."
             }
 
-            // Quarter 1, Lesson 12, Activity 1
+            // Quarter 1, Lesson 12
             "1_12_1" -> {
                 tvTitleContent.text = "SOLVE MULTI-STEP PROBLEMS, INCLUDING MULTIPLYING, ADDING, OR SUBTRACTING DECIMALS, MIXED DECIMALS, AND WHOLE NUMBERS, SUCH AS THOSE RELATED TO MONEY"
                 tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
-                //ivGuide.setImageResource(R.drawable.guide_1_12_1)
             }
-
-            // Quarter 1, Lesson 12, Activity 2
             "1_12_2" -> {
                 tvTitleContent.text = "SOLVE MULTI-STEP PROBLEMS, INCLUDING MULTIPLYING, ADDING, OR SUBTRACTING DECIMALS, MIXED DECIMALS, AND WHOLE NUMBERS, SUCH AS THOSE RELATED TO MONEY"
                 tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
-                //ivGuide.setImageResource(R.drawable.guide_1_12_2)
+            }
+            "1_12_3" -> {
+                tvTitleContent.text = "MULTI-STEP PROBLEMS WITH DECIMALS AND MONEY"
+                tvDirection.text = "Read each multi-step word problem carefully. Solve it and choose the correct answer from the options provided."
             }
 
-            // Quarter 1, Lesson 13, Activity 1
+            // Quarter 1, Lesson 13
             "1_13_1" -> {
                 tvTitleContent.text = "DIVIDE WHOLE NUMBERS BY DECIMALS (UP TO TWO DECIMAL PLACES), DECIMALS BY WHOLE NUMBERS, AND MIXED DECIMALS (UP TO TWO DECIMAL PLACES)"
                 tvDirection.text = "Solve the given decimals and select the correct answer by dragging and dropping it into the box provided."
-                //ivGuide.setImageResource(R.drawable.guide_1_13_1)
             }
-
-            // Quarter 1, Lesson 13, Activity 2
             "1_13_2" -> {
                 tvTitleContent.text = "DIVIDE WHOLE NUMBERS BY DECIMALS (UP TO TWO DECIMAL PLACES), DECIMALS BY WHOLE NUMBERS, AND MIXED DECIMALS (UP TO TWO DECIMAL PLACES)"
                 tvDirection.text = "Solve the following decimals provided. Select the correct answer from Column B and cross-match it with the appropriate option in Column A."
-                //ivGuide.setImageResource(R.drawable.guide_1_13_2)
+            }
+            "1_13_3" -> {
+                tvTitleContent.text = "DIVISION OF DECIMALS - PRACTICE PROBLEMS"
+                tvDirection.text = "Solve each division problem and choose the correct answer from the options provided."
             }
 
-            // Quarter 1, Lesson 14, Activity 1
+            // Quarter 1, Lesson 14
             "1_14_1" -> {
                 tvTitleContent.text = "DIVIDE DECIMALS WITH UP TO FOUR DECIMAL PLACES BY 0.1, 0.01"
                 tvDirection.text = "Solve the given decimals and choose the right answer from the provided choices."
-                //ivGuide.setImageResource(R.drawable.guide_1_14_1)
             }
-
-            // Quarter 1, Lesson 14, Activity 2
             "1_14_2" -> {
                 tvTitleContent.text = "DIVIDE DECIMALS WITH UP TO TWO DECIMAL PLACES BY 10, 100, AND 1,000"
                 tvDirection.text = "Solve the following decimals provided. Choose the right answer from column B and drag and drop it into the box provided in column A."
-                //ivGuide.setImageResource(R.drawable.guide_1_14_2)
+            }
+            "1_14_3" -> {
+                tvTitleContent.text = "DIVISION PATTERNS WITH 0.1, 0.01, 10, 100, AND 1000"
+                tvDirection.text = "Solve the decimal problems in Column A, then draw a line to match each answer with the correct one in Column B."
             }
 
-            // Quarter 1, Lesson 15, Activity 1
+            // Quarter 1, Lesson 15
             "1_15_1" -> {
                 tvTitleContent.text = "IDENTIFYING RATIONAL AND IRRATIONAL NUMBERS"
                 tvDirection.text = "Examine the given numbers and determine whether each number is rational or irrational. Select the correct answer for each."
-                //ivGuide.setImageResource(R.drawable.guide_1_15_1)
             }
-
-            // Quarter 1, Lesson 15, Activity 2
             "1_15_2" -> {
                 tvTitleContent.text = "IDENTIFYING TERMINATING AND REPEATING (NON-TERMINATING) DECIMALS"
                 tvDirection.text = "Examine the given decimals and determine whether they are terminating or repeating (non-terminating). Choose TRUE if the given answer is correct and FALSE if it is incorrect."
-                //ivGuide.setImageResource(R.drawable.guide_1_15_2)
+            }
+            "1_15_3" -> {
+                tvTitleContent.text = "CLASSIFY NUMBERS AS RATIONAL OR IRRATIONAL"
+                tvDirection.text = "Look at each number and decide if it is rational or irrational. Choose the correct answer for each."
             }
 
-            // Quarter 1, Lesson 16, Activity 1
+            // Quarter 1, Lesson 16
             "1_16_1" -> {
                 tvTitleContent.text = "ROUTINE AND NON-ROUTINE PROBLEMS INVOLVING DIVISION OF DECIMAL NUMBERS AND MONEY"
                 tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
-                //ivGuide.setImageResource(R.drawable.guide_1_16_1)
             }
-
-            // Quarter 1, Lesson 16, Activity 2
             "1_16_2" -> {
                 tvTitleContent.text = "ROUTINE AND NON-ROUTINE PROBLEMS INVOLVING DIVISION OF DECIMAL NUMBERS AND MONEY"
                 tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
-                //ivGuide.setImageResource(R.drawable.guide_1_16_2)
+            }
+            "1_16_3" -> {
+                tvTitleContent.text = "WORD PROBLEMS INVOLVING DIVISION OF DECIMALS AND MONEY"
+                tvDirection.text = "Read each word problem carefully. Solve it and choose the correct answer from the options provided."
             }
 
-            // Quarter 1, Lesson 17, Activity 1
+            // Quarter 1, Lesson 17
             "1_17_1" -> {
                 tvTitleContent.text = "ROUTINE AND NON-ROUTINE INVOLVING ANY OF THE OPERATIONS INCLUDING ANY DECIMALS, WHOLE NUMBERS, AND MONEY"
                 tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
-                //ivGuide.setImageResource(R.drawable.guide_1_17_1)
             }
-
-            // Quarter 1, Lesson 17, Activity 2
             "1_17_2" -> {
                 tvTitleContent.text = "WORD PROBLEM TO EQUATION"
                 tvDirection.text = "Read and analyze the given word problem then change it into an equation. Choose the correct answer for its equation."
-                //ivGuide.setImageResource(R.drawable.guide_1_17_2)
+            }
+            "1_17_3" -> {
+                tvTitleContent.text = "MIXED OPERATIONS - PRACTICE PROBLEMS"
+                tvDirection.text = "Solve each problem and drag the correct answer into the box provided."
             }
 
-            // Quarter 2, Lesson 1, Activity 1
+            // Quarter 2, Lesson 1
             "2_1_1" -> {
                 tvTitleContent.text = "FINDING THE RATIO IN COLON FORM"
                 tvDirection.text = "Examine each pair of figures and determine their ratio in colon form (A:B). Compare the quantities carefully, then choose the correct answer from the options provided."
-                //ivGuide.setImageResource(R.drawable.guide_2_1_1)
             }
-
-            // Quarter 2, Lesson 1, Activity 2
             "2_1_2" -> {
                 tvTitleContent.text = "FINDING THE RATIO IN FRACTION FORM"
                 tvDirection.text = "Examine each pair of figures and determine their ratio in fraction form (A/B). Compare the quantities carefully, then choose the correct answer from the options provided."
-                //ivGuide.setImageResource(R.drawable.guide_2_1_2)
             }
 
-            // Quarter 2, Lesson 2, Activity 1
+            // Quarter 2, Lesson 2
             "2_2_1" -> {
                 tvTitleContent.text = "IDENTIFYING THE TYPE OF PROPORTION"
                 tvDirection.text = "Read each word problem carefully and identify whether it shows a Direct, Inverse, or Partitive proportion. Select the correct answer for each item."
-                //ivGuide.setImageResource(R.drawable.guide_2_2_1)
             }
-
-            // Quarter 2, Lesson 2, Activity 2
             "2_2_2" -> {
                 tvTitleContent.text = "ANALYZE IF PROPORTION"
                 tvDirection.text = "Read the given problem carefully and decide whether it shows a Proportion or Not Proportion. Select the correct answer."
-                //ivGuide.setImageResource(R.drawable.guide_2_2_2)
             }
 
-            // Quarter 2, Lesson 3, Activity 1
+            // Quarter 2, Lesson 3
             "2_3_1" -> {
                 tvTitleContent.text = "IDENTIFYING PERCENTAGE, RATE AND BASE"
                 tvDirection.text = "Examine the highlighted value in the problem and identify whether it represents the Rate, Base, or Percentage. Select the correct answer."
-                //ivGuide.setImageResource(R.drawable.guide_2_3_1)
             }
-
-            // Quarter 2, Lesson 3, Activity 2
             "2_3_2" -> {
                 tvTitleContent.text = "SOLVING PERCENTAGE, RATE AND BASE"
                 tvDirection.text = "Read the problem carefully, find the solution, and choose the correct answer from the given options."
-                //ivGuide.setImageResource(R.drawable.guide_2_3_2)
             }
 
-            // Quarter 2, Lesson 4, Activity 1
+            // Quarter 2, Lesson 4
             "2_4_1" -> {
                 tvTitleContent.text = "SOLVING DISCOUNT AMOUNT, SALE PRICE, DISCOUNT RATE, AND ORIGINAL PRICE"
                 tvDirection.text = "Carefully study the given problem, solve it step by step, and choose the correct answer from the options provided."
-                //ivGuide.setImageResource(R.drawable.guide_2_4_1)
             }
-
-            // Quarter 2, Lesson 4, Activity 2
             "2_4_2" -> {
                 tvTitleContent.text = "SOLVING MARKUP PRICE, COMMISSION, SALES TAX, SIMPLE INTEREST, PRINCIPAL"
                 tvDirection.text = "Examine the given problem and the question carefully. Determine whether it's True or False."
-                //ivGuide.setImageResource(R.drawable.guide_2_4_2)
             }
 
-            // Quarter 2, Lesson 5, Activity 1
+            // Quarter 2, Lesson 5
             "2_5_1" -> {
                 tvTitleContent.text = "COMPUTING THE VALUE OF NUMBERS EXPRESSED IN EXPONENTIAL FORM"
                 tvDirection.text = "Carefully analyze the given exponent and compute. Choose the right answer from column B, and drag and drop the right answer into the box provided in column A."
-                //ivGuide.setImageResource(R.drawable.guide_2_5_1)
             }
-
-            // Quarter 2, Lesson 5, Activity 2
             "2_5_2" -> {
                 tvTitleContent.text = "DESCRIBING AND GIVING THE VALUE OF NUMBERS EXPRESSED IN EXPONENTIAL FORM"
                 tvDirection.text = "Carefully work through each problem, then choose the correct answer from the given options."
-                //ivGuide.setImageResource(R.drawable.guide_2_5_2)
             }
 
-            // Quarter 2, Lesson 6, Activity 1
+            // Quarter 2, Lesson 6
             "2_6_1" -> {
                 tvTitleContent.text = "COMPUTING EXPONENTS"
                 tvDirection.text = "Observe the given exponents and choose the correct answer for each. Drag the correct answer to match its corresponding exponent in the space provided."
-                //ivGuide.setImageResource(R.drawable.guide_2_6_1)
             }
-
-            // Quarter 2, Lesson 6, Activity 2
             "2_6_2" -> {
                 tvTitleContent.text = "SOLVING EXPONENTS WITH THE OPERATION OF PEMDAS"
                 tvDirection.text = "Carefully solve the given problem and check if the provided answer is correct. Then, choose True if it's right or False if it's wrong."
-                //ivGuide.setImageResource(R.drawable.guide_2_6_2)
             }
 
-            // Quarter 2, Lesson 7, Activity 1
+            // Quarter 2, Lesson 7
             "2_7_1" -> {
                 tvTitleContent.text = "KNOW THE INTEGER"
                 tvDirection.text = "Examine the given integer and decide whether it is POSITIVE or NEGATIVE. Select the correct answer."
-                //ivGuide.setImageResource(R.drawable.guide_2_7_1)
             }
-
-            // Quarter 2, Lesson 7, Activity 2
             "2_7_2" -> {
                 tvTitleContent.text = "EXAMINE IF OPPOSITE NUMBERS"
                 tvDirection.text = "Solve the given numbers and identify whether they are opposite numbers or not opposite numbers. Select the correct answer."
-                //ivGuide.setImageResource(R.drawable.guide_2_7_2)
             }
 
-            // Quarter 2, Lesson 8, Activity 1
+            // Quarter 2, Lesson 8
             "2_8_1" -> {
                 tvTitleContent.text = "INTEGER WRITTEN AS?"
                 tvDirection.text = "Examine the given pair of integers and identify how they are written. Choose the correct answer from the options provided."
-                //ivGuide.setImageResource(R.drawable.guide_2_8_1)
             }
-
-            // Quarter 2, Lesson 8, Activity 2
             "2_8_2" -> {
                 tvTitleContent.text = "COMPARISON OPERATOR"
                 tvDirection.text = "Examine the given pair of integers and identify the correct comparison operator (> or <). Choose the correct answer for each pair from the options provided."
-                //ivGuide.setImageResource(R.drawable.guide_2_8_2)
             }
 
-            // Quarter 2, Lesson 9, Activity 1
+            // Quarter 2, Lesson 9
             "2_9_1" -> {
                 tvTitleContent.text = "ADDING AND SUBTRACTING INTEGERS"
                 tvDirection.text = "Calculate the given pair of integers, then choose the correct answer from the options provided."
-                //ivGuide.setImageResource(R.drawable.guide_2_9_1)
             }
-
-            // Quarter 2, Lesson 9, Activity 2
             "2_9_2" -> {
                 tvTitleContent.text = "ADDING AND SUBTRACTING INTEGERS"
                 tvDirection.text = "Carefully solve the given integers, then choose the correct answer from the options provided."
-                //ivGuide.setImageResource(R.drawable.guide_2_9_2)
             }
 
-            // Quarter 2, Lesson 10, Activity 1
+            // Quarter 2, Lesson 10
             "2_10_1" -> {
                 tvTitleContent.text = "COMPUTING INTEGERS IN ALL OPERATIONS"
                 tvDirection.text = "Carefully examine the given problem. Solve it on your own, then check if the provided answer is correct. Choose whether it is TRUE or FALSE based on your calculation."
-                //ivGuide.setImageResource(R.drawable.guide_2_10_1)
             }
-
-            // Quarter 2, Lesson 10, Activity 2
             "2_10_2" -> {
                 tvTitleContent.text = "SOLVE INTEGERS IN ALL OPERATIONS"
                 tvDirection.text = "Calculate the given integers, select the correct answer from Column B and cross-match it with the appropriate option in Column A."
-                //ivGuide.setImageResource(R.drawable.guide_2_10_2)
             }
 
-            // Quarter 2, Lesson 11, Activity 1
+            // Quarter 2, Lesson 11
             "2_11_1" -> {
                 tvTitleContent.text = "SOLVE INTEGERS INVOLVING BASIC OPERATIONS"
                 tvDirection.text = "Solve the given integers and choose the correct answer by dragging and dropping it into the box provided."
-                //ivGuide.setImageResource(R.drawable.guide_2_11_1)
             }
-
-            // Quarter 2, Lesson 11, Activity 2
             "2_11_2" -> {
                 tvTitleContent.text = "SOLVE INTEGERS INVOLVING BASIC OPERATIONS"
                 tvDirection.text = "Solve the given integers in Column A. Then, select the correct answer from Column B and drag it into the corresponding box in Column A."
-                //ivGuide.setImageResource(R.drawable.guide_2_11_2)
             }
 
-            // Quarter 3, Lesson 1, Activity 1
+            // Quarter 3, Lesson 1
             "3_1_1" -> {
                 tvTitleContent.text = "EXAMINE THE FIGURES"
                 tvDirection.text = "Examine each figure carefully and choose whether it is a plane figure or a solid figure."
-                //ivGuide.setImageResource(R.drawable.guide_3_1_1)
             }
-
-            // Quarter 3, Lesson 1, Activity 2
             "3_1_2" -> {
                 tvTitleContent.text = "KNOW THE FIGURES"
                 tvDirection.text = "Carefully examine each figure and read the question, then answer Yes or No."
-                //ivGuide.setImageResource(R.drawable.guide_3_1_2)
             }
 
-            // Quarter 3, Lesson 2, Activity 1
+            // Quarter 3, Lesson 2
             "3_2_1" -> {
                 tvTitleContent.text = "SOLVING SEQUENCE"
                 tvDirection.text = "Find the missing number in the sequence, then choose the correct answer from the options."
-                //ivGuide.setImageResource(R.drawable.guide_3_2_1)
             }
-
-            // Quarter 3, Lesson 2, Activity 2
             "3_2_2" -> {
                 tvTitleContent.text = "COMPLETE THE SEQUENCE"
                 tvDirection.text = "Find the missing number in the sequence, then choose the correct answer from Column B and drag it into the matching box in Column A."
-                //ivGuide.setImageResource(R.drawable.guide_3_2_2)
             }
 
-            // Quarter 3, Lesson 3, Activity 1
+            // Quarter 3, Lesson 3
             "3_3_1" -> {
                 tvTitleContent.text = "KNOW EXPRESSION AND EQUATION"
                 tvDirection.text = "Look at the given mathematical statement and identify whether it is an expression or an equation."
-                //ivGuide.setImageResource(R.drawable.guide_3_3_1)
             }
-
-            // Quarter 3, Lesson 3, Activity 2
             "3_3_2" -> {
                 tvTitleContent.text = "KNOW COEFFICIENT, VARIABLE, AND CONSTANT"
                 tvDirection.text = "Examine the highlighted part of the given expression and determine whether it is a coefficient, variable, or constant."
-                //ivGuide.setImageResource(R.drawable.guide_3_3_2)
             }
 
-            // Quarter 3, Lesson 4, Activity 1
+            // Quarter 3, Lesson 4
             "3_4_1" -> {
                 tvTitleContent.text = "ALGEBRAIC EQUATION OR EXPRESSION"
                 tvDirection.text = "Examine the given statement and identify if it is an algebraic EQUATION or EXPRESSION."
-                //ivGuide.setImageResource(R.drawable.guide_3_4_1)
             }
-
-            // Quarter 3, Lesson 4, Activity 2
             "3_4_2" -> {
                 tvTitleContent.text = "SOLVING EQUATION"
                 tvDirection.text = "Solve the given equation and select the correct answer from the choices provided."
-                //ivGuide.setImageResource(R.drawable.guide_3_4_2)
             }
 
-            // Quarter 3, Lesson 5, Activity 1
+            // Quarter 3, Lesson 5
             "3_5_1" -> {
                 tvTitleContent.text = "COMPUTING THE SPEED"
                 tvDirection.text = "Examine each problem and choose the right answer from the given choices."
-                //ivGuide.setImageResource(R.drawable.guide_3_5_1)
             }
-
-            // Quarter 3, Lesson 5, Activity 2
             "3_5_2" -> {
                 tvTitleContent.text = "SPEED, DISTANCE, AND TIME"
                 tvDirection.text = "Look and examine the highlighted part of the given, then identify if it's SPEED, DISTANCE or TIME."
-                //ivGuide.setImageResource(R.drawable.guide_3_5_2)
             }
 
-            // Quarter 3, Lesson 6, Activity 1
+            // Quarter 3, Lesson 6
             "3_6_1" -> {
                 tvTitleContent.text = "FIND THE AREA"
                 tvDirection.text = "Examine each problem and compute its area. Select the correct answer from the given choices."
-                //ivGuide.setImageResource(R.drawable.guide_3_6_1)
             }
-
-            // Quarter 3, Lesson 6, Activity 2
             "3_6_2" -> {
                 tvTitleContent.text = "ROUTINE AND NON-ROUTINE PROBLEMS INVOLVING DIVISION OF DECIMAL NUMBERS AND MONEY"
                 tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
-                //ivGuide.setImageResource(R.drawable.guide_3_6_2)
             }
 
-            // Quarter 3, Lesson 7, Activity 1
+            // Quarter 3, Lesson 7
             "3_7_1" -> {
                 tvTitleContent.text = "SOLID FIGURES"
                 tvDirection.text = "Examine the given picture and answer each question. Select the correct option from the choices provided."
-                //ivGuide.setImageResource(R.drawable.guide_3_7_1)
             }
-
-            // Quarter 3, Lesson 7, Activity 2
             "3_7_2" -> {
                 tvTitleContent.text = "SIDES"
                 tvDirection.text = "Examine the given shape and answer the question by selecting True or False."
-                //ivGuide.setImageResource(R.drawable.guide_3_7_2)
             }
 
-            // Quarter 3, Lesson 8, Activity 1
+            // Quarter 3, Lesson 8
             "3_8_1" -> {
                 tvTitleContent.text = "ROUTINE AND NON-ROUTINE PROBLEMS INVOLVING DIVISION OF DECIMAL NUMBERS AND MONEY"
                 tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
-                //ivGuide.setImageResource(R.drawable.guide_3_8_1)
             }
-
-            // Quarter 3, Lesson 8, Activity 2
             "3_8_2" -> {
                 tvTitleContent.text = "ROUTINE AND NON-ROUTINE PROBLEMS INVOLVING DIVISION OF DECIMAL NUMBERS AND MONEY"
                 tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
-                //ivGuide.setImageResource(R.drawable.guide_3_8_2)
             }
 
-            // Quarter 4, Lesson 1, Activity 1
+            // Quarter 4, Lesson 1
             "4_1_1" -> {
                 tvTitleContent.text = "RELATIONSHIP OF VOLUME OF PRISMS AND PYRAMIDS & OTHER 3D FIGURES"
                 tvDirection.text = "Read the problem carefully, solve it, and select the correct answer from the given choices."
-                //ivGuide.setImageResource(R.drawable.guide_4_1_1)
             }
-
-            // Quarter 4, Lesson 1, Activity 2
             "4_1_2" -> {
                 tvTitleContent.text = "RELATIONSHIP OF VOLUME OF PRISMS AND PYRAMIDS & OTHER 3D FIGURES"
                 tvDirection.text = "Read the problem carefully, solve it, and check if the given answer is correct. Choose True if it is correct and False if it is incorrect."
-                //ivGuide.setImageResource(R.drawable.guide_4_1_2)
             }
 
-            // Quarter 4, Lesson 2, Activity 1
+            // Quarter 4, Lesson 2
             "4_2_1" -> {
                 tvTitleContent.text = "ROUTINE AND NON-ROUTINE PROBLEMS INVOLVING DIVISION OF DECIMAL NUMBERS AND MONEY"
                 tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
-                //ivGuide.setImageResource(R.drawable.guide_4_2_1)
             }
-
-            // Quarter 4, Lesson 2, Activity 2
             "4_2_2" -> {
                 tvTitleContent.text = "ROUTINE AND NON-ROUTINE PROBLEMS INVOLVING DIVISION OF DECIMAL NUMBERS AND MONEY"
                 tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
-                //ivGuide.setImageResource(R.drawable.guide_4_2_2)
             }
 
-            // Quarter 4, Lesson 3, Activity 1
+            // Quarter 4, Lesson 3
             "4_3_1" -> {
                 tvTitleContent.text = "READING AND INTERPRETING ELECTRIC AND WATER METER READINGS"
                 tvDirection.text = "Examine each meter image carefully and choose the correct reading from the given options."
-                //ivGuide.setImageResource(R.drawable.guide_4_3_1)
             }
-
-            // Quarter 4, Lesson 3, Activity 2
             "4_3_2" -> {
                 tvTitleContent.text = "READING AND INTERPRETING ELECTRIC AND WATER METER READINGS - CONSUMPTION"
                 tvDirection.text = "Calculate the consumption by subtracting the previous reading from the present reading. Match each calculation with its correct answer."
-                //ivGuide.setImageResource(R.drawable.guide_4_3_2)
             }
 
-            // Quarter 4, Lesson 4, Activity 1
+            // Quarter 4, Lesson 4
             "4_4_1" -> {
                 tvTitleContent.text = "INTERPRETING PIE GRAPH"
                 tvDirection.text = "Find the angle for each section. Answer the question using the given pie graph."
-                //ivGuide.setImageResource(R.drawable.guide_4_4_1)
             }
-
-            // Quarter 4, Lesson 4, Activity 2
             "4_4_2" -> {
                 tvTitleContent.text = "READING AND INTERPRETING PIE GRAPHS"
                 tvDirection.text = "Express the results as a fraction."
-                //ivGuide.setImageResource(R.drawable.guide_4_4_2)
             }
 
-            // Quarter 4, Lesson 5, Activity 1
+            // Quarter 4, Lesson 5
             "4_5_1" -> {
                 tvTitleContent.text = "PROBLEM SOLVING INVOLVING DATA IN A PIE GRAPH"
                 tvDirection.text = "Read each problem carefully and analyze the pie graph. Answer the questions based on the data shown."
-                //ivGuide.setImageResource(R.drawable.guide_4_5_1)
             }
-
-            // Quarter 4, Lesson 5, Activity 2
             "4_5_2" -> {
                 tvTitleContent.text = "PROBLEM SOLVING INVOLVING DATA IN A PIE GRAPH"
                 tvDirection.text = "Examine the pie graph and answer each question. Choose the correct answer from the options provided."
-                //ivGuide.setImageResource(R.drawable.guide_4_5_2)
             }
 
-            // Quarter 4, Lesson 6, Activity 1
+            // Quarter 4, Lesson 6
             "4_6_1" -> {
                 tvTitleContent.text = "PROBABILITY LEVELS"
                 tvDirection.text = "Read each statement carefully and determine the probability level. Choose from: Certain, Most Likely, Likely, Unlikely, or Most Unlikely."
-                //ivGuide.setImageResource(R.drawable.guide_4_6_1)
             }
-
-            // Quarter 4, Lesson 6, Activity 2
             "4_6_2" -> {
                 tvTitleContent.text = "PROBABILITY STATEMENTS"
                 tvDirection.text = "Read each probability statement and determine if it is TRUE or FALSE based on the probability level described."
-                //ivGuide.setImageResource(R.drawable.guide_4_6_2)
             }
 
-            // Quarter 4, Lesson 7, Activity 1
+            // Quarter 4, Lesson 7
             "4_7_1" -> {
                 tvTitleContent.text = "MAKING LISTS AND DIAGRAMS OF OUTCOMES"
                 tvDirection.text = "Read each problem and determine how many different combinations of two items can be made from the given set."
-                //ivGuide.setImageResource(R.drawable.guide_4_7_1)
             }
-
-            // Quarter 4, Lesson 7, Activity 2
             "4_7_2" -> {
                 tvTitleContent.text = "MAKING LISTS AND DIAGRAMS OF OUTCOMES"
                 tvDirection.text = "Look at each diagram carefully and count the total number of possible combinations shown. Choose the correct answer."
-                //ivGuide.setImageResource(R.drawable.guide_4_7_2)
             }
 
-            // Quarter 4, Lesson 8, Activity 1
+            // Quarter 4, Lesson 8
             "4_8_1" -> {
                 tvTitleContent.text = "MAKES SIMPLE PREDICTIONS OF EVENTS BASED ON RESULTS OF EXPERIMENTS"
                 tvDirection.text = "Read each statement and determine if it is 'Most likely to happen' or 'Unlikely to occur' based on probability and real-world likelihood."
-                //ivGuide.setImageResource(R.drawable.guide_4_8_1)
             }
-
-            // Quarter 4, Lesson 8, Activity 2
             "4_8_2" -> {
                 tvTitleContent.text = "MAKES SIMPLE PREDICTIONS OF EVENTS BASED ON RESULTS OF EXPERIMENTS"
                 tvDirection.text = "Read each probability question and identify if it is asking for Theoretical Probability or Experimental Probability."
-                //ivGuide.setImageResource(R.drawable.guide_4_8_2)
             }
 
-            // Quarter 4, Lesson 2, Activity 1
+            // Quarter 4, Lesson 9
             "4_9_1" -> {
                 tvTitleContent.text = "ROUTINE AND NON-ROUTINE PROBLEMS INVOLVING DIVISION OF DECIMAL NUMBERS AND MONEY"
                 tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
-                //ivGuide.setImageResource(R.drawable.guide_4_9_1)
             }
-
-            // Quarter 4, Lesson 2, Activity 2
             "4_9_2" -> {
                 tvTitleContent.text = "ROUTINE AND NON-ROUTINE PROBLEMS INVOLVING DIVISION OF DECIMAL NUMBERS AND MONEY"
                 tvDirection.text = "Watch the video carefully read and analyze the word problem, then answer the questions that follow. Write your answers on your paper."
-                //ivGuide.setImageResource(R.drawable.guide_4_9_2)
             }
 
             else -> {

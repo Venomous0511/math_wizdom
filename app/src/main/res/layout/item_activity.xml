@@ -6,10 +6,9 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardActivity"
-        android:layout_width="280dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
+        android:layout_margin="8dp"
         android:clickable="true"
         android:focusable="true"
         app:cardBackgroundColor="#1B5E20"
@@ -21,7 +20,9 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingHorizontal="20dp"
-            android:paddingVertical="35dp">
+            android:paddingVertical="35dp"
+            android:minHeight="140dp"
+            android:gravity="center">
 
             <!-- Activity Number -->
             <TextView
@@ -34,22 +35,30 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <!-- Activity Type Badge -->
-            <TextView
-                android:id="@+id/tvActivityType"
+            <!-- Activity Type Badge with Rounded Corners -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:background="#4CAF50"
-                android:paddingStart="12dp"
-                android:paddingTop="4dp"
-                android:paddingEnd="12dp"
-                android:paddingBottom="4dp"
                 android:layout_gravity="center"
-                android:text="Multiple Choice"
-                android:textColor="@android:color/white"
-                android:textSize="12sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="14dp"
+                app:cardBackgroundColor="#4CAF50"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="0dp">
+
+                <TextView
+                    android:id="@+id/tvActivityType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="12dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="4dp"
+                    android:text="Multiple Choice"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
 

@@ -237,7 +237,7 @@ class InteractiveLessonFragment : Fragment() {
             false
         )
 
-        addTitleToContent(slide.title) // Add this line
+        addTitleToContent(slide.title)
 
         setJustifiedText(view.findViewById(R.id.tvContent), slide.content)
 
@@ -495,6 +495,7 @@ class InteractiveLessonFragment : Fragment() {
 
         slideContentContainer.addView(view)
     }
+
     // Function to display image items
     private fun displayImageItems(container: ViewGroup, imageItems: List<Slide.ImageItem>) {
         container.removeAllViews()
@@ -572,15 +573,16 @@ class InteractiveLessonFragment : Fragment() {
                 // There's a previous topic
                 btnPrevious.text = "Previous Topic"
                 btnPrevious.isEnabled = true
+                btnPrevious.visibility = View.VISIBLE
             } else {
-                // First topic, first slide
-                btnPrevious.text = "Previous"
-                btnPrevious.isEnabled = false
+                // First topic, first slide - HIDE THE BUTTON
+                btnPrevious.visibility = View.GONE
             }
         } else {
             // Not first slide, normal previous
             btnPrevious.text = "Previous"
             btnPrevious.isEnabled = true
+            btnPrevious.visibility = View.VISIBLE
         }
 
         // Next button logic

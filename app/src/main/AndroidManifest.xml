@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--suppress XmlUnusedNamespaceDeclaration -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <!-- Network Permissions - Required for school network validation -->
@@ -20,122 +21,98 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MathWizdomApp">
+
         <activity
             android:name=".NetworkCheckActivity"
             android:exported="false"
             android:screenOrientation="sensorLandscape"
             android:theme="@style/Theme.MathWizdomApp"
             tools:ignore="DiscouragedApi" />
+
         <activity
             android:name=".ProgressActivity"
             android:exported="false"
             android:screenOrientation="sensorLandscape"
             android:theme="@style/Theme.MathWizdomApp"
-            tools:ignore="DiscouragedApi,Instantiatable" />
+            tools:ignore="DiscouragedApi" />
+
         <activity
             android:name=".YoutubeActivity"
             android:exported="false"
             android:screenOrientation="sensorLandscape"
             android:theme="@style/Theme.MathWizdomApp"
-            tools:ignore="DiscouragedApi,Instantiatable" />
-        <activity
-            android:name=".fragments.InteractiveLessonFragment"
-            android:exported="false"
-            android:screenOrientation="sensorLandscape"
-            android:theme="@style/Theme.MathWizdomApp"
-            tools:ignore="DiscouragedApi,Instantiatable" />
-        <activity
-            android:name=".dialogs.VolumeControlDialog"
-            android:exported="false"
-            tools:ignore="Instantiatable" />
-        <activity
-            android:name=".fragments.DrawingCanvasView"
-            android:exported="false"
-            tools:ignore="Instantiatable" />
-        <activity
-            android:name=".fragments.WireMatchingFragment"
-            android:exported="false"
-            android:screenOrientation="sensorLandscape"
-            android:theme="@style/Theme.MathWizdomApp"
-            tools:ignore="DiscouragedApi,Instantiatable" />
+            tools:ignore="DiscouragedApi" />
+
         <activity
             android:name=".WordProblemSelectionActivity"
-            android:screenOrientation="landscape"
+            android:screenOrientation="sensorLandscape"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:exported="false"
-            tools:ignore="DiscouragedApi,Instantiatable" />
-        <activity
-            android:name=".fragments.RoutineProblemFragment"
-            android:exported="false"
-            android:screenOrientation="sensorLandscape"
-            android:theme="@style/Theme.MathWizdomApp"
-            tools:ignore="DiscouragedApi,Instantiatable" />
-        <activity
-            android:name=".fragments.DragDropFragment"
-            android:exported="false"
-            android:screenOrientation="sensorLandscape"
-            android:theme="@style/Theme.MathWizdomApp"
-            tools:ignore="DiscouragedApi,Instantiatable" />
-        <activity
-            android:name=".fragments.MultipleChoiceFragment"
-            android:exported="false"
-            android:screenOrientation="sensorLandscape"
-            android:theme="@style/Theme.MathWizdomApp"
-            tools:ignore="DiscouragedApi,Instantiatable" />
+            tools:ignore="DiscouragedApi" />
+
         <activity
             android:name=".ActivityDetailActivity"
             android:exported="false"
             android:screenOrientation="sensorLandscape"
             android:theme="@style/Theme.MathWizdomApp"
             tools:ignore="DiscouragedApi" />
+
         <activity
             android:name=".ActivityActivity"
             android:exported="false"
             android:screenOrientation="sensorLandscape"
             android:theme="@style/Theme.MathWizdomApp"
             tools:ignore="DiscouragedApi" />
+
         <activity
             android:name=".TopicActivity"
             android:exported="false"
             android:screenOrientation="sensorLandscape"
             android:theme="@style/Theme.MathWizdomApp"
             tools:ignore="DiscouragedApi" />
+
         <activity
             android:name=".LessonDetailActivity"
             android:exported="false"
             android:screenOrientation="sensorLandscape"
             android:theme="@style/Theme.MathWizdomApp"
             tools:ignore="DiscouragedApi" />
+
         <activity
             android:name=".LessonsListActivity"
             android:exported="false"
             android:screenOrientation="sensorLandscape"
             android:theme="@style/Theme.MathWizdomApp"
             tools:ignore="DiscouragedApi" />
+
         <activity
             android:name=".QuarterSelectionActivity"
             android:exported="false"
             android:screenOrientation="sensorLandscape"
             android:theme="@style/Theme.MathWizdomApp"
             tools:ignore="DiscouragedApi" />
+
         <activity
             android:name=".DashboardActivity"
             android:exported="false"
             android:screenOrientation="sensorLandscape"
             android:theme="@style/Theme.MathWizdomApp"
             tools:ignore="DiscouragedApi" />
+
         <activity
             android:name=".RegistrationActivity"
             android:exported="false"
             android:screenOrientation="sensorLandscape"
             android:theme="@style/Theme.MathWizdomApp"
             tools:ignore="DiscouragedApi" />
+
         <activity
             android:name=".LoginActivity"
             android:exported="false"
             android:screenOrientation="sensorLandscape"
             android:theme="@style/Theme.MathWizdomApp"
             tools:ignore="DiscouragedApi" />
+
         <activity
             android:name=".SelectionActivity"
             android:exported="true"
@@ -144,7 +121,6 @@
             tools:ignore="DiscouragedApi">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

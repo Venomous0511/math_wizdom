@@ -4,7 +4,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
@@ -45,7 +44,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     private lateinit var btnEditGender: ImageButton
     private lateinit var tvFullName: TextView
     private lateinit var tvGender: TextView
-    private lateinit var btnDeleteAccount: Button
+    private lateinit var btnDeleteAccount: ImageButton
 
     private lateinit var userRepository: UserRepository
     private var currentUser: User? = null
@@ -110,7 +109,8 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
     override fun onResume() {
         super.onResume()
-        MusicManager.play()
+        MusicManager.resume()
+
         // Reload user data to ensure we have latest from database
         loadUserData(userIdentifier)
     }

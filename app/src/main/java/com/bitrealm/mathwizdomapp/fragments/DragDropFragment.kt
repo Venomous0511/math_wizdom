@@ -3,6 +3,7 @@ package com.bitrealm.mathwizdomapp.fragments
 import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.ClipDescription
+import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.DragEvent
@@ -79,11 +80,28 @@ class DragDropFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            @Suppress("DEPRECATION")
-            activity = it.getSerializable(ARG_ACTIVITY) as Activity
-            userIdentifier = it.getString(ARG_USER_ID) ?: ""
-            quarter = it.getInt(ARG_QUARTER)
-            lessonNumber = it.getInt(ARG_LESSON)
+            activity = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                it.getSerializable(ARG_ACTIVITY, Activity::class.java)
+            } else {
+                @Suppress("DEPRECATION")
+                it.getSerializable(ARG_ACTIVITY) as? Activity
+            } ?: run {
+                Toast.makeText(context, "Missing activity data", Toast.LENGTH_SHORT).show()
+                requireActivity().finish()
+                return
+            }
+
+            userIdentifier = it.getString(ARG_USER_ID) ?: run {
+                Toast.makeText(context, "Missing user data", Toast.LENGTH_SHORT).show()
+                requireActivity().finish()
+                return
+            }
+
+            quarter = it.getInt(ARG_QUARTER, 1)
+            lessonNumber = it.getInt(ARG_LESSON, 1)
+        } ?: run {
+            Toast.makeText(context, "Missing arguments", Toast.LENGTH_SHORT).show()
+            requireActivity().finish()
         }
 
         // Get the drag-drop question and select 5 random problems
@@ -106,9 +124,7 @@ class DragDropFragment : Fragment() {
             val correctAnswerIndex = original.correctMatches[oldIndex] ?: 0
             val correctAnswer = original.columnB[correctAnswerIndex]
 
-            if (!selectedColumnB.contains(correctAnswer)) {
-                selectedColumnB.add(correctAnswer)
-            }
+            selectedColumnB.add(correctAnswer)
             newCorrectMatches[newIndex] = selectedColumnB.indexOf(correctAnswer)
         }
 
@@ -153,7 +169,7 @@ class DragDropFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        MusicManager.play()
+        MusicManager.resume()
     }
 
     override fun onPause() {

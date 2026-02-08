@@ -58,7 +58,7 @@
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="6dp"
             android:text="@string/grade_six_mathematics"
             android:textColor="@android:color/white"
             android:textSize="24sp"
@@ -89,6 +89,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="6dp">
+
+                <!-- Delete Account Button (Top Right) -->
+                <ImageButton
+                    android:id="@+id/btnDeleteAccount"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Delete Account"
+                    android:padding="12dp"
+                    android:src="@android:drawable/ic_menu_delete"
+                    app:tint="@android:color/holo_red_dark"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <!-- Left Section - Avatar -->
                 <LinearLayout
@@ -191,7 +204,7 @@
                         android:id="@+id/layoutFullName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="8dp"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
@@ -232,7 +245,7 @@
                         android:id="@+id/layoutGender"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="8dp"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
@@ -273,17 +286,6 @@
 
                     </LinearLayout>
 
-                    <!-- Delete Account Button -->
-                    <Button
-                        android:id="@+id/btnDeleteAccount"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="Delete Account"
-                        android:textColor="@android:color/white"
-                        android:backgroundTint="@android:color/holo_red_dark"
-                        android:textStyle="bold" />
-
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -295,7 +297,7 @@
             android:id="@+id/tvNote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="14dp"
             android:text="@string/note_description"
             android:textAlignment="center"
             android:textColor="@color/white"

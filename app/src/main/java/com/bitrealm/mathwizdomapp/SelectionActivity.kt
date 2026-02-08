@@ -67,9 +67,8 @@ class SelectionActivity : AppCompatActivity() {
                 MusicManager.setVolume(savedVolume)
             }
 
-            // Back to main thread to play music
             withContext(Dispatchers.Main) {
-                MusicManager.play()
+                MusicManager.resume()
             }
 
             // Minimum splash time
@@ -128,7 +127,7 @@ class SelectionActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        MusicManager.play()
+        MusicManager.resume()
 
         if (!networkValidator.canUseApp()) {
             val intent = Intent(this, NetworkCheckActivity::class.java)

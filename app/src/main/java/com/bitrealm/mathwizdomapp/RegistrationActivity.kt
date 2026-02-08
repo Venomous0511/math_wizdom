@@ -61,7 +61,6 @@ class RegistrationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
 
-        // Disable back button
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 Toast.makeText(
@@ -94,7 +93,7 @@ class RegistrationActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        MusicManager.play()
+        MusicManager.resume()
     }
 
     override fun onPause() {
@@ -131,7 +130,6 @@ class RegistrationActivity : AppCompatActivity() {
 
         tvIdentifier.text = identifier
 
-        // Set character limit for full name
         setupCharacterLimit()
     }
 
@@ -154,7 +152,6 @@ class RegistrationActivity : AppCompatActivity() {
             tilFullName.error = null
             tvError.visibility = View.GONE
 
-            // Show warning if approaching limit
             val currentLength = it?.length ?: 0
             if (currentLength > MAX_FULL_NAME_LENGTH - 5) {
                 val remaining = MAX_FULL_NAME_LENGTH - currentLength
@@ -215,7 +212,6 @@ class RegistrationActivity : AppCompatActivity() {
     }
 
     private val validLrnPrefixes = listOf("109636", "109635", "109632")
-    private val maxStudentsPerLrn = 5
     private fun onRegisterClick(fullName: String, gender: Gender) {
         // Check identifier length requirement
         if (identifier.length != REQUIRED_IDENTIFIER_LENGTH) {
@@ -248,31 +244,30 @@ class RegistrationActivity : AppCompatActivity() {
         // Save user to database
         lifecycleScope.launch {
             try {
-                // For students, check if max registration limit reached for this LRN prefix
+                // For students, check if max registration limit reached (total on phone)
                 if (userRole == UserRole.STUDENT) {
-                    val prefix = identifier.take(6)
-                    val registeredCount = userRepository.getStudentCountByLrnPrefix(prefix)
+                    val totalStudents = userRepository.getUserCountByRole(UserRole.STUDENT)
 
-                    if (registeredCount >= maxStudentsPerLrn) {
+                    if (totalStudents >= MAX_ACCOUNTS) {
                         runOnUiThread {
-                            showError("Maximum registrations (5) reached for this LRN series. Please contact your administrator.")
-                            showAlertError("Maximum registrations (5) reached for this LRN series. Please contact your administrator.")
+                            androidx.appcompat.app.AlertDialog.Builder(this@RegistrationActivity)
+                                .setTitle("Error")
+                                .setMessage("Maximum of 5 student accounts registered on this phone. Cannot register more accounts.")
+                                .setPositiveButton("OK") { dialog, _ ->
+                                    dialog.dismiss()
+
+                                    val intent = Intent(this@RegistrationActivity, LoginActivity::class.java)
+                                    intent.putExtra("USER_ROLE", userRole.name)
+                                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                    startActivity(intent)
+                                    finish()
+                                }
+                                .setCancelable(false)
+                                .show()
                         }
                         setLoadingState(false)
                         return@launch
                     }
-                }
-
-                // Check account limit before registering
-                val userCount = userRepository.getUserCountByRole(userRole)
-                if (userCount >= MAX_ACCOUNTS) {
-                    val errorMsg = getString(R.string.max_accounts_reached, MAX_ACCOUNTS, userRole.name.lowercase())
-                    runOnUiThread {
-                        showError(errorMsg)
-                        showAlertError(errorMsg)
-                    }
-                    setLoadingState(false)
-                    return@launch
                 }
 
                 val user = User(
@@ -290,9 +285,7 @@ class RegistrationActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
 
-                // Navigate to home
                 navigateToHome()
-
             } catch (e: Exception) {
                 val errorMsg = getString(R.string.registration_failed, e.message ?: getString(R.string.unknown_error))
                 runOnUiThread {
@@ -310,12 +303,16 @@ class RegistrationActivity : AppCompatActivity() {
             try {
                 val userCount = userRepository.getUserCountByRole(userRole)
                 if (userCount >= MAX_ACCOUNTS) {
-                    showError(getString(R.string.max_accounts_reached, MAX_ACCOUNTS, userRole.name.lowercase()))
-                    btnRegister.isEnabled = false
-                    etFullName.isEnabled = false
-                    rgGender.isEnabled = false
-                    rbMale.isEnabled = false
-                    rbFemale.isEnabled = false
+                    runOnUiThread {
+                        showAlertError("Maximum of 5 student accounts registered on this phone. Cannot register more accounts.")
+
+                        val intent = Intent(this@RegistrationActivity, LoginActivity::class.java)
+                        intent.putExtra("USER_ROLE", userRole.name)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        startActivity(intent)
+                        finish()
+                    }
+                    return@launch
                 }
             } catch (_: Exception) {
                 // Handle error silently

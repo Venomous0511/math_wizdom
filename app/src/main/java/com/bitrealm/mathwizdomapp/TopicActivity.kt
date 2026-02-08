@@ -62,12 +62,27 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
     override fun onResume() {
         super.onResume()
-        MusicManager.play()
+        MusicManager.resume()
     }
 
     override fun onPause() {
         super.onPause()
         MusicManager.pause()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        // Only release music if we're completely leaving the app
+        // Not when just going back to LessonDetailActivity
+        if (isFinishing && !isChangingConfigurations && !isNavigatingBack()) {
+            MusicManager.release()
+        }
+    }
+
+    // Helper function to check if we're navigating back vs completely leaving
+    private fun isNavigatingBack(): Boolean {
+        // If there are other activities in the back stack, we're just navigating back
+        return !isTaskRoot
     }
 
     fun enterFragmentFullScreen() {
@@ -199,131 +214,93 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
                 Subtopic(2, "Solving Markup Price", "topic_2.pdf"),
                 Subtopic(3, "Solving Commission", "topic_3.pdf"),
                 Subtopic(4, "Solving Sales Tax", "topic_4.pdf"),
-                Subtopic(5, "Solving Simple Interest and Principal", "topic_5.pdf"),
+                Subtopic(5, "Solving Simple Interest", "topic_5.pdf"),
             ),
             "2_5" to listOf(
-                Subtopic(1, "Exponent and Base", "topic_1.pdf"),
+                Subtopic(1, "Exponent", "topic_1.pdf"),
             ),
             "2_6" to listOf(
-                Subtopic(1, "GEMDAS", "topic_1.pdf"),
+                Subtopic(1, "Order of Operations", "topic_1.pdf"),
             ),
             "2_7" to listOf(
-                Subtopic(1, "Integers", "topic_1.pdf"),
+                Subtopic(1, "Squares of Whole Numbers", "topic_1.pdf"),
             ),
             "2_8" to listOf(
-                Subtopic(1, "Number Line", "topic_1.pdf"),
+                Subtopic(1, "Cube of Whole Numbers", "topic_1.pdf"),
             ),
             "2_9" to listOf(
-                Subtopic(
-                    1,
-                    "Adding and Subtracting of Integers using Algebra Tiles",
-                    "topic_1.pdf"
-                ),
+                Subtopic(1, "Square Root of Whole Numbers", "topic_1.pdf"),
             ),
             "2_10" to listOf(
-                Subtopic(
-                    1,
-                    "Multiplication, Division, Addition, and Subtraction of Integers",
-                    "topic_1.pdf"
-                ),
+                Subtopic(1, "Cube Root of Whole Numbers", "topic_1.pdf"),
             ),
             "2_11" to listOf(
-                Subtopic(
-                    1,
-                    "Routine and Non-routine involving basic Operations of Integers",
-                    "topic_1.pdf"
-                ),
+                Subtopic(1, "Irrational Numbers with Square Roots and Cube Roots", "topic_1.pdf"),
+            ),
+            "2_12" to listOf(
+                Subtopic(1, "Plotting Irrational Numbers with Square Roots and Cube Roots on the Number Line", "topic_1.pdf"),
             ),
 
             // QUARTER 3
             "3_1" to listOf(
-                Subtopic(1, "Planes and Solid Figures and its Features", "topic_1.pdf"),
+                Subtopic(1, "2-Dimensional Figures", "topic_1.pdf"),
             ),
             "3_2" to listOf(
-                Subtopic(1, "Formulating Rules for Sequence", "topic_1.pdf"),
+                Subtopic(1, "Perimeter of Composite Figures Composed of Triangles and Quadrilaterals", "topic_1.pdf"),
             ),
             "3_3" to listOf(
-                Subtopic(1, "Expressions and Equations", "topic_1.pdf"),
-                Subtopic(2, "Translating Word Phrases into Algebraic Expressions", "topic_2.pdf"),
-                Subtopic(3, "Variable and Constant", "topic_3.pdf"),
+                Subtopic(1, "Area of Composite Figures Composed of Triangles and Quadrilaterals", "topic_1.pdf"),
             ),
             "3_4" to listOf(
-                Subtopic(1, "Algebraic Expression and Equation", "topic_1.pdf"),
-                Subtopic(2, "The Four Basic Rules for Solving an Equation", "topic_2.pdf"),
+                Subtopic(1, "Routine and Non-routine Problems involving the Perimeter of Composite Figures", "topic_1.pdf"),
             ),
             "3_5" to listOf(
-                Subtopic(1, "Speed", "topic_1.pdf"),
-                Subtopic(2, "Distance and Time", "topic_2.pdf"),
+                Subtopic(1, "Routine and Non-routine Problems involving the Area of Composite Figures", "topic_1.pdf"),
             ),
             "3_6" to listOf(
-                Subtopic(1, "Strategies for Solving the area of Composite Figures", "topic_1.pdf"),
+                Subtopic(1, "3-Dimensional Figures", "topic_1.pdf"),
             ),
             "3_7" to listOf(
-                Subtopic(1, "Visualizing the Surface Area of a Solid Figure", "topic_1.pdf"),
-                Subtopic(2, "Surface Area of a Solid Figures", "topic_2.pdf"),
+                Subtopic(1, "Volume of a Rectangular Prism", "topic_1.pdf"),
             ),
             "3_8" to listOf(
-                Subtopic(
-                    1,
-                    "Finding the Surface Area and Solving Word Problems Related to it",
-                    "topic_1.pdf"
-                ),
+                Subtopic(1, "Volume of a Cube", "topic_1.pdf"),
+            ),
+            "3_9" to listOf(
+                Subtopic(1, "Volume of a Cylinder", "topic_1.pdf"),
+            ),
+            "3_10" to listOf(
+                Subtopic(1, "Steps in Solving Routine and Non-Routine Problems involving Volume", "topic_1.pdf"),
             ),
 
             // QUARTER 4
             "4_1" to listOf(
-                Subtopic(
-                    1,
-                    "Understanding the Volume of Prisms, Pyramids, and Other 3D Shapes and Solving Word Problems Related to it",
-                    "topic_1.pdf"
-                ),
+                Subtopic(1, "Line Graphs", "topic_1.pdf"),
             ),
             "4_2" to listOf(
-                Subtopic(
-                    1,
-                    "Finds the Volume of a Cylinder, Pyramids, Cones, and Spheres, and Solves Routine and Non-routine Problems Related to it",
-                    "topic_1.pdf"
-                ),
+                Subtopic(1, "Pie Graph", "topic_1.pdf"),
             ),
             "4_3" to listOf(
-                Subtopic(1, "Electric Meter", "topic_1.pdf"),
-                Subtopic(2, "Water Meter", "topic_2.pdf"),
-                Subtopic(
-                    3,
-                    "Compute Water or Electric Meter Consumption for a Particular Period of Time",
-                    "topic_3.pdf"
-                ),
+                Subtopic(1, "Measures of Central Tendency", "topic_1.pdf"),
             ),
             "4_4" to listOf(
-                Subtopic(1, "Constructing Pie Graph", "topic_1.pdf"),
+                Subtopic(1, "Median", "topic_1.pdf"),
             ),
             "4_5" to listOf(
-                Subtopic(
-                    1,
-                    "Solving Routine and Non-routine Problems using Data Presented in a Pie Graph",
-                    "topic_1.pdf"
-                ),
+                Subtopic(1, "Mode", "topic_1.pdf"),
             ),
             "4_6" to listOf(
-                Subtopic(1, "Probability", "topic_1.pdf"),
+                Subtopic(1, "Experimental Probability and Theoretical Probability", "topic_1.pdf"),
             ),
             "4_7" to listOf(
-                Subtopic(
-                    1,
-                    "Using Listing Outcomes, Tree Diagrams, and Table or Grid of Outcomes",
-                    "topic_1.pdf"
-                ),
+                Subtopic(1, "Likelihood of Simple Events", "topic_1.pdf"),
             ),
             "4_8" to listOf(
                 Subtopic(1, "Simple Predictions of Events with Problem Solving", "topic_1.pdf"),
             ),
             "4_9" to listOf(
-                Subtopic(
-                    1,
-                    "Four-Step Plan used in Solving Experimental and Theoretical Probability",
-                    "topic_1.pdf"
-                ),
-            ),
+                Subtopic(1, "Four-step Plan used in solving Experimental and Theoretical Probability", "topic_1.pdf"),
+            )
         )
     }
 
@@ -331,30 +308,49 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_topic)
 
-        setupImmersiveMode()
+        // Initialize views first
+        initializeViews()
 
-        // Initialize database and repository
-        val database = AppDatabase.getDatabase(this)
-        userRepository = UserRepository(database.userDao())
+        // Save original constraints
+        originalConstraints.clone(mainContent)
 
-        // Get data from intent
+        // Get intent extras
         userIdentifier = intent.getStringExtra("USER_IDENTIFIER") ?: ""
         quarter = intent.getIntExtra("QUARTER", 1)
         lessonNumber = intent.getIntExtra("LESSON_NUMBER", 1)
 
-        initViews()
-        setupUI()
-        setupNavigationDrawer()
-        setupListeners()
-        setupBackPressHandler()
-        loadUserData()
-        setupSubtopics()
+        // Initialize user repository
+        val database = AppDatabase.getDatabase(this)
+        userRepository = UserRepository(database.userDao())
 
-        // Save original constraints for restoring later
-        originalConstraints.clone(mainContent)
+        // Load user data
+        loadUserData()
+
+        // Setup navigation
+        setupNavigation()
+
+        // Load lesson content
+        loadLessonContent()
+
+        // Set up speaker toggle
+        setupSpeakerToggle()
+
+        // Setup immersive mode
+        setupImmersiveMode()
+
+        // Handle back press
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    drawerLayout.closeDrawer(GravityCompat.START)
+                } else {
+                    finish()
+                }
+            }
+        })
     }
 
-    private fun initViews() {
+    private fun initializeViews() {
         drawerLayout = findViewById(R.id.drawerLayout)
         navigationView = findViewById(R.id.navigationView)
         btnBack = findViewById(R.id.btnBack)
@@ -367,206 +363,130 @@ class TopicActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         guideline = findViewById(R.id.guideline)
         topBar = findViewById(R.id.topBar)
         mainContent = findViewById(R.id.main)
-    }
 
-    @SuppressLint("SetTextI18n")
-    private fun setupUI() {
-        tvTopicTitle.text = "LESSON $lessonNumber - TOPIC"
-
-        // Set objective text based on lesson
-        tvObjective.text = getObjectiveText()
-    }
-
-    private fun getObjectiveText(): String {
-        return when ("${quarter}_$lessonNumber") {
-            // Quarter 1
-            "1_1" -> getString(R.string.objective_lesson_1_1)
-            "1_2" -> getString(R.string.objective_lesson_1_2)
-            "1_3" -> getString(R.string.objective_lesson_1_3)
-            "1_4" -> getString(R.string.objective_lesson_1_4)
-            "1_5" -> getString(R.string.objective_lesson_1_5)
-            "1_6" -> getString(R.string.objective_lesson_1_6)
-            "1_7" -> getString(R.string.objective_lesson_1_7)
-            "1_8" -> getString(R.string.objective_lesson_1_8)
-            "1_9" -> getString(R.string.objective_lesson_1_9)
-            "1_10" -> getString(R.string.objective_lesson_1_10)
-            "1_11" -> getString(R.string.objective_lesson_1_11)
-            "1_12" -> getString(R.string.objective_lesson_1_12)
-            "1_13" -> getString(R.string.objective_lesson_1_13)
-            "1_14" -> getString(R.string.objective_lesson_1_14)
-            "1_15" -> getString(R.string.objective_lesson_1_15)
-            "1_16" -> getString(R.string.objective_lesson_1_16)
-            "1_17" -> getString(R.string.objective_lesson_1_17)
-
-            // Quarter 2
-            "2_1" -> getString(R.string.objective_lesson_2_1)
-            "2_2" -> getString(R.string.objective_lesson_2_2)
-            "2_3" -> getString(R.string.objective_lesson_2_3)
-            "2_4" -> getString(R.string.objective_lesson_2_4)
-            "2_5" -> getString(R.string.objective_lesson_2_5)
-            "2_6" -> getString(R.string.objective_lesson_2_6)
-            "2_7" -> getString(R.string.objective_lesson_2_7)
-            "2_8" -> getString(R.string.objective_lesson_2_8)
-            "2_9" -> getString(R.string.objective_lesson_2_9)
-            "2_10" -> getString(R.string.objective_lesson_2_10)
-            "2_11" -> getString(R.string.objective_lesson_2_11)
-
-            // Quarter 3
-            "3_1" -> getString(R.string.objective_lesson_3_1)
-            "3_2" -> getString(R.string.objective_lesson_3_2)
-            "3_3" -> getString(R.string.objective_lesson_3_3)
-            "3_4" -> getString(R.string.objective_lesson_3_4)
-            "3_5" -> getString(R.string.objective_lesson_3_5)
-            "3_6" -> getString(R.string.objective_lesson_3_6)
-            "3_7" -> getString(R.string.objective_lesson_3_7)
-            "3_8" -> getString(R.string.objective_lesson_3_8)
-
-            // Quarter 4
-            "4_1" -> getString(R.string.objective_lesson_4_1)
-            "4_2" -> getString(R.string.objective_lesson_4_2)
-            "4_3" -> getString(R.string.objective_lesson_4_3)
-            "4_4" -> getString(R.string.objective_lesson_4_4)
-            "4_5" -> getString(R.string.objective_lesson_4_5)
-            "4_6" -> getString(R.string.objective_lesson_4_6)
-            "4_7" -> getString(R.string.objective_lesson_4_7)
-            "4_8" -> getString(R.string.objective_lesson_4_8)
-            "4_9" -> getString(R.string.objective_lesson_4_9)
-
-            else -> getString(R.string.objective_default)
+        btnBack.setOnClickListener {
+            finish()
         }
     }
 
-    private fun setupNavigationDrawer() {
+    private fun setupNavigation() {
         navigationView.setNavigationItemSelectedListener(this)
     }
 
-    private fun setupListeners() {
-        btnBack.setOnClickListener {
-            if (isFullScreen) {
-                exitFullScreen()
-            } else {
-                finish()
-            }
-        }
-
+    private fun setupSpeakerToggle() {
         btnSpeaker.setOnClickListener {
-            showVolumeDialog()
+            val dialog = VolumeControlDialog(this)
+            dialog.show(btnSpeaker)
         }
     }
 
-    private fun showVolumeDialog() {
-        val dialog = VolumeControlDialog(this)
-        dialog.show(btnSpeaker)
-    }
-
-    private fun setupBackPressHandler() {
-        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                if (isFullScreen) {
-                    exitFullScreen()
-                } else if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                    drawerLayout.closeDrawer(GravityCompat.START)
-                } else {
-                    finish()
-                }
-            }
-        })
-    }
-
-    @SuppressLint("SetTextI18n")
-    private fun setupSubtopics() {
+    private fun loadLessonContent() {
         val lessonKey = "${quarter}_$lessonNumber"
+
+        // Get subtopics
         val subtopics = lessonSubtopics[lessonKey] ?: emptyList()
 
-        // Update subtopics with interactive lessons
+        // Create updated subtopics with interactive lessons
         val updatedSubtopics = subtopics.mapIndexed { index, subtopic ->
             val interactiveLesson = InteractiveLessonProvider.getLesson(quarter, lessonNumber, index + 1)
             subtopic.copy(interactiveLesson = interactiveLesson)
         }
 
-        subtopicAdapter = SubtopicAdapter(updatedSubtopics) { subtopic ->
-            // Find the clicked topic index
-            val clickedIndex = updatedSubtopics.indexOf(subtopic)
-            currentTopicIndex = clickedIndex
+        // Set title
+        val lessonTitle = "Lesson $lessonNumber"
+        tvTopicTitle.text = lessonTitle
 
-            if (subtopic.interactiveLesson != null) {
-                // Show interactive lesson
-                loadInteractiveLessonAtIndex(clickedIndex, updatedSubtopics)
-                // Already updated by setSelectedPosition in adapter's onItemClick
-            } else {
-                // Show message that lesson is not available yet
-                Toast.makeText(this, "Interactive lesson not available yet", Toast.LENGTH_SHORT).show()
-            }
+        // Set objective (using the first subtopic's title as objective for now)
+        tvObjective.text = if (updatedSubtopics.isNotEmpty()) {
+            updatedSubtopics.first().title
+        } else {
+            "Learn about this topic"
         }
 
+        // Setup RecyclerView
+        subtopicAdapter = SubtopicAdapter(updatedSubtopics) { subtopic ->
+            val index = updatedSubtopics.indexOf(subtopic)
+            loadInteractiveLessonAtIndex(index, updatedSubtopics)
+        }
         rvSubtopics.adapter = subtopicAdapter
 
-        // Load first subtopic by default
+        // Load first lesson
         if (updatedSubtopics.isNotEmpty()) {
-            currentTopicIndex = 0
-            val firstSubtopic = updatedSubtopics[0]
-            if (firstSubtopic.interactiveLesson != null) {
-                loadInteractiveLessonAtIndex(0, updatedSubtopics)
-                // Set initial selection - ADD THIS
-                subtopicAdapter.setSelectedPosition(0)
-            }
+            loadInteractiveLessonAtIndex(0, updatedSubtopics)
+            // Set initial selection
+            subtopicAdapter.setSelectedPosition(0)
         }
     }
 
-    private fun loadInteractiveLessonAtIndex(index: Int, allSubtopics: List<Subtopic>) {
+    private fun loadInteractiveLessonAtIndex(index: Int, subtopics: List<Subtopic>) {
         currentTopicIndex = index
-        val subtopic = allSubtopics[index]
-        subtopic.interactiveLesson?.let { lesson ->
+        val subtopic = subtopics[index]
+
+        if (subtopic.interactiveLesson != null) {
+            // Load interactive lesson fragment
             val fragment = InteractiveLessonFragment.newInstance(
-                lesson,
-                topicIndex = index,
-                totalTopics = allSubtopics.size
+                subtopic.interactiveLesson,
+                index,
+                subtopics.size
             )
 
             supportFragmentManager.beginTransaction()
                 .replace(R.id.lessonContainer, fragment)
                 .commit()
+
+            // Update objective
+            tvObjective.text = subtopic.title
+        } else {
+            Toast.makeText(
+                this,
+                "Interactive lesson not available for this topic yet",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     fun loadPreviousTopic() {
         val lessonKey = "${quarter}_$lessonNumber"
         val subtopics = lessonSubtopics[lessonKey] ?: emptyList()
+
         val updatedSubtopics = subtopics.mapIndexed { index, subtopic ->
             val interactiveLesson = InteractiveLessonProvider.getLesson(quarter, lessonNumber, index + 1)
             subtopic.copy(interactiveLesson = interactiveLesson)
         }
 
         if (currentTopicIndex > 0) {
-            loadInteractiveLessonAtIndex(currentTopicIndex - 1, updatedSubtopics)
-            // Update RecyclerView selection - CHANGE THIS LINE
-            subtopicAdapter.setSelectedPosition(currentTopicIndex - 1)
-            // Scroll to the selected item
-            rvSubtopics.scrollToPosition(currentTopicIndex - 1)
+            currentTopicIndex--
+            loadInteractiveLessonAtIndex(currentTopicIndex, updatedSubtopics)
+
+            // FIX: Update adapter selection and scroll to position
+            subtopicAdapter.setSelectedPosition(currentTopicIndex)
+            rvSubtopics.smoothScrollToPosition(currentTopicIndex)
         }
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     fun loadNextTopic() {
         val lessonKey = "${quarter}_$lessonNumber"
         val subtopics = lessonSubtopics[lessonKey] ?: emptyList()
+
         val updatedSubtopics = subtopics.mapIndexed { index, subtopic ->
             val interactiveLesson = InteractiveLessonProvider.getLesson(quarter, lessonNumber, index + 1)
             subtopic.copy(interactiveLesson = interactiveLesson)
         }
 
         if (currentTopicIndex < updatedSubtopics.size - 1) {
-            loadInteractiveLessonAtIndex(currentTopicIndex + 1, updatedSubtopics)
-            // Update RecyclerView selection - CHANGE THIS LINE
-            subtopicAdapter.setSelectedPosition(currentTopicIndex + 1)
-            // Scroll to the selected item
-            rvSubtopics.scrollToPosition(currentTopicIndex + 1)
+            currentTopicIndex++
+            loadInteractiveLessonAtIndex(currentTopicIndex, updatedSubtopics)
+
+            // FIX: Update adapter selection and scroll to position
+            subtopicAdapter.setSelectedPosition(currentTopicIndex)
+            rvSubtopics.smoothScrollToPosition(currentTopicIndex)
         }
     }
 
     fun finishLesson() {
-        // Go back to LessonDetailActivity
+        // FIX: Don't stop music when finishing lesson
+        // Just navigate back to the previous activity
+        // The music will continue playing
         finish()
     }
 

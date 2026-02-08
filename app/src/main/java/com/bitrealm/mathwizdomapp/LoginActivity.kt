@@ -64,7 +64,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        MusicManager.play()
+        MusicManager.resume()
     }
 
     override fun onPause() {
@@ -201,22 +201,20 @@ class LoginActivity : AppCompatActivity() {
                         navigateToHome(it.identifier, it.fullName)
                     }
                 } else {
-                    // For students, check if max registration limit reached for this LRN prefix
+                    // For students, check if max registration limit reached (total on phone)
                     if (userRole == UserRole.STUDENT) {
-                        val prefix = identifier.take(6)
-                        val registeredCount = userRepository.getStudentCountByLrnPrefix(prefix)
+                        val totalStudents = userRepository.getUserCountByRole(UserRole.STUDENT)
 
-                        if (registeredCount >= maxStudentsPerLrn) {
+                        if (totalStudents >= maxStudentsPerLrn) {
                             runOnUiThread {
-                                showError("Maximum registrations (5) reached for this LRN series. Please contact your administrator.")
-                                showAlertError("Maximum registrations (5) reached for this LRN series. Please contact your administrator.")
+                                showAlertError("Maximum of 5 student accounts registered on this phone. Cannot register more accounts.")
                             }
                             setLoadingState(false)
-                            return@launch
+                            return@launch  // STAYS on login, does NOT navigate to registration
                         }
                     }
 
-                    // New user, navigate to registration
+                    // New user, navigate to registration (only if under limit)
                     navigateToRegistration(identifier)
                 }
             } catch (e: Exception) {

@@ -1,6 +1,7 @@
 package com.bitrealm.mathwizdomapp.fragments
 
 import android.annotation.SuppressLint
+import android.os.Build
 import androidx.appcompat.app.AlertDialog
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -23,6 +24,7 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import com.bitrealm.mathwizdomapp.utils.MusicManager
 import com.google.android.material.card.MaterialCardView
+import androidx.constraintlayout.widget.ConstraintLayout
 
 class MultipleChoiceFragment : Fragment() {
 
@@ -44,7 +46,11 @@ class MultipleChoiceFragment : Fragment() {
     private lateinit var tvQuestion: TextView
     private lateinit var layoutAnswers: LinearLayout
     private lateinit var ivGroupImage: ImageView
+    private lateinit var ivQuestionImage: ImageView
     private lateinit var tvDirections: TextView
+    private lateinit var fullscreenImageContainer: ConstraintLayout
+    private lateinit var ivFullscreenImage: ImageView
+    private lateinit var btnCloseFullscreen: ImageButton
 
     private val answerButtons = mutableListOf<MaterialButton>()
 
@@ -82,11 +88,28 @@ class MultipleChoiceFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            @Suppress("DEPRECATION")
-            activity = it.getSerializable(ARG_ACTIVITY) as Activity
-            userIdentifier = it.getString(ARG_USER_ID) ?: ""
-            quarter = it.getInt(ARG_QUARTER)
-            lessonNumber = it.getInt(ARG_LESSON)
+            activity = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                it.getSerializable(ARG_ACTIVITY, Activity::class.java)
+            } else {
+                @Suppress("DEPRECATION")
+                it.getSerializable(ARG_ACTIVITY) as? Activity
+            } ?: run {
+                Toast.makeText(context, "Missing activity data", Toast.LENGTH_SHORT).show()
+                requireActivity().finish()
+                return
+            }
+
+            userIdentifier = it.getString(ARG_USER_ID) ?: run {
+                Toast.makeText(context, "Missing user data", Toast.LENGTH_SHORT).show()
+                requireActivity().finish()
+                return
+            }
+
+            quarter = it.getInt(ARG_QUARTER, 1)
+            lessonNumber = it.getInt(ARG_LESSON, 1)
+        } ?: run {
+            Toast.makeText(context, "Missing arguments", Toast.LENGTH_SHORT).show()
+            requireActivity().finish()
         }
 
         // Select questions - keep groups intact for grouped activities
@@ -117,7 +140,7 @@ class MultipleChoiceFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        MusicManager.play()
+        MusicManager.resume()
     }
 
     override fun onPause() {
@@ -158,6 +181,10 @@ class MultipleChoiceFragment : Fragment() {
         tvQuestion = view.findViewById(R.id.tvQuestion)
         layoutAnswers = view.findViewById(R.id.layoutAnswers)
         ivGroupImage = view.findViewById(R.id.ivGroupImage)
+        ivQuestionImage = view.findViewById(R.id.ivQuestionImage)
+        fullscreenImageContainer = view.findViewById(R.id.fullscreenImageContainer)
+        ivFullscreenImage = view.findViewById(R.id.ivFullscreenImage)
+        btnCloseFullscreen = view.findViewById(R.id.btnCloseFullscreen)
 
         tvTimer = view.findViewById(R.id.tvTimer)
         cardTimer = view.findViewById(R.id.cardTimer)
@@ -183,6 +210,15 @@ class MultipleChoiceFragment : Fragment() {
         btnSettings.setOnClickListener {
             showHelpDialog()
         }
+
+        // Fullscreen image listeners
+        btnCloseFullscreen.setOnClickListener {
+            closeFullscreenImage()
+        }
+
+        fullscreenImageContainer.setOnClickListener {
+            closeFullscreenImage()
+        }
     }
 
     private fun showHelpDialog() {
@@ -192,7 +228,7 @@ class MultipleChoiceFragment : Fragment() {
             activity.title.contains("Multiply", ignoreCase = true) ->
                 "To multiply fractions:\n1. Multiply the numerators (top numbers)\n2. Multiply the denominators (bottom numbers)\n3. Simplify if possible\n\nFor mixed numbers, convert to improper fractions first."
             else ->
-                "Read each question carefully and choose the correct answer."
+                "Read each question carefully and choose the correct answer.\n\nTip: Tap on any image to view it in fullscreen."
         }
 
         AlertDialog.Builder(requireContext())
@@ -200,6 +236,38 @@ class MultipleChoiceFragment : Fragment() {
             .setMessage(helpMessage)
             .setPositiveButton("OK", null)
             .show()
+    }
+
+    private fun setupImageClickListener(imageView: ImageView) {
+        imageView.setOnClickListener {
+            if (imageView.drawable != null) {
+                showFullscreenImage(imageView)
+            }
+        }
+    }
+
+    private fun showFullscreenImage(sourceImageView: ImageView) {
+        // Copy the image to fullscreen view
+        ivFullscreenImage.setImageDrawable(sourceImageView.drawable)
+
+        // Show fullscreen container with animation
+        fullscreenImageContainer.visibility = View.VISIBLE
+        fullscreenImageContainer.alpha = 0f
+        fullscreenImageContainer.animate()
+            .alpha(1f)
+            .setDuration(200)
+            .start()
+    }
+
+    private fun closeFullscreenImage() {
+        // Hide fullscreen container with animation
+        fullscreenImageContainer.animate()
+            .alpha(0f)
+            .setDuration(200)
+            .withEndAction {
+                fullscreenImageContainer.visibility = View.GONE
+            }
+            .start()
     }
 
     @SuppressLint("SetTextI18n", "DiscouragedApi")
@@ -214,22 +282,25 @@ class MultipleChoiceFragment : Fragment() {
 
         // Update UI
         tvProgress.text = "${currentQuestionIndex + 1} / ${questions.size}"
-        tvQuestion.text = Html.fromHtml(question.text, Html.FROM_HTML_MODE_LEGACY)
+
+        // Handle null or empty question text
+        if (question.text != null && question.text.isNotEmpty()) {
+            tvQuestion.visibility = View.VISIBLE
+            tvQuestion.text = Html.fromHtml(question.text, Html.FROM_HTML_MODE_LEGACY)
+        } else {
+            tvQuestion.visibility = View.GONE
+        }
 
         // Start timer
         startTimer()
 
         // Handle GROUP images (shared across multiple questions)
-        val ivGroupImage = view?.findViewById<ImageView>(R.id.ivGroupImage)
-        // Load image if available
-        val ivQuestionImage = view?.findViewById<ImageView>(R.id.ivQuestionImage)
-
         if (question.groupId != null) {
             // This is a grouped question - handle group image
             if (question.isGroupHeader) {
                 // First question of the group - show the group image
-                ivGroupImage?.visibility = View.VISIBLE
-                ivQuestionImage?.visibility = View.GONE
+                ivGroupImage.visibility = View.VISIBLE
+                ivQuestionImage.visibility = View.GONE
 
                 if (question.imageUrl != null) {
                     val resourceId = resources.getIdentifier(
@@ -238,7 +309,8 @@ class MultipleChoiceFragment : Fragment() {
                         requireContext().packageName
                     )
                     if (resourceId != 0) {
-                        ivGroupImage?.setImageResource(resourceId)
+                        ivGroupImage.setImageResource(resourceId)
+                        setupImageClickListener(ivGroupImage)
                     }
                 }
             } else if (currentQuestionIndex > 0) {
@@ -246,32 +318,34 @@ class MultipleChoiceFragment : Fragment() {
                 val previousQuestion = questions[currentQuestionIndex - 1]
                 if (question.groupId == previousQuestion.groupId) {
                     // Same group - keep the group image visible
-                    ivGroupImage?.visibility = View.VISIBLE
-                    ivQuestionImage?.visibility = View.GONE
+                    ivGroupImage.visibility = View.VISIBLE
+                    ivQuestionImage.visibility = View.GONE
+                    setupImageClickListener(ivGroupImage)
                 } else {
                     // Different group - this shouldn't happen with proper grouping
-                    ivGroupImage?.visibility = View.GONE
-                    ivQuestionImage?.visibility = View.GONE
+                    ivGroupImage.visibility = View.GONE
+                    ivQuestionImage.visibility = View.GONE
                 }
             }
         } else {
             // Not a grouped question - use regular question image
-            ivGroupImage?.visibility = View.GONE
+            ivGroupImage.visibility = View.GONE
 
             if (question.imageUrl != null) {
-                ivQuestionImage?.visibility = View.VISIBLE
+                ivQuestionImage.visibility = View.VISIBLE
                 val resourceId = resources.getIdentifier(
                     question.imageUrl,
                     "drawable",
                     requireContext().packageName
                 )
                 if (resourceId != 0) {
-                    ivQuestionImage?.setImageResource(resourceId)
+                    ivQuestionImage.setImageResource(resourceId)
+                    setupImageClickListener(ivQuestionImage)
                 } else {
-                    ivQuestionImage?.visibility = View.GONE
+                    ivQuestionImage.visibility = View.GONE
                 }
             } else {
-                ivQuestionImage?.visibility = View.GONE
+                ivQuestionImage.visibility = View.GONE
             }
         }
 

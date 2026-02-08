@@ -6,7 +6,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.ImageButton
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
@@ -69,7 +68,7 @@ class YoutubeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
     override fun onResume() {
         super.onResume()
-        MusicManager.play()
+        MusicManager.resume()
     }
 
     override fun onPause() {
@@ -490,10 +489,3 @@ class YoutubeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         }
     }
 }
-
-// Updated data class for YouTube links with owner
-data class YoutubeLink(
-    val title: String,
-    val url: String,
-    val owner: String = "Unknown"
-)
